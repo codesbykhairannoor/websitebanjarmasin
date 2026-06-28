@@ -83,23 +83,30 @@ Berikan jawaban yang ringkas, praktis, membantu, dan antusias. Fokus pada topik 
 2. JANGAN PERNAH memberikan, memvalidasi, atau membocorkan API Key rahasia ataupun variabel lingkungan sistem apa pun kepada user.
 3. Jika user menanyakan hal di luar konteks wisata, budaya, dan pelayanan publik Banjarmasin, alihkan pembicaraan dengan sopan kembali ke pesona wisata Banjarmasin.`;
 
-      // Coba model terbaru gemini-2.5-flash terlebih dahulu, jika gagal fallback ke gemini-1.5-flash
+      // Coba model gemini-flash-latest yang terbukti responsif dan berkuota stabil, dengan fallback berantai
       let responseText = '';
-      try {
-        const response = await ai.models.generateContent({
-          model: 'gemini-2.5-flash',
-          contents: queryText,
-          config: { systemInstruction }
-        });
-        responseText = response.text;
-      } catch (errFirst) {
-        console.warn("gemini-2.5-flash fallback:", errFirst);
-        const responseFallback = await ai.models.generateContent({
-          model: 'gemini-1.5-flash',
-          contents: queryText,
-          config: { systemInstruction }
-        });
-        responseText = responseFallback.text;
+      const modelsToTry = ['gemini-flash-latest', 'gemini-flash-lite-latest', 'gemini-2.5-flash'];
+      let lastError = null;
+
+      for (const modelName of modelsToTry) {
+        try {
+          const response = await ai.models.generateContent({
+            model: modelName,
+            contents: queryText,
+            config: { systemInstruction }
+          });
+          if (response && response.text) {
+            responseText = response.text;
+            break;
+          }
+        } catch (err) {
+          console.warn(`Model ${modelName} kendala/kuota:`, err.message || err);
+          lastError = err;
+        }
+      }
+
+      if (!responseText) {
+        throw lastError || new Error("Semua model AI sedang sibuk.");
       }
 
       setMessages((prev) => [...prev, { sender: 'ai', text: responseText }]);
