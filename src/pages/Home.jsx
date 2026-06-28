@@ -17,7 +17,7 @@ const showcaseItems = [
     price: "100% Eksplorasi Gratis",
     btnText: "Mulai Petualangan Bareng Acil ➔",
     btnLink: "#wisata",
-    img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1600&q=80"
+    img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=1600&q=75&fm=webp"
   },
   {
     id: 1,
@@ -30,7 +30,7 @@ const showcaseItems = [
     price: "Destinasi Ikonik",
     btnText: "Buka Peta Wisata ➔",
     btnLink: "/wisata",
-    img: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=1600&q=80"
+    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=1600&q=75&fm=webp"
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ const showcaseItems = [
     price: "Kuliner Legendaris",
     btnText: "Cicipi Kuliner Banjar ➔",
     btnLink: "/kuliner",
-    img: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=80"
+    img: "https://images.unsplash.com/photo-1555126634-323283e090fa?fit=crop&w=1600&q=75&fm=webp"
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ const showcaseItems = [
     price: "Warisan Leluhur",
     btnText: "Jelajahi Sejarah ➔",
     btnLink: "/sejarah",
-    img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1600&q=80"
+    img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?fit=crop&w=1600&q=75&fm=webp"
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ const showcaseItems = [
     price: "Layanan Terpadu",
     btnText: "Masuk Ekosistem Smart City ➔",
     btnLink: "/smart-city",
-    img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80"
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=1600&q=75&fm=webp"
   }
 ];
 
@@ -83,7 +83,7 @@ export default function Home() {
       title: "Pasar Terapung Lok Baintan",
       category: "Budaya Sungai",
       time: "⏰ 05.30 - 08.00 WITA",
-      img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1000&q=80",
+      img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=1000&q=75&fm=webp",
       span: "bento-span-2"
     },
     {
@@ -91,7 +91,7 @@ export default function Home() {
       title: "Menara Pandang & Siring",
       category: "Landmark Kota",
       time: "⏰ Terbuka 24 Jam",
-      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=800&q=75&fm=webp",
       span: "bento-span-1"
     },
     {
@@ -99,7 +99,7 @@ export default function Home() {
       title: "Pulau Kembang Borneo",
       category: "Hutan & Ekosistem",
       time: "⏰ 08.00 - 17.00 WITA",
-      img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?fit=crop&w=800&q=75&fm=webp",
       span: "bento-span-1"
     },
     {
@@ -107,7 +107,7 @@ export default function Home() {
       title: "Masjid Sultan Suriansyah",
       category: "Heritage 1526",
       time: "⏰ Wisata Religi",
-      img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?fit=crop&w=800&q=75&fm=webp",
       span: "bento-span-2"
     }
   ];
@@ -122,7 +122,7 @@ export default function Home() {
       aroma: "Harum Rempah Kapulaga, Kayu Manis & Cengkeh",
       desc: "Kaldu ayam kampung keemasan yang dimasak perlahan dengan rempah pilihan. Disajikan bersama suwiran daging ayam hangat, perkedel kentang lembut, dan ketupat pulen khas Banjar.",
       price: "Rp 25.000",
-      img: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=80"
+      img: "https://images.unsplash.com/photo-1547592180-85f173990554?fit=crop&w=1000&q=75&fm=webp"
     },
     {
       id: 2,
@@ -131,7 +131,7 @@ export default function Home() {
       aroma: "Gurih Santan Kental & Aroma Smokey Ikan Haruan",
       desc: "Ketupat pulen yang disiram kuah santan kaya bumbu kuning tradisional. Dipadukan dengan lauk ikan haruan (gabus) panggang asap yang memberikan cita rasa mendalam yang tiada duanya.",
       price: "Rp 30.000",
-      img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1000&q=80"
+      img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?fit=crop&w=1000&q=75&fm=webp"
     },
     {
       id: 3,
@@ -140,7 +140,7 @@ export default function Home() {
       aroma: "Perpaduan Manis Gurih Bumbu Habang Khas Banjar",
       desc: "Lontong segitiga berukuran jumbo dengan siraman bumbu habang (merah) yang pekat. Disertai lauk telur bebek dan ayam kampung yang meresap sempurna hingga ke serat daging.",
       price: "Rp 35.000",
-      img: "https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=1000&q=80"
+      img: "https://images.unsplash.com/photo-1555126634-323283e090fa?fit=crop&w=1000&q=75&fm=webp"
     },
     {
       id: 4,
@@ -149,7 +149,7 @@ export default function Home() {
       aroma: "Legit Lembut Aroma Santan Bakar & Kentang",
       desc: "Kue basah tradisional berbentuk kelopak bunga kembang bundar. Memiliki tekstur super lembut dan manis legit alami dari campuran kentang premium serta santan kelapa bakar.",
       price: "Rp 45.000",
-      img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80"
+      img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?fit=crop&w=1000&q=75&fm=webp"
     }
   ];
   const currentFood = foods.find(f => f.id === activeTab);
@@ -464,7 +464,7 @@ export default function Home() {
           <div className="culture-image-side">
             <div className="editorial-frame">
               <img 
-                src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1000&q=80" 
+                src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=1000&q=75&fm=webp" 
                 alt="Acil Pasar Terapung Lok Baintan" 
                 className="editorial-img"
               />

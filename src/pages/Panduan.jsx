@@ -14,7 +14,7 @@ const hotelCategories = {
       location: "Jl. Pangeran Antasari No. 86",
       desc: "Satu-satunya hotel bintang empat di Banjarmasin dengan akses dermaga kelotok pribadi dan teras restoran terbuka yang menghadap langsung ke aktivitas Sungai Martapura.",
       tag: "Dermaga Pribadi",
-      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?fit=crop&w=800&q=75&fm=webp",
       mapsUrl: "https://maps.google.com/?q=Swiss-Belhotel+Borneo+Banjarmasin"
     },
     {
@@ -24,7 +24,7 @@ const hotelCategories = {
       location: "Jl. Veteran Sungai Bilu",
       desc: "Penginapan boutique berdesain interior kayu estetik. Punya kafe rooftop kekinian yang menjadi spot favorit pelancong muda untuk bersantai menikmati sunset sungai.",
       tag: "Boutique Rooftop",
-      img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?fit=crop&w=800&q=75&fm=webp",
       mapsUrl: "https://maps.google.com/?q=Summer+Bed+and+Breakfast+Banjarmasin"
     }
   ],
@@ -36,7 +36,7 @@ const hotelCategories = {
       location: "Jl. Kapten Piere Tendean No. 10",
       desc: "Lokasi terbaik untuk pejalan kaki! Tepat di seberang Menara Pandang dan Siring Tendean. Keluar lobi hotel langsung masuk ke pusat keramaian wisata sungai dan jajanan.",
       tag: "1 Mnt ke Siring",
-      img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?fit=crop&w=800&q=75&fm=webp",
       mapsUrl: "https://maps.google.com/?q=Favehotel+Banjarmasin"
     },
     {
@@ -46,7 +46,7 @@ const hotelCategories = {
       location: "Jl. Lambung Mangkurat No. 48",
       desc: "Berada di pusat pemerintahan kota dengan pemandangan muara sungai yang tenang serta akses mudah ke pusat kuliner malam.",
       tag: "Pusat Kota",
-      img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?fit=crop&w=800&q=75&fm=webp",
       mapsUrl: "https://maps.google.com/?q=Hotel+Victoria+Banjarmasin"
     }
   ],
@@ -58,7 +58,7 @@ const hotelCategories = {
       location: "Jl. A. Yani Km 5.7",
       desc: "Nuansa resort tropis dengan kolam renang luas ala Bali. Sangat dekat dengan akses jalan protokol menuju Bandara Syamsudin Noor.",
       tag: "Resort & Bisnis",
-      img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?fit=crop&w=800&q=75&fm=webp",
       mapsUrl: "https://maps.google.com/?q=Rattan+Inn+Banjarmasin"
     },
     {
@@ -68,7 +68,7 @@ const hotelCategories = {
       location: "Jl. A. Yani Km 2.5",
       desc: "Pusat kuliner Chinese & Western eksklusif di dalam hotel, berada di titik strategis pusat perdagangan dan perbelanjaan kota.",
       tag: "Kuliner Premium",
-      img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?fit=crop&w=800&q=75&fm=webp",
       mapsUrl: "https://maps.google.com/?q=Galaxy+Hotel+Banjarmasin"
     }
   ]

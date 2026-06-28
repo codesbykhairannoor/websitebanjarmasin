@@ -10,7 +10,7 @@ const heroDestinations = [
     title: "Pasar Terapung",
     tag: "Subuh - Lok Baintan",
     location: "Lok Baintan, Kuin",
-    image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=800&q=75",
+    image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=800&q=75&fm=webp",
     badge: "Warisan Dunia",
     desc: "Pasar tradisional di atas perahu kelotok tempat para Acil bertransaksi sayur, buah, dan kuliner khas Banjar sejak fajar menyingsing.",
     heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
@@ -20,7 +20,7 @@ const heroDestinations = [
     title: "Menara Pandang",
     tag: "24 Jam - Siring",
     location: "Menara Pandang, Siring",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=75",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=800&q=75&fm=webp",
     badge: "Landmark Kota",
     desc: "Kawasan terbuka hijau di tepian Sungai Martapura yang menjadi titik kumpul warga dan pusat susur sungai kelotok.",
     heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]",
@@ -30,7 +30,7 @@ const heroDestinations = [
     title: "Patung Bekantan",
     tag: "Ikon - Martapura",
     location: "Siring Sungai Martapura",
-    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=75",
+    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?fit=crop&w=800&q=75&fm=webp",
     badge: "Maskot Borneo",
     desc: "Monumen megah maskot satwa endemik Kalimantan Selatan yang menyemburkan air langsung ke arah Sungai Martapura.",
     heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]",
@@ -40,7 +40,7 @@ const heroDestinations = [
     title: "Kampung Hijau",
     tag: "Sore - Sungai Bilu",
     location: "Sungai Bilu, Banjarmasin Timur",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=75",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=800&q=75&fm=webp",
     badge: "Wisata Tematik",
     desc: "Deretan rumah panggung tradisional yang dicat seragam berwarna hijau cerah menghadap sungai, menawarkan pemandangan visual estetik.",
     heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]",
@@ -50,7 +50,7 @@ const heroDestinations = [
     title: "Pulau Kembang",
     tag: "Pagi - Delta Barito",
     location: "Delta Sungai Barito",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=75",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=800&q=75&fm=webp",
     badge: "Konservasi",
     desc: "Pulau delta alami di tengah Sungai Barito yang menjadi habitat ratusan monyet ekor panjang serta kera hidung panjang (Bekantan).",
     heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
@@ -60,7 +60,7 @@ const heroDestinations = [
     title: "Masjid Sultan Suriansyah",
     tag: "Religi - Kuin Utara",
     location: "Kuin Utara, Banjarmasin Utara",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=75",
+    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?fit=crop&w=800&q=75&fm=webp",
     badge: "Wisata Religi",
     desc: "Masjid bersejarah tertua di Kalimantan Selatan bergaya arsitektur tradisional Banjar dengan ukiran kaligrafi kayu ukir khas abadi.",
     heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
@@ -75,9 +75,9 @@ const itineraryRoadmap = [
 ];
 
 const polaroidStories = [
-  { name: "Rina & Keluarga", origin: "Wisatawan Jakarta", quote: "Pengalaman susur sungai paling berkesan! Acil kelotoknya sangat ramah, pantun madihinnya bikin tertawa sepanjang jalan.", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80", rotate: "rotate-2 sm:rotate-3 hover:rotate-0" },
-  { name: "Acil Imur", origin: "Pemandu Kelotok Resmi", quote: "Ayo dangsanak berataan naik kelotok kami! Keselamatan terjamin, rompi pelampung lengkap, dan rute dijamin puas.", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80", rotate: "-rotate-2 sm:-rotate-3 hover:rotate-0" },
-  { name: "Budi Santoso", origin: "Wisatawan Surabaya", quote: "Pasar terapung Lok Baintan saat subuh benar-benar magis. Beli kue bingka langsung dari atas perahu jukung!", img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=600&q=80", rotate: "rotate-1 sm:rotate-2 hover:rotate-0" },
+  { name: "Rina & Keluarga", origin: "Wisatawan Jakarta", quote: "Pengalaman susur sungai paling berkesan! Acil kelotoknya sangat ramah, pantun madihinnya bikin tertawa sepanjang jalan.", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=600&q=75&fm=webp", rotate: "rotate-2 sm:rotate-3 hover:rotate-0" },
+  { name: "Acil Imur", origin: "Pemandu Kelotok Resmi", quote: "Ayo dangsanak berataan naik kelotok kami! Keselamatan terjamin, rompi pelampung lengkap, dan rute dijamin puas.", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=600&q=75&fm=webp", rotate: "-rotate-2 sm:-rotate-3 hover:rotate-0" },
+  { name: "Budi Santoso", origin: "Wisatawan Surabaya", quote: "Pasar terapung Lok Baintan saat subuh benar-benar magis. Beli kue bingka langsung dari atas perahu jukung!", img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?fit=crop&w=600&q=75&fm=webp", rotate: "rotate-1 sm:rotate-2 hover:rotate-0" },
 ];
 
 const heroHeroItems = heroDestinations.slice(0, 5);

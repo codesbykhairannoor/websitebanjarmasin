@@ -8,12 +8,12 @@ import Footer from '../components/Footer';
 // ==========================================
 
 const galleryCards = [
-  { img: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80", label: "Soto Banjar" },
-  { img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80", label: "Ketupat" },
-  { img: "https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80", label: "Lontong Orari" },
-  { img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80", label: "Bingka" },
-  { img: "https://images.unsplash.com/photo-1541592102775-7b56d338a9e1?auto=format&fit=crop&w=600&q=80", label: "Ikan Bakar" },
-  { img: "https://images.unsplash.com/photo-1588661852028-21d15db14028?auto=format&fit=crop&w=600&q=80", label: "Es Nyiur" },
+  { img: "https://images.unsplash.com/photo-1547592180-85f173990554?fit=crop&w=600&q=75&fm=webp", label: "Soto Banjar" },
+  { img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?fit=crop&w=600&q=75&fm=webp", label: "Ketupat" },
+  { img: "https://images.unsplash.com/photo-1555126634-323283e090fa?fit=crop&w=600&q=75&fm=webp", label: "Lontong Orari" },
+  { img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?fit=crop&w=600&q=75&fm=webp", label: "Bingka" },
+  { img: "https://images.unsplash.com/photo-1541592102775-7b56d338a9e1?fit=crop&w=600&q=75&fm=webp", label: "Ikan Bakar" },
+  { img: "https://images.unsplash.com/photo-1588661852028-21d15db14028?fit=crop&w=600&q=75&fm=webp", label: "Es Nyiur" },
 ];
 
 const mainDishes = [
@@ -23,7 +23,7 @@ const mainDishes = [
     desc: "Kuah kaldu ayam bening keemasan yang diinfus rempah kapulaga, cengkeh, dan kayu manis. Dihidangkan dengan ketupat, suwiran ayam kampung, dan perkedel kentang super lembut. Sebuah kehangatan di tepi sungai.",
     aroma: "Rempah Hangat & Gurih",
     icon: "🍲",
-    img: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1547592180-85f173990554?fit=crop&w=1200&q=75&fm=webp",
     location: "Soto Bang Amat",
     maps: "https://maps.app.goo.gl/xxx"
   },
@@ -33,7 +33,7 @@ const mainDishes = [
     desc: "Ketupat keras berpadu kuah santan keruh berbumbu rempah rahasia. Keajaibannya terletak pada Ikan Haruan (Gabus) yang dipanggang asap terlebih dahulu sebelum disiram kuah, memberikan rasa 'smokey' yang luar biasa.",
     aroma: "Santan Krimi & Asap",
     icon: "🥥",
-    img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?fit=crop&w=1200&q=75&fm=webp",
     location: "Ketupat Kaum",
     maps: "https://maps.app.goo.gl/xxx"
   },
@@ -43,7 +43,7 @@ const mainDishes = [
     desc: "Sarapan wajib warga Banua! Nasi kuning pulen bertabur serundeng berpadu sempurna dengan Bumbu Habang (Bumbu Merah) yang dimasak dari cabai kering besar tanpa biji—menghasilkan rasa manis, gurih, dan warna merah pekat yang menggoda.",
     aroma: "Kunyit & Karamel Pedas",
     icon: "🍛",
-    img: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1512058564366-18510be2db19?fit=crop&w=1200&q=75&fm=webp",
     location: "Nasi Kuning Cempaka",
     maps: "https://maps.app.goo.gl/xxx"
   },
@@ -53,44 +53,44 @@ const mainDishes = [
     desc: "Lontong unik berbentuk segitiga berpasangan. Disajikan dengan sayur nangka muda kuah santan cair, ikan gabus atau telur itik rebus bumbu habang, dan taburan bawang goreng melimpah. Porsi kuli, rasa priyayi!",
     aroma: "Gurih Santan",
     icon: "🥣",
-    img: "https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1555126634-323283e090fa?fit=crop&w=1200&q=75&fm=webp",
     location: "Lontong Orari Sungai Baru",
     maps: "https://maps.app.goo.gl/xxx"
   }
 ];
 
 const wadaiCollection = [
-  { name: "Bingka Barantai", tag: "Manis Legit", img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80" },
-  { name: "Amparan Tatak", tag: "Krim Pisang", img: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?auto=format&fit=crop&w=800&q=80" },
-  { name: "Apam Barabai", tag: "Kukus Lembut", img: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=800&q=80" },
-  { name: "Kelepon Martapura", tag: "Lumer Gula Aren", img: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=800&q=80" },
-  { name: "Putri Selat", tag: "Lapis Gurih", img: "https://images.unsplash.com/photo-1605333396914-2795c329a1ee?auto=format&fit=crop&w=800&q=80" },
-  { name: "Kararaban", tag: "Rempah Adas", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80" },
+  { name: "Bingka Barantai", tag: "Manis Legit", img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?fit=crop&w=800&q=75&fm=webp" },
+  { name: "Amparan Tatak", tag: "Krim Pisang", img: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?fit=crop&w=800&q=75&fm=webp" },
+  { name: "Apam Barabai", tag: "Kukus Lembut", img: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?fit=crop&w=800&q=75&fm=webp" },
+  { name: "Kelepon Martapura", tag: "Lumer Gula Aren", img: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?fit=crop&w=800&q=75&fm=webp" },
+  { name: "Putri Selat", tag: "Lapis Gurih", img: "https://images.unsplash.com/photo-1605333396914-2795c329a1ee?fit=crop&w=800&q=75&fm=webp" },
+  { name: "Kararaban", tag: "Rempah Adas", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?fit=crop&w=800&q=75&fm=webp" },
 ];
 
 const olehOleh = [
   {
     title: "Mandai 'Daging Nabati'",
     desc: "Fermentasi kulit buah Cempedak yang diawetkan dengan garam. Saat digoreng, teksturnya berserat menyerupai daging sapi dengan rasa umami asam-gurih yang sangat adiktif.",
-    img: "https://images.unsplash.com/photo-1601314002592-b8734bca6604?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1601314002592-b8734bca6604?fit=crop&w=800&q=75&fm=webp",
     span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto",
   },
   {
     title: "Kerupuk Amplang",
     desc: "Camilan renyah berbahan dasar Ikan Pipih atau Tenggiri.",
-    img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?fit=crop&w=800&q=75&fm=webp",
     span: "col-span-1 row-span-1 h-[250px]",
   },
   {
     title: "Iwak Pakasam",
     desc: "Ikan sungai fermentasi beras sangrai yang digoreng garing.",
-    img: "https://images.unsplash.com/photo-1626200419188-75ab0a40df6e?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1626200419188-75ab0a40df6e?fit=crop&w=800&q=75&fm=webp",
     span: "col-span-1 row-span-1 h-[250px]",
   },
   {
     title: "Sambal Acan",
     desc: "Terasi legendaris dipadu buah mangga/binjai khas rawa.",
-    img: "https://images.unsplash.com/photo-1596645367610-d3ba0d6b9ef7?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1596645367610-d3ba0d6b9ef7?fit=crop&w=800&q=75&fm=webp",
     span: "col-span-1 md:col-span-3 row-span-1 h-[250px]",
   }
 ];
@@ -331,7 +331,7 @@ export default function Kuliner() {
         <section className="py-24 border-t border-[var(--glass-border)] reveal-on-scroll">
           <div className="relative w-full rounded-[3rem] overflow-hidden h-[500px] md:h-[600px] flex items-center shadow-lg border border-[var(--glass-border)]">
             <div className="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=2000&q=80" alt="Pasar Terapung Lok Baintan" className="w-full h-full object-cover scale-105" />
+              <img src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=2000&q=75&fm=webp" alt="Pasar Terapung Lok Baintan" className="w-full h-full object-cover scale-105" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
             </div>
 

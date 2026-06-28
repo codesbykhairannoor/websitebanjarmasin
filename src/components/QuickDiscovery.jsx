@@ -8,7 +8,7 @@ export default function QuickDiscovery() {
       title: "Pasar Terapung Lok Baintan",
       category: "Budaya Sungai",
       time: "⏰ 05.30 - 08.00 WITA",
-      img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1000&q=80",
+      img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=1000&q=75&fm=webp",
       span: "bento-span-2"
     },
     {
@@ -16,7 +16,7 @@ export default function QuickDiscovery() {
       title: "Menara Pandang & Siring",
       category: "Landmark Kota",
       time: "⏰ Terbuka 24 Jam",
-      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=800&q=75&fm=webp",
       span: "bento-span-1"
     },
     {
@@ -24,7 +24,7 @@ export default function QuickDiscovery() {
       title: "Pulau Kembang Borneo",
       category: "Hutan & Ekosistem",
       time: "⏰ 08.00 - 17.00 WITA",
-      img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?fit=crop&w=800&q=75&fm=webp",
       span: "bento-span-1"
     },
     {
@@ -32,7 +32,7 @@ export default function QuickDiscovery() {
       title: "Masjid Sultan Suriansyah",
       category: "Heritage 1526",
       time: "⏰ Wisata Religi",
-      img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?fit=crop&w=800&q=75&fm=webp",
       span: "bento-span-2"
     }
   ];

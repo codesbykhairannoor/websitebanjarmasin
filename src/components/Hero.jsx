@@ -6,35 +6,35 @@ const heroSlices = [
     id: 1,
     title: "Wisata Bahari",
     subtitle: "Pasar Terapung Lok Baintan Abad 16",
-    img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=1200&q=75&fm=webp",
     color: "from-blue-900 via-blue-800/40"
   },
   {
     id: 2,
     title: "Susur Sungai",
     subtitle: "Eksplorasi Kota 1000 Sungai",
-    img: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=1200&q=75&fm=webp",
     color: "from-amber-900 via-yellow-800/40"
   },
   {
     id: 3,
     title: "Budaya Banjar",
     subtitle: "Pesona Kain Sasirangan & Tari Tradisional",
-    img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?fit=crop&w=1200&q=75&fm=webp",
     color: "from-purple-900 via-pink-800/40"
   },
   {
     id: 4,
     title: "Jejak Sejarah",
     subtitle: "Menyusuri Peninggalan Kesultanan 1526",
-    img: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?fit=crop&w=1200&q=75&fm=webp",
     color: "from-emerald-900 via-teal-800/40"
   },
   {
     id: 5,
     title: "Kuliner Khas",
     subtitle: "Soto Banjar & Bingka Surgawi",
-    img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1555126634-323283e090fa?fit=crop&w=1200&q=75&fm=webp",
     color: "from-orange-900 via-red-800/40"
   }
 ];

@@ -5,17 +5,17 @@ import Footer from '../components/Footer';
 
 // Data for masonry grid
 const column1Images = [
-  "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=500&q=75",
-  "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=75",
-  "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=500&q=75",
-  "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=500&q=75"
+  "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?fit=crop&w=500&q=75&fm=webp",
+  "https://images.unsplash.com/photo-1507679799987-c73779587ccf?fit=crop&w=500&q=75&fm=webp",
+  "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?fit=crop&w=500&q=75&fm=webp",
+  "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?fit=crop&w=500&q=75&fm=webp"
 ];
 
 const column2Images = [
-  "https://images.unsplash.com/photo-1485278537138-4e8911a13c02?auto=format&fit=crop&w=500&q=75",
-  "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=500&q=75",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=75",
-  "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=75"
+  "https://images.unsplash.com/photo-1485278537138-4e8911a13c02?fit=crop&w=500&q=75&fm=webp",
+  "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?fit=crop&w=500&q=75&fm=webp",
+  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=500&q=75&fm=webp",
+  "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?fit=crop&w=500&q=75&fm=webp"
 ];
 
 // We don't need JS duplication, we will duplicate DOM nodes for true seamless marquee
@@ -214,7 +214,7 @@ export default function ProfilKota() {
             {/* Walikota Side (Left) */}
             <div className="relative w-full h-[400px] md:h-full md:w-[250px] lg:w-[300px] hover:w-full md:hover:w-[600px] lg:hover:w-[750px] overflow-hidden transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] group cursor-pointer shadow-2xl md:[clip-path:polygon(0_15%,100%_0,100%_100%,0_85%)] md:hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]">
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80" 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fit=crop&w=1200&q=75&fm=webp" 
                 alt="Wali Kota Banjarmasin" 
                 className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" 
               />
@@ -236,7 +236,7 @@ export default function ProfilKota() {
             {/* Wakil Walikota Side (Right) */}
             <div className="relative w-full h-[400px] md:h-full md:w-[250px] lg:w-[300px] hover:w-full md:hover:w-[600px] lg:hover:w-[750px] overflow-hidden transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] group cursor-pointer shadow-2xl md:[clip-path:polygon(0_0,100%_15%,100%_85%,0_100%)] md:hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]">
               <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80" 
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fit=crop&w=1200&q=75&fm=webp" 
                 alt="Wakil Wali Kota Banjarmasin" 
                 className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" 
               />
@@ -457,17 +457,17 @@ export default function ProfilKota() {
               {
                 title: "Pelabuhan Trisakti",
                 desc: "Salah satu pelabuhan tersibuk dan terbesar di Pulau Kalimantan, menopang arus logistik industri maritim.",
-                img: "https://images.unsplash.com/photo-1586528116311-ad8ed7e66364?auto=format&fit=crop&w=1200&q=80"
+                img: "https://images.unsplash.com/photo-1586528116311-ad8ed7e66364?fit=crop&w=1200&q=75&fm=webp"
               },
               {
                 title: "Kawasan Niaga",
                 desc: "Revitalisasi ruang niaga modern dan pasar tradisional yang mendongkrak ekosistem ekonomi berdaya saing tinggi.",
-                img: "https://images.unsplash.com/photo-1555529733-0e670560f8e1?auto=format&fit=crop&w=1200&q=80"
+                img: "https://images.unsplash.com/photo-1555529733-0e670560f8e1?fit=crop&w=1200&q=75&fm=webp"
               },
               {
                 title: "Jasa Pariwisata",
                 desc: "Pemanfaatan potensi budaya sungai dan hospitality modern sebagai roda penggerak ekonomi warga lokal.",
-                img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80"
+                img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=1200&q=75&fm=webp"
               }
             ].map((item, idx) => (
               <div 
@@ -503,7 +503,7 @@ export default function ProfilKota() {
       >
         {/* Latar Belakang Asli (Terang/Penuh Warna) */}
         <div className="absolute inset-0 pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=2000&q=80" alt="Pasar Terapung" className="w-full h-full object-cover opacity-80" />
+          <img src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=2000&q=75&fm=webp" alt="Pasar Terapung" className="w-full h-full object-cover opacity-80" />
         </div>
         
         {/* Spotlight Masking Layer */}

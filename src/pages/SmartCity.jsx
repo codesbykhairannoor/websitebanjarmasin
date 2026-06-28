@@ -13,7 +13,7 @@ const pillarsData = [
     icon: "🏛️",
     color: "#00A896",
     gradient: "from-[#00A896] to-[#028090]",
-    img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80",
+    img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?fit=crop&w=600&q=75&fm=webp",
     heightClass: "h-[520px] lg:h-[600px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 50px, 100% 100%, 0 100%)" },
     alignClass: "text-left items-start",
@@ -26,7 +26,7 @@ const pillarsData = [
     icon: "🏥",
     color: "#E63946",
     gradient: "from-[#E63946] to-[#B81D24]",
-    img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80",
+    img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?fit=crop&w=600&q=75&fm=webp",
     heightClass: "h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 40px, 100% 100%, 0 100%)" },
     alignClass: "text-left items-start",
@@ -39,7 +39,7 @@ const pillarsData = [
     icon: "🌿",
     color: "#33C3B3",
     gradient: "from-[#33C3B3] to-[#008075]",
-    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
+    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=600&q=75&fm=webp",
     heightClass: "h-[360px] lg:h-[420px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-center items-center",
@@ -52,7 +52,7 @@ const pillarsData = [
     icon: "📊",
     color: "#F4C038",
     gradient: "from-[#F4C038] to-[#D99B00]",
-    img: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=600&q=80",
+    img: "https://images.unsplash.com/photo-1556740758-90de374c12ad?fit=crop&w=600&q=75&fm=webp",
     heightClass: "h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 40px, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-right items-end",
@@ -65,7 +65,7 @@ const pillarsData = [
     icon: "🤝",
     color: "#7B2CBF",
     gradient: "from-[#7B2CBF] to-[#5A189A]",
-    img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80",
+    img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?fit=crop&w=600&q=75&fm=webp",
     heightClass: "h-[520px] lg:h-[600px]",
     clipStyle: { clipPath: "polygon(0 50px, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-right items-end",
@@ -511,7 +511,7 @@ export default function SmartCity() {
                     </div>
                   </div>
                   <div className="md:col-span-5 h-[220px] rounded-2xl overflow-hidden shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Sungai Martapura" className="w-full h-full object-cover" />
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=600&q=75&fm=webp" alt="Sungai Martapura" className="w-full h-full object-cover" />
                   </div>
                 </>
               ) : (
@@ -529,7 +529,7 @@ export default function SmartCity() {
                     </div>
                   </div>
                   <div className="md:col-span-5 h-[220px] rounded-2xl overflow-hidden shadow-lg relative">
-                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=600&q=80" alt="CCTV Command Center" className="w-full h-full object-cover" />
+                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?fit=crop&w=600&q=75&fm=webp" alt="CCTV Command Center" className="w-full h-full object-cover" />
                     <div className="absolute top-3 left-3 bg-red-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full animate-pulse">● LIVE REC</div>
                   </div>
                 </>
