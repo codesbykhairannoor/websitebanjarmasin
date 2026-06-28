@@ -6,35 +6,35 @@ const heroSlices = [
     id: 1,
     title: "Wisata Bahari",
     subtitle: "Pasar Terapung Lok Baintan Abad 16",
-    img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=1200&q=75&fm=webp",
+    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
     color: "from-blue-900 via-blue-800/40"
   },
   {
     id: 2,
     title: "Susur Sungai",
     subtitle: "Eksplorasi Kota 1000 Sungai",
-    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=1200&q=75&fm=webp",
+    img: "/profil kota/sungai.webp",
     color: "from-amber-900 via-yellow-800/40"
   },
   {
     id: 3,
     title: "Budaya Banjar",
     subtitle: "Pesona Kain Sasirangan & Tari Tradisional",
-    img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?fit=crop&w=1200&q=75&fm=webp",
+    img: "/budaya/motif bayam raj.webp",
     color: "from-purple-900 via-pink-800/40"
   },
   {
     id: 4,
     title: "Jejak Sejarah",
     subtitle: "Menyusuri Peninggalan Kesultanan 1526",
-    img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?fit=crop&w=1200&q=75&fm=webp",
+    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
     color: "from-emerald-900 via-teal-800/40"
   },
   {
     id: 5,
     title: "Kuliner Khas",
     subtitle: "Soto Banjar & Bingka Surgawi",
-    img: "https://images.unsplash.com/photo-1555126634-323283e090fa?fit=crop&w=1200&q=75&fm=webp",
+    img: "/kuliner/buras.webp",
     color: "from-orange-900 via-red-800/40"
   }
 ];
@@ -81,7 +81,7 @@ export default function Hero() {
             >
               {/* Unskewed Inner Content */}
               <div className="absolute top-0 left-1/2 w-[150vw] sm:w-[100vw] h-full transform skew-x-[10deg] -translate-x-1/2">
-                <img 
+                <img loading="lazy" 
                   src={slice.img} 
                   alt={slice.title} 
                   className={`w-full h-full object-cover transition-transform duration-[1.5s] ease-out ${isHovered ? 'scale-110' : 'scale-[1.02]'}`}

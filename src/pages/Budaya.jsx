@@ -10,7 +10,7 @@ const sasiranganData = [
     name: 'Motif Bayam Raja',
     colorName: 'Kuning Kunyit (Kurkuma)',
     hex: '#F4C038',
-    image: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?fit=crop&w=800&q=75&fm=webp',
+    image: '/budaya/motif bayam raj.webp',
     filosofi: 'Lambang kebangsawanan dan kepemimpinan luhur. Dahulu diperuntukkan khusus bagi sultan dan kaum bangsawan Banjar.',
     penyembuhan: 'Secara filosofis batatamba digunakan sebagai terapi ketenangan jiwa dan pengusir energi negatif.',
     proses: 'Diikat presisi dengan teknik jelujur, lalu dicelup rebusan akar kuning dan kunyit alami.'
@@ -20,7 +20,7 @@ const sasiranganData = [
     name: 'Motif Naga Balimbur',
     colorName: 'Hijau Karamunting',
     hex: '#00A896',
-    image: 'https://images.unsplash.com/photo-1606744824163-985d376605aa?fit=crop&w=800&q=75&fm=webp',
+    image: '/budaya/naga-balimbur-salah-satu-motif-b.webp',
     filosofi: 'Menggambarkan naga sakti yang sedang mandi di Sungai Martapura, melambangkan kesuburan dan perlindungan alam.',
     penyembuhan: 'Diyakini membawa kesegaran jasmani dan ketabahan menghadapi arus ujian kehidupan.',
     proses: 'Pewarnaan menggunakan ekstrak daun mengkudu dan tarung alami menghasilkan nuansa zamrud borneo.'
@@ -30,7 +30,7 @@ const sasiranganData = [
     name: 'Motif Kembang Kacang',
     colorName: 'Merah Mengkudu',
     hex: '#E63946',
-    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?fit=crop&w=800&q=75&fm=webp',
+    image: '/budaya/motif kembang kacang.webp',
     filosofi: 'Simbol keharuman budi pekerti dan persaudaraan masyarakat Banjar yang erat mengikat seperti sulur tanaman kacang.',
     penyembuhan: 'Menghadirkan kehangatan rasa kasih sayang dan keharmonisan rumah tangga.',
     proses: 'Pencelupan berulang dengan kulit kayu ulin dan buah kesumba untuk merah pekat abadi.'
@@ -40,7 +40,7 @@ const sasiranganData = [
     name: 'Anyaman Purun Loksado',
     colorName: 'Coklat Kayu Ulin',
     hex: '#8D5B4C',
-    image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?fit=crop&w=800&q=75&fm=webp',
+    image: '/budaya/anyaman-purun.webp',
     filosofi: 'Kerajinan ramah lingkungan dari rumput purun liar di lahan gambut Kalimantan Selatan.',
     penyembuhan: 'Menceritakan ketekunan jemari perempuan pengrajin di pesisir sungai yang menjaga keseimbangan ekosistem.',
     proses: 'Rumput purun dijemur, ditumbuk hingga pipih, lalu dianyam dengan motif geometri segitiga rebung.'
@@ -54,7 +54,7 @@ const seniPertunjukanData = [
     title: 'Seni Musik Panting',
     subtitle: 'Alunan Petikan Dawai Borneo',
     category: 'Seni Musik WBTb',
-    image: 'https://images.unsplash.com/photo-1485278537138-4e8911a13c02?fit=crop&w=600&q=75&fm=webp',
+    image: '/budaya/panting.webp',
     quote: '“Dipetik dawai panting berdenting, menyambut tamu membawa damai.”',
     desc: 'Musik tradisional khas Kalimantan Selatan berinstrumen utama panting (sejenis gambus kecil), babun, dan gong. Mengalun dinamis mengiringi tarian istana maupun syair selawat.',
     badgeColor: 'bg-[#008075]'
@@ -64,7 +64,7 @@ const seniPertunjukanData = [
     title: 'Tradisi Lisan Madihin',
     subtitle: 'Monolog Syair Humor Satir',
     category: 'Tradisi Lisan WBTb',
-    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?fit=crop&w=600&q=75&fm=webp',
+    image: '/budaya/Kesenian_Madihin.webp',
     quote: '“Bismillah pembuka kata, Madihin Banjar penghibur lara, kritik sosial secara jenaka.”',
     desc: 'Seni bertutur lisan oleh seniman yang menabuh rebana tarbang sambil merangkai pantun spontan yang cerdas, jenaka, namun sarat nasihat dan pesan moral.',
     badgeColor: 'bg-[#E63946]'
@@ -74,7 +74,7 @@ const seniPertunjukanData = [
     title: 'Seni Bertutur Lamut',
     subtitle: 'Epos Sakral Palamutan',
     category: 'Warisan Lisan WBTb',
-    image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?fit=crop&w=600&q=75&fm=webp',
+    image: '/budaya/Seni Bertutur Lamut.webp',
     quote: '“Kisah Raden Pamadi dari Negeri Pujud, wejangan spiritual leluhur Banjar.”',
     desc: 'Pertunjukan bercerita sakral yang dibawakan oleh seorang Palamutan diringi terbang besar. Sering digelar sebagai bentuk syukur atas terkabulnya hajat dan nadzar.',
     badgeColor: 'bg-[#F4C038]'
@@ -84,7 +84,7 @@ const seniPertunjukanData = [
     title: 'Tari Baksa Kembang',
     subtitle: 'Keanggunan Bunga Bogam',
     category: 'Tarian Istana WBTb',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=600&q=75&fm=webp',
+    image: '/budaya/tari baksa kembang.webp',
     quote: '“Gemulai jemari membawa bogam, menebar harum persaudaraan.”',
     desc: 'Tarian kebesaran Kesultanan Banjar abad ke-16 penyambut tamu agung. Penari mengenakan mahkota gajah gemuling dengan rangkaian bunga mawar dan melati.',
     badgeColor: 'bg-[#33C3B3]'
@@ -160,28 +160,28 @@ const mobileLookbookItems = [
     title: 'Tari Baksa Kembang',
     tag: 'Tari Kebesaran Banjar',
     desc: 'Tarian klasik kebesaran kerajaan penyambut tamu agung Banjar dengan mahkota gajah gemuling dan bunga bogam.',
-    img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=800&q=75&fm=webp'
+    img: '/budaya/tari baksa kembang.webp'
   },
   {
     tabName: '✨ Wastra Adat',
     title: 'Wastra Sasirangan',
     tag: 'Kain Jelujur Alami',
     desc: 'Mahakarya pewarnaan rintang ikat tradisional Banjar yang sarat filosofi pengobatan dan perlindungan spiritual.',
-    img: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?fit=crop&w=800&q=75&fm=webp'
+    img: '/budaya/motif bayam raj.webp'
   },
   {
     tabName: '🛶 Susur Sungai',
     title: 'Perahu Kelotok Sungai',
     tag: 'Budaya Bahari Borneo',
     desc: 'Urat nadi pergerakan masyarakat sungai Banjar dalam berdagang di pasar terapung dan menyusuri tepian Martapura.',
-    img: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?fit=crop&w=800&q=75&fm=webp'
+    img: '/budaya/atap bubungan tinggi.webp'
   },
   {
     tabName: '🎵 Seni Lisan',
     title: 'Musik Panting & Madihin',
     tag: 'Warisan Bertutur',
     desc: 'Alunan petikan dawai panting dan ketukan rebana tarbang yang mengiringi syair humor kritik sosial sarat pesan moral.',
-    img: 'https://images.unsplash.com/photo-1485278537138-4e8911a13c02?fit=crop&w=800&q=75&fm=webp'
+    img: '/budaya/panting.webp'
   }
 ];
 
@@ -232,7 +232,7 @@ export default function Budaya() {
           <div className="col-span-1 flex flex-col justify-center">
             <div className="relative rounded-[32px] overflow-hidden h-[260px] bg-amber-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
               <img
-                src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?fit=crop&w=500&q=75&fm=webp"
+                src="/budaya/motif bayam raj.webp"
                 alt="Wastra Sasirangan"
                 loading="lazy"
                 decoding="async"
@@ -248,7 +248,7 @@ export default function Budaya() {
           <div className="col-span-1 flex flex-col gap-4">
             <div className="relative rounded-2xl overflow-hidden h-[160px] bg-teal-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
               <img
-                src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?fit=crop&w=500&q=75&fm=webp"
+                src="/budaya/atap bubungan tinggi.webp"
                 alt="Perahu Kelotok Sungai"
                 loading="lazy"
                 decoding="async"
@@ -261,7 +261,7 @@ export default function Budaya() {
 
             <div className="relative rounded-2xl overflow-hidden h-[160px] bg-yellow-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
               <img
-                src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?fit=crop&w=500&q=75&fm=webp"
+                src="/budaya/anyaman-purun.webp"
                 alt="Anyaman Kayu Ulin"
                 loading="lazy"
                 decoding="async"
@@ -279,7 +279,7 @@ export default function Budaya() {
 
             <div className="w-full max-w-[260px] h-[440px] rounded-[40px] overflow-hidden border-2 border-[#F4C038] shadow-lg relative group bg-[#050B14] mx-auto hover:-translate-y-1 transition-transform duration-200">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=600&q=75&fm=webp"
+                src="/budaya/tari baksa kembang.webp"
                 alt="Tari Baksa Kembang"
                 loading="lazy"
                 decoding="async"
@@ -307,7 +307,7 @@ export default function Budaya() {
           <div className="col-span-1 flex flex-col gap-4">
             <div className="relative rounded-2xl overflow-hidden h-[160px] bg-orange-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
               <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?fit=crop&w=500&q=75&fm=webp"
+                src="/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp"
                 alt="Arsitektur Kayu Ulin"
                 loading="lazy"
                 decoding="async"
@@ -320,7 +320,7 @@ export default function Budaya() {
 
             <div className="relative rounded-2xl overflow-hidden h-[160px] bg-sky-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
               <img
-                src="https://images.unsplash.com/photo-1485278537138-4e8911a13c02?fit=crop&w=500&q=75&fm=webp"
+                src="/budaya/panting.webp"
                 alt="Alat Musik Panting"
                 loading="lazy"
                 decoding="async"
@@ -340,7 +340,7 @@ export default function Budaya() {
 
             <div className="relative rounded-[32px] overflow-hidden h-[260px] bg-emerald-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
               <img
-                src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?fit=crop&w=500&q=75&fm=webp"
+                src="/budaya/motif kembang kacang.webp"
                 alt="Seni Kalimantan"
                 loading="lazy"
                 decoding="async"
@@ -597,7 +597,7 @@ export default function Budaya() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 relative rounded-[36px] overflow-hidden border border-[var(--glass-border)] shadow-md bg-slate-900 h-[360px] md:h-[480px]">
             <img
-              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?fit=crop&w=1000&q=75&fm=webp"
+              src="/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp"
               alt="Arsitektur Bubungan Tinggi"
               loading="lazy"
               decoding="async"

@@ -8,12 +8,12 @@ import Footer from '../components/Footer';
 // ==========================================
 
 const galleryCards = [
-  { img: "https://images.unsplash.com/photo-1547592180-85f173990554?fit=crop&w=600&q=75&fm=webp", label: "Soto Banjar" },
-  { img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?fit=crop&w=600&q=75&fm=webp", label: "Ketupat" },
-  { img: "https://images.unsplash.com/photo-1555126634-323283e090fa?fit=crop&w=600&q=75&fm=webp", label: "Lontong Orari" },
-  { img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?fit=crop&w=600&q=75&fm=webp", label: "Bingka" },
-  { img: "https://images.unsplash.com/photo-1541592102775-7b56d338a9e1?fit=crop&w=600&q=75&fm=webp", label: "Ikan Bakar" },
-  { img: "https://images.unsplash.com/photo-1588661852028-21d15db14028?fit=crop&w=600&q=75&fm=webp", label: "Es Nyiur" },
+  { img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", label: "Soto Banjar" },
+  { img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", label: "Ketupat" },
+  { img: "/kuliner/buras.webp", label: "Lontong Orari" },
+  { img: "/kuliner/Bingka.webp", label: "Bingka" },
+  { img: "/kuliner/Iwak_Pakasam_Basanga.webp", label: "Ikan Bakar" },
+  { img: "/kuliner/f6cd9fe9a37ece89ca3de6416a14031e.webp", label: "Es Nyiur" },
 ];
 
 const mainDishes = [
@@ -23,7 +23,7 @@ const mainDishes = [
     desc: "Kuah kaldu ayam bening keemasan yang diinfus rempah kapulaga, cengkeh, dan kayu manis. Dihidangkan dengan ketupat, suwiran ayam kampung, dan perkedel kentang super lembut. Sebuah kehangatan di tepi sungai.",
     aroma: "Rempah Hangat & Gurih",
     icon: "🍲",
-    img: "https://images.unsplash.com/photo-1547592180-85f173990554?fit=crop&w=1200&q=75&fm=webp",
+    img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp",
     location: "Soto Bang Amat",
     maps: "https://maps.app.goo.gl/xxx"
   },
@@ -33,7 +33,7 @@ const mainDishes = [
     desc: "Ketupat keras berpadu kuah santan keruh berbumbu rempah rahasia. Keajaibannya terletak pada Ikan Haruan (Gabus) yang dipanggang asap terlebih dahulu sebelum disiram kuah, memberikan rasa 'smokey' yang luar biasa.",
     aroma: "Santan Krimi & Asap",
     icon: "🥥",
-    img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?fit=crop&w=1200&q=75&fm=webp",
+    img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp",
     location: "Ketupat Kaum",
     maps: "https://maps.app.goo.gl/xxx"
   },
@@ -43,7 +43,7 @@ const mainDishes = [
     desc: "Sarapan wajib warga Banua! Nasi kuning pulen bertabur serundeng berpadu sempurna dengan Bumbu Habang (Bumbu Merah) yang dimasak dari cabai kering besar tanpa biji—menghasilkan rasa manis, gurih, dan warna merah pekat yang menggoda.",
     aroma: "Kunyit & Karamel Pedas",
     icon: "🍛",
-    img: "https://images.unsplash.com/photo-1512058564366-18510be2db19?fit=crop&w=1200&q=75&fm=webp",
+    img: "/kuliner/Nasi_Kuning_Banjar_001.webp",
     location: "Nasi Kuning Cempaka",
     maps: "https://maps.app.goo.gl/xxx"
   },
@@ -53,44 +53,44 @@ const mainDishes = [
     desc: "Lontong unik berbentuk segitiga berpasangan. Disajikan dengan sayur nangka muda kuah santan cair, ikan gabus atau telur itik rebus bumbu habang, dan taburan bawang goreng melimpah. Porsi kuli, rasa priyayi!",
     aroma: "Gurih Santan",
     icon: "🥣",
-    img: "https://images.unsplash.com/photo-1555126634-323283e090fa?fit=crop&w=1200&q=75&fm=webp",
+    img: "/kuliner/buras.webp",
     location: "Lontong Orari Sungai Baru",
     maps: "https://maps.app.goo.gl/xxx"
   }
 ];
 
 const wadaiCollection = [
-  { name: "Bingka Barantai", tag: "Manis Legit", img: "https://images.unsplash.com/photo-1583394838336-acd977736f90?fit=crop&w=800&q=75&fm=webp" },
-  { name: "Amparan Tatak", tag: "Krim Pisang", img: "https://images.unsplash.com/photo-1559598467-f8b76c8155d0?fit=crop&w=800&q=75&fm=webp" },
-  { name: "Apam Barabai", tag: "Kukus Lembut", img: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?fit=crop&w=800&q=75&fm=webp" },
-  { name: "Kelepon Martapura", tag: "Lumer Gula Aren", img: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?fit=crop&w=800&q=75&fm=webp" },
-  { name: "Putri Selat", tag: "Lapis Gurih", img: "https://images.unsplash.com/photo-1605333396914-2795c329a1ee?fit=crop&w=800&q=75&fm=webp" },
-  { name: "Kararaban", tag: "Rempah Adas", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?fit=crop&w=800&q=75&fm=webp" },
+  { name: "Bingka Barantai", tag: "Manis Legit", img: "/kuliner/Bingka.webp" },
+  { name: "Amparan Tatak", tag: "Krim Pisang", img: "/kuliner/Resep-Amparan-Tatak-Kue-Khas-Ban.webp" },
+  { name: "Apam Barabai", tag: "Kukus Lembut", img: "/kuliner/wadai-kararaban-khas-banjar-1756.webp" },
+  { name: "Kelepon Martapura", tag: "Lumer Gula Aren", img: "/kuliner/klepon.webp" },
+  { name: "Putri Selat", tag: "Lapis Gurih", img: "/kuliner/358-bingka-barandam-khas-banjar.webp" },
+  { name: "Kararaban", tag: "Rempah Adas", img: "/kuliner/wadai-kararaban-khas-banjar-1756.webp" },
 ];
 
 const olehOleh = [
   {
     title: "Mandai 'Daging Nabati'",
     desc: "Fermentasi kulit buah Cempedak yang diawetkan dengan garam. Saat digoreng, teksturnya berserat menyerupai daging sapi dengan rasa umami asam-gurih yang sangat adiktif.",
-    img: "https://images.unsplash.com/photo-1601314002592-b8734bca6604?fit=crop&w=800&q=75&fm=webp",
+    img: "/kuliner/Screenshot_20241126_150106_Googl.webp",
     span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto",
   },
   {
     title: "Kerupuk Amplang",
     desc: "Camilan renyah berbahan dasar Ikan Pipih atau Tenggiri.",
-    img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?fit=crop&w=800&q=75&fm=webp",
+    img: "/kuliner/IMG-20251017-WA0002.webp",
     span: "col-span-1 row-span-1 h-[250px]",
   },
   {
     title: "Iwak Pakasam",
     desc: "Ikan sungai fermentasi beras sangrai yang digoreng garing.",
-    img: "https://images.unsplash.com/photo-1626200419188-75ab0a40df6e?fit=crop&w=800&q=75&fm=webp",
+    img: "/kuliner/Iwak_Pakasam_Basanga.webp",
     span: "col-span-1 row-span-1 h-[250px]",
   },
   {
     title: "Sambal Acan",
     desc: "Terasi legendaris dipadu buah mangga/binjai khas rawa.",
-    img: "https://images.unsplash.com/photo-1596645367610-d3ba0d6b9ef7?fit=crop&w=800&q=75&fm=webp",
+    img: "/kuliner/sambal acan.webp",
     span: "col-span-1 md:col-span-3 row-span-1 h-[250px]",
   }
 ];
@@ -102,30 +102,7 @@ export default function Kuliner() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Animasi reveal saat di-scroll
-  useEffect(() => {
-    const targets = document.querySelectorAll(".reveal-on-scroll");
-    if (!targets.length) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = "translateY(0)";
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    targets.forEach((el) => {
-      el.style.opacity = 0;
-      el.style.transform = "translateY(30px)";
-      el.style.transition = "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-      observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+
 
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -205,7 +182,7 @@ export default function Kuliner() {
                 }}
               >
                 <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] relative bg-[var(--card-bg)]">
-                  <img src={card.img} alt={card.label} className="w-full h-full object-cover pointer-events-auto" />
+                  <img loading="lazy" src={card.img} alt={card.label} className="w-full h-full object-cover pointer-events-auto" />
                   <div className="absolute bottom-4 left-4 right-4 text-center">
                     <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border border-white/20 inline-block">
                       {card.label}
@@ -257,7 +234,7 @@ export default function Kuliner() {
                 className="flex flex-col md:flex-row gap-8 lg:gap-12 items-center"
               >
                 <div className="w-full md:w-1/2 h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden relative shadow-2xl group">
-                  <img src={activeTab.img} alt={activeTab.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                  <img loading="lazy" src={activeTab.img} alt={activeTab.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
                     <div>
@@ -310,7 +287,7 @@ export default function Kuliner() {
           <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory wadai-scroll hide-scrollbar px-4 sm:px-0">
             {wadaiCollection.map((wadai, idx) => (
               <div key={idx} className="min-w-[280px] sm:min-w-[320px] h-[400px] flex-shrink-0 snap-center relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-lg border border-[var(--glass-border)]">
-                <img src={wadai.img} alt={wadai.name} className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                <img loading="lazy" src={wadai.img} alt={wadai.name} className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
                 
@@ -331,7 +308,7 @@ export default function Kuliner() {
         <section className="py-24 border-t border-[var(--glass-border)] reveal-on-scroll">
           <div className="relative w-full rounded-[3rem] overflow-hidden h-[500px] md:h-[600px] flex items-center shadow-lg border border-[var(--glass-border)]">
             <div className="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=2000&q=75&fm=webp" alt="Pasar Terapung Lok Baintan" className="w-full h-full object-cover scale-105" />
+              <img loading="lazy" src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" alt="Pasar Terapung Lok Baintan" className="w-full h-full object-cover scale-105" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
             </div>
 
@@ -370,7 +347,7 @@ export default function Kuliner() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[auto]">
             {olehOleh.map((item, idx) => (
               <div key={idx} className={`${item.span} rounded-3xl overflow-hidden relative group shadow-lg border border-[var(--glass-border)]`}>
-                <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 absolute inset-0" />
+                <img loading="lazy" src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 absolute inset-0" />
                 <div className="relative h-full min-h-[250px] bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 md:p-8 flex flex-col justify-end">
                   <h3 className="text-2xl md:text-3xl font-black font-heading text-white mb-2">{item.title}</h3>
                   <p className="text-white/70 text-sm md:text-base leading-relaxed">{item.desc}</p>

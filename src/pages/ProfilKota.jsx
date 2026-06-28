@@ -5,17 +5,17 @@ import Footer from '../components/Footer';
 
 // Data for masonry grid
 const column1Images = [
-  "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?fit=crop&w=500&q=75&fm=webp",
-  "https://images.unsplash.com/photo-1507679799987-c73779587ccf?fit=crop&w=500&q=75&fm=webp",
-  "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?fit=crop&w=500&q=75&fm=webp",
-  "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?fit=crop&w=500&q=75&fm=webp"
+  "/profil kota/Kota-Banjarmasin-Logo.webp",
+  "/sejarah/banjarmasin baiman.webp",
+  "/wisata/menara tugu pal 0.webp",
+  "/wisata/960px-Masjid_Raya_Sabilal_Muhtad.webp"
 ];
 
 const column2Images = [
-  "https://images.unsplash.com/photo-1485278537138-4e8911a13c02?fit=crop&w=500&q=75&fm=webp",
-  "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?fit=crop&w=500&q=75&fm=webp",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=500&q=75&fm=webp",
-  "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?fit=crop&w=500&q=75&fm=webp"
+  "/profil kota/sungai.webp",
+  "/wisata/960px-Menara_Pandang_Banjarmasin.webp",
+  "/wisata/960px-Taman_Siring_Banjarmasin.webp",
+  "/wisata/960px-Monumen_Patung_Bekantan_Ba.webp"
 ];
 
 // We don't need JS duplication, we will duplicate DOM nodes for true seamless marquee
@@ -213,8 +213,8 @@ export default function ProfilKota() {
             
             {/* Walikota Side (Left) */}
             <div className="relative w-full h-[400px] md:h-full md:w-[250px] lg:w-[300px] hover:w-full md:hover:w-[600px] lg:hover:w-[750px] overflow-hidden transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] group cursor-pointer shadow-2xl md:[clip-path:polygon(0_15%,100%_0,100%_100%,0_85%)] md:hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?fit=crop&w=1200&q=75&fm=webp" 
+              <img loading="lazy" 
+                src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" 
                 alt="Wali Kota Banjarmasin" 
                 className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" 
               />
@@ -235,8 +235,8 @@ export default function ProfilKota() {
 
             {/* Wakil Walikota Side (Right) */}
             <div className="relative w-full h-[400px] md:h-full md:w-[250px] lg:w-[300px] hover:w-full md:hover:w-[600px] lg:hover:w-[750px] overflow-hidden transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] group cursor-pointer shadow-2xl md:[clip-path:polygon(0_0,100%_15%,100%_85%,0_100%)] md:hover:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]">
-              <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fit=crop&w=1200&q=75&fm=webp" 
+              <img loading="lazy" 
+                src="/profil kota/ananda.webp" 
                 alt="Wakil Wali Kota Banjarmasin" 
                 className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" 
               />
@@ -399,12 +399,9 @@ export default function ProfilKota() {
           <div className="relative w-full h-auto lg:h-[700px] flex flex-col lg:block items-center justify-center gap-6">
             
             {/* Center Emblem */}
-            <div className="relative w-48 h-64 md:w-56 md:h-72 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-20 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#F4C038] to-[#DDAA20] rounded-[24px] rounded-br-[80px] rounded-bl-[80px] shadow-[0_0_50px_rgba(244,192,56,0.3)] flex flex-col items-center justify-center p-6 border-4 border-[var(--bg-main)] group-hover:scale-105 transition-transform duration-700">
-                 {/* Abstract Emblem Graphics */}
-                 <div className="w-full h-10 bg-black/20 rounded-full absolute bottom-8 shadow-inner" />
-                 <div className="w-20 h-20 bg-white/90 drop-shadow-lg mb-2" style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }} />
-                 <div className="absolute top-8 text-4xl drop-shadow-lg opacity-90 animate-pulse">🌿</div>
+            <div className="relative w-48 h-64 md:w-56 md:h-72 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-20 group flex justify-center items-center">
+              <div className="w-full h-full relative group-hover:scale-105 transition-transform duration-700 flex justify-center items-center">
+                 <img loading="lazy" src="/profil kota/Kota-Banjarmasin-Logo.webp" alt="Lambang Kota Banjarmasin" className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(244,192,56,0.4)]" />
               </div>
             </div>
 
@@ -457,24 +454,24 @@ export default function ProfilKota() {
               {
                 title: "Pelabuhan Trisakti",
                 desc: "Salah satu pelabuhan tersibuk dan terbesar di Pulau Kalimantan, menopang arus logistik industri maritim.",
-                img: "https://images.unsplash.com/photo-1586528116311-ad8ed7e66364?fit=crop&w=1200&q=75&fm=webp"
+                img: "/profil kota/pelabuhan trisakti.webp"
               },
               {
                 title: "Kawasan Niaga",
                 desc: "Revitalisasi ruang niaga modern dan pasar tradisional yang mendongkrak ekosistem ekonomi berdaya saing tinggi.",
-                img: "https://images.unsplash.com/photo-1555529733-0e670560f8e1?fit=crop&w=1200&q=75&fm=webp"
+                img: "/profil kota/sungai.webp"
               },
               {
                 title: "Jasa Pariwisata",
                 desc: "Pemanfaatan potensi budaya sungai dan hospitality modern sebagai roda penggerak ekonomi warga lokal.",
-                img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=1200&q=75&fm=webp"
+                img: "/profil kota/jasa pariwisata.webp"
               }
             ].map((item, idx) => (
               <div 
                 key={idx} 
                 className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden rounded-3xl group/item cursor-pointer border border-[var(--glass-border)] h-full shadow-lg"
               >
-                <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover scale-110 group-hover/item:scale-100 transition-transform duration-1000 grayscale group-hover/item:grayscale-0" />
+                <img loading="lazy" src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover scale-110 group-hover/item:scale-100 transition-transform duration-1000 grayscale group-hover/item:grayscale-0" />
                 
                 {/* Gradient Overlay forced to black for contrast against white text */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover/item:opacity-70 transition-opacity duration-700" />
@@ -503,7 +500,7 @@ export default function ProfilKota() {
       >
         {/* Latar Belakang Asli (Terang/Penuh Warna) */}
         <div className="absolute inset-0 pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=2000&q=75&fm=webp" alt="Pasar Terapung" className="w-full h-full object-cover opacity-80" />
+          <img loading="lazy" src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" alt="Pasar Terapung" className="w-full h-full object-cover opacity-80" />
         </div>
         
         {/* Spotlight Masking Layer */}

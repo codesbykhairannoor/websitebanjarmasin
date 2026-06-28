@@ -64,6 +64,42 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* --- PERFORMANCE OPTIMIZATIONS (Besar-Besaran) --- */
+img {
+  max-width: 100%;
+  height: auto;
+  /* Hardware acceleration for images */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Sections rendering optimization */
+.section-container, section {
+  /* content-visibility: auto; */
+  contain-intrinsic-size: auto 1000px;
+  will-change: opacity, transform;
+}
+
+/* Smooth scrolling hardware acceleration */
+.overflow-x-hidden {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- GLOBAL SCROLL ANIMATIONS --- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h1, h2, h3, h4, h5, h6 {

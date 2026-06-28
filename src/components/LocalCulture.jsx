@@ -27,8 +27,8 @@ export default function LocalCulture() {
 
         <div className="culture-image-side">
           <div className="editorial-frame">
-            <img 
-              src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=1000&q=75&fm=webp" 
+            <img loading="lazy" 
+              src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" 
               alt="Acil Pasar Terapung Lok Baintan" 
               className="editorial-img"
             />

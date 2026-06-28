@@ -28,6 +28,31 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // 🛡️ PERFORMANCE & ANIMATION: Global Scroll Reveal Animation Observer (GPU Accelerated)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const targets = document.querySelectorAll(".wisata-reveal, .wisata-reveal-left, .wisata-reveal-right");
+      if (!targets.length) return;
+      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -50px 0px" } // Lebih cepat terpicu di HP
+      );
+      
+      targets.forEach((el) => observer.observe(el));
+      return () => observer.disconnect();
+    }, 150);
+    
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };

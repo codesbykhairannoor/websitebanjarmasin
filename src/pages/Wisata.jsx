@@ -10,7 +10,7 @@ const heroDestinations = [
     title: "Pasar Terapung",
     tag: "Subuh - Lok Baintan",
     location: "Lok Baintan, Kuin",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=800&q=75&fm=webp",
+    image: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
     badge: "Warisan Dunia",
     desc: "Pasar tradisional di atas perahu kelotok tempat para Acil bertransaksi sayur, buah, dan kuliner khas Banjar sejak fajar menyingsing.",
     heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
@@ -20,7 +20,7 @@ const heroDestinations = [
     title: "Menara Pandang",
     tag: "24 Jam - Siring",
     location: "Menara Pandang, Siring",
-    image: "https://images.unsplash.com/photo-1520645521318-f09a7a92fb04?fit=crop&w=800&q=75&fm=webp",
+    image: "/wisata/960px-Menara_Pandang_Banjarmasin.webp",
     badge: "Landmark Kota",
     desc: "Kawasan terbuka hijau di tepian Sungai Martapura yang menjadi titik kumpul warga dan pusat susur sungai kelotok.",
     heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]",
@@ -30,7 +30,7 @@ const heroDestinations = [
     title: "Patung Bekantan",
     tag: "Ikon - Martapura",
     location: "Siring Sungai Martapura",
-    image: "https://images.unsplash.com/photo-1590418606746-018840f988f0?fit=crop&w=800&q=75&fm=webp",
+    image: "/wisata/960px-Monumen_Patung_Bekantan_Ba.webp",
     badge: "Maskot Borneo",
     desc: "Monumen megah maskot satwa endemik Kalimantan Selatan yang menyemburkan air langsung ke arah Sungai Martapura.",
     heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]",
@@ -40,19 +40,19 @@ const heroDestinations = [
     title: "Kampung Hijau",
     tag: "Sore - Sungai Bilu",
     location: "Sungai Bilu, Banjarmasin Timur",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=800&q=75&fm=webp",
+    image: "/profil kota/sungai.webp",
     badge: "Wisata Tematik",
     desc: "Deretan rumah panggung tradisional yang dicat seragam berwarna hijau cerah menghadap sungai, menawarkan pemandangan visual estetik.",
     heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]",
   },
   {
-    id: "pulau-kembang",
-    title: "Pulau Kembang",
-    tag: "Pagi - Delta Barito",
-    location: "Delta Sungai Barito",
-    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?fit=crop&w=800&q=75&fm=webp",
-    badge: "Konservasi",
-    desc: "Pulau delta alami di tengah Sungai Barito yang menjadi habitat ratusan monyet ekor panjang serta kera hidung panjang (Bekantan).",
+    id: "museum-waja-sampai-kaputing",
+    title: "Museum Wasaka",
+    tag: "Sejarah - Banua Anyar",
+    location: "Sungai Jingah, Banjarmasin Utara",
+    image: "/wisata/960px-Museum_Waja_Sampai_Kaputin.webp",
+    badge: "Edukasi & Sejarah",
+    desc: "Museum perjuangan rakyat Kalimantan Selatan yang berlokasi di rumah adat Banjar bergaya Bubungan Tinggi, menyimpan ribuan artefak bersejarah pahlawan Banjar.",
     heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
   },
   {
@@ -60,7 +60,7 @@ const heroDestinations = [
     title: "Masjid Sultan Suriansyah",
     tag: "Religi - Kuin Utara",
     location: "Kuin Utara, Banjarmasin Utara",
-    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?fit=crop&w=800&q=75&fm=webp",
+    image: "/wisata/masjid sultan suriansyah.webp",
     badge: "Wisata Religi",
     desc: "Masjid bersejarah tertua di Kalimantan Selatan bergaya arsitektur tradisional Banjar dengan ukiran kaligrafi kayu ukir khas abadi.",
     heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
@@ -75,9 +75,9 @@ const itineraryRoadmap = [
 ];
 
 const polaroidStories = [
-  { name: "Rina & Keluarga", origin: "Wisatawan Jakarta", quote: "Pengalaman susur sungai paling berkesan! Acil kelotoknya sangat ramah, pantun madihinnya bikin tertawa sepanjang jalan.", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=600&q=75&fm=webp", rotate: "rotate-2 sm:rotate-3 hover:rotate-0" },
-  { name: "Acil Imur", origin: "Pemandu Kelotok Resmi", quote: "Ayo dangsanak berataan naik kelotok kami! Keselamatan terjamin, rompi pelampung lengkap, dan rute dijamin puas.", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=600&q=75&fm=webp", rotate: "-rotate-2 sm:-rotate-3 hover:rotate-0" },
-  { name: "Budi Santoso", origin: "Wisatawan Surabaya", quote: "Pasar terapung Lok Baintan saat subuh benar-benar magis. Beli kue bingka langsung dari atas perahu jukung!", img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?fit=crop&w=600&q=75&fm=webp", rotate: "rotate-1 sm:rotate-2 hover:rotate-0" },
+  { name: "Rina & Keluarga", origin: "Wisatawan Jakarta", quote: "Pengalaman susur sungai paling berkesan! Acil kelotoknya sangat ramah, pantun madihinnya bikin tertawa sepanjang jalan.", img: "/wisata/960px-Taman_Siring_Banjarmasin.webp", rotate: "rotate-2 sm:rotate-3 hover:rotate-0" },
+  { name: "Acil Imur", origin: "Pemandu Kelotok Resmi", quote: "Ayo dangsanak berataan naik kelotok kami! Keselamatan terjamin, rompi pelampung lengkap, dan rute dijamin puas.", img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp", rotate: "-rotate-2 sm:-rotate-3 hover:rotate-0" },
+  { name: "Budi Santoso", origin: "Wisatawan Surabaya", quote: "Pasar terapung Lok Baintan saat subuh benar-benar magis. Beli kue bingka langsung dari atas perahu jukung!", img: "/kuliner/Bingka.webp", rotate: "rotate-1 sm:rotate-2 hover:rotate-0" },
 ];
 
 const heroHeroItems = heroDestinations.slice(0, 5);
@@ -161,7 +161,7 @@ export default function Wisata() {
           
           {/* Outer Left */}
           <div className="w-[16vw] h-[250px] sm:h-[350px] md:h-[450px] z-10 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-50 shrink-0 shadow-lg hidden sm:block">
-            <img src={heroDestinations[0].image} alt={heroDestinations[0].title} className="w-full h-full object-cover" />
+            <img loading="lazy" src={heroDestinations[0].image} alt={heroDestinations[0].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-4">
               <span className="hidden lg:inline-block text-[#F4C038] text-[9px] md:text-[10px] font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[0].tag}
@@ -174,7 +174,7 @@ export default function Wisata() {
 
           {/* Middle Left */}
           <div className="w-[21vw] h-[350px] sm:h-[450px] md:h-[550px] z-20 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-75 shrink-0 shadow-xl hidden sm:block">
-            <img src={heroDestinations[1].image} alt={heroDestinations[1].title} className="w-full h-full object-cover" />
+            <img loading="lazy" src={heroDestinations[1].image} alt={heroDestinations[1].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-5">
               <span className="hidden lg:inline-block text-[#F4C038] text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[1].tag}
@@ -187,7 +187,7 @@ export default function Wisata() {
 
           {/* Center (Main) */}
           <div className="w-[90vw] sm:w-[26vw] h-[450px] sm:h-[550px] md:h-[650px] z-30 rounded-2xl md:rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.6)] shrink-0">
-            <img src={heroDestinations[2].image} alt={heroDestinations[2].title} className="w-full h-full object-cover" />
+            <img loading="lazy" src={heroDestinations[2].image} alt={heroDestinations[2].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-6 sm:p-10">
               <span className="hidden lg:inline-block text-[#F4C038] text-xs md:text-sm font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[2].tag}
@@ -200,7 +200,7 @@ export default function Wisata() {
 
           {/* Middle Right */}
           <div className="w-[21vw] h-[350px] sm:h-[450px] md:h-[550px] z-20 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-75 shrink-0 shadow-xl hidden sm:block">
-            <img src={heroDestinations[3].image} alt={heroDestinations[3].title} className="w-full h-full object-cover" />
+            <img loading="lazy" src={heroDestinations[3].image} alt={heroDestinations[3].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-5">
               <span className="hidden lg:inline-block text-[#F4C038] text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[3].tag}
@@ -213,7 +213,7 @@ export default function Wisata() {
 
           {/* Outer Right */}
           <div className="w-[16vw] h-[250px] sm:h-[350px] md:h-[450px] z-10 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-50 shrink-0 shadow-lg hidden sm:block">
-            <img src={heroDestinations[4].image} alt={heroDestinations[4].title} className="w-full h-full object-cover" />
+            <img loading="lazy" src={heroDestinations[4].image} alt={heroDestinations[4].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-4">
               <span className="hidden lg:inline-block text-[#F4C038] text-[9px] md:text-[10px] font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[4].tag}

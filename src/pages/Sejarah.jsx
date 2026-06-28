@@ -11,7 +11,7 @@ const timelineData = [
     title: "Lahirnya Kesultanan Banjar",
     subtitle: "24 September 1526 — Tonggak Awal Peradaban",
     desc: "Sultan Suriansyah (Raden Samudera) memeluk agama Islam dan mendirikan Kesultanan Banjar di Kuin, Banjarmasin Utara. Peristiwa ini ditetapkan sebagai Hari Jadi Kota Banjarmasin dan menandai awal kejayaan budaya Islam di Nusantara.",
-    img: "https://images.unsplash.com/photo-1548013146-72479768bada?fit=crop&w=800&q=75&fm=webp",
+    img: "/sejarah/Kesultanan-Banjar.webp",
     tag: "Awal Mula"
   },
   {
@@ -19,7 +19,7 @@ const timelineData = [
     title: "Era Keemasan Bandar Lada",
     subtitle: "Pusat Perdagangan Internasional Nusantara",
     desc: "Banjarmasin berkembang pesat menjadi bandar perdagangan rempah dunia. Kualitas lada Banjar yang masyhur menarik minat kapal-kapal dagang Eropa (VOC Belanda dan Inggris), Tiongkok, hingga Arab untuk bertransaksi di muara Sungai Barito.",
-    img: "https://images.unsplash.com/photo-1588615419951-af7cb7af766c?fit=crop&w=800&q=75&fm=webp",
+    img: "/profil kota/pelabuhan trisakti.webp",
     tag: "Perdagangan"
   },
   {
@@ -27,7 +27,7 @@ const timelineData = [
     title: "Meletusnya Perang Banjar",
     subtitle: "Perlawanan Patriotik Rakyat Semesta",
     desc: "Dicuplik oleh intervensi Belanda terhadap takhta kesultanan, Pangeran Antasari dan Pangeran Hidayatullah memimpin perang gerilya semesta. Perang ini menjadi salah satu perlawanan anti-kolonial terlama dan paling merugikan bagi Belanda.",
-    img: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?fit=crop&w=800&q=75&fm=webp",
+    img: "/sejarah/PERANG_BANJAR_1857-1859.webp",
     tag: "Patriotisme"
   },
   {
@@ -35,7 +35,7 @@ const timelineData = [
     title: "Gerbang Kemerdekaan & Revolusi",
     subtitle: "Divisi IV ALRI Pertahanan Kalimantan",
     desc: "Masyarakat Banjar berjuang mempertahankan kemerdekaan Republik Indonesia melalui Proklamasi Gubernur ALRI Divisi IV pertahanan Kalimantan oleh Hasan Basry pada 17 Mei 1949, menyatukan Kalimantan ke pangkuan Ibu Pertiwi.",
-    img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?fit=crop&w=800&q=75&fm=webp",
+    img: "/sejarah/bendera-merah-putih.webp",
     tag: "Kemerdekaan"
   },
   {
@@ -43,7 +43,7 @@ const timelineData = [
     title: "Metropolitan Seribu Sungai",
     subtitle: "Kota Baiman (Barasih wan Nyaman)",
     desc: "Banjarmasin terus bertransformasi menjadi kota perdagangan modern dan gerbang logistik Kalimantan, tanpa meninggalkan identitas bahari serta budaya pasar terapung yang mengakar kuat pada peradaban sungai.",
-    img: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=800&q=75&fm=webp",
+    img: "/sejarah/banjarmasin baiman.webp",
     tag: "Modernitas"
   }
 ];
@@ -114,13 +114,13 @@ export default function Sejarah() {
           {/* Desktop Left Frames */}
           <div className="hidden md:block absolute left-4 lg:left-10 top-8 w-full max-w-[300px]">
             <HangingFrame 
-              src="https://images.unsplash.com/photo-1542385151-efd9000785a0?fit=crop&w=600&q=75&fm=webp" 
+              src="/sejarah/Kesultanan-Banjar.webp" 
               className="absolute left-0 top-0"
               width="w-[200px] lg:w-[260px]"
               height="h-[280px] lg:h-[350px]"
             />
             <HangingFrame 
-              src="https://images.unsplash.com/photo-1590418606746-018840f988f0?fit=crop&w=600&q=75&fm=webp" 
+              src="/sejarah/PERANG_BANJAR_1857-1859.webp" 
               className="absolute left-24 lg:left-40 top-56 lg:top-72 z-20"
               width="w-[180px] lg:w-[220px]"
               height="h-[240px] lg:h-[300px]"
@@ -143,13 +143,13 @@ export default function Sejarah() {
           {/* Desktop Right Frames */}
           <div className="hidden md:block absolute right-4 lg:right-10 top-0 w-full max-w-[300px]">
             <HangingFrame 
-              src="https://images.unsplash.com/photo-1520645521318-f09a7a92fb04?fit=crop&w=600&q=75&fm=webp" 
+              src="/sejarah/250px-Lukisan_Sultan_Suriansyah.webp" 
               className="absolute right-0 top-0"
               width="w-[200px] lg:w-[260px]"
               height="h-[280px] lg:h-[350px]"
             />
             <HangingFrame 
-              src="https://images.unsplash.com/photo-1588615419951-af7cb7af766c?fit=crop&w=600&q=75&fm=webp" 
+              src="/sejarah/pangeran antasari.webp" 
               className="absolute right-24 lg:right-40 top-48 lg:top-64 z-20"
               width="w-[180px] lg:w-[220px]"
               height="h-[240px] lg:h-[300px]"
@@ -159,13 +159,13 @@ export default function Sejarah() {
           {/* Mobile Frames (Compact Tilted Duo side-by-side) */}
           <div className="md:hidden flex justify-center items-start gap-3 sm:gap-6 mt-16 w-full px-2 pb-6">
             <HangingFrame 
-              src="https://images.unsplash.com/photo-1542385151-efd9000785a0?fit=crop&w=600&q=75&fm=webp" 
+              src="/sejarah/Kesultanan-Banjar.webp" 
               className="relative -rotate-3"
               width="w-[145px] sm:w-[180px]"
               height="h-[190px] sm:h-[240px]"
             />
             <HangingFrame 
-              src="https://images.unsplash.com/photo-1520645521318-f09a7a92fb04?fit=crop&w=600&q=75&fm=webp" 
+              src="/sejarah/pangeran antasari.webp" 
               className="relative rotate-3 translate-y-4"
               width="w-[145px] sm:w-[180px]"
               height="h-[190px] sm:h-[240px]"
@@ -234,7 +234,7 @@ export default function Sejarah() {
                 </p>
               </div>
               <div className="lg:col-span-6 order-1 lg:order-2 h-[260px] sm:h-[350px] rounded-2xl overflow-hidden shadow-lg relative group">
-                <img 
+                <img loading="lazy" 
                   src={timelineData[activeTab].img} 
                   alt={timelineData[activeTab].title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
@@ -269,8 +269,8 @@ export default function Sejarah() {
             {/* Tokoh 1: Sultan Suriansyah */}
             <div className="group relative bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[32px] overflow-hidden hover:border-[#F4C038] transition-all duration-500 shadow-xl flex flex-col justify-between min-h-[480px]">
               <div className="h-[220px] sm:h-[260px] w-full overflow-hidden relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1548013146-72479768bada?fit=crop&w=800&q=75&fm=webp" 
+                <img loading="lazy" 
+                  src="/sejarah/250px-Lukisan_Sultan_Suriansyah.webp" 
                   alt="Sultan Suriansyah" 
                   className="w-full h-full object-cover grayscale sepia group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-105 transition-all duration-700" 
                 />
@@ -298,8 +298,8 @@ export default function Sejarah() {
             {/* Tokoh 2: Pangeran Antasari */}
             <div className="group relative bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[32px] overflow-hidden hover:border-[#33C3B3] transition-all duration-500 shadow-xl flex flex-col justify-between min-h-[480px]">
               <div className="h-[220px] sm:h-[260px] w-full overflow-hidden relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?fit=crop&w=800&q=75&fm=webp" 
+                <img loading="lazy" 
+                  src="/sejarah/pangeran antasari.webp" 
                   alt="Pangeran Antasari" 
                   className="w-full h-full object-cover grayscale sepia group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-105 transition-all duration-700" 
                 />
@@ -362,7 +362,7 @@ export default function Sejarah() {
             <div className="lg:col-span-7 grid grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
                 <div className="h-[200px] sm:h-[260px] rounded-3xl overflow-hidden shadow-xl border border-[var(--glass-border)] relative group">
-                  <img src="https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?fit=crop&w=600&q=75&fm=webp" alt="Pasar Terapung" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  <img loading="lazy" src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" alt="Pasar Terapung" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                   <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">Pasar Terapung Abad 16</div>
                 </div>
                 <div className="p-6 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-center">
@@ -376,7 +376,7 @@ export default function Sejarah() {
                   <span className="text-xs text-[var(--text-muted)] font-bold uppercase tracking-wider">Komoditas Lada Terbaik Era VOC</span>
                 </div>
                 <div className="h-[200px] sm:h-[260px] rounded-3xl overflow-hidden shadow-xl border border-[var(--glass-border)] relative group">
-                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=600&q=75&fm=webp" alt="Sungai Martapura" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  <img loading="lazy" src="/profil kota/sungai.webp" alt="Sungai Martapura" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                   <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">Jalur Martapura</div>
                 </div>
               </div>
