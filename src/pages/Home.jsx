@@ -207,7 +207,7 @@ export default function Home() {
       {/* =========================================================
           HERO SECTION (DISNEY+ SHOWCASE ACCORDION FULL-WIDTH)
           ========================================================= */}
-      <section className="relative w-full h-screen min-h-[600px] bg-[var(--bg-main)] pt-20 sm:pt-24 overflow-hidden flex flex-col border-b border-[var(--glass-border)]">
+      <section className="relative w-full h-screen min-h-[600px] bg-[var(--bg-main)] pt-[56px] sm:pt-[60px] overflow-hidden flex flex-col border-b border-[var(--glass-border)]">
         <div className="w-full flex-1 flex flex-col md:flex-row gap-[1px] bg-white/10 relative z-10 overflow-hidden">
           {showcaseItems.map((item, i) => {
             const isActive = activeSlide === i;
