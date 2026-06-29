@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { HelmetProvider } from 'react-helmet-async';
 import SEOMeta from './components/SEOMeta';
+import ScrollToTop from './components/ScrollToTop';
 import AcilAssistant from './components/AcilAssistant';
 import './App.css';
 
@@ -84,6 +85,7 @@ export default function App() {
       <LanguageProvider>
         <SEOMeta />
         <BrowserRouter>
+          <ScrollToTop />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
