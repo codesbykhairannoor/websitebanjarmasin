@@ -13,7 +13,7 @@ const pillarsData = [
     icon: "🏛️",
     color: "#00A896",
     gradient: "from-[#00A896] to-[#028090]",
-    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
+    img: "/profil kota/kantor walikota.webp",
     heightClass: "h-[520px] lg:h-[600px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 50px, 100% 100%, 0 100%)" },
     alignClass: "text-left items-start",
@@ -22,11 +22,11 @@ const pillarsData = [
   {
     id: "living",
     title: "Smart Living",
-    subtitle: "Kesehatan & Kenyamanan",
-    icon: "🏥",
+    subtitle: "Trans Banjarbakula & Kesehatan",
+    icon: "🚌",
     color: "#E63946",
     gradient: "from-[#E63946] to-[#B81D24]",
-    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
+    img: "/wisata/menara tugu pal 0.webp",
     heightClass: "h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 40px, 100% 100%, 0 100%)" },
     alignClass: "text-left items-start",
@@ -52,7 +52,7 @@ const pillarsData = [
     icon: "📊",
     color: "#F4C038",
     gradient: "from-[#F4C038] to-[#D99B00]",
-    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
+    img: "/profil kota/kawasan niaga.webp",
     heightClass: "h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 40px, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-right items-end",
@@ -65,7 +65,7 @@ const pillarsData = [
     icon: "🤝",
     color: "#7B2CBF",
     gradient: "from-[#7B2CBF] to-[#5A189A]",
-    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
+    img: "/wisata/960px-Menara_Pandang_Banjarmasin.webp",
     heightClass: "h-[520px] lg:h-[600px]",
     clipStyle: { clipPath: "polygon(0 50px, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-right items-end",
@@ -75,7 +75,7 @@ const pillarsData = [
 
 export default function SmartCity() {
   const [activeAppTab, setActiveAppTab] = useState("parakAcil");
-  const [activeEcoTab, setActiveEcoTab] = useState("sungai");
+  const [activeEcoTab, setActiveEcoTab] = useState("transBanjarbakula");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -311,7 +311,7 @@ export default function SmartCity() {
           SECTION 2: LAYANAN KEPENDUDUKAN & KESEHATAN (DUAL CARDS)
           ========================================================= */}
       <section className="py-24 bg-[var(--card-bg)] border-y border-[var(--glass-border)] relative">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 scroll-animate">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
               ✦ SMART GOVERNANCE & SMART LIVING
@@ -382,7 +382,7 @@ export default function SmartCity() {
           SECTION 3: REVOLUSI PERIZINAN & PASAR (STEPPER WORKFLOW)
           ========================================================= */}
       <section className="py-24 bg-[var(--bg-main)] relative overflow-hidden">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 scroll-animate">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#F4C038] mb-2 font-heading">
               ✦ SMART ECONOMY & PERIZINAN
@@ -446,33 +446,33 @@ export default function SmartCity() {
       </section>
 
       {/* =========================================================
-          SECTION 4: EKOLOGI & CCTV (INTERACTIVE TABS)
+          SECTION 4: SMART MOBILITY & EKOLOGI (INTERACTIVE TABS)
           ========================================================= */}
       <section className="py-24 bg-[var(--card-bg)] border-t border-[var(--glass-border)] relative">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 scroll-animate">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ SMART ENVIRONMENT & ATCS
+              ✦ SMART MOBILITY & ENVIRONMENT
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
-              Menjaga Urat Nadi <span className="text-[#33C3B3]">Seribu Sungai</span>
+              Inovasi Transportasi & <span className="text-[#33C3B3]">Ekologi</span>
             </h2>
             <p className="text-[var(--text-muted)] font-body mt-3 text-sm sm:text-base">
-              Kolaborasi penataan sungai secara preventif dan pemantauan lalu lintas perairan berbasis teknologi.
+              Modernisasi transportasi publik Buy The Service (BTS) terintegrasi serta pemantauan perairan secara digital.
             </p>
           </div>
 
           {/* Toggle Buttons */}
-          <div className="flex justify-center gap-4 mb-10">
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
             <button
-              onClick={() => setActiveEcoTab("sungai")}
+              onClick={() => setActiveEcoTab("transBanjarbakula")}
               className={`px-6 py-3 rounded-full font-heading font-black text-xs sm:text-sm transition-all border ${
-                activeEcoTab === "sungai"
+                activeEcoTab === "transBanjarbakula"
                   ? 'bg-[#33C3B3] text-[#091422] border-[#33C3B3] shadow-[0_0_20px_rgba(51,195,179,0.4)] scale-105'
                   : 'bg-[var(--bg-main)] text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[#33C3B3]'
               }`}
             >
-              🌿 Sungaiku Baiman & Maharagu Sungai
+              🚌 Trans Banjarbakula (Tayo Hijau)
             </button>
             <button
               onClick={() => setActiveEcoTab("cctv")}
@@ -482,7 +482,7 @@ export default function SmartCity() {
                   : 'bg-[var(--bg-main)] text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[#E63946]'
               }`}
             >
-              📹 Live CCTV & ATCS Command Center
+              📹 Live CCTV ATCS & Maharagu Sungai
             </button>
           </div>
 
@@ -496,41 +496,48 @@ export default function SmartCity() {
               transition={{ duration: 0.3 }}
               className="bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[32px] p-6 sm:p-10 max-w-4xl mx-auto shadow-2xl grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
             >
-              {activeEcoTab === "sungai" ? (
+              {activeEcoTab === "transBanjarbakula" ? (
                 <>
-                  <div className="md:col-span-7 space-y-4">
-                    <span className="text-xs font-bold text-[#33C3B3] uppercase tracking-wider block">Kampanye Partisipatif Warga</span>
-                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Program "Maharagu Sungai"</h3>
+                  <div className="md:col-span-7 space-y-4 text-left">
+                    <span className="text-xs font-bold text-[#33C3B3] uppercase tracking-wider block">Kemenhub BTS & Pemprov Kalsel</span>
+                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Bus Trans Banjarbakula</h3>
                     <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed">
-                      Dalam bahasa Banjar, *Maharagu* berarti memelihara atau merawat. Program inovatif ini mengajak komunitas peduli sungai dan warga bantaran untuk aktif menjaga kebersihan, tidak membuang limbah ke sungai, serta mendukung normalisasi dan penataan Siring agar sungai menjadi halaman depan kota yang membanggakan.
+                      Populer disebut warga sebagai **"Tayo Hijau"**, sistem Bus Rapid Transit (BRT) modern ini melayani rute aglomerasi Banjarmasin hingga Banjarbaru. Dilengkapi CCTV pengaman, sistem pembayaran 100% *cashless* (e-Money Mandiri, BRI, BNI, BCA), tarif terjangkau (Rp5.000 umum / Rp2.000 pelajar & lansia), serta pelacakan posisi bus real-time via aplikasi **Teman Bus / BTSGo**.
                     </p>
-                    <div className="pt-2">
+                    <div className="pt-2 flex flex-wrap gap-2">
                       <span className="inline-block bg-[#33C3B3]/20 text-[#33C3B3] font-bold text-xs px-4 py-2 rounded-xl border border-[#33C3B3]/30">
-                        Visi: Barasih wan Nyaman (Baiman) ✓
+                        100% Cashless & Full AC ✓
+                      </span>
+                      <span className="inline-block bg-[#F4C038]/20 text-[#F4C038] font-bold text-xs px-4 py-2 rounded-xl border border-[#F4C038]/30">
+                        Tarif Pelajar Rp2.000 ✓
                       </span>
                     </div>
                   </div>
-                  <div className="md:col-span-5 h-[220px] rounded-2xl overflow-hidden shadow-lg">
-                    <img loading="lazy" src="/profil kota/sungai.webp" alt="Sungai Martapura" className="w-full h-full object-cover" />
+                  <div className="md:col-span-5 h-[240px] rounded-2xl overflow-hidden shadow-lg relative">
+                    <img loading="lazy" src="/wisata/menara tugu pal 0.webp" alt="Trans Banjarbakula Koridor Banjarmasin" className="w-full h-full object-cover" />
+                    <div className="absolute bottom-3 left-3 bg-[#091422]/80 backdrop-blur-md text-[#33C3B3] text-[10px] font-bold px-3 py-1 rounded-full border border-[#33C3B3]/40">📍 Koridor Siring & Pal 0</div>
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="md:col-span-7 space-y-4">
-                    <span className="text-xs font-bold text-[#E63946] uppercase tracking-wider block">Diskominfotik & Dishub</span>
-                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Integrasi CCTV & ATCS</h3>
+                  <div className="md:col-span-7 space-y-4 text-left">
+                    <span className="text-xs font-bold text-[#E63946] uppercase tracking-wider block">Diskominfotik & Maharagu Sungai</span>
+                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Integrasi CCTV & Ekologi</h3>
                     <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed">
-                      Pemantauan arus lalu lintas darat dan situasi perairan sungai secara live 24 jam. Warga dapat memantau kondisi jalan sebelum berpergian langsung lewat menu CCTV di aplikasi Banjarmasin Pintar, membantu penguraian kemacetan dan peringatan dini pasang surut air laut.
+                      Command Center memantau arus lalu lintas di puluhan persimpangan ATCS dan situasi debit air sungai 24 jam non-stop. Warga dapat memantau kondisi jalan secara live melalui aplikasi **Banjarmasin Pintar**, bersinergi dengan program gotong royong warga *"Maharagu Sungai"* untuk menjaga kebersihan halaman depan kota.
                     </p>
-                    <div className="pt-2">
+                    <div className="pt-2 flex flex-wrap gap-2">
                       <span className="inline-block bg-[#E63946]/20 text-[#E63946] font-bold text-xs px-4 py-2 rounded-xl border border-[#E63946]/30">
-                        Pantau Real-Time via HP ✓
+                        Live Stream via HP ✓
+                      </span>
+                      <span className="inline-block bg-[#00A896]/20 text-[#00A896] font-bold text-xs px-4 py-2 rounded-xl border border-[#00A896]/30">
+                        Maharagu Sungai ✓
                       </span>
                     </div>
                   </div>
-                  <div className="md:col-span-5 h-[220px] rounded-2xl overflow-hidden shadow-lg relative">
-                    <img loading="lazy" src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" alt="CCTV Command Center" className="w-full h-full object-cover" />
-                    <div className="absolute top-3 left-3 bg-red-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full animate-pulse">● LIVE REC</div>
+                  <div className="md:col-span-5 h-[240px] rounded-2xl overflow-hidden shadow-lg relative">
+                    <img loading="lazy" src="/profil kota/sungai.webp" alt="CCTV & Ekologi Sungai" className="w-full h-full object-cover" />
+                    <div className="absolute top-3 left-3 bg-red-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full animate-pulse">● LIVE ATCS</div>
                   </div>
                 </>
               )}
@@ -543,8 +550,7 @@ export default function SmartCity() {
       {/* =========================================================
           SECTION 5: SMART SOCIETY & EPILOG (CTA)
           ========================================================= */}
-      <section className="py-28 bg-gradient-to-b from-[var(--card-bg)] to-[var(--bg-main)] relative text-center overflow-hidden border-t border-[var(--glass-border)]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-500/10 blur-[150px] rounded-full pointer-events-none -z-10" />
+      <section className="py-28 bg-gradient-to-b from-[var(--card-bg)] to-[var(--bg-main)] relative text-center overflow-hidden border-t border-[var(--glass-border)] scroll-animate">
         
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <span className="inline-block text-xs font-extrabold tracking-[0.3em] uppercase text-[#7B2CBF] mb-6 font-heading">
@@ -558,7 +564,7 @@ export default function SmartCity() {
             Pemerintah Kota Banjarmasin memperluas akses internet publik gratis di taman-taman kota dan balai kelurahan demi mewujudkan ekosistem digital yang merata dan memajukan literasi warga.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/wisata" className="bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-black px-8 py-4 rounded-full shadow-[0_0_25px_rgba(244,192,56,0.4)] transition-transform hover:-translate-y-1 text-sm sm:text-base">
+            <Link to="/wisata" className="bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-black px-8 py-4 rounded-full shadow-md transition-transform hover:-translate-y-1 text-sm sm:text-base">
               Jelajahi Peta Wisata ➔
             </Link>
             <Link to="/profil" className="bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#33C3B3] text-[var(--text-main)] font-black px-8 py-4 rounded-full transition-all text-sm sm:text-base">
