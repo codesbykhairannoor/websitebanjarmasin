@@ -23,6 +23,14 @@ export default function Home() {
     ...(slides[idx] || {})
   }));
 
+  // === AUTO-PLAY HERO SLIDER ===
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % showcaseItems.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [showcaseItems.length]);
+
   // === STATE FOR QUICK DISCOVERY ===
   const spotsImages = [
     { id: 1, img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp", span: "bento-span-2" },
@@ -166,101 +174,87 @@ export default function Home() {
       {/* =========================================================
           HERO SECTION (DISNEY+ SHOWCASE ACCORDION FULL-WIDTH)
           ========================================================= */}
-      <section className="relative w-full h-screen min-h-[600px] bg-[var(--bg-main)] pt-[56px] sm:pt-[60px] overflow-hidden flex flex-col border-b border-[var(--glass-border)]">
-        <div className="w-full flex-1 flex flex-col md:flex-row gap-[1px] bg-white/10 relative z-10 overflow-hidden">
+      <section className="relative w-full h-[85vh] min-h-[600px] bg-black pt-[56px] sm:pt-[60px] overflow-hidden flex flex-col border-b border-[var(--glass-border)]">
+        
+        {/* Full-screen Slider Container */}
+        <div className="w-full h-full relative z-10 overflow-hidden">
           {showcaseItems.map((item, i) => {
             const isActive = activeSlide === i;
             return (
               <div
                 key={item.id}
-                onClick={() => setActiveSlide(i)}
-                className={`relative overflow-hidden transition-[flex] duration-500 ease-out select-none ${
-                  isActive
-                    ? "flex-[5] sm:flex-[6] md:flex-[8] lg:flex-[10] z-20 shadow-2xl cursor-default"
-                    : "flex-[0.85] sm:flex-[1] md:flex-[1.2] lg:flex-[1.5] cursor-pointer group border-b md:border-b-0 md:border-r border-white/15 last:border-0 hover:brightness-125 hover:shadow-[inset_0_0_35px_rgba(244,192,56,0.4)] transition-[filter,box-shadow] duration-300"
+                className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+                  isActive ? "opacity-100 z-20" : "opacity-0 z-10"
                 }`}
               >
-                {/* Background Image */}
+                {/* Background Image with Zoom Effect */}
                 <img loading="lazy"
                   src={item.img}
                   alt={item.title}
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-                    isActive ? "scale-105 brightness-100" : "grayscale-[30%] brightness-75 group-hover:brightness-100"
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-out ${
+                    isActive ? "scale-110" : "scale-100"
                   }`}
                 />
 
-                {/* Content Overlay when ACTIVE */}
-                {isActive ? (
-                  <>
-                    <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black via-black/85 to-transparent w-full md:w-3/4 lg:w-2/3 z-10 pointer-events-none" />
-                    <div className="absolute inset-0 z-20 p-5 sm:p-8 md:p-14 lg:p-16 flex flex-col justify-end md:justify-center max-w-xl text-white overflow-y-auto">
-                      <span className="text-[#F4C038] font-heading font-extrabold text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase mb-1 sm:mb-2 block animate-fadeIn">
-                        {item.tag}
-                      </span>
-                      <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-2 sm:mb-3 drop-shadow-md animate-fadeIn text-white">
-                        {item.title}
-                      </h1>
-                      <p className="text-sm sm:text-base md:text-xl font-bold text-sasirangan mb-2 sm:mb-4 font-heading animate-fadeIn">
-                        {item.subtitle}
-                      </p>
-                      <p className="hidden sm:block text-xs md:text-base text-gray-200 mb-4 sm:mb-6 leading-relaxed line-clamp-2 md:line-clamp-3 animate-fadeIn">
-                        {item.desc}
-                      </p>
-                      <div className="flex flex-wrap items-center gap-3 sm:gap-4 animate-fadeIn">
-                        {item.btnLink.startsWith('#') ? (
-                          <a
-                            href={item.btnLink}
-                            className="bg-[#F4C038] hover:bg-white text-[#091422] px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-heading font-black text-xs sm:text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20"
-                          >
-                            <span>⚡</span> {item.btnText}
-                          </a>
-                        ) : (
-                          <Link
-                            to={item.btnLink}
-                            className="bg-[#F4C038] hover:bg-white text-[#091422] px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-heading font-black text-xs sm:text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20"
-                          >
-                            <span>⚡</span> {item.btnText}
-                          </Link>
-                        )}
-                        <span className="text-[11px] sm:text-sm font-bold text-gray-300 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2 sm:py-3 rounded-full border border-white/20">
-                          {item.price}
-                        </span>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  /* Content Overlay when INACTIVE */
-                  <>
-                    {/* Desktop Inactive: Vertical Text Strip */}
-                    <div className="hidden md:flex absolute inset-0 flex-col justify-between items-center p-3 sm:p-4 z-10 pointer-events-none bg-gradient-to-t from-black/90 via-black/20 to-black/60">
-                      <span className="w-8 h-8 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-xs font-bold text-[#F4C038] shrink-0">
-                        0{i + 1}
-                      </span>
-                      <div className="flex-1 flex items-center justify-center py-4 overflow-hidden">
-                        <span className="block font-heading font-extrabold text-white text-xs sm:text-sm tracking-widest uppercase -rotate-90 whitespace-nowrap drop-shadow-lg">
-                          {item.shortTitle}
-                        </span>
-                      </div>
-                      <span className="text-xl shrink-0 drop-shadow">{item.icon}</span>
-                    </div>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
 
-                    {/* Mobile Inactive: Horizontal Bar Strip */}
-                    <div className="md:hidden absolute inset-0 flex items-center justify-between px-5 z-10 pointer-events-none bg-black/75">
-                      <div className="flex items-center gap-3">
-                        <span className="w-6 h-6 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-[10px] font-bold text-[#F4C038]">
-                          0{i + 1}
-                        </span>
-                        <span className="font-heading font-extrabold text-white text-xs tracking-widest uppercase drop-shadow-md">
-                          {item.shortTitle}
-                        </span>
-                      </div>
-                      <span className="text-lg drop-shadow">{item.icon}</span>
-                    </div>
-                  </>
-                )}
+                {/* Content Overlay */}
+                <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-24 sm:pb-32 px-5 sm:px-10 md:px-20 lg:px-32 max-w-5xl text-white transition-all duration-1000 delay-300 ${
+                  isActive ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}>
+                  <span className="text-[#F4C038] font-heading font-extrabold text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase mb-2 block">
+                    {item.tag}
+                  </span>
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-black tracking-tight leading-tight mb-2 sm:mb-4 drop-shadow-lg text-white">
+                    {item.title}
+                  </h1>
+                  <p className="text-sm sm:text-lg md:text-2xl font-bold text-sasirangan mb-3 sm:mb-5 font-heading drop-shadow-md">
+                    {item.subtitle}
+                  </p>
+                  <p className="hidden sm:block text-xs md:text-lg text-gray-200 mb-6 sm:mb-8 leading-relaxed line-clamp-3 md:line-clamp-4 drop-shadow-md max-w-3xl">
+                    {item.desc}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                    {item.btnLink.startsWith('#') ? (
+                      <a
+                        href={item.btnLink}
+                        className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 sm:px-8 py-3 sm:py-4 rounded-full font-heading font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all hover:scale-105 flex items-center gap-2"
+                      >
+                        {item.btnText} ➔
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.btnLink}
+                        className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 sm:px-8 py-3 sm:py-4 rounded-full font-heading font-black text-xs sm:text-sm shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all hover:scale-105 flex items-center gap-2"
+                      >
+                        {item.btnText} ➔
+                      </Link>
+                    )}
+                    <span className="text-xs sm:text-sm font-bold text-gray-200 bg-white/20 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-full border border-white/30">
+                      {item.price}
+                    </span>
+                  </div>
+                </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Navigation Dots Indicator */}
+        <div className="absolute bottom-8 left-0 w-full z-30 flex justify-center items-center gap-3">
+          {showcaseItems.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveSlide(i)}
+              className={`transition-all duration-500 rounded-full ${
+                activeSlide === i 
+                  ? "w-8 sm:w-12 h-2 sm:h-2.5 bg-[#F4C038]" 
+                  : "w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/50 hover:bg-white/80"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
       </section>
 
