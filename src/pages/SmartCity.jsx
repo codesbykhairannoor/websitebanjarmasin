@@ -149,14 +149,8 @@ export default function SmartCity() {
                   <span className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-sm sm:text-base md:text-xl shadow mx-auto md:mx-0 shrink-0">
                     {pillar.icon}
                   </span>
-                  <div className="w-full text-center md:text-left mt-1 sm:mt-0 flex flex-col items-center md:items-start flex-1">
-                    <h3 
-                      className="font-heading font-black text-[10px] sm:text-xs md:text-base lg:text-lg leading-[1.1] sm:leading-tight mt-1 sm:mt-0"
-                      style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
-                    >
-                      <span className="sm:hidden">{transPillar.title || pillar.title}</span>
-                    </h3>
-                    <h3 className="hidden sm:block font-heading font-black text-[8.5px] sm:text-xs md:text-base lg:text-lg leading-[1.1] sm:leading-tight line-clamp-2">
+                  <div className="w-full text-center md:text-left mt-1 sm:mt-0 flex flex-col items-center md:items-start flex-1 justify-center sm:justify-start">
+                    <h3 className="font-heading font-black text-[9px] sm:text-xs md:text-base lg:text-lg leading-[1.1] sm:leading-tight line-clamp-3 mt-1 sm:mt-0">
                       {transPillar.title || pillar.title}
                     </h3>
                     <span className="hidden sm:block text-[10px] md:text-[11px] font-medium text-white/90 mt-0.5 line-clamp-1">

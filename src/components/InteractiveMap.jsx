@@ -115,7 +115,18 @@ const mapLocations = [
   }
 ];
 
+import { useLanguage } from '../context/LanguageContext';
+import { pagesTranslations } from '../translations/pagesTranslations';
+
 export default function InteractiveMap() {
+  const { language } = useLanguage();
+  
+  const tMap = (key) => {
+    return pagesTranslations[language]?.wisata?.interactiveMap?.[key] || 
+           pagesTranslations['id']?.wisata?.interactiveMap?.[key] || 
+           "";
+  };
+
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef({});
@@ -199,13 +210,13 @@ export default function InteractiveMap() {
     <section className="py-20 max-w-[1240px] mx-auto px-4 border-t border-[var(--glass-border)]">
       <div className="text-center max-w-3xl mx-auto mb-12 wisata-reveal">
         <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
-          ✦ RADAR EKSPLORASI SERIBU SUNGAI
+          {tMap('tag') || "✦ RADAR EKSPLORASI SERIBU SUNGAI"}
         </span>
         <h2 className="text-3xl sm:text-5xl font-black text-[var(--text-main)] font-heading mb-4">
-          Peta Interaktif <span className="text-[#F4C038]">Wisata Banjar</span>
+          {tMap('title') || "Peta Interaktif"} <span className="text-[#F4C038]">{tMap('titleSpan') || "Wisata Banjar"}</span>
         </h2>
         <p className="text-sm sm:text-base text-[var(--text-muted)] font-body">
-          Klik destinasi pada daftar atau pin di peta untuk terbang langsung ke lokasi secara dinamis.
+          {tMap('subtitle') || "Klik destinasi pada daftar atau pin di peta untuk terbang langsung ke lokasi secara dinamis."}
         </p>
       </div>
 
@@ -275,7 +286,7 @@ export default function InteractiveMap() {
           {activeLoc && (
             <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 z-[400] bg-[var(--card-bg)]/95 backdrop-blur-md border border-[#F4C038] p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-4">
               <div className="min-w-0">
-                <span className="text-[10px] text-[#F4C038] font-bold uppercase tracking-wider block">Lokasi Terpilih</span>
+                <span className="text-[10px] text-[#F4C038] font-bold uppercase tracking-wider block">{tMap('lokasiTerpilih') || "Lokasi Terpilih"}</span>
                 <h5 className="font-heading font-black text-sm text-[var(--text-main)] truncate">{activeLoc.title}</h5>
               </div>
               <a
@@ -284,7 +295,7 @@ export default function InteractiveMap() {
                 rel="noopener noreferrer"
                 className="bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-black text-xs px-4 py-2.5 rounded-xl shrink-0 shadow-md transition-transform hover:scale-105"
               >
-                Buka Rute ➔
+                {tMap('bukaRute') || "Buka Rute ➔"}
               </a>
             </div>
           )}

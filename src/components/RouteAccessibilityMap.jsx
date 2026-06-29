@@ -224,6 +224,14 @@ const routeLocations = [
 ];
 
 export default function RouteAccessibilityMap() {
+  const { language } = useLanguage();
+
+  const tMap = (key) => {
+    return pagesTranslations[language]?.panduan?.routeMap?.[key] || 
+           pagesTranslations['id']?.panduan?.routeMap?.[key] || 
+           "";
+  };
+
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef({});
@@ -240,7 +248,7 @@ export default function RouteAccessibilityMap() {
     if (!mapContainerRef.current) return;
     if (mapInstanceRef.current) return;
 
-    // Inisialisasi Map pusat di Banjarmasin (zoom 12 agar cakupan ke Km 17 & Bandara terlihat proporsional)
+    // Inisialisasi Map pusat di Banjarmasin
     const map = L.map(mapContainerRef.current, {
       center: [-3.3300, 114.6200],
       zoom: 12,
@@ -327,13 +335,13 @@ export default function RouteAccessibilityMap() {
       {/* Header Khusus Section Peta Rute & Aksesibilitas */}
       <div className="text-center max-w-3xl mx-auto mb-8 animate-fadeIn">
         <span className="text-xs font-black uppercase tracking-widest text-[#00A896] font-heading block mb-2">
-          ✦ RADAR AKSESIBILITAS &amp; KONEKTIVITAS KOTA
+          {tMap('tag') || "✦ RADAR AKSESIBILITAS & KONEKTIVITAS KOTA"}
         </span>
         <h3 className="text-2xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
-          Peta Rute &amp; <span className="text-[#F4C038]">Titik Strategis</span>
+          {tMap('title') || "Peta Rute"} <span className="text-[#F4C038]">{tMap('titleSpan') || "Titik Strategis"}</span>
         </h3>
         <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">
-          Lacak posisi halte bus BRT Trans Banjarbakula, destinasi wisata ikonik, dermaga kelotok, hotel pilihan, hingga posko medis darurat secara live.
+          {tMap('subtitle') || "Lacak posisi halte bus BRT Trans Banjarbakula, destinasi wisata ikonik, dermaga kelotok, hotel pilihan, hingga posko medis darurat secara live."}
         </p>
       </div>
 
@@ -422,23 +430,24 @@ export default function RouteAccessibilityMap() {
         <div className="lg:col-span-7 h-[380px] sm:h-[520px] rounded-2xl overflow-hidden relative border border-[var(--glass-border)] shadow-inner order-1 lg:order-2">
           <div ref={mapContainerRef} className="w-full h-full z-10" />
           
-          {/* Active Location Floating Badge */}
+          {/* Floating Action Button inside Map */}
           {activeLoc && (
-            <div className="absolute top-4 left-4 right-4 sm:right-auto z-20 bg-black/85 backdrop-blur-md text-white p-3.5 rounded-2xl border border-white/20 shadow-2xl flex items-center justify-between gap-4 animate-fadeIn pointer-events-auto">
-              <div className="flex items-center gap-3 min-w-0 pointer-events-none">
-                <span className="text-2xl">{activeLoc.emoji}</span>
-                <div className="min-w-0">
-                  <span className="text-[10px] font-black text-[#F4C038] uppercase tracking-widest block">{activeLoc.category}</span>
-                  <h5 className="font-heading font-black text-xs sm:text-sm truncate text-white">{activeLoc.title}</h5>
-                </div>
+            <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 z-[400] bg-[var(--card-bg)]/95 backdrop-blur-md border border-[#00A896] p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-4 animate-fadeIn">
+              <div className="min-w-0">
+                <span className="text-[10px] text-[#00A896] font-bold uppercase tracking-wider block">
+                  {tMap('lokasiTerpilih') || "Lokasi Terpilih"}
+                </span>
+                <h5 className="font-heading font-black text-sm text-[var(--text-main)] truncate mt-1">
+                  {activeLoc.title}
+                </h5>
               </div>
               <a
                 href={activeLoc.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] font-black bg-[#F4C038] hover:bg-amber-400 text-[#091422] px-3 py-1.5 rounded-xl transition-all shrink-0 flex items-center gap-1 shadow-[0_2px_10px_rgba(244,192,56,0.4)] hover:scale-105"
+                className="bg-[#00A896] hover:bg-[#008075] text-white font-black text-xs px-4 py-2.5 rounded-xl shrink-0 shadow-md transition-transform hover:scale-105 flex items-center gap-1"
               >
-                <span>🗺️</span> Buka Maps ➔
+                {tMap('bukaRute') || "Buka Rute ➔"}
               </a>
             </div>
           )}
