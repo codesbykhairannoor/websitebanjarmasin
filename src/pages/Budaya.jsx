@@ -359,16 +359,16 @@ export default function Budaya() {
           SECTION 1: FILOSOFI BATATAMBA & WASTRA SASIRANGAN
           ========================================================================= */}
       <section className="py-16 max-w-[1240px] mx-auto px-4 border-t border-[var(--glass-border)]">
-        <div className="text-center md:text-left mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <span className="text-xs font-black uppercase tracking-widest text-[#F4C038] font-heading block mb-1">
+        <div className="text-center md:text-left mb-10 md:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="mx-auto md:mx-0 max-w-2xl">
+            <span className="text-sm font-black uppercase tracking-widest text-[#F4C038] font-heading block mb-2">
               • WARISAN KERAJINAN WBTb INDONESIA
             </span>
-            <h2 className="text-2xl md:text-4xl font-black text-[var(--text-main)] font-heading">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-2 md:mb-0">
               Filosofi Batatamba & <span className="text-[#33C3B3]">Wastra Sasirangan</span>
             </h2>
           </div>
-          <p className="text-xs md:text-sm text-[var(--text-muted)] max-w-md font-body leading-relaxed">
+          <p className="text-sm md:text-base text-[var(--text-muted)] max-w-md mx-auto md:mx-0 font-body leading-relaxed">
             Pilih motif di bawah untuk mengungkap rahasia pewarnaan alami dan filosofi ritual pengobatan tradisional Banjar.
           </p>
         </div>
@@ -477,14 +477,14 @@ export default function Budaya() {
           ========================================================================= */}
       <section className="py-16 border-t border-[var(--glass-border)]">
         <div className="max-w-[1240px] mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-1">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+            <span className="text-sm font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
               • SENI PERTUNJUKAN & TRADISI LISAN WBTb
             </span>
-            <h2 className="text-2xl md:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
               Panggung Lisan & <span className="text-[#F4C038]">Tradisi Banjar</span>
             </h2>
-            <p className="text-xs md:text-sm text-[var(--text-muted)] font-body">
+            <p className="text-sm md:text-base text-[var(--text-muted)] mx-auto font-body leading-relaxed">
               Enam warisan seni budaya Banjar yang telah diakui sebagai Warisan Budaya Takbenda (WBTb) Indonesia, dari panggung istana hingga ritual adat.
             </p>
           </div>
@@ -581,7 +581,7 @@ export default function Budaya() {
           </div>
 
           <div className="lg:col-span-5 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 md:p-8 shadow-md">
-            <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-1">
+            <span className="text-sm font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
               • ANATOMI & FILOSOFI KAYU ULIN
             </span>
             <AnimatePresence mode="wait">
@@ -592,7 +592,7 @@ export default function Budaya() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15 }}
               >
-                <h2 className="text-2xl md:text-3xl font-black text-[var(--text-main)] font-heading mb-4">
+                <h2 className="text-3xl md:text-4xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
                   {activePin.title}
                 </h2>
 
@@ -631,14 +631,14 @@ export default function Budaya() {
           ========================================================================= */}
       <section className="py-16 border-t border-[var(--glass-border)]">
         <div className="max-w-[1240px] mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-1">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+            <span className="text-sm font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
               • DUKUNG & LESTARIKAN BUDAYA LOKAL
             </span>
-            <h2 className="text-2xl md:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
               Etalase Festival & <span className="text-[#F4C038]">Komunitas Budaya</span>
             </h2>
-            <p className="text-xs md:text-sm text-[var(--text-muted)] font-body">
+            <p className="text-sm md:text-base text-[var(--text-muted)] mx-auto font-body leading-relaxed">
               Kunjungi portal resmi dan galeri digital para seniman serta pengrajin untuk mengenal lebih dekat warisan kebanggaan Banjarmasin.
             </p>
           </div>
