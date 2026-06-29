@@ -34,13 +34,13 @@ export default function App() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.01, rootMargin: '0px 0px 50px 0px' }
     );
 
     // Function to re-observe elements across all pages
     const observeElements = () => {
       const elements = document.querySelectorAll(
-        'section, .bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right, [class*="rounded-3xl"]:not(button):not(a):not(input), [class*="rounded-[40px]"]:not(button):not(a), [class*="rounded-[36px]"]:not(button):not(a), [class*="rounded-[32px]"]:not(button):not(a), [class*="rounded-2xl"]:not(button):not(a):not(input), [class*="rounded-xl"]:not(button):not(a):not(input)'
+        '.bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right, [class*="rounded-3xl"]:not(button):not(a):not(input), [class*="rounded-[40px]"]:not(button):not(a), [class*="rounded-[36px]"]:not(button):not(a), [class*="rounded-[32px]"]:not(button):not(a), [class*="rounded-2xl"]:not(button):not(a):not(input), [class*="rounded-xl"]:not(button):not(a):not(input)'
       );
       elements.forEach((el) => {
         if (!el.classList.contains('scroll-animate') && 

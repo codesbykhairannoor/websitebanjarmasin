@@ -26,7 +26,7 @@ const pillarsData = [
     icon: "🚌",
     color: "#E63946",
     gradient: "from-[#E63946] to-[#B81D24]",
-    img: "/wisata/menara tugu pal 0.webp",
+    img: "/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp",
     heightClass: "h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 40px, 100% 100%, 0 100%)" },
     alignClass: "text-left items-start",
@@ -52,7 +52,7 @@ const pillarsData = [
     icon: "📊",
     color: "#F4C038",
     gradient: "from-[#F4C038] to-[#D99B00]",
-    img: "/profil kota/kawasan niaga.webp",
+    img: "/profil kota/pasar wadai.webp",
     heightClass: "h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 40px, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-right items-end",
@@ -61,11 +61,11 @@ const pillarsData = [
   {
     id: "society",
     title: "Smart Society",
-    subtitle: "Literasi & Wi-Fi Publik",
-    icon: "🤝",
+    subtitle: "Literasi & Layanan Kesehatan",
+    icon: "🏥",
     color: "#7B2CBF",
     gradient: "from-[#7B2CBF] to-[#5A189A]",
-    img: "/wisata/960px-Menara_Pandang_Banjarmasin.webp",
+    img: "/profil kota/rs ulin.webp",
     heightClass: "h-[520px] lg:h-[600px]",
     clipStyle: { clipPath: "polygon(0 50px, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-right items-end",
@@ -311,7 +311,7 @@ export default function SmartCity() {
           SECTION 2: LAYANAN KEPENDUDUKAN & KESEHATAN (DUAL CARDS)
           ========================================================= */}
       <section className="py-24 bg-[var(--card-bg)] border-y border-[var(--glass-border)] relative">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 scroll-animate">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
               ✦ SMART GOVERNANCE & SMART LIVING
@@ -382,7 +382,7 @@ export default function SmartCity() {
           SECTION 3: REVOLUSI PERIZINAN & PASAR (STEPPER WORKFLOW)
           ========================================================= */}
       <section className="py-24 bg-[var(--bg-main)] relative overflow-hidden">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 scroll-animate">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#F4C038] mb-2 font-heading">
               ✦ SMART ECONOMY & PERIZINAN
@@ -449,7 +449,7 @@ export default function SmartCity() {
           SECTION 4: SMART MOBILITY & EKOLOGI (INTERACTIVE TABS)
           ========================================================= */}
       <section className="py-24 bg-[var(--card-bg)] border-t border-[var(--glass-border)] relative">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10 scroll-animate">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
               ✦ SMART MOBILITY & ENVIRONMENT
@@ -514,7 +514,7 @@ export default function SmartCity() {
                     </div>
                   </div>
                   <div className="md:col-span-5 h-[240px] rounded-2xl overflow-hidden shadow-lg relative">
-                    <img loading="lazy" src="/wisata/menara tugu pal 0.webp" alt="Trans Banjarbakula Koridor Banjarmasin" className="w-full h-full object-cover" />
+                    <img loading="lazy" src="/profil kota/trans banjarbakula.webp" alt="Trans Banjarbakula Koridor Banjarmasin" className="w-full h-full object-cover" />
                     <div className="absolute bottom-3 left-3 bg-[#091422]/80 backdrop-blur-md text-[#33C3B3] text-[10px] font-bold px-3 py-1 rounded-full border border-[#33C3B3]/40">📍 Koridor Siring & Pal 0</div>
                   </div>
                 </>
@@ -550,7 +550,7 @@ export default function SmartCity() {
       {/* =========================================================
           SECTION 5: SMART SOCIETY & EPILOG (CTA)
           ========================================================= */}
-      <section className="py-28 bg-gradient-to-b from-[var(--card-bg)] to-[var(--bg-main)] relative text-center overflow-hidden border-t border-[var(--glass-border)] scroll-animate">
+      <section className="py-28 bg-gradient-to-b from-[var(--card-bg)] to-[var(--bg-main)] relative text-center overflow-hidden border-t border-[var(--glass-border)]">
         
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <span className="inline-block text-xs font-extrabold tracking-[0.3em] uppercase text-[#7B2CBF] mb-6 font-heading">
