@@ -130,39 +130,64 @@ export default function InteractiveMap() {
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef({});
-  const [activeLoc, setActiveLoc] = useState(mapLocations[0]);
+  
+  const locationsT = tMap('locations') || [];
+  const translatedLocations = mapLocations.map((loc, index) => {
+    const locT = locationsT[index] || {};
+    return {
+      ...loc,
+      title: locT.title || loc.title,
+      category: locT.category || loc.category,
+      desc: locT.desc || loc.desc
+    };
+  });
+
+  const [activeLoc, setActiveLoc] = useState(translatedLocations[0]);
   const [selectedCategory, setSelectedCategory] = useState("Semua");
 
-  const categories = ["Semua", "Landmark", "Wisata Bahari", "Ikon Kota", "Wisata Sejarah", "Gastronomi", "Wisata Alam"];
+  const categories = tMap('categories') || ["Semua", "Landmark", "Wisata Bahari", "Ikon Kota", "Wisata Sejarah", "Gastronomi", "Wisata Alam"];
+  const selectedCategoryIndex = categories.indexOf(selectedCategory) !== -1 ? categories.indexOf(selectedCategory) : 0;
 
-  const filteredLocations = selectedCategory === "Semua" 
-    ? mapLocations 
-    : mapLocations.filter(loc => loc.category === selectedCategory);
+  const filteredLocations = selectedCategoryIndex === 0 
+    ? translatedLocations 
+    : translatedLocations.filter((loc, idx) => {
+        // Find original category name to filter correctly, or filter by translated
+        const originalCategory = mapLocations[translatedLocations.findIndex(tl => tl.id === loc.id)].category;
+        const originalSelectedCat = ["Semua", "Landmark", "Wisata Bahari", "Ikon Kota", "Wisata Sejarah", "Gastronomi", "Wisata Alam"][selectedCategoryIndex];
+        return originalCategory === originalSelectedCat;
+      });
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
-    if (mapInstanceRef.current) return;
 
-    // Inisialisasi Map pusat di Banjarmasin
-    const map = L.map(mapContainerRef.current, {
-      center: [-3.3100, 114.6000],
-      zoom: 13,
-      zoomControl: false,
-      scrollWheelZoom: false
-    });
+    let map = mapInstanceRef.current;
+    
+    // Inisialisasi Map pusat di Banjarmasin hanya sekali
+    if (!map) {
+      map = L.map(mapContainerRef.current, {
+        center: [-3.3100, 114.6000],
+        zoom: 13,
+        zoomControl: false,
+        scrollWheelZoom: false
+      });
 
-    // Gunakan CartoDB Voyager tiles yang bersih, elegan, dan cocok light/dark mode
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(map);
+      // Gunakan CartoDB Voyager tiles yang bersih, elegan, dan cocok light/dark mode
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
 
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
-    mapInstanceRef.current = map;
+      L.control.zoom({ position: 'bottomright' }).addTo(map);
+      mapInstanceRef.current = map;
+    }
 
-    // Tambahkan Markers
-    mapLocations.forEach(loc => {
+    // Bersihkan marker lama
+    Object.values(markersRef.current).forEach(marker => marker.remove());
+    markersRef.current = {};
+
+    // Tambahkan Markers dengan data terjemahan terbaru
+    translatedLocations.forEach(loc => {
       const customIcon = L.divIcon({
         className: 'custom-leaflet-pin',
         html: `<div style="background-color: ${loc.color}; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 0 15px ${loc.color}; border: 3px solid #ffffff; cursor: pointer; transition: transform 0.2s;">${loc.emoji}</div>`,
@@ -190,13 +215,12 @@ export default function InteractiveMap() {
       markersRef.current[loc.id] = marker;
     });
 
+    // We do not cleanup the map instance here on unmount to prevent double rendering issues in StrictMode,
+    // or we can clean it up if needed, but since it's reacting to `language`, we only clean markers.
     return () => {
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
-        mapInstanceRef.current = null;
-      }
+       // Only clean up markers on re-render, not the whole map to avoid flickering
     };
-  }, []);
+  }, [language]);
 
   const handleLocationClick = (loc) => {
     setActiveLoc(loc);

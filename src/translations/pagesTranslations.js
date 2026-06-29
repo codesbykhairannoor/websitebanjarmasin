@@ -64,6 +64,28 @@ export const pagesTranslations = {
       ]
     },
     wisata: {
+      
+      interactiveMap: {
+        tag: "✦ RADAR EKSPLORASI SERIBU SUNGAI",
+        title: "Peta Interaktif",
+        titleSpan: "Wisata Banjar",
+        subtitle: "Klik destinasi pada daftar atau pin di peta untuk terbang langsung ke lokasi secara dinamis.",
+        lokasiTerpilih: "Lokasi Terpilih",
+        bukaRute: "Buka Rute ➔",
+        categories: ["Semua", "Landmark", "Wisata Bahari", "Ikon Kota", "Wisata Sejarah", "Gastronomi", "Wisata Alam"],
+        locations: [
+          { title: "Menara Pandang & Siring Martapura", category: "Landmark", desc: "Landmark ikonik di pusat kota dengan pemandangan 360 derajat Sungai Martapura dan aktivitas dermaga kelotok." },
+          { title: "Pasar Terapung Lok Baintan", category: "Wisata Bahari", desc: "Pasar atas air tradisional sejak abad ke-16. Rasakan sensasi jual beli menggunakan perahu jukung di waktu subuh." },
+          { title: "Patung Maskot Bekantan", category: "Ikon Kota", desc: "Patung perunggu raksasa satwa endemik Borneo yang menyemburkan air langsung ke arah Sungai Martapura." },
+          { title: "Masjid Bersejarah Sultan Suriansyah", category: "Wisata Sejarah", desc: "Masjid tertua di Kalimantan Selatan yang dibangun pada tahun 1526, berarsitektur kayu ulin khas Banjar." },
+          { title: "Dermaga Kuliner Soto Bang Amat", category: "Gastronomi", desc: "Kuliner soto Banjar autentik di tepian sungai sembari menikmati pertunjukan musik Panting khas Banjar." },
+          { title: "Konservasi Pulau Kembang", category: "Wisata Alam", desc: "Pulau delta di tengah Sungai Barito yang menjadi habitat ribuan kera ekor panjang dan pura peninggalan lawas." },
+          { title: "Rumah Adat Bubungan Tinggi & Museum Wasaka", category: "Wisata Sejarah", desc: "Mahakarya arsitektur rumah adat Banjar berdinding ukiran kayu ulin tempat menyimpan artefak perjuangan pahlawan Wasaka." },
+          { title: "Tugu Nol Kilometer (Pal 0)", category: "Landmark", desc: "Monumen penanda titik nol kilometer acuan jarak Kota Banjarmasin yang dikelilingi taman terbuka hijau di tepi sungai." },
+          { title: "Masjid Raya Sabilal Muhtadin", category: "Wisata Sejarah", desc: "Masjid raya terbesar kebanggaan warga Kalsel dengan kubah tembaga megah di tengah hutan kota seluas 10 hektar." },
+          { title: "Taman Siring 0 Km", category: "Landmark", desc: "Kawasan pedestrian santai pesisir sungai Martapura yang dilengkapi arena rekreasi keluarga dan dermaga kelotok wisata." }
+        ]
+      },
       heroTag: "✦ EKSPLORASI DESTINASI BORNEO",
       heroTitle: "Jelajahi Pesona &",
       heroTitleSpan: "Wisata Seribu Sungai",
