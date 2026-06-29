@@ -104,106 +104,65 @@ export default function Sejarah() {
       <Navbar />
       
       {/* =========================================================
-          HERO SEJARAH: HANGING FRAMES & TYPOGRAPHY STANDAR
+          HERO SEJARAH: ASYMMETRIC HANGING GALLERY & TYPOGRAPHY
           ========================================================= */}
-      <div className="bg-[var(--bg-main)] pt-24 pb-16 overflow-hidden relative border-b border-[var(--glass-border)]">
+      <div className="bg-[var(--bg-main)] pt-28 pb-20 overflow-hidden relative border-b border-[var(--glass-border)]">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }}></div>
 
-        <div className="max-w-[1400px] mx-auto px-4 relative min-h-[640px] lg:min-h-[750px] flex flex-col md:flex-row items-start justify-center pt-4 md:pt-10">
+        <div className="max-w-[1300px] mx-auto px-4 sm:px-6 relative flex flex-col items-center">
           
-          {/* Desktop Left Frames (Outer & Inner) */}
-          <div className="hidden md:block absolute left-2 lg:left-8 top-4 w-full max-w-[320px] pointer-events-none">
-            <div className="pointer-events-auto">
+          {/* Asymmetric Horizontal Collage Row (Sejejer Ga Simetris) */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 w-full max-w-6xl mx-auto mb-16 pt-10 items-start justify-items-center">
+            
+            {/* Frame 1 */}
+            <div className="transform -rotate-3 lg:-translate-y-6 hover:rotate-0 transition-all duration-500">
               <HangingFrame 
                 src="/sejarah/Kesultanan-Banjar.webp" 
-                className="absolute left-0 top-0 -rotate-3"
-                width="w-[180px] lg:w-[240px]"
-                height="h-[250px] lg:h-[330px]"
+                width="w-[155px] sm:w-[210px] lg:w-[230px]"
+                height="h-[210px] sm:h-[280px] lg:h-[310px]"
               />
             </div>
-            <div className="pointer-events-auto">
+
+            {/* Frame 2 */}
+            <div className="transform rotate-3 translate-y-6 lg:translate-y-8 hover:rotate-0 transition-all duration-500">
               <HangingFrame 
                 src="/sejarah/PERANG_BANJAR_1857-1859.webp" 
-                className="absolute left-28 lg:left-44 top-48 lg:top-60 z-20 rotate-2"
-                width="w-[170px] lg:w-[220px]"
-                height="h-[230px] lg:h-[290px]"
+                width="w-[155px] sm:w-[210px] lg:w-[230px]"
+                height="h-[210px] sm:h-[280px] lg:h-[310px]"
               />
             </div>
-          </div>
 
-          {/* Center Column: Pure Clean Typography */}
-          <div className="relative z-30 text-center w-full max-w-2xl px-6 py-6 md:py-0 mx-auto bg-[var(--bg-main)]/80 backdrop-blur-md md:bg-transparent md:backdrop-blur-none rounded-3xl flex flex-col items-center">
-            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading animate-fade-in">
-              ✦ LINTAS WAKTU 1526 — KINI
-            </span>
-            <h1 className="hero-title !mb-4 animate-fade-in">
-              Menyelami <br/><span className="text-sasirangan">Sejarah</span>
-            </h1>
-            <p className="hero-subtitle mx-auto !mb-8 !max-w-2xl px-2 animate-fade-in leading-relaxed">
-              Berawal dari bandar rempah di muara Sungai Barito, Banjarmasin telah berevolusi melewati berbagai zaman—dari era Kesultanan Banjar yang masyhur hingga menjadi Metropolitan Seribu Sungai saat ini.
-            </p>
-          </div>
-
-          {/* Desktop Center-Bottom Gap Frames (Precisely filling the empty center void below text) */}
-          <div className="hidden md:flex absolute left-0 right-0 top-[270px] lg:top-[310px] justify-center items-start gap-8 lg:gap-16 pointer-events-none z-20 px-4">
-            <div className="pointer-events-auto transform -rotate-3 hover:rotate-0 transition-transform duration-500 -translate-x-6 lg:-translate-x-10">
-              <HangingFrame 
-                src="/sejarah/bendera-merah-putih.webp" 
-                className="relative shadow-2xl"
-                width="w-[170px] lg:w-[220px]"
-                height="h-[230px] lg:h-[290px]"
-              />
-            </div>
-            <div className="pointer-events-auto transform rotate-3 hover:rotate-0 transition-transform duration-500 translate-x-6 lg:translate-x-10">
-              <HangingFrame 
-                src="/profil kota/pelabuhan trisakti.webp" 
-                className="relative shadow-2xl"
-                width="w-[170px] lg:w-[220px]"
-                height="h-[230px] lg:h-[290px]"
-              />
-            </div>
-          </div>
-
-          {/* Desktop Right Frames (Outer & Inner) */}
-          <div className="hidden md:block absolute right-2 lg:right-8 top-0 w-full max-w-[320px] pointer-events-none">
-            <div className="pointer-events-auto">
+            {/* Frame 3 */}
+            <div className="transform -rotate-2 translate-y-2 lg:-translate-y-2 hover:rotate-0 transition-all duration-500">
               <HangingFrame 
                 src="/sejarah/250px-Lukisan_Sultan_Suriansyah.webp" 
-                className="absolute right-0 top-0 rotate-3"
-                width="w-[180px] lg:w-[240px]"
-                height="h-[250px] lg:h-[330px]"
+                width="w-[155px] sm:w-[210px] lg:w-[230px]"
+                height="h-[210px] sm:h-[280px] lg:h-[310px]"
               />
             </div>
-            <div className="pointer-events-auto">
+
+            {/* Frame 4 */}
+            <div className="transform rotate-2 translate-y-8 lg:translate-y-12 hover:rotate-0 transition-all duration-500">
               <HangingFrame 
                 src="/sejarah/pangeran antasari.webp" 
-                className="absolute right-28 lg:right-44 top-44 lg:top-56 z-20 -rotate-2"
-                width="w-[170px] lg:w-[220px]"
-                height="h-[230px] lg:h-[290px]"
+                width="w-[155px] sm:w-[210px] lg:w-[230px]"
+                height="h-[210px] sm:h-[280px] lg:h-[310px]"
               />
             </div>
+
           </div>
 
-          {/* Mobile Frames (3 Frames Fanned Cluster) */}
-          <div className="md:hidden flex justify-center items-center gap-2 mt-12 w-full px-2 pb-8 overflow-hidden">
-            <HangingFrame 
-              src="/sejarah/Kesultanan-Banjar.webp" 
-              className="relative -rotate-6 scale-95 z-10"
-              width="w-[115px] sm:w-[150px]"
-              height="h-[150px] sm:h-[200px]"
-            />
-            <HangingFrame 
-              src="/sejarah/pangeran antasari.webp" 
-              className="relative z-20 -translate-y-2 shadow-2xl"
-              width="w-[130px] sm:w-[165px]"
-              height="h-[170px] sm:h-[220px]"
-            />
-            <HangingFrame 
-              src="/sejarah/bendera-merah-putih.webp" 
-              className="relative rotate-6 scale-95 z-10"
-              width="w-[115px] sm:w-[150px]"
-              height="h-[150px] sm:h-[200px]"
-            />
+          {/* Typography Box (Teks Di Bawahnya) */}
+          <div className="relative z-30 text-center w-full max-w-3xl px-4 mt-6 lg:mt-10 animate-fade-in">
+            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-3 font-heading">
+              ✦ LINTAS WAKTU 1526 — KINI
+            </span>
+            <h1 className="hero-title !mb-4 text-4xl sm:text-5xl lg:text-6xl font-black">
+              Menyelami <span className="text-sasirangan">Sejarah</span>
+            </h1>
+            <p className="hero-subtitle mx-auto !mb-0 !max-w-2xl text-sm sm:text-base leading-relaxed text-[var(--text-muted)]">
+              Berawal dari bandar rempah di muara Sungai Barito, Banjarmasin telah berevolusi melewati berbagai zaman—dari era Kesultanan Banjar yang masyhur hingga menjadi Metropolitan Seribu Sungai saat ini.
+            </p>
           </div>
 
         </div>
@@ -212,7 +171,7 @@ export default function Sejarah() {
       {/* =========================================================
           SECTION 1: GARIS WAKTU INTERAKTIF (INTERACTIVE STEPPER)
           ========================================================= */}
-      <section id="garis-waktu" className="py-24 bg-[var(--bg-main)] relative overflow-hidden">
+      <section className="py-24 bg-[var(--bg-main)] relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
