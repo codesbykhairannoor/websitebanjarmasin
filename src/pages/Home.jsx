@@ -357,7 +357,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="hide-scrollbar flex overflow-x-auto gap-4 md:gap-6 mb-10 pb-4 snap-x px-4 sm:justify-center">
+          <div className="hide-scrollbar flex overflow-x-auto md:flex-wrap gap-4 md:gap-6 mb-10 pb-4 snap-x px-4 sm:justify-center">
             {foods.map((item) => (
               <button 
                 key={item.id}
@@ -394,9 +394,9 @@ export default function Home() {
               <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
                 <h3 className="text-2xl md:text-4xl font-black text-[var(--text-main)] font-heading mb-4 leading-tight">{currentFood.name}</h3>
                 
-                <div className="inline-flex items-center gap-2 sm:gap-3 bg-[var(--bg-main)] px-4 sm:px-5 py-3 rounded-2xl border border-[var(--glass-border)] mb-6 mx-auto lg:mx-0 w-fit max-w-full overflow-hidden">
-                  <span className="text-lg md:text-xl shrink-0">🌿</span>
-                  <p className="text-[10px] sm:text-xs md:text-sm font-bold text-[var(--text-main)] uppercase tracking-wider truncate whitespace-normal sm:whitespace-nowrap line-clamp-2 sm:line-clamp-none">{currentFood.aroma}</p>
+                <div className="inline-flex items-center gap-3 bg-[#33C3B3]/10 px-5 py-2.5 rounded-full border border-[#33C3B3]/20 mb-6 mx-auto lg:mx-0 w-fit max-w-full overflow-hidden">
+                  <span className="text-lg shrink-0 drop-shadow-sm">🌿</span>
+                  <p className="text-xs md:text-sm font-bold text-[#33C3B3] leading-snug truncate whitespace-normal sm:whitespace-nowrap line-clamp-2 sm:line-clamp-none">{currentFood.aroma}</p>
                 </div>
 
                 <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-8">
