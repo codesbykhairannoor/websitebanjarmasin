@@ -88,6 +88,26 @@ const seniPertunjukanData = [
     quote: '“Gemulai jemari membawa bogam, menebar harum persaudaraan.”',
     desc: 'Tarian kebesaran Kesultanan Banjar abad ke-16 penyambut tamu agung. Penari mengenakan mahkota gajah gemuling dengan rangkaian bunga mawar dan melati.',
     badgeColor: 'bg-[#33C3B3]'
+  },
+  {
+    id: 'mamanda',
+    title: 'Teater Rakyat Mamanda',
+    subtitle: 'Drama Komedi Istana Abad 20',
+    category: 'Teater Rakyat WBTb',
+    image: '/budaya/tari baksa kembang.webp',
+    quote: '"Wahai Mamanda Wazir, apa berita dari negeri seberang?"',
+    desc: 'Teater improvisasi humor khas Banjar yang menampilkan lakon kerajaan dengan tokoh-tokoh baku: Raja, Wazir, Mangkubumi, dan Khadam si pelawak. Dialog spontan dan interaktif bersama penonton menjadi ciri utamanya.',
+    badgeColor: 'bg-[#6C3483]'
+  },
+  {
+    id: 'baayun',
+    title: 'Ba\'ayun Mulud',
+    subtitle: 'Tradisi Ayun Bayi Maulid Nabi',
+    category: 'Ritual Adat WBTb',
+    image: '/budaya/anyaman-purun.webp',
+    quote: '"Diayun lembut diiringi selawat, tanda cinta kepada Sang Nabi."',
+    desc: 'Tradisi mengayun bayi atau anak dalam kain dihias setiap 12 Rabiul Awal sambil melantunkan syair Maulid Al-Habsyi. Dipusatkan di Masjid Bersejarah Sultan Suriansyah sebagai wujud syukur dan doa.',
+    badgeColor: 'bg-[#1A6B52]'
   }
 ];
 
@@ -96,21 +116,21 @@ const hotspotData = [
   {
     id: 'atap',
     title: 'Atap Bubungan Tinggi',
-    x: '50%', y: '25%',
+    x: '50%', y: '15%',
     desc: 'Atap meluncur tajam ke langit hingga 45 derajat. Melambangkan pohon hayat dan hubungan vertikal antara manusia dengan Sang Pencipta.',
     filosofi: 'Ketinggian melambangkan martabat kebangsawanan dan kemuliaan budi.'
   },
   {
     id: 'anjung',
     title: 'Anjung Sayap Istana',
-    x: '25%', y: '55%',
+    x: '25%', y: '60%',
     desc: 'Sayap bangunan yang menjorok keluar di sisi kiri dan kanan ibarat burung garuda yang sedang membentangkan sayapnya melindungi rakyat.',
     filosofi: 'Melambangkan keseimbangan hidup antara urusan duniawi dan ukhrawi.'
   },
   {
     id: 'ukiran',
     title: 'Ukiran Tatawatan Ulin',
-    x: '75%', y: '65%',
+    x: '78%', y: '72%',
     desc: 'Ukiran relief terawang pada pagar jelujur bermotif sulur kembang kacang dan nanas.',
     filosofi: 'Kayu ulin besi anti-lapuk melambangkan keteguhan iman dan kesucian hati masyarakat Banjar.'
   }
@@ -120,14 +140,14 @@ const hotspotData = [
 const festivalResmiData = [
   {
     title: 'Banjarmasin Sasirangan Festival (BSF)',
-    desc: 'Ajang tahunan terbesar perayaan wastra Sasirangan yang menampilkan karnaval budaya, pameran UMKM pengrajin lokal, dan fashion show desainer nasional di tepian Sungai Martapura.',
-    portalName: 'Instagram Resmi @banjarmasinsasiranganfestival',
-    url: 'https://www.instagram.com/explore/tags/banjarmasinsasiranganfestival/',
+    desc: 'Ajang tahunan resmi Pemkot Banjarmasin ke-8 (2024) untuk mempromosikan kain Sasirangan. Berlangsung 7 hari di Siring Menara Pandang & Duta Mall dengan lomba desain motif, fashion show, karnaval budaya, dan bazar UMKM pengrajin lokal.',
+    portalName: 'Portal Resmi Banjarmasin Kota',
+    url: 'https://banjarmasinkota.go.id/',
     tag: 'Festival Wastra'
   },
   {
-    title: 'Festival Budaya Pasar Terapung & Tanglung',
-    desc: 'Perayaan pesona bahari kota sungai yang memamerkan ratusan jukung hias bertabur lampu tanglung tradisional di malam hari serta atraksi acil pasar terapung.',
+    title: 'Festival Jukung Hias Tanglong',
+    desc: 'Festival tahunan resmi Dinas Pariwisata Banjarmasin yang menampilkan ratusan perahu jukung dihias lampu tanglong warna-warni di Sungai Martapura. Bagian dari kalender pariwisata tetap peringatan hari jadi kota Banjarmasin.',
     portalName: 'Portal Resmi Dinas Pariwisata Banjarmasin',
     url: 'https://pariwisata.banjarmasinkota.go.id/',
     tag: 'Festival Bahari'
@@ -159,29 +179,43 @@ const mobileLookbookItems = [
     tabName: '🌸 Tari Istana',
     title: 'Tari Baksa Kembang',
     tag: 'Tari Kebesaran Banjar',
-    desc: 'Tarian klasik kebesaran kerajaan penyambut tamu agung Banjar dengan mahkota gajah gemuling dan bunga bogam.',
+    desc: 'Tarian klasik kebesaran Kesultanan Banjar abad ke-16 penyambut tamu agung, penari mengenakan mahkota gajah gemuling dengan rangkaian bunga bogam mawar dan melati.',
     img: '/budaya/tari baksa kembang.webp'
   },
   {
     tabName: '✨ Wastra Adat',
     title: 'Wastra Sasirangan',
     tag: 'Kain Jelujur Alami',
-    desc: 'Mahakarya pewarnaan rintang ikat tradisional Banjar yang sarat filosofi pengobatan dan perlindungan spiritual.',
+    desc: 'Mahakarya pewarnaan rintang ikat tradisional Banjar yang sarat filosofi ritual Batatamba dan perlindungan spiritual dari tangan pengrajin Kampung Sasirangan.',
     img: '/budaya/motif bayam raj.webp'
   },
   {
-    tabName: '🛶 Susur Sungai',
-    title: 'Perahu Kelotok Sungai',
-    tag: 'Budaya Bahari Borneo',
-    desc: 'Urat nadi pergerakan masyarakat sungai Banjar dalam berdagang di pasar terapung dan menyusuri tepian Martapura.',
+    tabName: '🏠 Arsitektur',
+    title: 'Rumah Bubungan Tinggi',
+    tag: 'Arsitektur Kayu Ulin',
+    desc: 'Rumah adat Banjar ikonik bertiang kayu ulin dengan atap menjulang 45 derajat yang melambangkan pohon hayat dan kemuliaan Sang Pencipta.',
     img: '/budaya/atap bubungan tinggi.webp'
   },
   {
     tabName: '🎵 Seni Lisan',
     title: 'Musik Panting & Madihin',
-    tag: 'Warisan Bertutur',
-    desc: 'Alunan petikan dawai panting dan ketukan rebana tarbang yang mengiringi syair humor kritik sosial sarat pesan moral.',
+    tag: 'Warisan Bertutur WBTb',
+    desc: 'Alunan petikan dawai panting dan ketukan rebana tarbang Madihin yang mengalunkan syair humor sarat kritik sosial dan pesan moral adiluhung Banjar.',
     img: '/budaya/panting.webp'
+  },
+  {
+    tabName: '🎭 Mamanda',
+    title: 'Teater Rakyat Mamanda',
+    tag: 'Drama Istana Rakyat',
+    desc: 'Teater improvisasi humor khas Banjar yang menampilkan lakon kerajaan dengan tokoh Raja, Wazir, Mangkubumi, dan Khadam si pelawak, dipentaskan interaktif bersama penonton.',
+    img: '/budaya/Kesenian_Madihin.webp'
+  },
+  {
+    tabName: "🎋 Ba'ayun",
+    title: "Ba'ayun Mulud",
+    tag: 'Tradisi Maulid Nabi',
+    desc: "Tradisi mengayun bayi dalam kain dihias setiap 12 Rabiul Awal sambil melantunkan syair Maulid Al-Habsyi di Masjid Sultan Suriansyah sebagai wujud cinta kepada Sang Nabi.",
+    img: '/budaya/anyaman-purun.webp'
   }
 ];
 
@@ -540,13 +574,13 @@ export default function Budaya() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
             {seniPertunjukanData.map((stage) => (
               <div
                 key={stage.id}
-                className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] overflow-hidden shadow-md hover:border-[#F4C038] hover:-translate-y-1 transition-all duration-200 flex flex-col md:flex-row group"
+                className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[28px] overflow-hidden shadow-md hover:border-[#F4C038] hover:-translate-y-1 transition-all duration-200 flex flex-col group"
               >
-                <div className="md:w-5/12 h-[220px] md:h-auto relative overflow-hidden flex-shrink-0 bg-slate-900">
+                <div className="w-full h-[200px] relative overflow-hidden flex-shrink-0 bg-slate-900">
                   <img
                     src={stage.image}
                     alt={stage.title}
@@ -561,16 +595,16 @@ export default function Budaya() {
                   </div>
                 </div>
 
-                <div className="p-6 md:w-7/12 flex flex-col justify-between">
+                <div className="p-5 flex flex-col justify-between flex-1">
                   <div>
                     <span className="text-[10px] font-bold text-[#33C3B3] uppercase tracking-wider block mb-1 font-heading">
                       {stage.subtitle}
                     </span>
-                    <h3 className="text-xl font-black text-[var(--text-main)] font-heading mb-3 group-hover:text-[#F4C038] transition-colors">
+                    <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-2 group-hover:text-[#F4C038] transition-colors">
                       {stage.title}
                     </h3>
 
-                    <p className="text-xs italic text-[#F4C038] font-body bg-[#091422]/90 p-3 rounded-xl border border-[var(--glass-border)] mb-3">
+                    <p className="text-[11px] italic text-[#F4C038] font-body bg-[var(--glass-border)] p-2.5 rounded-xl border border-[var(--glass-border)] mb-2.5 leading-relaxed">
                       {stage.quote}
                     </p>
 
@@ -579,7 +613,7 @@ export default function Budaya() {
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-[11px] font-bold text-[#33C3B3]">
+                  <div className="mt-4 pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-[11px] font-bold text-[#33C3B3]">
                     <span>✦ Warisan Leluhur Banjar</span>
                     <span className="text-[var(--text-main)] group-hover:text-[#F4C038] transition-colors">Eksplorasi ➔</span>
                   </div>
