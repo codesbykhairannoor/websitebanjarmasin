@@ -357,12 +357,12 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="hide-scrollbar flex overflow-x-auto gap-4 md:gap-6 mb-10 pb-4 snap-x px-4 sm:justify-center">
+          <div className="hide-scrollbar flex overflow-x-auto gap-3 md:gap-2 lg:gap-3 mb-10 pb-4 snap-x px-4 sm:justify-center">
             {foods.map((item) => (
               <button 
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex flex-col md:flex-row items-center gap-2 md:gap-3 shrink-0 snap-center group w-20 md:w-auto md:px-6 md:py-3 md:rounded-full transition-all md:border ${activeTab === item.id ? 'md:bg-[#33C3B3] md:border-[#33C3B3] md:shadow-[#33C3B3]/30 md:shadow-lg' : 'md:bg-transparent md:border-[var(--glass-border)] hover:md:bg-[var(--glass-border)]'}`}
+                className={`flex flex-col md:flex-row items-center gap-2 md:gap-2.5 shrink-0 snap-center group w-20 md:w-auto md:px-4 md:py-2 md:rounded-full transition-all md:border ${activeTab === item.id ? 'md:bg-[#33C3B3] md:border-[#33C3B3] md:shadow-[#33C3B3]/30 md:shadow-lg' : 'md:bg-transparent md:border-[var(--glass-border)] hover:md:bg-[var(--glass-border)]'}`}
               >
                 <div className={`relative w-16 h-16 md:w-8 md:h-8 overflow-hidden rounded-full transition-all duration-300 md:border-2 ${activeTab === item.id ? 'border-4 border-[#33C3B3] md:border-white scale-110 md:scale-100 shadow-lg shadow-[#33C3B3]/30 md:shadow-none' : 'border-4 border-transparent md:border-transparent group-hover:scale-105'}`}>
                   <img src={item.img} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
