@@ -195,7 +195,7 @@ export default function SmartCity() {
 
               <div className="pt-4 flex flex-wrap gap-4 items-center">
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.banjarmasinkota.app_bapintar_diskominfotik"
+                  href="https://play.google.com/store/search?q=banjarmasin+pintar&c=apps"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#008075] hover:bg-[#00665e] text-white font-black px-6 py-3.5 rounded-2xl shadow-lg flex items-center gap-3 transition-all transform hover:-translate-y-1 text-sm sm:text-base"
@@ -216,10 +216,10 @@ export default function SmartCity() {
                 <span className="text-xs font-bold font-heading text-[var(--text-muted)] uppercase tracking-wider">Simulasi Menu Super-App</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
                 <button
                   onClick={() => setActiveAppTab("parakAcil")}
-                  className={`p-4 rounded-2xl border flex flex-col items-center justify-center gap-2 transition-all ${
+                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
                     activeAppTab === "parakAcil"
                       ? 'bg-[#F4C038] text-[#091422] border-[#F4C038] shadow-md scale-105'
                       : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
@@ -229,10 +229,43 @@ export default function SmartCity() {
                   <span className="font-heading font-black text-xs text-center">Parak Acil</span>
                 </button>
                 <button
-                  onClick={() => setActiveAppTab("epbb")}
-                  className={`p-4 rounded-2xl border flex flex-col items-center justify-center gap-2 transition-all ${
-                    activeAppTab === "epbb"
+                  onClick={() => setActiveAppTab("baApik")}
+                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                    activeAppTab === "baApik"
                       ? 'bg-[#00A896] text-white border-[#00A896] shadow-md scale-105'
+                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                  }`}
+                >
+                  <span className="text-2xl">🏥</span>
+                  <span className="font-heading font-black text-xs text-center">BaApik RS</span>
+                </button>
+                <button
+                  onClick={() => setActiveAppTab("salamRindu")}
+                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                    activeAppTab === "salamRindu"
+                      ? 'bg-[#33C3B3] text-[#091422] border-[#33C3B3] shadow-md scale-105'
+                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                  }`}
+                >
+                  <span className="text-2xl">📄</span>
+                  <span className="font-heading font-black text-xs text-center">SALAM-RINDU</span>
+                </button>
+                <button
+                  onClick={() => setActiveAppTab("siSintal")}
+                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                    activeAppTab === "siSintal"
+                      ? 'bg-[#9D4EDD] text-white border-[#9D4EDD] shadow-md scale-105'
+                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                  }`}
+                >
+                  <span className="text-2xl">🎁</span>
+                  <span className="font-heading font-black text-xs text-center">SI-SINTAL</span>
+                </button>
+                <button
+                  onClick={() => setActiveAppTab("epbb")}
+                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                    activeAppTab === "epbb"
+                      ? 'bg-[#219EBC] text-white border-[#219EBC] shadow-md scale-105'
                       : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
                   }`}
                 >
@@ -241,7 +274,7 @@ export default function SmartCity() {
                 </button>
                 <button
                   onClick={() => setActiveAppTab("elapor")}
-                  className={`p-4 rounded-2xl border flex flex-col items-center justify-center gap-2 transition-all ${
+                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
                     activeAppTab === "elapor"
                       ? 'bg-[#E63946] text-white border-[#E63946] shadow-md scale-105'
                       : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
@@ -271,14 +304,44 @@ export default function SmartCity() {
                       <span className="text-xs font-bold text-[#33C3B3]">Layanan administrasi tanpa antre ✓</span>
                     </div>
                   )}
+                  {activeAppTab === "baApik" && (
+                    <div>
+                      <span className="text-[10px] font-bold text-[#00A896] uppercase tracking-widest block mb-1">Dinkes & RSUD Sultan Suriansyah</span>
+                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">Aplikasi BaApik</h4>
+                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                        Banjarmasin Aplikasi Pasien Internal Kesehatan. Mempermudah pendaftaran berobat online, cek jadwal dokter, dan reservasi nomor antrean di seluruh Puskesmas dan RSUD Kota Banjarmasin secara presisi.
+                      </p>
+                      <span className="text-xs font-bold text-[#00A896]">Kepastian nomor antrean secara real-time ✓</span>
+                    </div>
+                  )}
+                  {activeAppTab === "salamRindu" && (
+                    <div>
+                      <span className="text-[10px] font-bold text-[#33C3B3] uppercase tracking-widest block mb-1">DPMPTSP Kota Banjarmasin</span>
+                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">SALAM-RINDU Perizinan</h4>
+                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                        Sistem aplikasi layanan perizinan usaha maupun non-OSS terpadu. Mempermudah pelaku UMKM dan investor mengajukan izin reklame, izin kesehatan, dan berbagai surat ketetapan daerah secara transparan.
+                      </p>
+                      <span className="text-xs font-bold text-[#33C3B3]">Proses perizinan transparan & cepat ✓</span>
+                    </div>
+                  )}
+                  {activeAppTab === "siSintal" && (
+                    <div>
+                      <span className="text-[10px] font-bold text-[#9D4EDD] uppercase tracking-widest block mb-1">Dinas Sosial Banjarmasin</span>
+                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">SI-SINTAL Cek Bansos</h4>
+                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                        Layanan pengecekan Data Terpadu Kesejahteraan Sosial (DTKS) dan informasi penyaluran bantuan sosial (Bansos) bagi warga berhak secara akurat dan tepat sasaran.
+                      </p>
+                      <span className="text-xs font-bold text-[#9D4EDD]">Data kesejahteraan transparan ✓</span>
+                    </div>
+                  )}
                   {activeAppTab === "epbb" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#00A896] uppercase tracking-widest block mb-1">Badan Pengelola Keuangan & Pendapatan</span>
+                      <span className="text-[10px] font-bold text-[#219EBC] uppercase tracking-widest block mb-1">Badan Pengelola Keuangan & Pendapatan</span>
                       <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">e-PBB & Pajak Daerah</h4>
                       <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
                         Kemudahan pengecekan tagihan Pajak Bumi dan Bangunan (PBB-P2) serta pembayaran pajak daerah secara online melalui integrasi QRIS dan Virtual Account Bank Kalsel.
                       </p>
-                      <span className="text-xs font-bold text-[#00A896]">Transparan, Cepat, & Aman ✓</span>
+                      <span className="text-xs font-bold text-[#219EBC]">Transparan, Cepat, & Aman ✓</span>
                     </div>
                   )}
                   {activeAppTab === "elapor" && (
@@ -286,7 +349,7 @@ export default function SmartCity() {
                       <span className="text-[10px] font-bold text-[#E63946] uppercase tracking-widest block mb-1">Diskominfotik & BPBD</span>
                       <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">E-Lapor & Darurat 112</h4>
                       <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
-                        Saluran pengaduan aspirasi masyarakat dan panggilan darurat gratis 112 (kebakaran, ambulans, rescue). Laporan langsung diteruskan ke SKPD terkait dengan pantauan progres penanganan.
+                        Saluran pengaduan aspirasi masyarakat, pantauan CCTV lalu lintas ATCS, dan panggilan darurat gratis 112 (kebakaran, ambulans, rescue) dengan pemantauan penanganan langsung.
                       </p>
                       <span className="text-xs font-bold text-[#E63946]">Respons Cepat 24 Jam ✓</span>
                     </div>
@@ -354,14 +417,15 @@ export default function SmartCity() {
                   Super-App Banjarmasin Pintar
                 </h3>
                 <p className="text-[var(--text-muted)] font-body text-sm leading-relaxed mb-6">
-                  Aplikasi resmi integrasi layanan publik Kota Banjarmasin dalam satu genggaman. Warga dapat mengakses layanan antrean online RSUD/Puskesmas, info tagihan pajak PBB, pengaduan masyarakat E-Lapor, hingga layanan administrasi daerah.
+                  Super-App resmi Pemko Banjarmasin berbasis Single Sign-On (SSO) NIK KTP. Mengintegrasikan puluhan layanan publik daerah: Parak Acil (Kependudukan), BaApik (Antrean Puskesmas & RSUD), SALAM-RINDU (Perizinan Usaha), SI-SINTAL (Cek Bansos), e-PBB, hingga panggilan darurat 112 & CCTV ATCS dalam satu aplikasi.
                 </p>
                 <div className="space-y-2 mb-6">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Terintegrasi puluhan layanan publik</div>
-                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Download resmi di Google Play Store</div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> SSO NIK KTP untuk puluhan layanan SKPD</div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Antrean RSUD/Puskesmas, Perizinan, & Bansos</div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Unduh gratis di Google Play Store</div>
                 </div>
               </div>
-              <a href="https://play.google.com/store/apps/details?id=com.banjarmasinkota.app_bapintar_diskominfotik" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--card-bg)] hover:bg-[#00A896] hover:text-white text-[var(--text-main)] font-black text-xs py-3.5 px-6 rounded-xl border border-[var(--glass-border)] transition-all">
+              <a href="https://play.google.com/store/search?q=banjarmasin+pintar&c=apps" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--card-bg)] hover:bg-[#00A896] hover:text-white text-[var(--text-main)] font-black text-xs py-3.5 px-6 rounded-xl border border-[var(--glass-border)] transition-all">
                 Download Banjarmasin Pintar ➔
               </a>
             </div>
