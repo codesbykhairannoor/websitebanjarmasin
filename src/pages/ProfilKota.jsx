@@ -113,7 +113,7 @@ const InteractivePillarSpotlight = () => {
           {/* Left Content */}
           <div className="flex-1">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#33C3B3]/15 border border-[#33C3B3]/30 text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#33C3B3] animate-pulse" /> Data & Fakta Nyata
+              <span className="w-2 h-2 rounded-full bg-[#33C3B3] animate-pulse" /> {tLocal('dataFaktaNyata')}
             </div>
             
             <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-3">
