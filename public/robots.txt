@@ -1,24 +1,20 @@
 User-agent: *
 Allow: /
 
-# AI Crawlers & LLM Bots (Super AI Friendly)
-User-agent: GPTBot
-Allow: /
-
+# Block AI scrapers from overwhelming the server or stealing content without attribution
+User-agent: CCBot
+Disallow: /
 User-agent: ChatGPT-User
-Allow: /
-
+Disallow: /
+User-agent: GPTBot
+Disallow: /
 User-agent: Google-Extended
-Allow: /
+Disallow: /
+User-agent: Anthropic-ai
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+User-agent: cohere-ai
+Disallow: /
 
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: AnthropicAI
-Allow: /
-
-Sitemap: https://banjarmasinkota.go.id/sitemap.xml
-Host: https://banjarmasinkota.go.id
+Sitemap: https://visitbanjarmasin.id/sitemap.xml

@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
+import { HelmetProvider } from 'react-helmet-async';
+import SEOMeta from './components/SEOMeta';
 import AcilAssistant from './components/AcilAssistant';
 import './App.css';
 
@@ -78,22 +80,25 @@ export default function App() {
   }, []);
 
   return (
-    <LanguageProvider>
-      <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/wisata" element={<Wisata />} />
-            <Route path="/kuliner" element={<Kuliner />} />
-            <Route path="/budaya" element={<Budaya />} />
-            <Route path="/profil" element={<ProfilKota />} />
-            <Route path="/sejarah" element={<Sejarah />} />
-            <Route path="/smart-city" element={<SmartCity />} />
-            <Route path="/panduan" element={<Panduan />} />
-          </Routes>
-        </Suspense>
-        <AcilAssistant />
-      </BrowserRouter>
-    </LanguageProvider>
+    <HelmetProvider>
+      <LanguageProvider>
+        <SEOMeta />
+        <BrowserRouter>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/wisata" element={<Wisata />} />
+              <Route path="/kuliner" element={<Kuliner />} />
+              <Route path="/budaya" element={<Budaya />} />
+              <Route path="/profil" element={<ProfilKota />} />
+              <Route path="/sejarah" element={<Sejarah />} />
+              <Route path="/smart-city" element={<SmartCity />} />
+              <Route path="/panduan" element={<Panduan />} />
+            </Routes>
+          </Suspense>
+          <AcilAssistant />
+        </BrowserRouter>
+      </LanguageProvider>
+    </HelmetProvider>
   );
 }
