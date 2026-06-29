@@ -9,11 +9,13 @@ import Footer from '../components/Footer';
 
 const galleryCards = [
   { img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", label: "Soto Banjar" },
-  { img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", label: "Ketupat" },
+  { img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", label: "Ketupat Kandangan" },
+  { img: "/kuliner/Nasi_Kuning_Banjar_001.webp", label: "Nasi Kuning" },
   { img: "/kuliner/buras.webp", label: "Lontong Orari" },
-  { img: "/kuliner/Bingka.webp", label: "Bingka" },
-  { img: "/kuliner/Iwak_Pakasam_Basanga.webp", label: "Ikan Bakar" },
-  { img: "/kuliner/f6cd9fe9a37ece89ca3de6416a14031e.webp", label: "Es Nyiur" },
+  { img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp", label: "Nasi Itik Gambut" },
+  { img: "/kuliner/Gangan_asam_kepala_ikan_di_Cempaka,_Banjarbaru.webp", label: "Gangan Asam" },
+  { img: "/kuliner/Bingka.webp", label: "Wadai Bingka" },
+  { img: "/kuliner/Iwak_Pakasam_Basanga.webp", label: "Iwak Pakasam" },
 ];
 
 const mainDishes = [
@@ -25,7 +27,7 @@ const mainDishes = [
     icon: "🍲",
     img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp",
     location: "Soto Bang Amat",
-    maps: "https://maps.app.goo.gl/xxx"
+    maps: "https://maps.google.com/?q=Soto+Bang+Amat+Banjarmasin"
   },
   {
     id: "ketupat-kandangan",
@@ -35,7 +37,7 @@ const mainDishes = [
     icon: "🥥",
     img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp",
     location: "Ketupat Kaum",
-    maps: "https://maps.app.goo.gl/xxx"
+    maps: "https://maps.google.com/?q=Ketupat+Kandangan+Banjarmasin"
   },
   {
     id: "nasi-kuning",
@@ -45,7 +47,7 @@ const mainDishes = [
     icon: "🍛",
     img: "/kuliner/Nasi_Kuning_Banjar_001.webp",
     location: "Nasi Kuning Cempaka",
-    maps: "https://maps.app.goo.gl/xxx"
+    maps: "https://maps.google.com/?q=Nasi+Kuning+Cempaka+Banjarmasin"
   },
   {
     id: "lontong-orari",
@@ -55,17 +57,36 @@ const mainDishes = [
     icon: "🥣",
     img: "/kuliner/buras.webp",
     location: "Lontong Orari Sungai Baru",
-    maps: "https://maps.app.goo.gl/xxx"
+    maps: "https://maps.google.com/?q=Lontong+Orari+Banjarmasin"
+  },
+  {
+    id: "nasi-itik-gambut",
+    title: "Nasi Itik Gambut Tenda Biru",
+    desc: "Kuliner ikonis dari kawasan Gambut berbalut bumbu habang berempah pekat. Daging itik sawah dimasak berjam-jam hingga sangat empuk, meresap sempurna, dan disajikan hangat dalam bungkusan daun pisang harupat yang harum.",
+    aroma: "Gurih Itik & Bumbu Habang",
+    icon: "🦆",
+    img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp",
+    location: "Gambut Tenda Biru",
+    maps: "https://maps.google.com/?q=Nasi+Itik+Gambut+Tenda+Biru"
+  },
+  {
+    id: "gangan-asam",
+    title: "Gangan Asam Kepala Ikan",
+    desc: "Sayur kuah kuning segar berpadu rasa asam alami dari potongan buah belimbing wuluh dan tomat liar. Kepala ikan haruan atau patin sungai dimasak dengan rempah kunyit dan kemiri menghasilkan kuah bening gurih menyegarkan.",
+    aroma: "Segar Asam Belimbing",
+    icon: "🐟",
+    img: "/kuliner/Gangan_asam_kepala_ikan_di_Cempaka,_Banjarbaru.webp",
+    location: "Rumah Makan Cempaka",
+    maps: "https://maps.google.com/?q=Rumah+Makan+Cempaka+Banjarmasin"
   }
 ];
 
 const wadaiCollection = [
-  { name: "Bingka Barantai", tag: "Manis Legit", img: "/kuliner/Bingka.webp" },
-  { name: "Amparan Tatak", tag: "Krim Pisang", img: "/kuliner/Resep-Amparan-Tatak-Kue-Khas-Ban.webp" },
-  { name: "Apam Barabai", tag: "Kukus Lembut", img: "/kuliner/wadai-kararaban-khas-banjar-1756.webp" },
-  { name: "Kelepon Martapura", tag: "Lumer Gula Aren", img: "/kuliner/klepon.webp" },
-  { name: "Putri Selat", tag: "Lapis Gurih", img: "/kuliner/358-bingka-barandam-khas-banjar.webp" },
-  { name: "Kararaban", tag: "Rempah Adas", img: "/kuliner/wadai-kararaban-khas-banjar-1756.webp" },
+  { name: "Bingka Kentang", tag: "Manis Legit & Lumer", img: "/kuliner/Bingka.webp" },
+  { name: "Amparan Tatak", tag: "Krim Santan & Pisang", img: "/kuliner/Resep-Amparan-Tatak-Kue-Khas-Ban.webp" },
+  { name: "Bingka Barandam", tag: "Siram Kuah Gula", img: "/kuliner/358-bingka-barandam-khas-banjar.webp" },
+  { name: "Klepon Martapura", tag: "Lumer Gula Aren Asli", img: "/kuliner/klepon.webp" },
+  { name: "Wadai Kararaban", tag: "Aroma Rempah Adas", img: "/kuliner/wadai-kararaban-khas-banjar-1756.webp" },
 ];
 
 const olehOleh = [
@@ -77,19 +98,19 @@ const olehOleh = [
   },
   {
     title: "Kerupuk Amplang",
-    desc: "Camilan renyah berbahan dasar Ikan Pipih atau Tenggiri.",
+    desc: "Camilan renyah berbahan dasar Ikan Pipih atau Tenggiri khas Banua.",
     img: "/kuliner/IMG-20251017-WA0002.webp",
     span: "col-span-1 row-span-1 h-[250px]",
   },
   {
-    title: "Iwak Pakasam",
-    desc: "Ikan sungai fermentasi beras sangrai yang digoreng garing.",
+    title: "Iwak Pakasam Basanga",
+    desc: "Ikan fermentasi beras sangrai bumbu kunyit yang digoreng garing harum.",
     img: "/kuliner/Iwak_Pakasam_Basanga.webp",
     span: "col-span-1 row-span-1 h-[250px]",
   },
   {
-    title: "Sambal Acan",
-    desc: "Terasi legendaris dipadu buah mangga/binjai khas rawa.",
+    title: "Sambal Acan Raja Banjar",
+    desc: "Terasi legendaris dipadu asam segar buah mangga/binjai khas rawa.",
     img: "/kuliner/sambal acan.webp",
     span: "col-span-1 md:col-span-3 row-span-1 h-[250px]",
   }
@@ -172,7 +193,7 @@ export default function Kuliner() {
         <div className="w-full relative h-[280px] sm:h-[400px] md:h-[500px] flex justify-center items-center [perspective:1500px]">
           <div className="relative w-full h-full flex justify-center items-center drum-container">
             {/* Duplikasi array menjadi 10 item untuk membentuk silinder tertutup */}
-            {[...galleryCards, ...galleryCards.slice(0, 4)].map((card, idx) => (
+            {[...galleryCards, ...galleryCards.slice(0, 2)].map((card, idx) => (
               <div 
                 key={idx}
                 className="drum-card absolute w-[140px] h-[200px] sm:w-[220px] sm:h-[320px] md:w-[300px] md:h-[450px]"
@@ -182,7 +203,7 @@ export default function Kuliner() {
                 }}
               >
                 <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] relative bg-[var(--card-bg)]">
-                  <img loading="lazy" src={card.img} alt={card.label} className="w-full h-full object-cover pointer-events-auto" />
+                  <img loading="lazy" decoding="async" src={card.img} alt={card.label} className="w-full h-full object-cover pointer-events-auto transform-gpu" />
                   <div className="absolute bottom-4 left-4 right-4 text-center">
                     <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border border-white/20 inline-block">
                       {card.label}
@@ -203,7 +224,7 @@ export default function Kuliner() {
         {/* =========================================================
             SECTION 1: INTERACTIVE SPOTLIGHT (MAHAKARYA GASTRONOMI)
             ========================================================= */}
-        <section className="py-24 border-t border-[var(--glass-border)] reveal-on-scroll">
+        <section className="py-24 border-t border-[var(--glass-border)]">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Mahakarya Gastronomi</h2>
             <p className="max-w-2xl mx-auto text-[var(--text-muted)] text-lg">Pilar utama kuliner Banua peninggalan pelaut dan saudagar abad pertengahan.</p>
@@ -234,7 +255,7 @@ export default function Kuliner() {
                 className="flex flex-col md:flex-row gap-8 lg:gap-12 items-center"
               >
                 <div className="w-full md:w-1/2 h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden relative shadow-2xl group">
-                  <img loading="lazy" src={activeTab.img} alt={activeTab.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                  <img loading="lazy" decoding="async" src={activeTab.img} alt={activeTab.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 transform-gpu" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
                     <div>
@@ -273,13 +294,13 @@ export default function Kuliner() {
         {/* =========================================================
             SECTION 2: HORIZONTAL SHOWCASE (41 WADAI BANJAR)
             ========================================================= */}
-        <section className="py-24 border-t border-[var(--glass-border)] reveal-on-scroll">
+        <section className="py-24 border-t border-[var(--glass-border)]">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-2xl">
               <span className="text-[#F4C038] font-bold tracking-widest text-sm uppercase mb-2 block">Warisan Manis</span>
-              <h2 className="text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">41 Macam Wadai Banjar</h2>
+              <h2 className="text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Khazanah Wadai Tradisional</h2>
               <p className="text-[var(--text-muted)] text-lg">
-                Tidak hanya sebagai pencuci mulut, ke-41 jenis kue tradisional (*Wadai*) ini memiliki akar magis dan filosofi yang kuat dalam upacara selamatan adat Suku Banjar.
+                Kue manis khas Banjar (disebut *Wadai*) tidak hanya sekadar hidangan penutup, melainkan warisan budaya bernilai filosofis tinggi berbalut legit santan dan gula aren. Berikut adalah deretan wadai terfavorit pilihan wisatawan.
               </p>
             </div>
           </div>
@@ -287,7 +308,7 @@ export default function Kuliner() {
           <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory wadai-scroll hide-scrollbar px-4 sm:px-0">
             {wadaiCollection.map((wadai, idx) => (
               <div key={idx} className="min-w-[280px] sm:min-w-[320px] h-[400px] flex-shrink-0 snap-center relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-lg border border-[var(--glass-border)]">
-                <img loading="lazy" src={wadai.img} alt={wadai.name} className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                <img loading="lazy" decoding="async" src={wadai.img} alt={wadai.name} className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 transform-gpu" />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
                 
@@ -305,10 +326,10 @@ export default function Kuliner() {
         {/* =========================================================
             SECTION 3: TRADISI PASAR TERAPUNG (PARALLAX + CTA)
             ========================================================= */}
-        <section className="py-24 border-t border-[var(--glass-border)] reveal-on-scroll">
+        <section className="py-24 border-t border-[var(--glass-border)]">
           <div className="relative w-full rounded-[3rem] overflow-hidden h-[500px] md:h-[600px] flex items-center shadow-lg border border-[var(--glass-border)]">
             <div className="absolute inset-0">
-              <img loading="lazy" src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" alt="Pasar Terapung Lok Baintan" className="w-full h-full object-cover scale-105" />
+              <img loading="lazy" decoding="async" src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" alt="Pasar Terapung Lok Baintan" className="w-full h-full object-cover scale-105 transform-gpu" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
             </div>
 
@@ -322,7 +343,7 @@ export default function Kuliner() {
                   Tinggalkan hiruk pikuk daratan. Di Sentra Kuliner Banua Anyar dan Pasar Terapung Lok Baintan, Anda tidak hanya membeli makanan, tapi membeli pengalaman magis menyantap hidangan hangat ditemani goyangan ombak sungai dan perahu kelotok yang melintas.
                 </p>
                 <a 
-                  href="https://maps.app.goo.gl/xxx" 
+                  href="https://maps.google.com/?q=Sentra+Kuliner+Banua+Anyar+Banjarmasin" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-[var(--sasirangan-gold)] text-black font-black rounded-full hover:bg-white hover:text-black transition-colors shadow-lg"
@@ -337,7 +358,7 @@ export default function Kuliner() {
         {/* =========================================================
             SECTION 4: ASYMMETRIC BENTO (OLEH-OLEH EKSTREM & LEGENDA)
             ========================================================= */}
-        <section className="py-24 border-t border-[var(--glass-border)] reveal-on-scroll mb-20">
+        <section className="py-24 border-t border-[var(--glass-border)] mb-20">
           <div className="text-center mb-16">
             <span className="text-[#33C3B3] font-bold tracking-widest text-sm uppercase mb-2 block">Bawa Pulang Kenangan</span>
             <h2 className="text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Oleh-Oleh Tak Terlupakan</h2>
@@ -347,7 +368,7 @@ export default function Kuliner() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[auto]">
             {olehOleh.map((item, idx) => (
               <div key={idx} className={`${item.span} rounded-3xl overflow-hidden relative group shadow-lg border border-[var(--glass-border)]`}>
-                <img loading="lazy" src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 absolute inset-0" />
+                <img loading="lazy" decoding="async" src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 absolute inset-0 transform-gpu" />
                 <div className="relative h-full min-h-[250px] bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 md:p-8 flex flex-col justify-end">
                   <h3 className="text-2xl md:text-3xl font-black font-heading text-white mb-2">{item.title}</h3>
                   <p className="text-white/70 text-sm md:text-base leading-relaxed">{item.desc}</p>
