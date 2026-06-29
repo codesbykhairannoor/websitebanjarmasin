@@ -367,7 +367,7 @@ export default function Home() {
         </section>
 
         {/* 2. TASTE OF BANJAR (KULINER) */}
-        <section id="kuliner" className="py-20 md:py-32 bg-[var(--card-bg)] rounded-[40px] px-4 md:px-12 my-12 shadow-xl border border-[var(--glass-border)]">
+        <section id="kuliner" className="py-20 md:py-32">
           <motion.div 
             className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -375,22 +375,22 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ GASTRONOMI OTENTIK
+            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#F4C038] mb-2 font-heading">
+              ✦ WARISAN CITA RASA
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
-              Kuliner <span className="text-[#F4C038]">Legendaris</span> Banjar
+              Kuliner <span className="text-[#33C3B3]">Legendaris</span> Banjar
             </h2>
             <p className="text-sm md:text-base text-[var(--text-muted)] font-body leading-relaxed max-w-2xl mx-auto px-2">
-              Dirancang dengan filosofi *Mobile-First Spotlight Menu*. Pilih menu di bawah ini untuk menjelajahi kelezatan dan filosofi historis setiap hidangan.
+              Setiap hidangan adalah mahakarya rasa. Temukan resep rahasia dan perpaduan rempah khas Nusantara yang dijaga ketat oleh masyarakat Banjar melintasi berbagai generasi.
             </p>
           </motion.div>
 
-          <div className="culinary-tabs-bar hide-scrollbar flex overflow-x-auto gap-4 mb-8 pb-4 snap-x">
+          <div className="culinary-tabs-bar hide-scrollbar flex overflow-x-auto gap-4 mb-8 pb-4 snap-x justify-start md:justify-center px-4">
             {foods.map((item) => (
               <button 
                 key={item.id}
-                className={`culinary-tab-btn snap-center shrink-0 ${activeTab === item.id ? 'active' : ''}`}
+                className={`px-6 py-3 rounded-full font-bold text-sm transition-all border shadow-sm snap-center shrink-0 ${activeTab === item.id ? 'bg-[#33C3B3] border-[#33C3B3] text-white shadow-[#33C3B3]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                 onClick={() => setActiveTab(item.id)}
               >
                 {item.tabTitle}
@@ -401,41 +401,36 @@ export default function Home() {
           <AnimatePresence mode="wait">
             <motion.div 
               key={currentFood.id}
-              className="culinary-spotlight-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              className="max-w-5xl mx-auto bg-[var(--card-bg)] rounded-[40px] p-6 md:p-8 lg:p-10 border border-[var(--glass-border)] shadow-2xl flex flex-col lg:flex-row gap-10 items-center mx-4 lg:mx-auto"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="spotlight-image-col">
-                <img src={currentFood.img} alt={currentFood.name} loading="lazy" className="spotlight-img" />
-                <span className="spotlight-price-badge">{currentFood.price}</span>
+              <div className="w-full lg:w-1/2 relative rounded-[32px] overflow-hidden shadow-lg group">
+                <div className="absolute inset-0 bg-[#33C3B3]/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+                <img src={currentFood.img} alt={currentFood.name} loading="lazy" className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-[#F4C038] font-black px-4 py-2 rounded-full border border-white/20 z-20 shadow-xl">
+                  {currentFood.price}
+                </div>
               </div>
 
-              <div className="spotlight-content-col">
-                <h3 className="spotlight-title">{currentFood.name}</h3>
+              <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
+                <h3 className="text-2xl md:text-4xl font-black text-[var(--text-main)] font-heading mb-4 leading-tight">{currentFood.name}</h3>
                 
-                <div className="spotlight-aroma-box">
-                  <span className="aroma-icon">💡</span>
-                  <p className="aroma-text">{currentFood.aroma}</p>
+                <div className="inline-flex items-center gap-3 bg-[var(--bg-main)] px-5 py-3 rounded-2xl border border-[var(--glass-border)] mb-6 mx-auto lg:mx-0 w-max">
+                  <span className="text-xl">🌿</span>
+                  <p className="text-xs md:text-sm font-bold text-[var(--text-main)] uppercase tracking-wider">{currentFood.aroma}</p>
                 </div>
 
-                <p className="spotlight-desc">{currentFood.desc}</p>
+                <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-8">
+                  {currentFood.desc}
+                </p>
 
-                <Link to="/kuliner" className="btn-spotlight-action inline-block text-center">Temukan Lokasi Warung Legendaris Ini ➔</Link>
+                <Link to="/kuliner" className="btn-gateway inline-block w-full sm:w-max">Jelajahi Lokasi Kuliner Ini ➔</Link>
               </div>
             </motion.div>
           </AnimatePresence>
-
-          <motion.div 
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link to="/kuliner" className="text-[#33C3B3] hover:text-[#2AA698] font-bold text-sm md:text-base hover:underline transition-colors">Lihat Katalog Kuliner Lengkap ➔</Link>
-          </motion.div>
         </section>
 
         {/* 3. JANTUNG BUDAYA & SEJARAH */}
@@ -545,21 +540,21 @@ export default function Home() {
                 <div className="w-14 h-14 bg-blue-500/30 rounded-full flex items-center justify-center text-2xl border border-blue-400/50 shrink-0 shadow-lg">📱</div>
                 <div>
                   <h4 className="text-white font-bold text-base md:text-lg">Super-App Banjarmasin Pintar</h4>
-                  <p className="text-gray-300 text-xs md:text-sm">Layanan satu pintu administrasi warga</p>
+                  <p className="text-gray-300 text-xs md:text-sm">SSO NIK untuk akses semua layanan publik</p>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 translate-x-0 md:translate-x-8 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
-                <div className="w-14 h-14 bg-green-500/30 rounded-full flex items-center justify-center text-2xl border border-green-400/50 shrink-0 shadow-lg">🌿</div>
+                <div className="w-14 h-14 bg-green-500/30 rounded-full flex items-center justify-center text-2xl border border-green-400/50 shrink-0 shadow-lg">🚦</div>
                 <div>
-                  <h4 className="text-white font-bold text-base md:text-lg">Sensor Kualitas Sungai</h4>
-                  <p className="text-gray-300 text-xs md:text-sm">Monitoring real-time kesehatan air</p>
+                  <h4 className="text-white font-bold text-base md:text-lg">Pemantauan ATCS Terpusat</h4>
+                  <p className="text-gray-300 text-xs md:text-sm">Kendali lalu lintas dan pantauan kota real-time</p>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
-                <div className="w-14 h-14 bg-yellow-500/30 rounded-full flex items-center justify-center text-2xl border border-yellow-400/50 shrink-0 shadow-lg">📷</div>
+                <div className="w-14 h-14 bg-yellow-500/30 rounded-full flex items-center justify-center text-2xl border border-yellow-400/50 shrink-0 shadow-lg">🏛️</div>
                 <div>
-                  <h4 className="text-white font-bold text-base md:text-lg">CCTV Lalu Lintas AI</h4>
-                  <p className="text-gray-300 text-xs md:text-sm">Keamanan kota 24/7 terintegrasi</p>
+                  <h4 className="text-white font-bold text-base md:text-lg">E-Layanan Warga & UMKM</h4>
+                  <p className="text-gray-300 text-xs md:text-sm">Integrasi kependudukan hingga e-Katalog UMKM</p>
                 </div>
               </div>
             </motion.div>
