@@ -257,62 +257,88 @@ export default function Sejarah() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Horizontal Showcase Cards (Anti-Bento & Uncropped Portrait) */}
+          <div className="flex flex-col gap-10 sm:gap-12 max-w-6xl mx-auto">
             
             {/* Tokoh 1: Sultan Suriansyah */}
-            <div className="group relative bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[32px] overflow-hidden hover:border-[#F4C038] transition-all duration-500 shadow-xl flex flex-col justify-between min-h-[480px]">
-              <div className="h-[220px] sm:h-[260px] w-full overflow-hidden relative">
+            <div className="group bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[36px] overflow-hidden shadow-2xl hover:border-[#F4C038] transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 items-center">
+              {/* Uncropped Portrait Box */}
+              <div className="lg:col-span-5 relative h-[360px] sm:h-[420px] flex items-end justify-center bg-gradient-to-b from-black/20 via-[var(--card-bg)] to-[var(--bg-main)] pt-8 px-6 overflow-hidden">
+                <div className="absolute inset-0 bg-[#F4C038]/5 rounded-full blur-3xl group-hover:bg-[#F4C038]/15 transition-all duration-700" />
                 <img loading="lazy" 
                   src="/sejarah/250px-Lukisan_Sultan_Suriansyah.webp" 
                   alt="Sultan Suriansyah" 
-                  className="w-full h-full object-cover grayscale sepia group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-105 transition-all duration-700" 
+                  className="w-auto h-[320px] sm:h-[380px] object-contain object-bottom filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-all duration-700 relative z-10" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-main)] via-transparent to-transparent"></div>
-                <span className="absolute top-4 left-4 bg-[#F4C038] text-[#091422] font-black text-[10px] px-3 py-1 rounded-full shadow uppercase tracking-wider">
-                  Raja Islam Pertama (1526)
-                </span>
               </div>
-              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+              
+              {/* Content Box */}
+              <div className="lg:col-span-7 p-8 sm:p-12 text-left relative z-10 flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3 group-hover:text-[#F4C038] transition-colors">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#F4C038]/15 border border-[#F4C038]/30 text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-4 shadow-sm">
+                    👑 RAJA ISLAM PERTAMA (1526)
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-4 group-hover:text-[#F4C038] transition-colors">
                     Sultan Suriansyah
                   </h3>
-                  <p className="text-[var(--text-muted)] font-body text-sm sm:text-base leading-relaxed mb-6">
-                    Terlahir dengan nama Raden Samudera, beliau adalah raja pertama Kesultanan Banjar yang memeluk Islam. Pemerintahannya di Kuin memancarkan fondasi hukum, adat istiadat, dan arsitektur Masjid Sultan Suriansyah yang bersejarah.
+                  <p className="text-[var(--text-muted)] font-body text-sm sm:text-base leading-relaxed mb-8">
+                    Terlahir dengan nama Raden Samudera, beliau adalah raja pertama Kesultanan Banjar yang memeluk Islam. Pemerintahannya di Kuin memancarkan fondasi hukum istana, adab kesantunan, dan arsitektur bersejarah yang menjadi tonggak peradaban Kalimantan Selatan.
                   </p>
                 </div>
-                <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between">
-                  <span className="text-xs font-bold text-[var(--text-main)] uppercase tracking-wider">Warisan: Masjid Kuin</span>
-                  <span className="text-2xl">🕌</span>
+                
+                <div className="pt-6 border-t border-[var(--glass-border)] flex flex-wrap items-center justify-between gap-4 bg-[var(--card-bg)]/50 p-4 rounded-2xl border border-white/5">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">🕌</span>
+                    <div>
+                      <span className="text-[10px] text-[var(--text-muted)] block uppercase font-bold tracking-wider">Warisan Bersejarah</span>
+                      <span className="text-sm font-bold text-[var(--text-main)]">Masjid Sultan Suriansyah (Kuin)</span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-extrabold text-[#F4C038] bg-[#F4C038]/10 px-3 py-1.5 rounded-xl border border-[#F4C038]/20">Abad Ke-16</span>
                 </div>
               </div>
             </div>
 
             {/* Tokoh 2: Pangeran Antasari */}
-            <div className="group relative bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[32px] overflow-hidden hover:border-[#33C3B3] transition-all duration-500 shadow-xl flex flex-col justify-between min-h-[480px]">
-              <div className="h-[220px] sm:h-[260px] w-full overflow-hidden relative">
+            <div className="group bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[36px] overflow-hidden shadow-2xl hover:border-[#33C3B3] transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 items-center">
+              {/* Uncropped Portrait Box (Right on Desktop) */}
+              <div className="lg:col-span-5 lg:order-2 relative h-[360px] sm:h-[420px] flex items-end justify-center bg-gradient-to-b from-black/20 via-[var(--card-bg)] to-[var(--bg-main)] pt-8 px-6 overflow-hidden">
+                <div className="absolute inset-0 bg-[#33C3B3]/5 rounded-full blur-3xl group-hover:bg-[#33C3B3]/15 transition-all duration-700" />
                 <img loading="lazy" 
                   src="/sejarah/pangeran antasari.webp" 
                   alt="Pangeran Antasari" 
-                  className="w-full h-full object-cover grayscale sepia group-hover:grayscale-0 group-hover:sepia-0 group-hover:scale-105 transition-all duration-700" 
+                  className="w-auto h-[320px] sm:h-[380px] object-contain object-bottom filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-all duration-700 relative z-10" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-main)] via-transparent to-transparent"></div>
-                <span className="absolute top-4 left-4 bg-[#33C3B3] text-[#091422] font-black text-[10px] px-3 py-1 rounded-full shadow uppercase tracking-wider">
-                  Pahlawan Nasional (1809-1862)
-                </span>
               </div>
-              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+              
+              {/* Content Box (Left on Desktop) */}
+              <div className="lg:col-span-7 lg:order-1 p-8 sm:p-12 text-left relative z-10 flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3 group-hover:text-[#33C3B3] transition-colors">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#33C3B3]/15 border border-[#33C3B3]/30 text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-4 shadow-sm">
+                    ⚔️ PAHLAWAN NASIONAL (1809 - 1862)
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-4 group-hover:text-[#33C3B3] transition-colors">
                     Pangeran Antasari
                   </h3>
                   <p className="text-[var(--text-muted)] font-body text-sm sm:text-base leading-relaxed mb-6">
-                    Pemimpin tertinggi Perang Banjar yang mengobarkan semangat anti-penjajahan. Semboyan legendarisnya *"Haram Manyerah Waja Sampai Kaputing"* menjadi filosofi mental tangguh masyarakat Kalimantan Selatan.
+                    Pemimpin tertinggi Perang Banjar yang mengobarkan perlawanan semesta melawan penjajahan kolonial. Keteguhan prinsip dan strategi perang gerilyanya di pedalaman Barito menjadikan beliau salah satu tokoh paling ditakuti militer Belanda.
                   </p>
+                  
+                  {/* Legend Quote Callout */}
+                  <div className="mb-6 p-4 rounded-2xl bg-[#33C3B3]/10 border border-[#33C3B3]/30 italic text-sm sm:text-base text-[var(--text-main)] font-heading font-bold shadow-inner">
+                    "Haram Manyerah Waja Sampai Kaputing"
+                  </div>
                 </div>
-                <div className="pt-4 border-t border-[var(--glass-border)] flex items-center justify-between">
-                  <span className="text-xs font-bold text-[var(--text-main)] uppercase tracking-wider">Semboyan: Waja Sampai Kaputing</span>
-                  <span className="text-2xl">⚔️</span>
+                
+                <div className="pt-6 border-t border-[var(--glass-border)] flex flex-wrap items-center justify-between gap-4 bg-[var(--card-bg)]/50 p-4 rounded-2xl border border-white/5">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">🛡️</span>
+                    <div>
+                      <span className="text-[10px] text-[var(--text-muted)] block uppercase font-bold tracking-wider">Filosofi Mental</span>
+                      <span className="text-sm font-bold text-[var(--text-main)]">Semangat Baja Rakyat Banjar</span>
+                    </div>
+                  </div>
+                  <span className="text-xs font-extrabold text-[#33C3B3] bg-[#33C3B3]/10 px-3 py-1.5 rounded-xl border border-[#33C3B3]/20">Gelar Panembahan</span>
                 </div>
               </div>
             </div>

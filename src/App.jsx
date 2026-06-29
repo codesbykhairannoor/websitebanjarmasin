@@ -40,7 +40,7 @@ export default function App() {
     // Function to re-observe elements across all pages
     const observeElements = () => {
       const elements = document.querySelectorAll(
-        'section, .bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right, [class*="rounded-3xl"]:not(button):not(a):not(input), [class*="rounded-[40px]"]:not(button):not(a), [class*="rounded-[32px]"]:not(button):not(a), [class*="rounded-2xl"]:not(button):not(a):not(input), [class*="rounded-xl"]:not(button):not(a):not(input)'
+        'section, .bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right, [class*="rounded-3xl"]:not(button):not(a):not(input), [class*="rounded-[40px]"]:not(button):not(a), [class*="rounded-[36px]"]:not(button):not(a), [class*="rounded-[32px]"]:not(button):not(a), [class*="rounded-2xl"]:not(button):not(a):not(input), [class*="rounded-xl"]:not(button):not(a):not(input)'
       );
       elements.forEach((el) => {
         if (!el.classList.contains('scroll-animate') && 
