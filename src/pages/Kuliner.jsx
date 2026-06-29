@@ -169,20 +169,20 @@ export default function Kuliner() {
             }
             @media (max-width: 767px) {
               @keyframes spinDrum {
-                from { transform: translateZ(-460px) rotateY(0deg); }
-                to { transform: translateZ(-460px) rotateY(-360deg); }
+                from { transform: translateZ(-310px) rotateY(0deg); }
+                to { transform: translateZ(-310px) rotateY(-360deg); }
               }
               .drum-card {
-                --drum-z: 460px;
+                --drum-z: 310px;
               }
             }
             @media (max-width: 639px) {
               @keyframes spinDrum {
-                from { transform: translateZ(-360px) rotateY(0deg); }
-                to { transform: translateZ(-360px) rotateY(-360deg); }
+                from { transform: translateZ(-210px) rotateY(0deg); }
+                to { transform: translateZ(-210px) rotateY(-360deg); }
               }
               .drum-card {
-                --drum-z: 360px;
+                --drum-z: 210px;
               }
             }
             

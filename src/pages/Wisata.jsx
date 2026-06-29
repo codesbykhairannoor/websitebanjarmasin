@@ -193,8 +193,42 @@ export default function Wisata() {
       {/* =========================================================================
           STATIC FULL-WIDTH OVERLAPPING GALLERY (MENGECIL KE SAMPING)
           ========================================================================= */}
-      <section className="w-full relative flex justify-center items-center overflow-hidden pb-20 pt-4 px-0">
-          
+      <section className="w-full relative flex justify-center items-end overflow-hidden pb-16 pt-4 px-2 sm:px-0">
+
+          {/* === MOBILE: Horizontal strip dengan 5 foto proporsional === */}
+          <div className="flex sm:hidden w-full items-end justify-center gap-1.5 px-1">
+            {/* Outer Left */}
+            <div className="flex-1 h-[200px] rounded-xl overflow-hidden relative brightness-50 shadow-md">
+              <img loading="lazy" src={heroDestinations[0].image} alt={heroDestinations[0].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/80 to-transparent" />
+            </div>
+            {/* Middle Left */}
+            <div className="flex-[1.3] h-[260px] rounded-xl overflow-hidden relative brightness-75 shadow-lg">
+              <img loading="lazy" src={heroDestinations[1].image} alt={heroDestinations[1].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/80 to-transparent" />
+            </div>
+            {/* Center (Main) */}
+            <div className="flex-[1.7] h-[320px] rounded-2xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-[#F4C038]/20">
+              <img loading="lazy" src={heroDestinations[2].image} alt={heroDestinations[2].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/80 via-black/10 to-transparent flex flex-col justify-end p-2 text-center">
+                <h3 className="text-xs font-black text-white font-heading leading-tight drop-shadow-lg">
+                  {heroDestinations[2].title}
+                </h3>
+              </div>
+            </div>
+            {/* Middle Right */}
+            <div className="flex-[1.3] h-[260px] rounded-xl overflow-hidden relative brightness-75 shadow-lg">
+              <img loading="lazy" src={heroDestinations[3].image} alt={heroDestinations[3].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/80 to-transparent" />
+            </div>
+            {/* Outer Right */}
+            <div className="flex-1 h-[200px] rounded-xl overflow-hidden relative brightness-50 shadow-md">
+              <img loading="lazy" src={heroDestinations[4].image} alt={heroDestinations[4].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/80 to-transparent" />
+            </div>
+          </div>
+
+          {/* === DESKTOP sm+: Original fan layout === */}
           {/* Outer Left */}
           <div className="w-[16vw] h-[250px] sm:h-[350px] md:h-[450px] z-10 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-50 shrink-0 shadow-lg hidden sm:block">
             <img loading="lazy" src={heroDestinations[0].image} alt={heroDestinations[0].title} className="w-full h-full object-cover" />
@@ -222,7 +256,7 @@ export default function Wisata() {
           </div>
 
           {/* Center (Main) */}
-          <div className="w-[90vw] sm:w-[26vw] h-[450px] sm:h-[550px] md:h-[650px] z-30 rounded-2xl md:rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.6)] shrink-0">
+          <div className="w-[26vw] h-[550px] md:h-[650px] z-30 rounded-2xl md:rounded-3xl overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.6)] shrink-0 hidden sm:block">
             <img loading="lazy" src={heroDestinations[2].image} alt={heroDestinations[2].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-6 sm:p-10">
               <span className="hidden lg:inline-block text-[#F4C038] text-xs md:text-sm font-bold tracking-widest uppercase mb-1 drop-shadow-md">
