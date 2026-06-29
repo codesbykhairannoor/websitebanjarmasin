@@ -135,13 +135,13 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation - Tepat 5 Pilihan */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
             {/* Pilihan 1: Dropdown Tentang Kota */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setOpenDropdown(!openDropdown)}
                 onMouseEnter={() => setOpenDropdown(true)}
-                className={`text-sm font-heading flex items-center gap-1 transition-colors ${isTentangActive ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+                className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${isTentangActive ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
               >
                 <span>{t('navbar.aboutCity')}</span>
                 <span className={`text-[10px] transition-transform duration-200 ${openDropdown ? 'rotate-180' : ''}`}>▼</span>
@@ -186,28 +186,28 @@ export default function Navbar() {
 
             <Link
               to="/wisata"
-              className={`text-sm font-heading transition-colors ${currentPath === '/wisata' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/wisata' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.tourism')}
             </Link>
 
             <Link
               to="/kuliner"
-              className={`text-sm font-heading transition-colors ${currentPath === '/kuliner' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/kuliner' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.culinary')}
             </Link>
 
             <Link
               to="/budaya"
-              className={`text-sm font-heading transition-colors ${currentPath === '/budaya' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/budaya' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.culture')}
             </Link>
 
             <Link
               to="/panduan"
-              className={`text-sm font-heading transition-colors ${currentPath === '/panduan' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/panduan' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.guide')}
             </Link>
@@ -220,10 +220,10 @@ export default function Navbar() {
             <div className="relative" ref={langDropdownRef}>
               <button
                 onClick={() => setOpenLangDropdown(!openLangDropdown)}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#33C3B3] text-xs sm:text-sm font-black transition-all shadow-sm hover:scale-105 shrink-0 uppercase text-[var(--text-main)]"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#33C3B3] text-lg transition-all shadow-sm hover:scale-105 shrink-0"
                 title="Select Language / Pilih Bahasa"
               >
-                🌐 {language}
+                {language === 'id' ? '🇮🇩' : language === 'en' ? '🇬🇧' : language === 'ms' ? '🇲🇾' : '🇨🇳'}
               </button>
               
               <AnimatePresence>
@@ -289,9 +289,9 @@ export default function Navbar() {
             {/* CTA Button */}
             <Link
               to="/panduan"
-              className="hidden sm:flex items-center gap-1 px-4 py-2 rounded-full bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-heading font-black text-xs transition-all shadow-[0_4px_15px_rgba(244,192,56,0.3)] hover:scale-105 shrink-0"
+              className="hidden sm:flex items-center gap-1 px-3 sm:px-4 py-2 rounded-full bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-heading font-black text-xs transition-all shadow-[0_4px_15px_rgba(244,192,56,0.3)] hover:scale-105 shrink-0 max-w-[120px] sm:max-w-[150px] overflow-hidden"
             >
-              <span>{t('navbar.exploreCTA')}</span>
+              <span className="truncate">{t('navbar.exploreCTA')}</span>
             </Link>
 
             {/* Hamburger Button for Mobile */}

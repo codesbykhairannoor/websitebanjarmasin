@@ -142,8 +142,6 @@ export default function Home() {
     }
     schemaScript.textContent = JSON.stringify(schemaData);
 
-    window.scrollTo(0, 0);
-
     return () => {
       if (schemaScript) schemaScript.remove();
     };
