@@ -311,7 +311,7 @@ export default function Home() {
       <div className="app-container">
 
         {/* 1. WISATA IKONIK (BENTO GRID) */}
-        <section id="wisata" className="py-20 md:py-32">
+        <section id="wisata" className="py-12 md:py-20">
           <motion.div 
             className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -367,7 +367,7 @@ export default function Home() {
         </section>
 
         {/* 2. TASTE OF BANJAR (KULINER) */}
-        <section id="kuliner" className="py-20 md:py-32">
+        <section id="kuliner" className="py-12 md:py-20">
           <motion.div 
             className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -434,7 +434,7 @@ export default function Home() {
         </section>
 
         {/* 3. JANTUNG BUDAYA & SEJARAH */}
-        <section id="budaya" className="py-20 md:py-32">
+        <section id="budaya" className="py-12 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div 
               className="text-center lg:text-left"
@@ -502,7 +502,7 @@ export default function Home() {
         </section>
 
         {/* 4. SMART CITY & EKOLOGI (NEW) */}
-        <section id="smartcity" className="py-20 md:py-32 relative overflow-hidden rounded-[40px] my-12 shadow-2xl border border-[var(--glass-border)] mx-4 md:mx-0">
+        <section id="smartcity" className="py-12 md:py-20 relative overflow-hidden rounded-[40px] mb-12 shadow-2xl border border-[var(--glass-border)] mx-4 md:mx-0">
           <div className="absolute inset-0 z-0">
             <img src="/hero_menara_pandang.png" className="w-full h-full object-cover brightness-[0.7]" alt="Smart City Night" loading="lazy"/>
             <div className="absolute inset-0 bg-gradient-to-r from-[#091422]/95 via-[#091422]/70 to-[#33C3B3]/20"></div>
@@ -561,8 +561,29 @@ export default function Home() {
           </div>
         </section>
 
+        {/* AI CHAT SECTION */}
+        <section id="ai-chat" className="py-12 md:py-20">
+          <div className="bg-gradient-to-r from-[#00A896] to-[#028090] rounded-[40px] p-8 md:p-12 lg:p-16 text-center shadow-2xl relative overflow-hidden border border-[#33C3B3]/30 mx-4 lg:mx-0">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F4C038]/20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+            
+            <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+              <span className="text-4xl md:text-6xl mb-6 block drop-shadow-lg">🤖</span>
+              <h2 className="text-3xl md:text-5xl font-black text-white font-heading leading-tight mb-4">
+                Asisten <span className="text-[#F4C038]">AI Banjarmasin</span>
+              </h2>
+              <p className="text-white/90 text-sm md:text-base leading-relaxed mb-8 max-w-2xl">
+                Punya pertanyaan seputar rute, kuliner, atau butuh rekomendasi itinerary personal? Tanya langsung pada Asisten Cerdas AI kami yang siap membantu perjalananmu 24/7!
+              </p>
+              <Link to="/smart-city" className="bg-[#F4C038] hover:bg-[#D99B00] text-[#050B14] font-black px-8 py-4 rounded-full shadow-[0_10px_25px_rgba(244,192,56,0.4)] transition-transform hover:-translate-y-1 flex items-center gap-3">
+                <span>Mulai Ngobrol Sekarang</span> <span className="text-xl">💬</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* 5. PANDUAN & AKOMODASI (NEW) */}
-        <section id="panduan-akomodasi" className="py-20 md:py-32 border-t border-[var(--glass-border)]">
+        <section id="panduan-akomodasi" className="py-12 md:py-20 border-t border-[var(--glass-border)]">
           <motion.div 
             className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -585,7 +606,7 @@ export default function Home() {
             {[
               { img: "/panduan/Swiss-Belhotel Borneo Banjarmasi.webp", badge: "Premium", title: "Swiss-Belhotel Borneo", desc: "Berada tepat di tepi sungai dengan akses langsung ke dermaga kelotok privat." },
               { img: "/panduan/galaxy hotel.webp", badge: "Bisnis", title: "Galaxy Hotel", desc: "Berada di gerbang masuk kota, cocok untuk mobilitas ekstra cepat via bandara." },
-              { img: "/wisata/menara tugu pal 0.webp", badge: "Publik", title: "BRT Trans Banjarbakula", desc: "Bus AC nyaman beroperasi menembus bandara hingga titik Nol Kilometer kota." }
+              { img: "/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp", badge: "Publik", title: "BRT Trans Banjarbakula", desc: "Bus AC nyaman beroperasi menembus bandara hingga titik Nol Kilometer kota." }
             ].map((item, idx) => (
               <motion.div 
                 key={idx} 
@@ -616,7 +637,7 @@ export default function Home() {
         </section>
 
         {/* 6. UTILITY PLANNER (RUTE) */}
-        <section id="planner" className="py-20 md:py-32 mb-0">
+        <section id="planner" className="py-12 md:py-20 mb-0">
           <div className="planner-glass relative overflow-hidden rounded-[40px] p-6 md:p-12 lg:p-16 border border-[var(--glass-border)] shadow-2xl bg-[var(--card-bg)] flex flex-col lg:flex-row gap-12 items-center mx-4 md:mx-0">
             {/* Ambient background glow */}
             <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#33C3B3]/10 rounded-full blur-3xl pointer-events-none"></div>
