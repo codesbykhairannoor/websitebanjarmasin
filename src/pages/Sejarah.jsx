@@ -127,17 +127,70 @@ export default function Sejarah() {
             />
           </div>
 
-          {/* Center Text Box */}
-          <div className="relative z-30 text-center w-full max-w-2xl px-6 py-6 md:py-0 mx-auto bg-[var(--bg-main)]/80 backdrop-blur-md md:bg-transparent md:backdrop-blur-none rounded-3xl">
-            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
+          {/* Center Column: Typography & Interactive Bottom Dashboard */}
+          <div className="relative z-30 text-center w-full max-w-2xl px-6 py-6 md:py-0 mx-auto bg-[var(--bg-main)]/80 backdrop-blur-md md:bg-transparent md:backdrop-blur-none rounded-3xl flex flex-col items-center">
+            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading animate-fade-in">
               ✦ LINTAS WAKTU 1526 — KINI
             </span>
-            <h1 className="hero-title !mb-3">
+            <h1 className="hero-title !mb-3 animate-fade-in">
               Menyelami <br/><span className="text-sasirangan">Sejarah</span>
             </h1>
-            <p className="hero-subtitle mx-auto !mb-6 !max-w-2xl px-2">
+            <p className="hero-subtitle mx-auto !mb-8 !max-w-2xl px-2 animate-fade-in">
               Berawal dari bandar rempah di muara Sungai Barito, Banjarmasin telah berevolusi melewati berbagai zaman—dari era Kesultanan Banjar yang masyhur hingga menjadi Metropolitan Seribu Sungai saat ini.
             </p>
+
+            {/* Interactive Bottom Filler: Tonggak Sejarah Quick-Jump Dashboard */}
+            <div className="w-full max-w-xl mx-auto mt-2 md:mt-8 animate-fade-in transition-all duration-500">
+              <div className="p-4 sm:p-5 rounded-3xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#F4C038]/5 rounded-full blur-2xl pointer-events-none" />
+                
+                <div className="flex items-center justify-between mb-3 border-b border-[var(--glass-border)] pb-2.5 px-1 relative z-10">
+                  <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#F4C038] flex items-center gap-1.5">
+                    <span>⏳</span> Eksplorasi Era Sejarah
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] text-[#33C3B3] font-semibold bg-[#33C3B3]/10 px-2 py-0.5 rounded-full border border-[#33C3B3]/20">
+                    Klik era di bawah
+                  </span>
+                </div>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 relative z-10">
+                  {timelineData.slice(0, 4).map((item, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        setActiveTab(idx);
+                        const el = document.getElementById('garis-waktu');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="p-3 rounded-2xl bg-black/30 hover:bg-[#F4C038]/20 border border-white/5 hover:border-[#F4C038]/50 transition-all duration-300 text-left flex flex-col justify-between cursor-pointer shadow-sm hover:scale-[1.03]"
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span className="text-sm sm:text-base font-black text-[#F4C038]">
+                          {item.year}
+                        </span>
+                        <span className="text-[10px] opacity-60">↗</span>
+                      </div>
+                      <span className="text-[11px] font-semibold text-[var(--text-main)] line-clamp-2 leading-tight mt-1.5">
+                        {item.title}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="mt-3.5 pt-2.5 border-t border-white/5 flex items-center justify-between text-[11px] text-[var(--text-muted)] px-1 relative z-10">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#F4C038] animate-pulse" /> 498+ Tahun Peradaban
+                  </span>
+                  <span className="text-[var(--text-main)] font-semibold hover:text-[#F4C038] cursor-pointer transition-colors" onClick={() => {
+                    const el = document.getElementById('garis-waktu');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}>
+                    Lihat Kronologi Lengkap ↓
+                  </span>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           {/* Desktop Right Frames */}
@@ -178,7 +231,7 @@ export default function Sejarah() {
       {/* =========================================================
           SECTION 1: GARIS WAKTU INTERAKTIF (INTERACTIVE STEPPER)
           ========================================================= */}
-      <section className="py-24 bg-[var(--bg-main)] relative overflow-hidden">
+      <section id="garis-waktu" className="py-24 bg-[var(--bg-main)] relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
