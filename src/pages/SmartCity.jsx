@@ -91,20 +91,20 @@ export default function SmartCity() {
       <div className="bg-[var(--bg-main)] pt-28 sm:pt-32 pb-0 overflow-hidden relative">
         <div className="hidden dark:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-teal-500/10 blur-[160px] rounded-full pointer-events-none -z-10" />
 
-        <div className="text-center max-w-4xl mx-auto px-4 mb-2 relative z-10">
+        <div className="text-center max-w-4xl mx-auto px-4 mb-8 sm:mb-12 relative z-10">
           <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-3 font-heading">
             ✦ BANJARMASIN BAIMAN SMART CITY
           </span>
           <h1 className="hero-title !mb-4">
             Transformasi <br/><span className="text-sasirangan">Digital & Inovasi</span>
           </h1>
-          <p className="hero-subtitle mx-auto !mb-0 !max-w-2xl px-2">
+          <p className="hero-subtitle mx-auto !mb-4 sm:!mb-8 !max-w-2xl px-2">
             Mengintegrasikan teknologi informasi dalam tata kelola pemerintahan, pelayanan publik satu pintu, serta pelestarian ekologi Seribu Sungai demi wujudkan kota yang bersih dan nyaman.
           </p>
         </div>
 
         {/* Responsive 5-Pillar Arc (Ramping on Mobile, Full on Desktop) */}
-        <div className="grid grid-cols-5 gap-1 sm:gap-2.5 md:gap-3 lg:gap-4 max-w-[1300px] mx-auto px-1.5 sm:px-4 md:px-6 -mt-4 sm:-mt-10 lg:-mt-16 pb-0 relative z-20 items-end">
+        <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 md:gap-3 lg:gap-4 max-w-[1300px] mx-auto px-2 sm:px-4 md:px-6 mt-4 sm:-mt-2 md:-mt-10 lg:-mt-16 pb-0 relative z-20 items-end">
           {pillarsData.map((pillar) => (
             <div
               key={pillar.id}
