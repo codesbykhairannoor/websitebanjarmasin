@@ -16,7 +16,7 @@ const pillarsData = [
     color: "#00A896",
     gradient: "from-[#00A896] to-[#028090]",
     img: "/profil kota/kantor walikota.webp",
-    heightClass: "h-[210px] sm:h-[380px] md:h-[520px] lg:h-[600px]",
+    heightClass: "h-[300px] sm:h-[380px] md:h-[520px] lg:h-[600px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 20px, 100% 100%, 0 100%)" },
     alignClass: "text-center md:text-left items-center md:items-start",
     transformClass: "hover:brightness-110 hover:shadow-[0_0_35px_rgba(0,168,150,0.5)]"
@@ -29,7 +29,7 @@ const pillarsData = [
     color: "#E63946",
     gradient: "from-[#E63946] to-[#B81D24]",
     img: "/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp",
-    heightClass: "h-[180px] sm:h-[320px] md:h-[440px] lg:h-[510px]",
+    heightClass: "h-[270px] sm:h-[320px] md:h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 15px, 100% 100%, 0 100%)" },
     alignClass: "text-center md:text-left items-center md:items-start",
     transformClass: "hover:brightness-110 hover:shadow-[0_0_35px_rgba(230,57,70,0.5)]"
@@ -42,7 +42,7 @@ const pillarsData = [
     color: "#33C3B3",
     gradient: "from-[#33C3B3] to-[#008075]",
     img: "/profil kota/sungai.webp",
-    heightClass: "h-[155px] sm:h-[260px] md:h-[360px] lg:h-[420px]",
+    heightClass: "h-[240px] sm:h-[260px] md:h-[360px] lg:h-[420px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-center items-center",
     transformClass: "z-20 shadow-[0_0_35px_rgba(51,195,179,0.4)] border-[#33C3B3] hover:brightness-110 hover:shadow-[0_0_45px_rgba(51,195,179,0.7)]"
@@ -55,7 +55,7 @@ const pillarsData = [
     color: "#F4C038",
     gradient: "from-[#F4C038] to-[#D99B00]",
     img: "/profil kota/pasar wadai.webp",
-    heightClass: "h-[180px] sm:h-[320px] md:h-[440px] lg:h-[510px]",
+    heightClass: "h-[270px] sm:h-[320px] md:h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 15px, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-center md:text-right items-center md:items-end",
     transformClass: "hover:brightness-110 hover:shadow-[0_0_35px_rgba(244,192,56,0.5)]"
@@ -68,7 +68,7 @@ const pillarsData = [
     color: "#7B2CBF",
     gradient: "from-[#7B2CBF] to-[#5A189A]",
     img: "/profil kota/rs ulin.webp",
-    heightClass: "h-[210px] sm:h-[380px] md:h-[520px] lg:h-[600px]",
+    heightClass: "h-[300px] sm:h-[380px] md:h-[520px] lg:h-[600px]",
     clipStyle: { clipPath: "polygon(0 20px, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-center md:text-right items-center md:items-end",
     transformClass: "hover:brightness-110 hover:shadow-[0_0_35px_rgba(123,44,191,0.5)]"
@@ -131,26 +131,32 @@ export default function SmartCity() {
           </p>
         </div>
 
-        {/* Responsive 5-Pillar Arc (Horizontal Scroll on Mobile, Full on Desktop) */}
-        <div className="flex overflow-x-auto snap-x hide-scrollbar md:grid md:grid-cols-5 gap-4 sm:gap-6 md:gap-3 lg:gap-4 max-w-[1300px] mx-auto px-4 md:px-6 mt-4 sm:-mt-2 md:-mt-10 lg:-mt-16 pb-6 md:pb-0 relative z-20 items-end">
+        {/* Responsive 5-Pillar Arc */}
+        <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 md:gap-3 lg:gap-4 max-w-[1300px] mx-auto px-2 sm:px-4 md:px-6 mt-4 sm:-mt-2 md:-mt-10 lg:-mt-16 pb-0 relative z-20 items-end">
           {pillarsData.map((pillar, idx) => {
             const transPillar = (tLocal('pillars') || [])[idx] || {};
             return (
               <div
                 key={pillar.id}
                 style={pillar.clipStyle}
-                className={`group shrink-0 snap-center w-[240px] sm:w-[320px] md:w-auto bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-xl md:shadow-2xl transition-all duration-500 flex flex-col relative rounded-t-2xl ${pillar.heightClass} ${pillar.transformClass}`}
+                className={`group bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-xl md:shadow-2xl transition-all duration-500 flex flex-col relative rounded-t-xl sm:rounded-t-2xl ${pillar.heightClass} ${pillar.transformClass}`}
               >
                 {/* Top Gradient Header */}
-                <div className={`p-1.5 sm:p-3 md:p-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[75px] sm:h-[120px] md:h-[150px] lg:h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
+                <div className={`p-1.5 sm:p-3 md:p-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[110px] sm:h-[120px] md:h-[150px] lg:h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
                   <div className="absolute -right-2 -bottom-2 text-3xl sm:text-5xl md:text-6xl opacity-20 pointer-events-none select-none">
                     {pillar.icon}
                   </div>
                   <span className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xs sm:text-base md:text-xl shadow mx-auto md:mx-0 shrink-0">
                     {pillar.icon}
                   </span>
-                  <div className="w-full text-center md:text-left mt-1 sm:mt-0">
-                    <h3 className="font-heading font-black text-[8.5px] sm:text-xs md:text-base lg:text-lg leading-[1.1] sm:leading-tight line-clamp-2">
+                  <div className="w-full text-center md:text-left mt-1 sm:mt-0 flex flex-col items-center md:items-start flex-1">
+                    <h3 
+                      className="font-heading font-black text-[10px] sm:text-xs md:text-base lg:text-lg leading-[1.1] sm:leading-tight mt-1 sm:mt-0"
+                      style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
+                    >
+                      <span className="sm:hidden">{transPillar.title || pillar.title}</span>
+                    </h3>
+                    <h3 className="hidden sm:block font-heading font-black text-[8.5px] sm:text-xs md:text-base lg:text-lg leading-[1.1] sm:leading-tight line-clamp-2">
                       {transPillar.title || pillar.title}
                     </h3>
                     <span className="hidden sm:block text-[10px] md:text-[11px] font-medium text-white/90 mt-0.5 line-clamp-1">

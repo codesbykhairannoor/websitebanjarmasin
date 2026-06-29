@@ -195,21 +195,53 @@ export default function Wisata() {
           ========================================================================= */}
       <section className="w-full relative flex justify-center items-end overflow-hidden pb-16 pt-4 px-2 sm:px-0">
 
-          {/* === MOBILE: Horizontal Swipe Carousel === */}
-          <div className="flex sm:hidden w-full overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 px-4 pb-4">
-            {heroDestinations.map((dest, idx) => (
-              <div key={idx} className="w-[85vw] h-[400px] rounded-2xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] shrink-0 snap-center">
-                <img loading="lazy" src={dest.image} alt={dest.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/30 to-transparent flex flex-col justify-end items-center text-center p-6">
-                  <span className="inline-block text-[#F4C038] text-[10px] font-bold tracking-widest uppercase mb-2 drop-shadow-md">
-                    {dest.tag}
-                  </span>
-                  <h3 className="text-2xl font-black text-white font-heading leading-tight drop-shadow-lg">
-                    {dest.title}
-                  </h3>
-                </div>
+          {/* === MOBILE: 5-Slice Fan Layout (Vertical Text) === */}
+          <div className="flex sm:hidden w-full items-end justify-center px-1 h-[480px]">
+            {/* Outer Left */}
+            <div className="flex-1 h-[320px] rounded-xl overflow-hidden relative brightness-50 shadow-md transform translate-x-2 z-10 border border-[#F4C038]/10">
+              <img loading="lazy" src={heroDestinations[0].image} alt={heroDestinations[0].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-4">
+                <h3 className="text-[10px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                  {heroDestinations[0].title}
+                </h3>
               </div>
-            ))}
+            </div>
+            {/* Middle Left */}
+            <div className="flex-[1.3] h-[380px] rounded-xl overflow-hidden relative brightness-75 shadow-lg transform translate-x-1 z-20 border border-[#F4C038]/20">
+              <img loading="lazy" src={heroDestinations[1].image} alt={heroDestinations[1].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-5">
+                <h3 className="text-[11px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                  {heroDestinations[1].title}
+                </h3>
+              </div>
+            </div>
+            {/* Center (Main) */}
+            <div className="flex-[1.7] h-[460px] rounded-2xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-[#F4C038]/40 z-30">
+              <img loading="lazy" src={heroDestinations[2].image} alt={heroDestinations[2].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/10 to-transparent flex flex-col justify-end items-center pb-6">
+                <h3 className="text-[13px] font-black text-[#F4C038] font-heading leading-tight drop-shadow-lg text-center" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                  {heroDestinations[2].title}
+                </h3>
+              </div>
+            </div>
+            {/* Middle Right */}
+            <div className="flex-[1.3] h-[380px] rounded-xl overflow-hidden relative brightness-75 shadow-lg transform -translate-x-1 z-20 border border-[#F4C038]/20">
+              <img loading="lazy" src={heroDestinations[3].image} alt={heroDestinations[3].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-5">
+                <h3 className="text-[11px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                  {heroDestinations[3].title}
+                </h3>
+              </div>
+            </div>
+            {/* Outer Right */}
+            <div className="flex-1 h-[320px] rounded-xl overflow-hidden relative brightness-50 shadow-md transform -translate-x-2 z-10 border border-[#F4C038]/10">
+              <img loading="lazy" src={heroDestinations[4].image} alt={heroDestinations[4].title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-4">
+                <h3 className="text-[10px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                  {heroDestinations[4].title}
+                </h3>
+              </div>
+            </div>
           </div>
 
           {/* === DESKTOP sm+: Original fan layout === */}
