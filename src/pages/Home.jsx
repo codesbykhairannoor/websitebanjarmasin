@@ -17,7 +17,7 @@ const showcaseItems = [
     price: "Eksplorasi Dimulai",
     btnText: "Mulai Petualangan ➔",
     btnLink: "#wisata",
-    img: "/hero_sungai_martapura.webp"
+    img: "/hero_sungai_martapura.png"
   },
   {
     id: 1,
@@ -30,7 +30,7 @@ const showcaseItems = [
     price: "Kearifan Lokal",
     btnText: "Buka Peta Wisata ➔",
     btnLink: "/wisata",
-    img: "/hero_pasar_terapung.webp"
+    img: "/hero_pasar_terapung.png"
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ const showcaseItems = [
     price: "Cita Rasa Legendaris",
     btnText: "Cicipi Menu Banjar ➔",
     btnLink: "/kuliner",
-    img: "/hero_soto_banjar.webp"
+    img: "/hero_soto_banjar.png"
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ const showcaseItems = [
     price: "Jejak Peradaban",
     btnText: "Jelajahi Sejarah ➔",
     btnLink: "/sejarah",
-    img: "/hero_kain_sasirangan.webp"
+    img: "/hero_kain_sasirangan.png"
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ const showcaseItems = [
     price: "Kota Masa Depan",
     btnText: "Ekosistem Smart City ➔",
     btnLink: "/smart-city",
-    img: "/hero_menara_pandang.webp"
+    img: "/hero_menara_pandang.png"
   }
 ];
 
