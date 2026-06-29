@@ -305,262 +305,416 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================================================
+            {/* =========================================================
           KEMBALI MENGGUNAKAN APP-CONTAINER UNTUK SECTION LAIN
           ========================================================= */}
       <div className="app-container">
-        {/* =========================================================
-            QUICK DISCOVERY SECTION
-            ========================================================= */}
-        <section id="wisata" className="section-container">
-        <motion.div 
-          className="section-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="section-tag">Jelajah Kota</span>
-          <h2 className="section-title">Destinasi Wisata Ikonik</h2>
-          <p className="section-desc">
-            Menyusuri denyut kehidupan sungai Martapura hingga pesona eksotis alam Borneo.
-          </p>
-        </motion.div>
 
-        <div className="bento-grid">
-          {spots.map((s, idx) => (
-            <motion.div 
-              key={s.id} 
-              className={`bento-card ${s.span}`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-            >
-              <img src={s.img} alt={s.title} loading="lazy" className="bento-bg" />
-              <div className="bento-overlay">
-                <div className="bento-top">
-                  <span className="bento-badge">{s.category}</span>
-                  <span className="bento-time">{s.time}</span>
+        {/* 1. WISATA IKONIK (BENTO GRID) */}
+        <section id="wisata" className="py-20 md:py-32">
+          <motion.div 
+            className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#F4C038] mb-2 font-heading">
+              ✦ EKSPLORASI ALAM & LANDMARK
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
+              Destinasi Wisata <span className="text-[#33C3B3]">Ikonik</span>
+            </h2>
+            <p className="hero-subtitle mx-auto px-2 mb-8">
+              Menyusuri denyut kehidupan sungai Martapura hingga pesona eksotis rimba Borneo yang tak akan terlupakan.
+            </p>
+          </motion.div>
+
+          <div className="bento-grid">
+            {spots.map((s, idx) => (
+              <motion.div 
+                key={s.id} 
+                className={`bento-card ${s.span}`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+              >
+                <img src={s.img} alt={s.title} loading="lazy" className="bento-bg" />
+                <div className="bento-overlay">
+                  <div className="bento-top">
+                    <span className="bento-badge">{s.category}</span>
+                    <span className="bento-time">{s.time}</span>
+                  </div>
+                  <div className="bento-bottom">
+                    <h3 className="bento-title">{s.title}</h3>
+                    <Link to="/wisata" className="btn-bento-action">Eksplorasi Spot ➔</Link>
+                  </div>
                 </div>
-                <div className="bento-bottom">
-                  <h3 className="bento-title">{s.title}</h3>
-                  <button className="btn-bento-action">Eksplorasi Spot ➔</button>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Link to="/wisata" className="btn-gateway inline-block">Jelajahi Beragam Destinasi Alam & Budaya ➔</Link>
+          </motion.div>
+        </section>
+
+        {/* 2. TASTE OF BANJAR (KULINER) */}
+        <section id="kuliner" className="py-20 md:py-32 bg-borneo-deep rounded-[40px] px-4 md:px-12 my-12 shadow-xl border border-[var(--glass-border)]">
+          <motion.div 
+            className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
+              ✦ GASTRONOMI OTENTIK
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-white font-heading leading-tight mb-4">
+              Kuliner <span className="text-[#F4C038]">Legendaris</span> Banjar
+            </h2>
+            <p className="text-sm md:text-base text-gray-300 font-body leading-relaxed max-w-2xl mx-auto px-2">
+              Dirancang dengan filosofi *Mobile-First Spotlight Menu*. Pilih menu di bawah ini untuk menjelajahi kelezatan dan filosofi historis setiap hidangan.
+            </p>
+          </motion.div>
+
+          <div className="culinary-tabs-bar hide-scrollbar flex overflow-x-auto gap-4 mb-8 pb-4 snap-x">
+            {foods.map((item) => (
+              <button 
+                key={item.id}
+                className={`culinary-tab-btn snap-center shrink-0 ${activeTab === item.id ? 'active' : ''}`}
+                onClick={() => setActiveTab(item.id)}
+              >
+                {item.tabTitle}
+              </button>
+            ))}
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={currentFood.id}
+              className="culinary-spotlight-card"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className="spotlight-image-col">
+                <img src={currentFood.img} alt={currentFood.name} loading="lazy" className="spotlight-img" />
+                <span className="spotlight-price-badge">{currentFood.price}</span>
+              </div>
+
+              <div className="spotlight-content-col">
+                <h3 className="spotlight-title">{currentFood.name}</h3>
+                
+                <div className="spotlight-aroma-box">
+                  <span className="aroma-icon">💡</span>
+                  <p className="aroma-text">{currentFood.aroma}</p>
+                </div>
+
+                <p className="spotlight-desc">{currentFood.desc}</p>
+
+                <Link to="/kuliner" className="btn-spotlight-action inline-block text-center">Temukan Lokasi Warung Legendaris Ini ➔</Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link to="/kuliner" className="text-white hover:text-[#F4C038] font-bold text-sm md:text-base hover:underline transition-colors">Lihat Katalog Kuliner Lengkap ➔</Link>
+          </motion.div>
+        </section>
+
+        {/* 3. JANTUNG BUDAYA & SEJARAH */}
+        <section id="budaya" className="py-20 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              className="text-center lg:text-left"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#F4C038] mb-2 font-heading">
+                ✦ WARISAN LELUHUR
+              </span>
+              <h2 className="text-3xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-6">
+                Jantung Budaya & <br className="hidden lg:block"/> Jejak Sejarah
+              </h2>
+              <p className="hero-subtitle mx-auto lg:mx-0 mb-8 px-2 lg:px-0">
+                Lebih dari sekadar kain dan transportasi, keduanya melambangkan ketangguhan serta harmoni manusiawi masyarakat Banjar dengan alam sungainya.
+              </p>
+              
+              <div className="flex flex-col gap-6 mb-8 text-left px-4 lg:px-0">
+                <div className="flex gap-4 items-start p-6 rounded-3xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-sm hover:shadow-lg transition-shadow">
+                  <span className="text-3xl md:text-4xl shrink-0">🧵</span>
+                  <div>
+                    <h3 className="font-heading font-bold text-[var(--text-main)] mb-2 text-lg">Kain Sasirangan</h3>
+                    <p className="text-sm text-[var(--text-muted)] leading-relaxed">Dibuat melalui teknik menyirang dengan pewarna alami, dipercaya masyarakat sejak abad ke-16 sebagai wastra penyembuh magis.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start p-6 rounded-3xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-sm hover:shadow-lg transition-shadow">
+                  <span className="text-3xl md:text-4xl shrink-0">🛶</span>
+                  <div>
+                    <h3 className="font-heading font-bold text-[var(--text-main)] mb-2 text-lg">Budaya Jukung</h3>
+                    <p className="text-sm text-[var(--text-muted)] leading-relaxed">Perahu tradisional berbahan kayu ulin tanpa paku logam, didesain sempurna untuk membelah kuatnya arus sungai Kalimantan.</p>
+                  </div>
+                </div>
+              </div>
+
+              <Link to="/budaya" className="btn-gateway inline-block">Pelajari Kedalaman Budaya ➔</Link>
+            </motion.div>
+
+            <motion.div 
+              className="relative lg:h-[700px] rounded-[40px] overflow-hidden group shadow-2xl border-4 border-[var(--card-bg)] mx-4 lg:mx-0"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img 
+                src="/hero_pasar_terapung.png" 
+                alt="Pasar Terapung Lok Baintan" 
+                loading="lazy"
+                className="w-full h-[450px] lg:h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-8 md:p-12">
+                <div className="border-l-4 border-[#F4C038] pl-5 md:pl-6 relative">
+                  <div className="absolute -left-6 -top-8 text-7xl text-white/20 font-serif">"</div>
+                  <p className="text-white text-base md:text-xl italic font-serif leading-relaxed mb-4">
+                    Di atas jukung, urat nadi kehidupan dan persaudaraan masyarakat Banjar terus mengalir melintasi lintas generasi dan zaman.
+                  </p>
+                  <span className="text-[#F4C038] font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] font-heading">
+                    — Pedagang Pasar Terapung
+                  </span>
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+          </div>
+        </section>
 
-        <motion.div 
-          className="section-footer-cta"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <button className="btn-gateway">Jelajahi Beragam Destinasi Alam & Budaya ➔</button>
-        </motion.div>
-      </section>
-
-      {/* =========================================================
-          TASTE OF BANJAR SECTION
-          ========================================================= */}
-      <section id="kuliner" className="section-container bg-borneo-deep">
-        <motion.div 
-          className="section-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="section-tag">Gastronomi Otentik</span>
-          <h2 className="section-title">Kuliner Legendaris Banjar</h2>
-          <p className="section-desc">
-            Dirancang dengan filosofi *Mobile-First Spotlight Menu*. Pilih menu di bawah ini untuk menjelajahi kelezatan dan filosofi historis setiap hidangan.
-          </p>
-        </motion.div>
-
-        {/* Interactive Spotlight Selector Tabs */}
-        <div className="culinary-tabs-bar">
-          {foods.map((item) => (
-            <button 
-              key={item.id}
-              className={`culinary-tab-btn ${activeTab === item.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(item.id)}
+        {/* 4. SMART CITY & EKOLOGI (NEW) */}
+        <section id="smartcity" className="py-20 md:py-32 relative overflow-hidden rounded-[40px] my-12 shadow-2xl border border-[var(--glass-border)] mx-4 md:mx-0">
+          <div className="absolute inset-0 z-0">
+            <img src="/hero_menara_pandang.png" className="w-full h-full object-cover brightness-[0.35]" alt="Smart City Night" loading="lazy"/>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#050B14]/90 to-transparent mix-blend-multiply"></div>
+          </div>
+          
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6 md:px-16 h-full py-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              {item.tabTitle}
-            </button>
-          ))}
-        </div>
-
-        {/* Spotlight Showcase Card (Super Responsive Mobile-First Stack) */}
-        <AnimatePresence mode="wait">
-          <motion.div 
-            key={currentFood.id}
-            className="culinary-spotlight-card"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className="spotlight-image-col">
-              <img src={currentFood.img} alt={currentFood.name} loading="lazy" className="spotlight-img" />
-              <span className="spotlight-price-badge">{currentFood.price}</span>
-            </div>
-
-            <div className="spotlight-content-col">
-              <h3 className="spotlight-title">{currentFood.name}</h3>
-              
-              <div className="spotlight-aroma-box">
-                <span className="aroma-icon">💡</span>
-                <p className="aroma-text">{currentFood.aroma}</p>
-              </div>
-
-              <p className="spotlight-desc">{currentFood.desc}</p>
-
-              <button className="btn-spotlight-action">Temukan Lokasi Warung Legendaris Ini ➔</button>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        <motion.div 
-          className="section-footer-cta"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <a href="#planner" className="btn-gateway">Jelajahi Peta Lokasi Kuliner Banjar ➔</a>
-        </motion.div>
-      </section>
-
-      {/* =========================================================
-          LOCAL CULTURE SECTION
-          ========================================================= */}
-      <section id="budaya" className="section-container">
-        <div className="culture-flow">
-          <div className="culture-text">
-            <span className="section-tag">Warisan Leluhur</span>
-            <h2 className="section-title">Filosofi Sasirangan & Perahu Jukung</h2>
-            <p className="culture-lead">
-              Lebih dari sekadar kain dan transportasi, keduanya melambangkan ketangguhan serta harmoni manusiawi masyarakat Banjar dengan alam sungainya.
-            </p>
+              <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-4 font-heading bg-[#33C3B3]/10 backdrop-blur-md px-4 py-2 rounded-full border border-[#33C3B3]/30">
+                ✦ BANJARMASIN BAIMAN
+              </span>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white font-heading leading-tight mb-6">
+                Kota Pintar <br className="hidden md:block"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#33C3B3] to-[#F4C038]">Harmoni Ekologi</span>
+              </h2>
+              <p className="text-gray-300 text-sm md:text-base lg:text-lg mb-8 leading-relaxed max-w-lg">
+                Integrasi cerdas antara super-app pelayanan digital masyarakat dengan komitmen memelihara kelestarian ekosistem sungai. Sebuah visi nyata menuju masa depan yang inklusif.
+              </p>
+              <Link to="/smart-city" className="bg-gradient-to-r from-[#33C3B3] to-[#00A896] hover:brightness-110 text-white px-8 py-4 rounded-full font-bold shadow-xl transition-all hover:-translate-y-1 inline-block">
+                Eksplorasi Ekosistem ➔
+              </Link>
+            </motion.div>
             
-            <div className="culture-points">
-              <div className="point-box">
-                <h3>🧵 Kain Sasirangan</h3>
-                <p>Dibuat melalui teknik menyirang (menjahit lalu mengikat) dengan pewarna alami, dipercaya masyarakat abad ke-16 sebagai penyembuh magis.</p>
-              </div>
-              <div className="point-box">
-                <h3>🛶 Budaya Jukung</h3>
-                <p>Perahu tradisional berbahan kayu ulin tanpa paku logam, didesain sempurna untuk membelah kuatnya arus seribu sungai Kalimantan.</p>
-              </div>
-            </div>
-
-            <button className="btn-gateway mt-4">Pelajari Kronik Sejarah 1526 ➔</button>
-          </div>
-
-          <div className="culture-image-side">
-            <div className="editorial-frame">
-              <img 
-                src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" 
-                alt="Acil Pasar Terapung Lok Baintan" 
-                loading="lazy"
-                className="editorial-img"
-              />
-              <div className="quote-badge">
-                <p>“Di atas jukung, urat nadi kehidupan dan persaudaraan masyarakat Banjar terus mengalir mengarungi zaman.”</p>
-                <span>— Acil Pedagang Lok Baintan</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          UTILITY PLANNER SECTION
-          ========================================================= */}
-      <section id="planner" className="section-container mb-0">
-        <div className="planner-glass">
-          <div className="planner-left">
-            <div className="weather-widget">
-              <span className="weather-icon">🌤️</span>
-              <div className="weather-info">
-                <h4>Banjarmasin, Kalsel (WITA)</h4>
-                <p>31°C • Tropis Cerah & Hangat</p>
-              </div>
-            </div>
-            <h3>Peta Interaktif Rute Wisata & Estimasi Waktu</h3>
-            <p className="planner-desc">
-              Pilih titik destinasi di bawah ini untuk melihat rute transportasi sungai terbaik dan jadwal kunjungan ideal.
-            </p>
-
-            <div className="map-tabs">
-              <button 
-                className={`map-tab-btn ${activeSpot === 'lokbaintan' ? 'active' : ''}`}
-                onClick={() => setActiveSpot('lokbaintan')}
-              >
-                🛶 Pasar Terapung
-              </button>
-              <button 
-                className={`map-tab-btn ${activeSpot === 'siring' ? 'active' : ''}`}
-                onClick={() => setActiveSpot('siring')}
-              >
-                🗼 Menara Pandang
-              </button>
-              <button 
-                className={`map-tab-btn ${activeSpot === 'sotoamat' ? 'active' : ''}`}
-                onClick={() => setActiveSpot('sotoamat')}
-              >
-                🍲 Soto Bang Amat
-              </button>
-              <button 
-                className={`map-tab-btn ${activeSpot === 'pulaukembang' ? 'active' : ''}`}
-                onClick={() => setActiveSpot('pulaukembang')}
-              >
-                🏝️ Pulau Kembang
-              </button>
-            </div>
-          </div>
-
-          <motion.div 
-            key={activeSpot}
-            className="interactive-map-card"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className="map-card-header">
-              <span className="map-spot-type">{currentMap.type}</span>
-              <span className="map-coords">📍 {currentMap.coords}</span>
-            </div>
-
-            <h4 className="map-spot-title">{currentMap.title}</h4>
-            <p className="map-spot-highlight">"{currentMap.highlight}"</p>
-
-            <div className="map-logistics">
-              <div className="logistic-item">
-                <span className="logistic-label">Akses Transportasi:</span>
-                <span className="logistic-val">{currentMap.transport}</span>
-              </div>
-              <div className="logistic-item">
-                <span className="logistic-label">Waktu Terbaik Kunjungan:</span>
-                <span className="logistic-val">{currentMap.bestTime}</span>
-              </div>
-            </div>
-
-            <a 
-              href={currentMap.mapsUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn-open-maps"
+            <motion.div
+              className="flex flex-col gap-4"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              🗺️ Buka Rute Langsung di Google Maps ➔
-            </a>
+              <div className="bg-white/5 backdrop-blur-xl rounded-[32px] p-5 md:p-6 border border-white/10 shadow-2xl flex items-center gap-5 hover:bg-white/10 transition-colors">
+                <div className="w-14 h-14 bg-blue-500/20 rounded-full flex items-center justify-center text-2xl border border-blue-400/30 shrink-0">📱</div>
+                <div>
+                  <h4 className="text-white font-bold text-base md:text-lg">Super-App Banjarmasin Pintar</h4>
+                  <p className="text-gray-400 text-xs md:text-sm">Layanan satu pintu administrasi warga</p>
+                </div>
+              </div>
+              <div className="bg-white/5 backdrop-blur-xl rounded-[32px] p-5 md:p-6 border border-white/10 shadow-2xl flex items-center gap-5 translate-x-0 md:translate-x-8 hover:bg-white/10 transition-colors">
+                <div className="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center text-2xl border border-green-400/30 shrink-0">🌿</div>
+                <div>
+                  <h4 className="text-white font-bold text-base md:text-lg">Sensor Kualitas Sungai</h4>
+                  <p className="text-gray-400 text-xs md:text-sm">Monitoring real-time kesehatan air</p>
+                </div>
+              </div>
+              <div className="bg-white/5 backdrop-blur-xl rounded-[32px] p-5 md:p-6 border border-white/10 shadow-2xl flex items-center gap-5 hover:bg-white/10 transition-colors">
+                <div className="w-14 h-14 bg-yellow-500/20 rounded-full flex items-center justify-center text-2xl border border-yellow-400/30 shrink-0">📷</div>
+                <div>
+                  <h4 className="text-white font-bold text-base md:text-lg">CCTV Lalu Lintas AI</h4>
+                  <p className="text-gray-400 text-xs md:text-sm">Keamanan kota 24/7 terintegrasi</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 5. PANDUAN & AKOMODASI (NEW) */}
+        <section id="panduan-akomodasi" className="py-20 md:py-32 border-t border-[var(--glass-border)]">
+          <motion.div 
+            className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#F4C038] mb-2 font-heading">
+              ✦ PERSIAPAN PERJALANAN
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
+              Akomodasi & <span className="text-[#33C3B3]">Transportasi</span>
+            </h2>
+            <p className="hero-subtitle mx-auto px-2">
+              Panduan lengkap menuju pusat kota. Temukan hotel berfasilitas perahu pribadi hingga pelajari titik henti Bus Rapid Transit (BRT) andalan.
+            </p>
           </motion.div>
-        </div>
-      </section>
+
+          <div className="flex overflow-x-auto lg:grid lg:grid-cols-3 gap-6 pb-8 pt-4 snap-x hide-scrollbar px-4 lg:px-0">
+            {[
+              { img: "/panduan/swiss_belhotel_borneo.webp", badge: "Premium", title: "Swiss-Belhotel Borneo", desc: "Berada tepat di tepi sungai dengan akses langsung ke dermaga kelotok privat." },
+              { img: "/panduan/aston_banua.webp", badge: "Bisnis", title: "Aston Banua Hotel", desc: "Berada di gerbang masuk kota, cocok untuk mobilitas ekstra cepat via bandara." },
+              { img: "/wisata/960px-Taman_Siring_Sungai_Martap.webp", badge: "Publik", title: "BRT Trans Banjarbakula", desc: "Bus AC nyaman beroperasi menembus bandara hingga titik Nol Kilometer kota." }
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx} 
+                className="min-w-[280px] sm:min-w-[320px] lg:min-w-0 bg-[var(--card-bg)] rounded-[40px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-[var(--glass-border)] snap-center group flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <div className="h-[220px] relative overflow-hidden">
+                  <img src={item.img} alt={item.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+                  <span className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] sm:text-xs font-bold px-4 py-2 rounded-full border border-white/20 uppercase tracking-wider">{item.badge}</span>
+                </div>
+                <div className="p-6 md:p-8 flex-1 flex flex-col">
+                  <h3 className="font-heading font-black text-xl md:text-2xl text-[var(--text-main)] mb-3">{item.title}</h3>
+                  <p className="text-sm md:text-base text-[var(--text-muted)] leading-relaxed mb-6 flex-1">{item.desc}</p>
+                  <Link to="/panduan" className="text-[#33C3B3] font-bold text-sm md:text-base hover:text-[#2AA698] flex items-center gap-2 group-hover:gap-4 transition-all">
+                    Baca Detail Panduan <span>➔</span>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-6">
+            <Link to="/panduan" className="btn-gateway inline-block">Buka Survival Guide 2026 Lengkap ➔</Link>
+          </div>
+        </section>
+
+        {/* 6. UTILITY PLANNER (RUTE) */}
+        <section id="planner" className="py-20 md:py-32 mb-0">
+          <div className="planner-glass relative overflow-hidden rounded-[40px] p-6 md:p-12 lg:p-16 border border-[var(--glass-border)] shadow-2xl bg-[var(--card-bg)] flex flex-col lg:flex-row gap-12 items-center mx-4 md:mx-0">
+            {/* Ambient background glow */}
+            <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#33C3B3]/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#F4C038]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div className="flex-1 relative z-10 w-full">
+              <div className="flex items-center gap-4 bg-[var(--bg-main)]/50 backdrop-blur-xl border border-[var(--glass-border)] p-4 rounded-3xl w-max mb-8 shadow-sm">
+                <span className="text-3xl">🌤️</span>
+                <div>
+                  <h4 className="font-heading font-bold text-xs text-[var(--text-muted)] uppercase tracking-wider">Banjarmasin (WITA)</h4>
+                  <p className="text-[var(--text-main)] font-black text-sm">31°C • Tropis Cerah & Hangat</p>
+                </div>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
+                Peta Interaktif <span className="text-[#F4C038]">Rute Wisata</span> & Estimasi Waktu
+              </h2>
+              <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-8">
+                Pilih titik destinasi di bawah ini untuk melihat opsi rute transportasi sungai terbaik dan jadwal kunjungan ideal agar tidak kehabisan momen.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <button 
+                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'lokbaintan' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                  onClick={() => setActiveSpot('lokbaintan')}
+                >
+                  🛶 Pasar Terapung
+                </button>
+                <button 
+                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'siring' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                  onClick={() => setActiveSpot('siring')}
+                >
+                  🗼 Menara Pandang
+                </button>
+                <button 
+                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'sotoamat' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                  onClick={() => setActiveSpot('sotoamat')}
+                >
+                  🍲 Soto Bang Amat
+                </button>
+                <button 
+                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'pulaukembang' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                  onClick={() => setActiveSpot('pulaukembang')}
+                >
+                  🏝️ Pulau Kembang
+                </button>
+              </div>
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={activeSpot}
+                className="w-full lg:w-[450px] shrink-0 bg-[var(--bg-main)] rounded-[32px] p-6 md:p-8 border border-[var(--glass-border)] shadow-xl relative z-10"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+              >
+                <div className="flex justify-between items-center mb-6">
+                  <span className="text-[#33C3B3] font-bold text-xs uppercase tracking-widest bg-[#33C3B3]/10 px-3 py-1.5 rounded-full">{currentMap.type}</span>
+                  <span className="text-[var(--text-muted)] text-xs font-mono">📍 {currentMap.coords}</span>
+                </div>
+
+                <h4 className="text-2xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">{currentMap.title}</h4>
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed italic mb-6">"{currentMap.highlight}"</p>
+
+                <div className="space-y-4 mb-8 bg-[var(--card-bg)] p-5 rounded-2xl border border-[var(--glass-border)]">
+                  <div>
+                    <span className="block text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Akses Transportasi</span>
+                    <span className="text-[var(--text-main)] font-bold text-sm">{currentMap.transport}</span>
+                  </div>
+                  <div className="h-[1px] w-full bg-[var(--glass-border)]"></div>
+                  <div>
+                    <span className="block text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Waktu Terbaik Kunjungan</span>
+                    <span className="text-[var(--text-main)] font-bold text-sm">{currentMap.bestTime}</span>
+                  </div>
+                </div>
+
+                <a 
+                  href={currentMap.mapsUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full block text-center bg-[#F4C038] hover:bg-white text-[#091422] font-black text-sm py-4 rounded-full transition-colors shadow-lg"
+                >
+                  🗺️ Buka Langsung di Google Maps ➔
+                </a>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </section>
+
+      </div>
+
 
       <Footer />
 
