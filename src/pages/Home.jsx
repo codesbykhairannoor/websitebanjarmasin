@@ -211,11 +211,10 @@ export default function Home() {
                 {isActive ? (
                   <>
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 pointer-events-none" />
-                    <div className="absolute inset-0 z-20 p-8 md:p-14 lg:p-16 flex flex-col justify-center max-w-xl text-white overflow-hidden">
+                    <div className="absolute inset-0 z-20 p-8 md:p-14 lg:p-16 flex flex-col justify-center max-w-3xl lg:max-w-4xl text-white overflow-hidden">
                       <span className="text-[#F4C038] font-heading font-extrabold text-xs md:text-sm tracking-[0.2em] uppercase mb-2 block animate-fadeIn">{item.tag}</span>
                       <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-3 drop-shadow-md animate-fadeIn text-white">{item.title}</h1>
-                      <p className="text-base md:text-xl font-bold text-sasirangan mb-4 font-heading animate-fadeIn">{item.subtitle}</p>
-                      <p className="text-sm md:text-base text-gray-200 mb-6 leading-relaxed line-clamp-3 animate-fadeIn">{item.desc}</p>
+                      <p className="text-base md:text-xl font-bold text-sasirangan mb-6 font-heading animate-fadeIn">{item.subtitle}</p>
                       <div className="flex flex-wrap items-center gap-4 animate-fadeIn">
                         {item.btnLink.startsWith('#') ? (
                           <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</a>
@@ -254,8 +253,7 @@ export default function Home() {
                 <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-all duration-1000 delay-300 ${isActive ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                   <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
                   <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-tight leading-tight mb-2 drop-shadow-lg text-white">{item.title}</h1>
-                  <p className="text-sm font-bold text-sasirangan mb-3 font-heading drop-shadow-md">{item.subtitle}</p>
-                  <p className="text-xs text-gray-200 mb-6 leading-relaxed line-clamp-3 drop-shadow-md">{item.desc}</p>
+                  <p className="text-sm font-bold text-sasirangan mb-6 font-heading drop-shadow-md">{item.subtitle}</p>
                   <div className="flex flex-wrap items-center gap-3">
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</a>
