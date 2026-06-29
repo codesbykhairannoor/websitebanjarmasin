@@ -357,7 +357,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="hide-scrollbar flex overflow-x-auto md:flex-wrap gap-4 md:gap-6 mb-10 pb-4 snap-x px-4 sm:justify-center">
+          <div className="hide-scrollbar flex overflow-x-auto gap-4 md:gap-6 mb-10 pb-4 snap-x px-4 sm:justify-center">
             {foods.map((item) => (
               <button 
                 key={item.id}
@@ -402,11 +402,19 @@ export default function Home() {
                 <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-8">
                   {currentFood.desc}
                 </p>
-
-                <Link to="/kuliner" className="btn-gateway inline-block w-full sm:w-max">{t('home.kuliner.btnText')}</Link>
               </div>
             </motion.div>
           </AnimatePresence>
+
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Link to="/kuliner" className="btn-gateway inline-block">{t('home.kuliner.btnText')}</Link>
+          </motion.div>
         </section>
 
         {/* 3. JANTUNG BUDAYA & SEJARAH */}
