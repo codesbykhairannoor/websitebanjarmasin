@@ -195,7 +195,7 @@ export default function SmartCity() {
 
               <div className="pt-4 flex flex-wrap gap-4 items-center">
                 <a
-                  href="https://play.google.com/store/apps/details?id=id.go.banjarmasinkota.banjarmasinpintar"
+                  href="https://play.google.com/store/apps/details?id=com.banjarmasinkota.app_bapintar_diskominfotik"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#008075] hover:bg-[#00665e] text-white font-black px-6 py-3.5 rounded-2xl shadow-lg flex items-center gap-3 transition-all transform hover:-translate-y-1 text-sm sm:text-base"
@@ -229,26 +229,26 @@ export default function SmartCity() {
                   <span className="font-heading font-black text-xs text-center">Parak Acil</span>
                 </button>
                 <button
-                  onClick={() => setActiveAppTab("baApik")}
+                  onClick={() => setActiveAppTab("epbb")}
                   className={`p-4 rounded-2xl border flex flex-col items-center justify-center gap-2 transition-all ${
-                    activeAppTab === "baApik"
+                    activeAppTab === "epbb"
                       ? 'bg-[#00A896] text-white border-[#00A896] shadow-md scale-105'
                       : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
                   }`}
                 >
-                  <span className="text-2xl">🏥</span>
-                  <span className="font-heading font-black text-xs text-center">BaApik RS</span>
+                  <span className="text-2xl">💳</span>
+                  <span className="font-heading font-black text-xs text-center">e-PBB & Pajak</span>
                 </button>
                 <button
-                  onClick={() => setActiveAppTab("atcs")}
+                  onClick={() => setActiveAppTab("elapor")}
                   className={`p-4 rounded-2xl border flex flex-col items-center justify-center gap-2 transition-all ${
-                    activeAppTab === "atcs"
+                    activeAppTab === "elapor"
                       ? 'bg-[#E63946] text-white border-[#E63946] shadow-md scale-105'
                       : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
                   }`}
                 >
-                  <span className="text-2xl">📹</span>
-                  <span className="font-heading font-black text-xs text-center">CCTV ATCS</span>
+                  <span className="text-2xl">📣</span>
+                  <span className="font-heading font-black text-xs text-center">E-Lapor 112</span>
                 </button>
               </div>
 
@@ -266,29 +266,29 @@ export default function SmartCity() {
                       <span className="text-[10px] font-bold text-[#F4C038] uppercase tracking-widest block mb-1">Disdukcapil Banjarmasin</span>
                       <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">Parak Acil Online</h4>
                       <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
-                        Pelayanan Pendaftaran Penduduk dan Pencatatan Sipil Online. Warga dapat mengajukan cetak KTP-el, Kartu Keluarga, Akta Kelahiran, dan KIA langsung dari HP tanpa perlu antre di kantor dinas.
+                        Pelayanan Pendaftaran Penduduk dan Pencatatan Sipil Online. Warga dapat mengajukan cetak KTP-el, Kartu Keluarga, Akta Kelahiran, dan KIA langsung dari ponsel terintegrasi di menu Super-App.
                       </p>
-                      <a href="https://parakacil.banjarmasinkota.go.id" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-[#33C3B3] hover:underline">Buka Portal Resmi Parak Acil ➔</a>
+                      <span className="text-xs font-bold text-[#33C3B3]">Layanan administrasi tanpa antre ✓</span>
                     </div>
                   )}
-                  {activeAppTab === "baApik" && (
+                  {activeAppTab === "epbb" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#00A896] uppercase tracking-widest block mb-1">Dinkes & RSUD Sultan Suriansyah</span>
-                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">Aplikasi BaApik</h4>
+                      <span className="text-[10px] font-bold text-[#00A896] uppercase tracking-widest block mb-1">Badan Pengelola Keuangan & Pendapatan</span>
+                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">e-PBB & Pajak Daerah</h4>
                       <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
-                        Banjarmasin Aplikasi Pasien Internal Kesehatan. Mempermudah pendaftaran berobat online dan reservasi nomor antrean dokter di seluruh Puskesmas dan RSUD Kota Banjarmasin secara presisi.
+                        Kemudahan pengecekan tagihan Pajak Bumi dan Bangunan (PBB-P2) serta pembayaran pajak daerah secara online melalui integrasi QRIS dan Virtual Account Bank Kalsel.
                       </p>
-                      <span className="text-xs font-bold text-[#00A896]">Terintegrasi langsung di menu Banjarmasin Pintar ✓</span>
+                      <span className="text-xs font-bold text-[#00A896]">Transparan, Cepat, & Aman ✓</span>
                     </div>
                   )}
-                  {activeAppTab === "atcs" && (
+                  {activeAppTab === "elapor" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#E63946] uppercase tracking-widest block mb-1">Command Center Diskominfotik</span>
-                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">Live CCTV & ATCS Lalu Lintas</h4>
+                      <span className="text-[10px] font-bold text-[#E63946] uppercase tracking-widest block mb-1">Diskominfotik & BPBD</span>
+                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">E-Lapor & Darurat 112</h4>
                       <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
-                        Area Traffic Control System. Warga dapat memantau arus lalu lintas di puluhan persimpangan jalan dan situasi debit air di jembatan sungai utama secara real-time demi kenyamanan mobilitas.
+                        Saluran pengaduan aspirasi masyarakat dan panggilan darurat gratis 112 (kebakaran, ambulans, rescue). Laporan langsung diteruskan ke SKPD terkait dengan pantauan progres penanganan.
                       </p>
-                      <span className="text-xs font-bold text-[#E63946]">Aktif 24 Jam Non-Stop ✓</span>
+                      <span className="text-xs font-bold text-[#E63946]">Respons Cepat 24 Jam ✓</span>
                     </div>
                   )}
                 </motion.div>
@@ -361,7 +361,7 @@ export default function SmartCity() {
                   <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Download resmi di Google Play Store</div>
                 </div>
               </div>
-              <a href="https://play.google.com/store/apps/details?id=id.go.banjarmasinkota.banjarmasinpintar" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--card-bg)] hover:bg-[#00A896] hover:text-white text-[var(--text-main)] font-black text-xs py-3.5 px-6 rounded-xl border border-[var(--glass-border)] transition-all">
+              <a href="https://play.google.com/store/apps/details?id=com.banjarmasinkota.app_bapintar_diskominfotik" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--card-bg)] hover:bg-[#00A896] hover:text-white text-[var(--text-main)] font-black text-xs py-3.5 px-6 rounded-xl border border-[var(--glass-border)] transition-all">
                 Download Banjarmasin Pintar ➔
               </a>
             </div>
