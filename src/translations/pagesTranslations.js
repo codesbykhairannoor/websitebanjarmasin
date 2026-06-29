@@ -331,7 +331,318 @@ export const pagesTranslations = {
           ]
         }
       ]
+    },
+    smartCity: {
+  "heroTag": "✦ BANJARMASIN BAIMAN KOTA PINTAR",
+  "heroTitle": "Transformasi",
+  "heroTitleSpan": "Digital & Inovasi",
+  "heroSubtitle": "Mengintegrasikan teknologi maklumat dalam tata kelola pemerintah, perkhidmatan awam satu pintu, serta pemuliharaan ekologi Seribu Sungai demi mewujudkan kota yang bersih dan selesa.",
+  "superappTag": "✦ SUPER APPS RASMI PEMKO",
+  "superappTitle": "Satu Akaun SSO untuk",
+  "superappTitleSpan": "Semua Perkhidmatan Warga",
+  "superappDesc": "Pemerintah Kota Banjarmasin membawakan Banjarmasin Pintar (Versi 3) sebagai pusat penyepaduan berpuluh-puluh aplikasi SKPD. Dengan teknologi Single Sign-On (SSO) berasaskan NIK-KTP, warga hanya perlu mendaftar sekali untuk menikmati kemudahan pengurusan dokumen, barisan kesihatan, serta pemantauan lalu lintas secara real-time.",
+  "superappCol1Title": "SSO NIK",
+  "superappCol1Sub": "Penyepaduan KTP Elektronik",
+  "superappCol2Title": "Versi 3.0",
+  "superappCol2Sub": "Super-App Generasi Terkini",
+  "superappDownload": "Muat Turun Banjarmasin Pintar di Google Play",
+  "simulasiTitle": "Simulasi Menu Super-App",
+  "simulasiSso": "Single Sign-On NIK",
+  "simulasiStatus": "Terhubung SKPD",
+  "simulasiTab1": "Parak Acil",
+  "simulasiTab2": "BaApik RS",
+  "simulasiTab3": "SALAM-RINDU",
+  "simulasiTab4": "SI-SINTAL",
+  "simulasiTab5": "e-PBB & Cukai",
+  "simulasiTab6": "E-Lapor 112",
+  "simulasiData": {
+    "parakAcil": {
+      "tag": "Disdukcapil Banjarmasin",
+      "title": "Parak Acil Online",
+      "desc": "Perkhidmatan Pendaftaran Penduduk dan Pencatatan Sipil Atas Jalur. Warga boleh memohon cetakan KTP-el, Kad Keluarga, Sijil Kelahiran, dan KIA terus dari telefon bimbit yang disepadukan dalam menu Super-App.",
+      "badge": "Perkhidmatan pentadbiran tanpa beratur ✓"
+    },
+    "baApik": {
+      "tag": "Dinkes & RSUD Sultan Suriansyah",
+      "title": "Aplikasi BaApik",
+      "desc": "Banjarmasin Aplikasi Pesakit Dalaman Kesihatan. Memudahkan pendaftaran rawatan atas jalur, semakan jadual doktor, dan tempahan nombor giliran di semua Puskesmas dan RSUD Kota Banjarmasin secara jitu.",
+      "badge": "Kepastian nombor giliran secara real-time ✓"
+    },
+    "salamRindu": {
+      "tag": "DPMPTSP Kota Banjarmasin",
+      "title": "SALAM-RINDU Perlesenan",
+      "desc": "Sistem aplikasi perkhidmatan perlesenan perniagaan dan permohonan bukan OSS bersepadu. Memudahkan usahawan UMKM dan pelabur memohon lesen pengiklanan, lesen kesihatan, dan pelbagai ketetapan daerah secara telus.",
+      "badge": "Proses perlesenan telus & pantas ✓"
+    },
+    "siSintal": {
+      "tag": "Jabatan Kebajikan Masyarakat Banjarmasin",
+      "title": "SI-SINTAL Semak Bansos",
+      "desc": "Perkhidmatan semakan Data Terpadu Kesejahteraan Sosial (DTKS) dan maklumat pengagihan bantuan sosial (Bansos) untuk warga yang layak secara tepat sasaran.",
+      "badge": "Data kebajikan telus ✓"
+    },
+    "epbb": {
+      "tag": "Badan Pengurusan Kewangan & Pendapatan",
+      "title": "e-PBB & Cukai Daerah",
+      "desc": "Kemudahan semakan bil Cukai Bumi dan Bangunan (PBB-P2) serta pembayaran cukai daerah secara atas jalur melalui penyepaduan QRIS dan Virtual Account Bank Kalsel.",
+      "badge": "Telus, Cepat, & Selamat ✓"
+    },
+    "elapor": {
+      "tag": "Diskominfotik & BPBD",
+      "title": "E-Lapor & Darurat 112",
+      "desc": "Saluran aduan aspirasi masyarakat, pemantauan CCTV lalu lintas ATCS, dan panggilan darurat percuma 112 (kebakaran, ambulans, menyelamat) dengan penjejakan status langsung.",
+      "badge": "Tindak Balas Cepat 24 Jam ✓"
     }
+  },
+  "section2Tag": "✦ TADBIR URUS & GAYA HIDUP PINTAR",
+  "section2Title": "Perkhidmatan Unggul",
+  "section2TitleSpan": "Tanpa Rumit",
+  "section2Desc": "Dua tonggak perkhidmatan utama yang memendekkan birokrasi konvensional menjadi perkhidmatan pantas berasaskan genggaman.",
+  "section2Card1Title": "Parak Acil Online",
+  "section2Card1Desc": "Penyelesaian pengurusan dokumen kependudukan dari rumah. Perkhidmatan termasuk pengeluaran Sijil Kelahiran, Sijil Kematian, kemas kini Kad Keluarga, sehingga cetakan semula KTP Elektronik.",
+  "section2Card1Point1": "Tanpa beratur di pejabat daerah",
+  "section2Card1Point2": "Pengesahan dokumen digital pantas",
+  "section2Card1Btn": "Buka Laman Web Rasmi Parak Acil ➔",
+  "section2Card2Title": "Super-App Banjarmasin Pintar",
+  "section2Card2Desc": "Super-App rasmi Pemko Banjarmasin berasaskan Single Sign-On (SSO) NIK KTP. Menyepadukan berpuluh-puluh perkhidmatan awam daerah: Parak Acil, BaApik, SALAM-RINDU, SI-SINTAL, e-PBB, panggilan darurat 112 & CCTV ATCS.",
+  "section2Card2Point1": "SSO NIK KTP untuk pelbagai perkhidmatan",
+  "section2Card2Point2": "Giliran RSUD/Puskesmas, Perlesenan & Bansos",
+  "section2Card2Point3": "Muat turun percuma di Google Play Store",
+  "section2Card2Btn": "Muat Turun Banjarmasin Pintar ➔",
+  "section3Tag": "✦ EKONOMI & PERLESENAN PINTAR",
+  "section3Title": "Inovasi",
+  "section3TitleSpan": "Si MANTAB & e-Limpas",
+  "section3Desc": "DPMPTSP Kota Banjarmasin membawakan inovasi Si MANTAB (Hantar Perlesenan Tanpa Bayar), di mana dokumen lesen perniagaan yang selesai diproses akan dihantar terus oleh kurier PT Pos Indonesia ke alamat rumah pemohon secara percuma!",
+  "section3Steps": [
+    {
+      "num": "01",
+      "title": "Daftar Lesen Atas Jalur",
+      "desc": "Pelaku perniagaan memohon lesen melalui sistem OSS RBA atau aplikasi perlesenan DPMPTSP tanpa perlu keluar rumah."
+    },
+    {
+      "num": "02",
+      "title": "Pengesahan Digital",
+      "desc": "Pasukan DPMPTSP membuat semakan dokumen dan mengeluarkan surat lesen rasmi secara elektronik dengan tandatangan digital sah."
+    },
+    {
+      "num": "03",
+      "title": "Dihantar Pos Percuma",
+      "desc": "Bekerjasama dengan PT Pos Indonesia, dokumen fizikal lesen perniagaan dihantar terus ke alamat rumah pemohon tanpa sebarang bayaran."
+    }
+  ],
+  "elimpasTag": "Ekonomi Pasar Pintar",
+  "elimpasTitle": "Sistem Retribusi e-Limpas",
+  "elimpasDesc": "Aplikasi rasmi Perkhidmatan Maklumat Pasar (e-Limpas) daripada Diskominfotik untuk memantau harga komoditi makanan asas secara telus dan mendigitalisasikan kutipan retribusi pasar tradisional.",
+  "section4Tag": "✦ MOBILITI & TRANSPORTASI PINTAR",
+  "section4Title": "Moda Pengangkutan",
+  "section4TitleSpan": "Moden",
+  "section4Desc": "Mengenali dua armada bas unggulan yang melayani mobiliti warga di dalam kota sehingga aglomerasi antara wilayah.",
+  "section4Tab1": "Trans Banjarmasin (Bas Dalam Kota)",
+  "section4Tab2": "Trans Banjarbakula (BRT Tayo Hijau)",
+  "section4Data": {
+    "transBanjarmasin": {
+      "tag": "Dishub Kota Banjarmasin",
+      "title": "Bas Trans Banjarmasin",
+      "desc": "Perkhidmatan pengangkutan awam dalam kota milik Pemerintah Kota Banjarmasin yang berfungsi sebagai feeder untuk menghubungkan pergerakan warga dari kawasan perumahan ke hentian koridor utama. Melayani laluan Terminal KM 6, Pasar Antasari, Kayutangi, Teluk Tiram, hingga Alalak. Armada berhawa dingin dengan tambang berpatutan (RM 0.60 pelajar & RM 1.00 umum) berasaskan pembayaran tanpa tunai.",
+      "point1": "Tambang Pelajar RM0.60 ✓",
+      "point2": "Feeder Dalam Kota ✓",
+      "badge": "Koridor Dalam Kota"
+    },
+    "transBanjarbakula": {
+      "tag": "Kemenhub Teman Bus & Pemprov Kalsel",
+      "title": "Bas Trans Banjarbakula",
+      "desc": "Dikenali warga sebagai \"Tayo Hijau\", sistem Bas Rapid Transit (BRT) Buy The Service ini beroperasi seperti TransJakarta (TJ) untuk menghubungkan koridor utama aglomerasi merentasi daerah (Banjarmasin - Banjarbaru - Gambut - Bati-Bati). Dilengkapi CCTV, pembayaran tanpa tunai 100% (e-Money Mandiri, BRI, BNI, BCA), tambang RM 1.50 umum (RM 0.60 pelajar/warga emas), serta penjejakan GPS masa nyata.",
+      "point1": "Pengangkutan BRT Standard ✓",
+      "point2": "Aglomerasi Merentas Kota ✓",
+      "badge": "Koridor Siring & Pal 0"
+    }
+  },
+  "section5Tag": "✦ MASYARAKAT & LITERASI DIGITAL PINTAR",
+  "section5Title": "Teknologi Pintar untuk",
+  "section5TitleSpan": "Masyarakat Bermartabat",
+  "section5Desc": "Pemerintah Kota Banjarmasin meluaskan akses internet awam percuma di taman kota dan dewan kelurahan demi mewujudkan ekosistem digital yang saksama dan meningkatkan literasi digital warga.",
+  "section5Btn1": "Teroka Peta Pelancongan ➔",
+  "section5Btn2": "Kembali ke Profil Kota",
+  "pillars": [
+    {
+      "id": "governance",
+      "title": "Smart Governance",
+      "subtitle": "Perkhidmatan Awam Digital"
+    },
+    {
+      "id": "living",
+      "title": "Smart Living",
+      "subtitle": "Trans Banjarbakula & Kesihatan"
+    },
+    {
+      "id": "environment",
+      "title": "Smart Environment",
+      "subtitle": "Sungaiku Baiman & ATCS"
+    },
+    {
+      "id": "economy",
+      "title": "Smart Economy",
+      "subtitle": "e-Limpas & UMKM Digital"
+    },
+    {
+      "id": "society",
+      "title": "Smart Society",
+      "subtitle": "Literasi & Perkhidmatan Kesihatan"
+    }
+  ]
+},
+    panduan: {
+  "hotels": {
+    "swiss": {
+      "price": "Bermula Rp 650.000 / malam",
+      "tag": "Jeti Peribadi",
+      "desc": "Satu-satunya hotel bintang empat di Banjarmasin dengan akses jeti kelotok peribadi dan teres restoran terbuka yang menghadap terus ke aktiviti Sungai Martapura."
+    },
+    "summer": {
+      "price": "Bermula Rp 320.000 / malam",
+      "tag": "Boutique Rooftop",
+      "desc": "Penginapan butik berdesain kayu estetik. Mempunyai kafe rooftop yang menjadi spot kegemaran pengembara muda untuk bersenang menikmati sunset sungai."
+    },
+    "fave": {
+      "price": "Bermula Rp 380.000 / malam",
+      "tag": "1 Mnt ke Siring",
+      "desc": "Lokasi terbaik untuk pejalan kaki! Tepat di seberang Menara Pandang dan Siring Tendean. Keluar lobi terus ke pusat pelancongan sungai dan makanan."
+    },
+    "victoria": {
+      "price": "Bermula Rp 350.000 / malam",
+      "tag": "Pusat Kota",
+      "desc": "Berada di pusat pentadbiran kota dengan pemandangan muara sungai yang tenang serta akses mudah ke pusat kuliner malam."
+    },
+    "rattan": {
+      "price": "Bermula Rp 700.000 / malam",
+      "tag": "Resort & Bisnes",
+      "desc": "Suasana resort tropika dengan kolam renang luas ala Bali. Sangat dekat dengan akses jalan protokol menuju Bandara Syamsudin Noor."
+    },
+    "galaxy": {
+      "price": "Bermula Rp 680.000 / malam",
+      "tag": "Kuliner Premium",
+      "desc": "Pusat kuliner Chinese & Western eksklusif di dalam hotel, terletak di lokasi strategik pusat perdagangan dan pusat membeli-belah kota."
+    }
+  },
+  "heroTag": "✦ PANDUAN KELANGSUNGAN RASMI 2026",
+  "heroTitle": "Panduan & Rute",
+  "heroTitleSpan": "Pelancong",
+  "heroSubtitle": "Satu halaman komprehensif tanpa pengulangan maklumat! Pelajari laluan bas BRT lapangan terbang, kurasi hotel tepi sungai, etika budaya kelotok, sehingga jalur darurat 24 jam.",
+  "navAkses": "Akses & BRT",
+  "navPeta": "Peta Rute",
+  "navHotel": "Hotel Pilihan",
+  "navEtika": "Etika Budaya",
+  "navSos": "SOS 112",
+  "navFaq": "FAQ",
+  "bookTag": "EDISI RESMI 2026",
+  "bookTitle": "Banjarmasin Saku",
+  "bookDesc": "Panduan Eksplorasi & Kelangsungan Seribu Sungai",
+  "bookDist": "27 km Bandara",
+  "section1Tag": "✦ PETA JALAN KETIBAAN & TRANSIT",
+  "section1Title": "Aliran Kedatangan &",
+  "section1TitleSpan": "Transit Kota",
+  "section1Desc": "Simulasi langkah demi langkah yang saling menghubungkan pendaratan lapangan terbang dengan pelayaran jukung kelotok.",
+  "steps": [
+    {
+      "num": "1",
+      "tag": "Kedatangan Udara",
+      "title": "Bandara Syamsudin Noor",
+      "desc": "Terletak di Banjarbaru (27 km dari pusat kota). Waktu perjalanan biasa ke Banjarmasin sekitar 45 - 60 menit.",
+      "price": "🚕 ± Rp 150k"
+    },
+    {
+      "num": "2",
+      "tag": "Pilihan Jimat Backpacker",
+      "title": "Bas BRT Banjarbakula",
+      "desc": "Naik bas BRT dari hentian lapangan terbang ke Terminal Gambut Barakat (Km 17). Bayar secara cashless via QRIS / e-Money.",
+      "price": "🎟️ Rp 5.000"
+    },
+    {
+      "num": "3",
+      "tag": "Transit Pusat Kota",
+      "title": "Menuju Siring Tendean",
+      "desc": "Dari Km 17, sambung bas koridor pusat kota dan turun di hentian Siring Menara Pandang atau Pasar Sudimampir.",
+      "price": "📍 Siring Km 0"
+    },
+    {
+      "num": "4",
+      "tag": "Eksplorasi Perairan",
+      "title": "Sewa Bot Kelotok Wisata",
+      "desc": "Jeti Siring melayani pelayaran sungai biasa. Untuk sewaan perahu ke Pasar Terapung Lok Baintan subuh memuatkan hingga 15 orang.",
+      "price": "🚤 ± Rp 400k"
+    }
+  ],
+  "section2Tag": "✦ WHERE TO STAY IN BANJARMASIN",
+  "section2Title": "Kurasi",
+  "section2TitleSpan": "Penginapan Pilihan",
+  "section2Desc": "Pilih kategori penginapan mengikut kesesuaian percutian anda: dari pemandangan sungai langsung hingga akses berjalan kaki ke landmark.",
+  "hotelTab1": "🌅 Riverfront View",
+  "hotelTab2": "🚶‍♂️ Jalan Kaki ke Siring",
+  "hotelTab3": "🏢 Resort & Perniagaan",
+  "hotelBtn": "Buka Lokasi di Google Maps ➔",
+  "section3Tag": "✦ CULTURAL ETIQUETTE",
+  "section3Title": "Aturan Main",
+  "section3TitleSpan": "Seribu Sungai",
+  "section3Desc": "Hormati alam dan adat resam tempatan agar percutian anda sentiasa disambut dengan senyuman mesra oleh warga tempatan Banjar.",
+  "dosTitle": "DO'S (Sangat Digalakkan)",
+  "dosFooter": "💡 Nilai tambah untuk kesopanan dan tata kelakuan",
+  "dosList": [
+    "Wajib memakai jaket keselamatan (life jacket) sepanjang berada di atas perahu kelotok demi keselamatan.",
+    "Sapa peniaga wanita dengan panggilan sopan \"Acil\" (Makcik) atau peniaga lelaki dengan \"Paman\" (Pakcik) berserta senyuman ramah.",
+    "Berpakaian sopan dan tertutup semasa melawat rumah ibadat atau tapak bersejarah apabila memasuki kawasan Masjid Sultan Suriansyah atau makam bersejarah.",
+    "Menawar harga di Pasar Terapung dengan nada yang lembut dan wajar sebagai sebahagian daripada interaksi budaya."
+  ],
+  "dontsTitle": "DON'TS (Pantangan Keras)",
+  "dontsFooter": "⚠️ Pelanggaran etika memberi kesan kepada keselesaan bersama",
+  "dontsList": [
+    "DILARANG membuang sampah ke dalam sungai! Sungai ialah urat nadi kehidupan dan maruah warga Banjarmasin.",
+    "Jangan berdiri secara mengejut, melompat, atau menggoyangkan kelotok semasa bertembung dengan perahu besar.",
+    "Elakkan daripada mengeluarkan kata-kata kesat atau menghina tradisi tempatan apabila berada di kawasan awam.",
+    "Jangan mengambil foto warga tempatan dari jarak dekat tanpa keizinan, terutamanya semasa aktiviti peribadi di sungai."
+  ],
+  "section4Tag": "🚨 TALIAN DARURAT PELANCONG 24 JAM",
+  "section4Title": "Perkhidmatan Bantuan",
+  "section4TitleSpan": "Bersiap Sedia 24 Jam",
+  "section4Desc": "Tekan butang salin di bawah apabila berada dalam darurat. Semua perkhidmatan disepadukan dengan petugas bersiap sedia Pemerintah Kota Banjarmasin.",
+  "hotline1Title": "112",
+  "hotline1Sub": "Pusat Panggilan Kota",
+  "hotline1Desc": "Perkhidmatan bersepadu bebas tol 24 jam untuk ambulans perubatan darurat, bomba, dan penyelamatan.",
+  "hotline1Btn": "Salin Nombor 112",
+  "hotline2Title": "110",
+  "hotline2Sub": "Polis Marin & Keselamatan",
+  "hotline2Desc": "Unit polis khas untuk kawalan keselamatan perairan Sungai Martapura & Barito. Sedia membantu perahu pelancongan.",
+  "hotline2Btn": "Salin Nombor 110",
+  "hotline3Title": "(0511) 3252180",
+  "hotline3Sub": "RSUD Ulin Banjarmasin",
+  "hotline3Desc": "Hospital rujukan peringkat negeri terlengkap di pusat kota (Jl. A. Yani Km 2.5) dengan IGD moden 24 jam.",
+  "hotline3Btn": "Salin Nombor RSUD",
+  "copied": "Tersalin!",
+  "section5Tag": "✦ NEED HELP? WE GOT YOU COVERED",
+  "section5Title": "Soalan",
+  "section5TitleSpan": "Lazim (FAQ)",
+  "section5Desc": "Dapatkan jawapan pantas bagi soalan yang paling kerap ditanya oleh pelancong sebelum melawat Banjarmasin.",
+  "faqs": [
+    {
+      "question": "Bilakah waktu terbaik untuk melawat Pasar Terapung Lok Baintan?",
+      "answer": "Waktu terbaik adalah awal pagi jam 05.30 - 07.30 WITA semasa matahari terbit apabila aktiviti jual beli di atas perahu jukung tradisional berada di kemuncak kesibukan."
+    },
+    {
+      "question": "Adakah pembayaran bagi bas BRT dan kelotok boleh dilakukan secara cashless?",
+      "answer": "Bas BRT Trans Banjarbakula menyokong 100% cashless (QRIS & e-Money dengan tambang flat Rp 5.000). Bagi kelotok pelancongan biasa di Siring sudah mula menerima QRIS, namun dinasihatkan membawa tunai yang cukup untuk sewaan perahu atau membeli-belah di pasar terapung."
+    },
+    {
+      "question": "Bagaimanakah cara ke pusat kota dari Bandara Syamsudin Noor sekiranya tiba pada waktu malam?",
+      "answer": "Bas BRT beroperasi dari lapangan terbang sehingga jam 19.00 WITA. Jika anda tiba selepas waktu itu, anda boleh menggunakan teksi rasmi lapangan terbang atau teksi e-hailing dengan tambang sekitar Rp 120.000 - Rp 150.000 ke pusat kota Banjarmasin."
+    },
+    {
+      "question": "Adakah selamat menyusuri sungai semasa musim hujan?",
+      "answer": "Sangat selamat kerana pengemudi perahu kelotok pelancongan berdaftar berpengalaman dan semua penumpang diwajibkan memakai jaket keselamatan. Namun elakkan pelayaran semasa cuaca ekstrem atau ribut angin kencang."
+    },
+    {
+      "question": "Apakah etika pakaian semasa melawat rumah ibadat atau tapak bersejarah?",
+      "answer": "Amat digalakkan memakai pakaian yang sopan dan tertutup (menutupi bahu dan lutut) apabila memasuki kawasan Masjid Sultan Suriansyah atau makam bersejarah sebagai tanda menghormati adat resam tempatan Banjar."
+    }
+  ]
+}
   },
   en: {
     budaya: {
