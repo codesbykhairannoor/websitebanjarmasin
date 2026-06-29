@@ -56,8 +56,8 @@ export const ms = {
       slides: [
         {
           tag: "✦ PINTU GERBANG UTAMA KALIMANTAN",
-          title: "Selamat Datang ke Banjarmasin!",
-          subtitle: "Pusat Tamadun & Pesona Jantung Borneo",
+          title: "Selamat Datang ke Kota Seribu Sungai!",
+          subtitle: "Penerokaan Pesona & Tamadun Banjarmasin, Sang Jantung Borneo",
           desc: "Bersedialah memulakan penerokaan yang tidak dapat dilupakan di Kota Seribu Sungai. Nikmati eksotik kebudayaan terapung yang legenda, kelazatan rempah kuliner autentik, hingga susun atur bandar moden yang bersih dan selesa.",
           price: "Penerokaan Bermula",
           btnText: "Mula Pengembaraan ➔"

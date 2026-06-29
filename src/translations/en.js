@@ -56,8 +56,8 @@ export const en = {
       slides: [
         {
           tag: "✦ MAIN GATEWAY OF KALIMANTAN",
-          title: "Welcome to Banjarmasin!",
-          subtitle: "Center of Civilization & Charm of the Heart of Borneo",
+          title: "Welcome to the City of a Thousand Rivers!",
+          subtitle: "Explore the Charm & Civilization of Banjarmasin, the Heart of Borneo",
           desc: "Prepare for an unforgettable exploration in the City of a Thousand Rivers. Absorb the legendary floating culture exotics, authentic culinary spice delights, and the clean and comfortable modern city layout.",
           price: "Exploration Begins",
           btnText: "Start Adventure ➔"
