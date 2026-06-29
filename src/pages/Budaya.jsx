@@ -44,6 +44,26 @@ const sasiranganData = [
     filosofi: 'Kerajinan ramah lingkungan dari rumput purun liar di lahan gambut Kalimantan Selatan.',
     penyembuhan: 'Menceritakan ketekunan jemari perempuan pengrajin di pesisir sungai yang menjaga keseimbangan ekosistem.',
     proses: 'Rumput purun dijemur, ditumbuk hingga pipih, lalu dianyam dengan motif geometri segitiga rebung.'
+  },
+  {
+    id: 'haruan',
+    name: 'Motif Gigi Haruan',
+    colorName: 'Biru Tarum',
+    hex: '#1E3A8A',
+    image: '/budaya/motif_gigi_haruan.png',
+    filosofi: 'Terinspirasi dari ikan haruan (gabus). Melambangkan ketajaman berpikir, kecerdasan, dan ketangguhan dalam menghadapi ujian hidup.',
+    penyembuhan: 'Secara magis dipercaya memberikan perlindungan diri serta semangat pantang menyerah bagi orang yang memakainya.',
+    proses: 'Diikat dengan teknik zig-zag runcing, kemudian dicelup menggunakan pewarna alami dari daun tarum (indigo).'
+  },
+  {
+    id: 'sarigading',
+    name: 'Kain Sarigading (Tenun)',
+    colorName: 'Kuning Keemasan',
+    hex: '#D4AF37',
+    image: '/budaya/kain_sarigading.png',
+    filosofi: 'Kain sakral leluhur Banjar dari zaman Negara Dipa. Melambangkan kesucian, ketulusan, dan kekuatan pelindung gaib.',
+    penyembuhan: 'Media magis utama dalam ritual Batatamba asli untuk mengobati penyakit non-medis atau teguran gaib (kepuhunan).',
+    proses: 'Berbeda dari Sasirangan (jahit-celup), Sarigading dibuat melalui teknik tenun ikat tradisional dengan benang sutra.'
   }
 ];
 
