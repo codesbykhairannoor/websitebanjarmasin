@@ -125,12 +125,12 @@ const InteractivePillarSpotlight = () => {
               onClick={() => setActiveIdx(idx)}
               className={`flex items-center gap-3 p-4 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
                 isActive 
-                  ? "bg-[var(--text-main)] text-[var(--bg-main)] border-[var(--text-main)] shadow-xl scale-[1.02]" 
+                  ? "bg-[#33C3B3] text-[#091422] border-[#33C3B3] shadow-lg shadow-[#33C3B3]/25 scale-[1.02] font-black" 
                   : "bg-[var(--card-bg)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]"
               }`}
             >
               <span className={`text-xs sm:text-sm font-black font-heading px-2.5 py-1 rounded-lg shrink-0 ${
-                isActive ? "bg-[#33C3B3] text-black" : "bg-black/10 dark:bg-white/10 text-[var(--text-muted)]"
+                isActive ? "bg-[#091422] text-[#33C3B3]" : "bg-black/10 dark:bg-white/10 text-[var(--text-muted)]"
               }`}>
                 {item.id}
               </span>

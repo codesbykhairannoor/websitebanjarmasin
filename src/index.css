@@ -6,6 +6,7 @@
   /* Authentic Banjarmasin Dark Mode Color Tokens */
   --martapura-night: #091422;
   --martapura-deep: #050B14;
+  --bg-main: #091422;
   --sasirangan-gold: #F4C038;
   --sasirangan-gold-hover: #DDAA20;
   --borneo-emerald: #008075;
@@ -28,6 +29,7 @@
 [data-theme="light"] {
   --martapura-night: #F8FAFC;
   --martapura-deep: #FFFFFF;
+  --bg-main: #F8FAFC;
   --text-main: #0F172A;
   --text-muted: #475569;
   --card-bg: rgba(255, 255, 255, 0.85);
