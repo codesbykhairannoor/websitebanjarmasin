@@ -118,7 +118,7 @@ const seniPertunjukanData = [
     title: 'Sinoman Hadrah',
     subtitle: 'Penyambut Tamu & Pengantin',
     category: 'Seni Islami WBTb',
-    image: '/budaya/sinoman_hadrah.png',
+    image: '/budaya/tari-sinoman-hadrah-kolosal-lgjw.webp',
     quote: '"Sinoman hadir merayakan, hadrah bergema menyambut keberkahan."',
     desc: 'Kesenian tradisional Banjar memadukan qasidah (seni suara) dan tari yang ditampilkan menyambut tamu kehormatan dan dalam rangkaian prosesi perkawinan adat Banjar.',
     badgeColor: 'bg-[#7C3AED]',
@@ -129,7 +129,7 @@ const seniPertunjukanData = [
     title: 'Seni Teater Mamanda',
     subtitle: 'Sandiwara Tradisional Banjar',
     category: 'Seni Teater WBTb',
-    image: '/budaya/teater_mamanda.png',
+    image: '/budaya/mamanda.webp',
     quote: '"Kisah Raja dan Wazir, panggung sandiwara cermin kehidupan masyarakat Banjar."',
     desc: 'Seni teater tradisional khas Kalimantan Selatan yang menceritakan kehidupan istana, diselingi humor, interaksi penonton, kritik sosial, dan pesan moral luhur.',
     badgeColor: 'bg-[#D97706]',
@@ -205,29 +205,25 @@ const mobileLookbookItems = [
     tabName: '🌸 Tari Istana',
     title: 'Tari Baksa Kembang',
     tag: 'Tari Kebesaran Banjar',
-    desc: 'Tarian klasik kebesaran kerajaan penyambut tamu agung Banjar dengan mahkota gajah gemuling dan bunga bogam.',
     img: '/budaya/tari baksa kembang.webp'
   },
   {
+    tabName: '🎭 Teater Tradisional',
+    title: 'Seni Mamanda',
+    tag: 'Sandiwara Banjar',
+    img: '/budaya/mamanda.webp'
+  },
+  {
+    tabName: '🕌 Seni Islami',
+    title: 'Sinoman Hadrah',
+    tag: 'Tari Penyambut Tamu',
+    img: '/budaya/tari-sinoman-hadrah-kolosal-lgjw.webp'
+  },
+  {
     tabName: '✨ Wastra Adat',
-    title: 'Wastra Sasirangan',
+    title: 'Kain Sasirangan',
     tag: 'Kain Jelujur Alami',
-    desc: 'Mahakarya pewarnaan rintang ikat tradisional Banjar yang sarat filosofi pengobatan dan perlindungan spiritual.',
     img: '/budaya/motif bayam raj.webp'
-  },
-  {
-    tabName: '🛶 Susur Sungai',
-    title: 'Perahu Kelotok Sungai',
-    tag: 'Budaya Bahari Borneo',
-    desc: 'Urat nadi pergerakan masyarakat sungai Banjar dalam berdagang di pasar terapung dan menyusuri tepian Martapura.',
-    img: '/budaya/atap bubungan tinggi.webp'
-  },
-  {
-    tabName: '🎵 Seni Lisan',
-    title: 'Musik Panting & Madihin',
-    tag: 'Warisan Bertutur',
-    desc: 'Alunan petikan dawai panting dan ketukan rebana tarbang yang mengiringi syair humor kritik sosial sarat pesan moral.',
-    img: '/budaya/panting.webp'
   }
 ];
 
@@ -332,16 +328,13 @@ export default function Budaya() {
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/20 to-transparent p-4 flex flex-col justify-end text-center">
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#33C3B3] mb-0.5 font-heading">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-[#050B14]/20 to-transparent p-4 flex flex-col justify-end text-center pb-8">
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#33C3B3] mb-1 font-heading">
                   Warisan Abad ke-16
                 </span>
-                <h3 className="text-lg font-black text-white mb-1 font-heading">
+                <h3 className="text-xl font-black text-white mb-0 font-heading">
                   Tari Baksa Kembang
                 </h3>
-                <p className="text-[10px] text-slate-300 leading-relaxed line-clamp-2 font-body">
-                  Tarian klasik kebesaran kerajaan penyambut tamu agung Banjar.
-                </p>
               </div>
             </div>
 
@@ -353,27 +346,27 @@ export default function Budaya() {
           <div className="col-span-1 flex flex-col gap-4">
             <div className="relative rounded-2xl overflow-hidden h-[160px] bg-orange-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
               <img
-                src="/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp"
-                alt="Arsitektur Kayu Ulin"
+                src="/budaya/mamanda.webp"
+                alt="Teater Mamanda"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <span className="absolute top-2 right-2 bg-[#008075] text-white font-bold text-[8px] px-2 py-0.5 rounded">
-                🏠 Ukiran Ulin
+                🎭 Teater Mamanda
               </span>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden h-[160px] bg-sky-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
               <img
-                src="/budaya/panting.webp"
-                alt="Alat Musik Panting"
+                src="/budaya/tari-sinoman-hadrah-kolosal-lgjw.webp"
+                alt="Sinoman Hadrah"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <span className="absolute top-2 right-2 bg-[#00A896] text-white font-bold text-[8px] px-2 py-0.5 rounded">
-                🎵 Musik Panting
+                🕌 Sinoman Hadrah
               </span>
             </div>
           </div>
@@ -419,12 +412,9 @@ export default function Budaya() {
               <span className="inline-block bg-[#F4C038] text-[#091422] font-black text-[10px] px-3 py-1 rounded-full mb-2 shadow-md uppercase tracking-wider">
                 {activeMobileHero.tag}
               </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white font-heading leading-tight mb-2">
+              <h3 className="text-2xl sm:text-3xl font-black text-white font-heading leading-tight mb-2 drop-shadow-md">
                 {activeMobileHero.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-body leading-relaxed line-clamp-3">
-                {activeMobileHero.desc}
-              </p>
             </div>
           </div>
 
