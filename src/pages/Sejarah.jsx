@@ -209,12 +209,12 @@ export default function Sejarah() {
           </div>
 
           {/* Stepper Tabs */}
-          <div className="flex justify-center items-center gap-2 sm:gap-4 mb-12 flex-wrap">
+          <div className="flex sm:justify-center items-center gap-3 sm:gap-4 mb-12 overflow-x-auto hide-scrollbar pb-4 px-4 sm:px-0 snap-x">
             {timelineData.map((item, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`px-5 sm:px-8 py-3 sm:py-4 rounded-full font-heading font-black text-sm sm:text-lg transition-all duration-300 border ${
+                className={`shrink-0 snap-center px-6 sm:px-8 py-3 sm:py-4 rounded-full font-heading font-black text-sm sm:text-lg transition-all duration-300 border ${
                   activeTab === index
                     ? 'bg-[#F4C038] text-[#091422] border-[#F4C038] shadow-[0_0_20px_rgba(244,192,56,0.4)] scale-105'
                     : 'bg-[var(--card-bg)] text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[#33C3B3] hover:text-[var(--text-main)]'

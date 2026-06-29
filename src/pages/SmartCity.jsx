@@ -131,15 +131,15 @@ export default function SmartCity() {
           </p>
         </div>
 
-        {/* Responsive 5-Pillar Arc (Ramping on Mobile, Full on Desktop) */}
-        <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 md:gap-3 lg:gap-4 max-w-[1300px] mx-auto px-2 sm:px-4 md:px-6 mt-4 sm:-mt-2 md:-mt-10 lg:-mt-16 pb-0 relative z-20 items-end">
+        {/* Responsive 5-Pillar Arc (Horizontal Scroll on Mobile, Full on Desktop) */}
+        <div className="flex overflow-x-auto snap-x hide-scrollbar md:grid md:grid-cols-5 gap-4 sm:gap-6 md:gap-3 lg:gap-4 max-w-[1300px] mx-auto px-4 md:px-6 mt-4 sm:-mt-2 md:-mt-10 lg:-mt-16 pb-6 md:pb-0 relative z-20 items-end">
           {pillarsData.map((pillar, idx) => {
             const transPillar = (tLocal('pillars') || [])[idx] || {};
             return (
               <div
                 key={pillar.id}
                 style={pillar.clipStyle}
-                className={`group bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-xl md:shadow-2xl transition-all duration-500 flex flex-col relative rounded-t-xl sm:rounded-t-2xl ${pillar.heightClass} ${pillar.transformClass}`}
+                className={`group shrink-0 snap-center w-[240px] sm:w-[320px] md:w-auto bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-xl md:shadow-2xl transition-all duration-500 flex flex-col relative rounded-t-2xl ${pillar.heightClass} ${pillar.transformClass}`}
               >
                 {/* Top Gradient Header */}
                 <div className={`p-1.5 sm:p-3 md:p-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[75px] sm:h-[120px] md:h-[150px] lg:h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
