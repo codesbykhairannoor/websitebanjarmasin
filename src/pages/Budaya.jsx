@@ -2,214 +2,151 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
-// DATA SECTION 1: WASTRA & KERAJINAN (SPOTLIGHT)
-const sasiranganData = [
-  {
-    id: 'bayam',
-    name: 'Motif Bayam Raja',
-    colorName: 'Kuning Kunyit (Kurkuma)',
-    hex: '#F4C038',
-    image: '/budaya/motif bayam raj.webp',
-    filosofi: 'Lambang kebangsawanan dan kepemimpinan luhur. Dahulu diperuntukkan khusus bagi sultan dan kaum bangsawan Banjar.',
-    penyembuhan: 'Secara filosofis batatamba digunakan sebagai terapi ketenangan jiwa dan pengusir energi negatif.',
-    proses: 'Diikat presisi dengan teknik jelujur, lalu dicelup rebusan akar kuning dan kunyit alami.'
-  },
-  {
-    id: 'naga',
-    name: 'Motif Naga Balimbur',
-    colorName: 'Hijau Karamunting',
-    hex: '#00A896',
-    image: '/budaya/naga-balimbur-salah-satu-motif-b.webp',
-    filosofi: 'Menggambarkan naga sakti yang sedang mandi di Sungai Martapura, melambangkan kesuburan dan perlindungan alam.',
-    penyembuhan: 'Diyakini membawa kesegaran jasmani dan ketabahan menghadapi arus ujian kehidupan.',
-    proses: 'Pewarnaan menggunakan ekstrak daun mengkudu dan tarung alami menghasilkan nuansa zamrud borneo.'
-  },
-  {
-    id: 'kembang',
-    name: 'Motif Kembang Kacang',
-    colorName: 'Merah Mengkudu',
-    hex: '#E63946',
-    image: '/budaya/motif kembang kacang.webp',
-    filosofi: 'Simbol keharuman budi pekerti dan persaudaraan masyarakat Banjar yang erat mengikat seperti sulur tanaman kacang.',
-    penyembuhan: 'Menghadirkan kehangatan rasa kasih sayang dan keharmonisan rumah tangga.',
-    proses: 'Pencelupan berulang dengan kulit kayu ulin dan buah kesumba untuk merah pekat abadi.'
-  },
-  {
-    id: 'purun',
-    name: 'Anyaman Purun Loksado',
-    colorName: 'Coklat Kayu Ulin',
-    hex: '#8D5B4C',
-    image: '/budaya/anyaman-purun.webp',
-    filosofi: 'Kerajinan ramah lingkungan dari rumput purun liar di lahan gambut Kalimantan Selatan.',
-    penyembuhan: 'Menceritakan ketekunan jemari perempuan pengrajin di pesisir sungai yang menjaga keseimbangan ekosistem.',
-    proses: 'Rumput purun dijemur, ditumbuk hingga pipih, lalu dianyam dengan motif geometri segitiga rebung.'
-  },
-  {
-    id: 'haruan',
-    name: 'Motif Gigi Haruan',
-    colorName: 'Biru Tarum',
-    hex: '#1E3A8A',
-    image: '/budaya/motif_gigi_haruan.png',
-    filosofi: 'Terinspirasi dari ikan haruan (gabus). Melambangkan ketajaman berpikir, kecerdasan, dan ketangguhan dalam menghadapi ujian hidup.',
-    penyembuhan: 'Secara magis dipercaya memberikan perlindungan diri serta semangat pantang menyerah bagi orang yang memakainya.',
-    proses: 'Diikat dengan teknik zig-zag runcing, kemudian dicelup menggunakan pewarna alami dari daun tarum (indigo).'
-  },
-  {
-    id: 'sarigading',
-    name: 'Kain Sarigading (Tenun)',
-    colorName: 'Kuning Keemasan',
-    hex: '#D4AF37',
-    image: '/budaya/kain_sarigading.png',
-    filosofi: 'Kain sakral leluhur Banjar dari zaman Negara Dipa. Melambangkan kesucian, ketulusan, dan kekuatan pelindung gaib.',
-    penyembuhan: 'Media magis utama dalam ritual Batatamba asli untuk mengobati penyakit non-medis atau teguran gaib (kepuhunan).',
-    proses: 'Berbeda dari Sasirangan (jahit-celup), Sarigading dibuat melalui teknik tenun ikat tradisional dengan benang sutra.'
-  }
-];
-
-// DATA SECTION 2: SENI PERTUNJUKAN & TRADISI BANJAR (Rich Showcase Cards)
-const seniPertunjukanData = [
-  {
-    id: 'panting',
-    title: 'Seni Musik Panting',
-    subtitle: 'Alunan Petikan Dawai Borneo',
-    category: 'Seni Musik WBTb',
-    image: '/budaya/panting.webp',
-    quote: '"Dipetik dawai panting berdenting, menyambut tamu membawa damai."',
-    desc: 'Musik tradisional khas Kalimantan Selatan berinstrumen utama panting (sejenis gambus kecil), babun, dan gong. Mengalun dinamis mengiringi tarian istana maupun syair selawat.',
-    badgeColor: 'bg-[#008075]',
-    icon: '🎸'
-  },
-  {
-    id: 'madihin',
-    title: 'Tradisi Lisan Madihin',
-    subtitle: 'Monolog Syair Humor Satir',
-    category: 'Tradisi Lisan WBTb',
-    image: '/budaya/Kesenian_Madihin.webp',
-    quote: '"Bismillah pembuka kata, Madihin Banjar penghibur lara, kritik sosial secara jenaka."',
-    desc: 'Seni bertutur lisan oleh seniman yang menabuh rebana tarbang sambil merangkai pantun spontan yang cerdas, jenaka, namun sarat nasihat dan pesan moral.',
-    badgeColor: 'bg-[#E63946]',
-    icon: '🎤'
-  },
-  {
-    id: 'baksa',
-    title: 'Tari Baksa Kembang',
-    subtitle: 'Keanggunan Bunga Bogam',
-    category: 'Tarian Istana WBTb',
-    image: '/budaya/tari baksa kembang.webp',
-    quote: '"Gemulai jemari membawa bogam, menebar harum persaudaraan."',
-    desc: 'Tarian kebesaran Kesultanan Banjar abad ke-16 penyambut tamu agung. Penari mengenakan mahkota gajah gemuling dengan rangkaian bunga mawar dan melati di hadapan tamu kehormatan.',
-    badgeColor: 'bg-[#33C3B3]',
-    icon: '🌸'
-  },
-  {
-    id: 'lamut',
-    title: 'Seni Bertutur Lamut',
-    subtitle: 'Epos Sakral Palamutan',
-    category: 'Warisan Lisan WBTb',
-    image: '/budaya/Seni Bertutur Lamut.webp',
-    quote: '"Kisah Raden Pamadi dari Negeri Pujud, wejangan spiritual leluhur Banjar."',
-    desc: 'Pertunjukan bercerita sakral dibawakan seorang Palamutan diringi terbang besar. Digelar sebagai bentuk syukur atas terkabulnya hajat dan nadzar masyarakat.',
-    badgeColor: 'bg-[#F4C038]',
-    icon: '📖'
-  },
-  {
-    id: 'sinoman',
-    title: 'Sinoman Hadrah',
-    subtitle: 'Penyambut Tamu & Pengantin',
-    category: 'Seni Islami WBTb',
-    image: '/budaya/tari-sinoman-hadrah-kolosal-lgjw.webp',
-    quote: '"Sinoman hadir merayakan, hadrah bergema menyambut keberkahan."',
-    desc: 'Kesenian tradisional Banjar memadukan qasidah (seni suara) dan tari yang ditampilkan menyambut tamu kehormatan dan dalam rangkaian prosesi perkawinan adat Banjar.',
-    badgeColor: 'bg-[#7C3AED]',
-    icon: '🕌'
-  },
-  {
-    id: 'mamanda',
-    title: 'Seni Teater Mamanda',
-    subtitle: 'Sandiwara Tradisional Banjar',
-    category: 'Seni Teater WBTb',
-    image: '/budaya/mamanda.webp',
-    quote: '"Kisah Raja dan Wazir, panggung sandiwara cermin kehidupan masyarakat Banjar."',
-    desc: 'Seni teater tradisional khas Kalimantan Selatan yang menceritakan kehidupan istana, diselingi humor, interaksi penonton, kritik sosial, dan pesan moral luhur.',
-    badgeColor: 'bg-[#D97706]',
-    icon: '🎭'
-  }
-];
-
-// DATA SECTION 3: ANATOMI ARSITEKTUR BUBUNGAN TINGGI
-const hotspotData = [
-  {
-    id: 'atap',
-    title: 'Atap Bubungan Tinggi',
-    x: '72%', y: '25%',
-    desc: 'Atap meluncur tajam ke langit hingga 45 derajat. Melambangkan pohon hayat dan hubungan vertikal antara manusia dengan Sang Pencipta.',
-    filosofi: 'Ketinggian melambangkan martabat kebangsawanan dan kemuliaan budi.'
-  },
-  {
-    id: 'anjung',
-    title: 'Anjung Sayap Istana',
-    x: '88%', y: '55%',
-    desc: 'Sayap bangunan yang menjorok keluar di sisi kiri dan kanan ibarat burung garuda yang sedang membentangkan sayapnya melindungi rakyat.',
-    filosofi: 'Melambangkan keseimbangan hidup antara urusan duniawi dan ukhrawi.'
-  },
-  {
-    id: 'ukiran',
-    title: 'Ukiran Tatawatan Ulin',
-    x: '35%', y: '65%',
-    desc: 'Ukiran relief terawang pada pagar jelujur bermotif sulur kembang kacang dan nanas.',
-    filosofi: 'Kayu ulin besi anti-lapuk melambangkan keteguhan iman dan kesucian hati masyarakat Banjar.'
-  }
-];
-
-// DATA SECTION 4: AGENDA FESTIVAL & KOMUNITAS PELESTARI (Terverifikasi & Valid)
-const festivalResmiData = [
-  {
-    title: 'Banjarmasin Sasirangan Festival (BSF)',
-    desc: 'Ajang tahunan terbesar (edisi ke-8 pada 2024) yang digelar di kawasan Siring Menara Pandang & Duta Mall Banjarmasin. Menampilkan fashion show, pameran UMKM pengrajin, lomba desain motif, dan pawai basasirangan. Tercatat transaksi ekonomi kreatif mencapai Rp1,7 miliar.',
-    portalName: 'Portal Resmi Kota Banjarmasin',
-    url: 'https://banjarmasinkota.go.id/',
-    tag: 'Festival Wastra'
-  },
-  {
-    title: 'Festival Jukung Hias Tanglong',
-    desc: 'Festival tahunan resmi kota yang menampilkan ratusan perahu jukung tradisional yang dihias dengan lampu tanglong (lentera) indah dan diarak di Sungai Martapura pada malam hari. Menjadi agenda budaya unggulan Disbudporapar Kota Banjarmasin.',
-    portalName: 'Disbudporapar Kota Banjarmasin',
-    url: 'https://banjarmasinkota.go.id/',
-    tag: 'Festival Bahari'
-  }
-];
-
-const sanggarResmiData = [
-  {
-    name: 'Komunitas & Pengrajin Kampung Sasirangan',
-    category: 'Pusat Kerajinan Wastra',
-    location: 'Kampung Jelujur & Seberang Mesjid',
-    desc: 'Pusat edukasi dan pelestarian pewarnaan kain Sasirangan autentik. Setelah BSF 2024, Kampung Jelujur diresmikan sebagai pusat mata rantai ekonomi kerajinan Sasirangan di Banjarmasin.',
-    linkText: '📸 Eksplorasi Karya di Instagram',
-    url: 'https://www.instagram.com/explore/tags/kampungsasirangan/'
-  },
-  {
-    name: 'Sanggar Tari & Seni Budaya Banjar',
-    category: 'Pelestarian Seni Lisan & Tari',
-    location: 'Taman Budaya Kalimantan Selatan',
-    desc: 'Wadah berkumpulnya para seniman Madihin, Musik Panting, penari Baksa Kembang, dan seniman Sinoman Hadrah untuk berlatih dan mementaskan karya seni adiluhung Banjar.',
-    linkText: '📸 Eksplorasi Pentas Seni Banjar',
-    url: 'https://www.instagram.com/explore/tags/tamanbudayakalsel/'
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
+import { pagesTranslations } from '../translations/pagesTranslations';
 
 export default function Budaya() {
+  const { language } = useLanguage();
+
+  // Helper to load localized data
+  const tLocal = (key) => {
+    return pagesTranslations[language]?.budaya?.[key] || pagesTranslations['id']?.budaya?.[key];
+  };
+
+  const sasiranganImages = [
+    { id: 'bayam', hex: '#F4C038', image: '/budaya/motif bayam raj.webp' },
+    { id: 'naga', hex: '#00A896', image: '/budaya/naga-balimbur-salah-satu-motif-b.webp' },
+    { id: 'kembang', hex: '#E63946', image: '/budaya/motif kembang kacang.webp' },
+    { id: 'purun', hex: '#8D5B4C', image: '/budaya/anyaman-purun.webp' },
+    { id: 'haruan', hex: '#1E3A8A', image: '/budaya/motif_gigi_haruan.png' },
+    { id: 'sarigading', hex: '#D4AF37', image: '/budaya/kain_sarigading.png' }
+  ];
+  const translatedSasirangan = tLocal('sasiranganData') || [];
+  const sasiranganData = sasiranganImages.map((s, idx) => ({
+    ...s,
+    ...(translatedSasirangan[idx] || {})
+  }));
+
+  const seniPertunjukanMeta = [
+    { id: 'panting', image: '/budaya/panting.webp', badgeColor: 'bg-[#008075]', icon: '🎸' },
+    { id: 'madihin', image: '/budaya/Kesenian_Madihin.webp', badgeColor: 'bg-[#E63946]', icon: '🎤' },
+    { id: 'baksa', image: '/budaya/tari baksa kembang.webp', badgeColor: 'bg-[#33C3B3]', icon: '🌸' },
+    { id: 'lamut', image: '/budaya/Seni Bertutur Lamut.webp', badgeColor: 'bg-[#F4C038]', icon: '📖' },
+    { id: 'sinoman', image: '/budaya/tari-sinoman-hadrah-kolosal-lgjw.webp', badgeColor: 'bg-[#7C3AED]', icon: '🕌' },
+    { id: 'mamanda', image: '/budaya/mamanda.webp', badgeColor: 'bg-[#D97706]', icon: '🎭' }
+  ];
+  const translatedSeni = tLocal('seniPertunjukanData') || [];
+  const seniPertunjukanData = seniPertunjukanMeta.map((s, idx) => ({
+    ...s,
+    ...(translatedSeni[idx] || {})
+  }));
+
+  const hotspotCoords = [
+    { id: 'atap', x: '72%', y: '25%' },
+    { id: 'anjung', x: '88%', y: '55%' },
+    { id: 'ukiran', x: '35%', y: '65%' }
+  ];
+  const translatedHotspot = tLocal('hotspotData') || [];
+  const hotspotData = hotspotCoords.map((h, idx) => ({
+    ...h,
+    ...(translatedHotspot[idx] || {})
+  }));
+
+  const festivalMeta = [
+    { url: 'https://banjarmasinkota.go.id/' },
+    { url: 'https://banjarmasinkota.go.id/' }
+  ];
+  const translatedFestival = tLocal('festivalResmiData') || [];
+  const festivalResmiData = festivalMeta.map((f, idx) => ({
+    ...f,
+    ...(translatedFestival[idx] || {})
+  }));
+
+  const sanggarMeta = [
+    { url: 'https://www.instagram.com/explore/tags/kampungsasirangan/' },
+    { url: 'https://www.instagram.com/explore/tags/tamanbudayakalsel/' }
+  ];
+  const translatedSanggar = tLocal('sanggarResmiData') || [];
+  const sanggarResmiData = sanggarMeta.map((s, idx) => ({
+    ...s,
+    ...(translatedSanggar[idx] || {})
+  }));
 
   // State Section 1: Sasirangan Spotlight
-  const [activeMotif, setActiveMotif] = useState(sasiranganData[0]);
+  const [activeMotif, setActiveMotif] = useState(sasiranganData[0] || {});
 
   // State Section 3: Hotspot Blueprint
-  const [activePin, setActivePin] = useState(hotspotData[0]);
+  const [activePin, setActivePin] = useState(hotspotData[0] || {});
 
+  // Dynamic Page Metadata (SEO & JSON-LD)
   useEffect(() => {
+    const titles = {
+      id: "Jantung Budaya & Wastra Sasirangan - Portal Banjarmasin",
+      en: "Heart of Culture & Sasirangan Fabric - Banjarmasin Portal",
+      ms: "Jantung Budaya & Wastra Sasirangan - Portal Banjarmasin",
+      zh: "文化中心与萨希朗安织物 - 马辰门户网站"
+    };
+    const descriptions = {
+      id: "Temukan keindahan budaya sungai, motif Sasirangan, seni pertunjukan Madihin, Panting, tari Baksa Kembang, dan arsitektur Bubungan Tinggi.",
+      en: "Discover the beauty of river culture, Sasirangan motifs, performing arts like Madihin, Panting, Baksa Kembang dance, and Bubungan Tinggi architecture.",
+      ms: "Terokai keindahan budaya sungai, motif Sasirangan, seni pertunjukan Madihin, Panting, tari Baksa Kembang, dan seni bina Bubungan Tinggi.",
+      zh: "探索马辰河流文化、萨希朗安图案、马迪欣说唱、潘廷音乐、巴克萨克邦舞蹈和高屋脊传统建筑的美丽。"
+    };
+
+    document.title = titles[language] || titles.id;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', descriptions[language] || descriptions.id);
+
+    // Inject JSON-LD Schema
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Budaya Banjarmasin",
+      "description": descriptions[language] || descriptions.id,
+      "url": window.location.href,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Banjarmasin",
+        "addressRegion": "Kalimantan Selatan",
+        "addressCountry": "ID"
+      }
+    };
+
+    let schemaScript = document.getElementById('jsonld-schema');
+    if (!schemaScript) {
+      schemaScript = document.createElement('script');
+      schemaScript.setAttribute('type', 'application/ld+json');
+      schemaScript.setAttribute('id', 'jsonld-schema');
+      document.head.appendChild(schemaScript);
+    }
+    schemaScript.textContent = JSON.stringify(schemaData);
+
     window.scrollTo(0, 0);
-  }, []);
+
+    return () => {
+      if (schemaScript) schemaScript.remove();
+    };
+  }, [language]);
+
+  // Sync active states when language changes
+  useEffect(() => {
+    if (sasiranganData.length > 0) {
+      const currentMotifId = activeMotif.id || sasiranganData[0].id;
+      const foundMotif = sasiranganData.find(m => m.id === currentMotifId);
+      setActiveMotif(foundMotif || sasiranganData[0]);
+    }
+    if (hotspotData.length > 0) {
+      const currentPinId = activePin.id || hotspotData[0].id;
+      const foundPin = hotspotData.find(p => p.id === currentPinId);
+      setActivePin(foundPin || hotspotData[0]);
+    }
+  }, [language]);
 
   return (
     <div className="app-container min-h-screen overflow-x-hidden">
@@ -224,16 +161,16 @@ export default function Budaya() {
         {/* Header Konsisten dengan Home */}
         <div className="text-center max-w-4xl mx-auto mb-8">
           <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-            ✦ EKSPLORASI SENI & FILOSOFI LELUHUR
+            {tLocal('heroTag')}
           </span>
 
           <h1 className="hero-title !mb-3">
-            Keanggunan Warisan & <br className="hidden sm:inline" />
-            <span className="text-sasirangan">Wastra Borneo</span>
+            {tLocal('heroTitle')} <br className="hidden sm:inline" />
+            <span className="text-sasirangan">{tLocal('heroTitleSpan')}</span>
           </h1>
 
           <p className="hero-subtitle mx-auto !mb-6 !max-w-2xl px-2">
-            Menyelami keharmonisan filosofi masyarakat Banjar melalui liukan kain Sasirangan, Tari Baksa Kembang, dan arsitektur Kesultanan.
+            {tLocal('heroSubtitle')}
           </p>
         </div>
 
@@ -252,10 +189,10 @@ export default function Budaya() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-[#050B14]/20 to-transparent p-4 flex flex-col justify-end text-center pb-6 md:pb-8">
                 <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#33C3B3] mb-1 font-heading">
-                  Warisan Abad ke-16
+                  {tLocal('centerpieceTag')}
                 </span>
                 <h3 className="text-lg md:text-xl font-black text-white mb-0 font-heading">
-                  Tari Baksa Kembang
+                  {tLocal('centerpieceTitle')}
                 </h3>
               </div>
             </div>
@@ -288,7 +225,7 @@ export default function Budaya() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
-                Arsitektur
+                {language === 'zh' ? '建筑' : language === 'en' ? 'Architecture' : language === 'ms' ? 'Seni Bina' : 'Arsitektur'}
               </span>
             </div>
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden h-[120px] md:h-[160px] bg-yellow-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
@@ -300,7 +237,7 @@ export default function Budaya() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
-                Anyaman
+                {language === 'zh' ? '编织' : language === 'en' ? 'Weaving' : 'Anyaman'}
               </span>
             </div>
           </div>
@@ -316,7 +253,7 @@ export default function Budaya() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <span className="absolute bottom-2 right-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
-                Teater Mamanda
+                {language === 'en' ? 'Mamanda Theatre' : 'Teater Mamanda'}
               </span>
             </div>
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden h-[120px] md:h-[160px] bg-sky-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
@@ -344,14 +281,12 @@ export default function Budaya() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <span className="absolute bottom-2 right-2 md:bottom-3 md:right-3 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
-                Musik Panting
+                {language === 'en' ? 'Panting Music' : 'Musik Panting'}
               </span>
             </div>
           </div>
 
         </div>
-
-
 
       </section>
 
@@ -362,14 +297,14 @@ export default function Budaya() {
         <div className="text-center md:text-left mb-10 md:mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="mx-auto md:mx-0 max-w-2xl">
             <span className="text-sm font-black uppercase tracking-widest text-[#F4C038] font-heading block mb-2">
-              • WARISAN KERAJINAN WBTb INDONESIA
+              {tLocal('section1Tag')}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-2 md:mb-0">
-              Filosofi Batatamba & <span className="text-[#33C3B3]">Wastra Sasirangan</span>
+              {tLocal('section1Title')} <span className="text-[#33C3B3]">{tLocal('section1TitleSpan')}</span>
             </h2>
           </div>
           <p className="text-sm md:text-base text-[var(--text-muted)] max-w-md mx-auto md:mx-0 font-body leading-relaxed">
-            Pilih motif di bawah untuk mengungkap rahasia pewarnaan alami dan filosofi ritual pengobatan tradisional Banjar.
+            {tLocal('section1Desc')}
           </p>
         </div>
 
@@ -435,7 +370,7 @@ export default function Budaya() {
                 <div className="flex flex-col justify-between h-full">
                   <div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-1">
-                      MAKNA & FILOSOFI
+                      {tLocal('maknaFilosofi')}
                     </span>
                     <h3 className="text-xl md:text-2xl font-black text-[var(--text-main)] font-heading mb-3">
                       {activeMotif.name}
@@ -443,26 +378,26 @@ export default function Budaya() {
 
                     <div className="space-y-3 text-xs md:text-sm text-[var(--text-muted)] font-body leading-relaxed">
                       <p className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 text-[var(--text-main)]">
-                        <strong>Kisah Kebangsawanan:</strong> {activeMotif.filosofi}
+                        <strong>{tLocal('kisahKebangsawanan')}</strong> {activeMotif.filosofi}
                       </p>
                       <p>
-                        <strong>Ritual Batatamba:</strong> {activeMotif.penyembuhan}
+                        <strong>{tLocal('ritualBatatamba')}</strong> {activeMotif.penyembuhan}
                       </p>
                       <p>
-                        <strong>Proses Pewarnaan:</strong> {activeMotif.proses}
+                        <strong>{tLocal('prosesPewarnaan')}</strong> {activeMotif.proses}
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-[var(--glass-border)] flex items-center justify-between">
-                    <span className="text-[11px] font-bold text-[#F4C038]">✦ Diakui UNESCO / WBTb Indonesia</span>
+                    <span className="text-[11px] font-bold text-[#F4C038]">{tLocal('unescoWbtb')}</span>
                     <a
                       href="https://www.instagram.com/explore/tags/sasiranganbanjarmasin/"
                       target="_blank"
                       rel="noreferrer"
                       className="text-xs font-black text-[#33C3B3] hover:underline flex items-center gap-1"
                     >
-                      Lihat Galeri Karya ➔
+                      {tLocal('viewGallery')}
                     </a>
                   </div>
                 </div>
@@ -479,13 +414,13 @@ export default function Budaya() {
         <div className="max-w-[1240px] mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
             <span className="text-sm font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
-              • SENI PERTUNJUKAN & TRADISI LISAN WBTb
+              {tLocal('section2Tag')}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
-              Panggung Lisan & <span className="text-[#F4C038]">Tradisi Banjar</span>
+              {tLocal('section2Title')} <span className="text-[#F4C038]">{tLocal('section2TitleSpan')}</span>
             </h2>
             <p className="text-sm md:text-base text-[var(--text-muted)] mx-auto font-body leading-relaxed">
-              Enam warisan seni budaya Banjar yang telah diakui sebagai Warisan Budaya Takbenda (WBTb) Indonesia, dari panggung istana hingga ritual adat.
+              {tLocal('section2Desc')}
             </p>
           </div>
 
@@ -582,7 +517,7 @@ export default function Budaya() {
 
           <div className="lg:col-span-5 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 md:p-8 shadow-md">
             <span className="text-sm font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
-              • ANATOMI & FILOSOFI KAYU ULIN
+              {tLocal('section3Tag')}
             </span>
             <AnimatePresence mode="wait">
               <motion.div
@@ -601,7 +536,7 @@ export default function Budaya() {
                     {activePin.desc}
                   </p>
                   <div>
-                    <h4 className="text-xs font-bold text-[#F4C038] uppercase tracking-wider mb-1">Makna Spiritual:</h4>
+                    <h4 className="text-xs font-bold text-[#F4C038] uppercase tracking-wider mb-1">{tLocal('maknaSpiritual')}</h4>
                     <p>{activePin.filosofi}</p>
                   </div>
                 </div>
@@ -633,19 +568,19 @@ export default function Budaya() {
         <div className="max-w-[1240px] mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
             <span className="text-sm font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
-              • DUKUNG & LESTARIKAN BUDAYA LOKAL
+              {tLocal('section4Tag')}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
-              Etalase Festival & <span className="text-[#F4C038]">Komunitas Budaya</span>
+              {tLocal('section4Title')} <span className="text-[#F4C038]">{tLocal('section4TitleSpan')}</span>
             </h2>
             <p className="text-sm md:text-base text-[var(--text-muted)] mx-auto font-body leading-relaxed">
-              Kunjungi portal resmi dan galeri digital para seniman serta pengrajin untuk mengenal lebih dekat warisan kebanggaan Banjarmasin.
+              {tLocal('section4Desc')}
             </p>
           </div>
 
           <div className="mb-12">
             <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-6 flex items-center gap-2">
-              <span>🎉 Festival Budaya Tahunan Kota Banjarmasin</span>
+              <span>{tLocal('festivalsTitle')}</span>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -674,8 +609,7 @@ export default function Budaya() {
                       rel="noreferrer"
                       className="w-full sm:w-auto text-center bg-[#F4C038] text-[#091422] text-xs font-black px-5 py-2.5 rounded-xl hover:bg-amber-400 transition-all shadow flex items-center justify-center gap-1.5"
                     >
-                      <span>Kunjungi Portal Resmi</span>
-                      <span>➔</span>
+                      {tLocal('visitPortal')}
                     </a>
                   </div>
                 </div>
@@ -685,7 +619,7 @@ export default function Budaya() {
 
           <div>
             <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-6 flex items-center gap-2">
-              <span>🎨 Komunitas Seniman & Pengrajin Wastra</span>
+              <span>{tLocal('communitiesTitle')}</span>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

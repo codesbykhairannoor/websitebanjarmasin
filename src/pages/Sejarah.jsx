@@ -3,72 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
-// Data Section 1: Timeline Interaktif
-const timelineData = [
-  {
-    year: "1526",
-    title: "Lahirnya Kesultanan Banjar",
-    subtitle: "24 September 1526 — Tonggak Awal Peradaban",
-    desc: "Sultan Suriansyah (Raden Samudera) memeluk agama Islam dan mendirikan Kesultanan Banjar di Kuin, Banjarmasin Utara. Peristiwa ini ditetapkan sebagai Hari Jadi Kota Banjarmasin dan menandai awal kejayaan budaya Islam di Nusantara.",
-    img: "/sejarah/Kesultanan-Banjar.webp",
-    tag: "Awal Mula"
-  },
-  {
-    year: "1606",
-    title: "Era Keemasan Bandar Lada",
-    subtitle: "Pusat Perdagangan Internasional Nusantara",
-    desc: "Banjarmasin berkembang pesat menjadi bandar perdagangan rempah dunia. Kualitas lada Banjar yang masyhur menarik minat kapal-kapal dagang Eropa (VOC Belanda dan Inggris), Tiongkok, hingga Arab untuk bertransaksi di muara Sungai Barito.",
-    img: "/profil kota/pelabuhan trisakti.webp",
-    tag: "Perdagangan"
-  },
-  {
-    year: "1859",
-    title: "Meletusnya Perang Banjar",
-    subtitle: "Perlawanan Patriotik Rakyat Semesta",
-    desc: "Dicuplik oleh intervensi Belanda terhadap takhta kesultanan, Pangeran Antasari dan Pangeran Hidayatullah memimpin perang gerilya semesta. Perang ini menjadi salah satu perlawanan anti-kolonial terlama dan paling merugikan bagi Belanda.",
-    img: "/sejarah/PERANG_BANJAR_1857-1859.webp",
-    tag: "Patriotisme"
-  },
-  {
-    year: "1945",
-    title: "Gerbang Kemerdekaan & Revolusi",
-    subtitle: "Divisi IV ALRI Pertahanan Kalimantan",
-    desc: "Masyarakat Banjar berjuang mempertahankan kemerdekaan Republik Indonesia melalui Proklamasi Gubernur ALRI Divisi IV pertahanan Kalimantan oleh Hasan Basry pada 17 Mei 1949, menyatukan Kalimantan ke pangkuan Ibu Pertiwi.",
-    img: "/sejarah/bendera-merah-putih.webp",
-    tag: "Kemerdekaan"
-  },
-  {
-    year: "Kini",
-    title: "Metropolitan Seribu Sungai",
-    subtitle: "Kota Baiman (Barasih wan Nyaman)",
-    desc: "Banjarmasin terus bertransformasi menjadi kota perdagangan modern dan gerbang logistik Kalimantan, tanpa meninggalkan identitas bahari serta budaya pasar terapung yang mengakar kuat pada peradaban sungai.",
-    img: "/sejarah/banjarmasin baiman.webp",
-    tag: "Modernitas"
-  }
-];
-
-// Data Section 4: Perang Banjar Accordion
-const perangBanjarData = [
-  {
-    id: 1,
-    title: "Strategi Perang Benteng Sungai",
-    date: "1859 - 1862",
-    content: "Pejuang Banjar memanfaatkan rute rawa dan sungai-sungai kecil yang rumit sebagai benteng pertahanan alami. Kapal-kapal uap Belanda kerap terjebak di perairan dangkal dan diserang secara dadakan menggunakan perahu jukung berkecepatan tinggi."
-  },
-  {
-    id: 2,
-    title: "Tenggelamnya Kapal Onrust",
-    date: "26 Desember 1859",
-    content: "Di bawah komando Tumenggung Suriawati dan Pangeran Antasari, pejuang Banjar berhasil menenggelamkan kapal perang canggih Belanda, benteng terapung 'Onrust', di Sungai Barito bagian Lontar yang mengguncang mental militer kolonial."
-  },
-  {
-    id: 3,
-    title: "Semboyan Waja Sampai Kaputing",
-    date: "Sumpah Pangeran Antasari",
-    content: "Dalam surat balasan kepada Belanda yang membujuknya menyerah, Pangeran Antasari menegaskan pendiriannya: 'Haram Manyerah Waja Sampai Kaputing'—sebuah tekad baja perjuangan yang pantang padam hingga titik darah penghabisan."
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
+import { pagesTranslations } from '../translations/pagesTranslations';
 
 const HangingFrame = ({ src, className, width, height }) => {
   return (
@@ -92,12 +28,101 @@ const HangingFrame = ({ src, className, width, height }) => {
 };
 
 export default function Sejarah() {
+  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
   const [openAccordion, setOpenAccordion] = useState(1);
 
+  const tLocal = (key) => {
+    return pagesTranslations[language]?.sejarah?.[key] || pagesTranslations['id']?.sejarah?.[key];
+  };
+
+  const timelineDataMeta = [
+    { year: "1526", img: "/sejarah/Kesultanan-Banjar.webp" },
+    { year: "1606", img: "/profil kota/pelabuhan trisakti.webp" },
+    { year: "1859", img: "/sejarah/PERANG_BANJAR_1857-1859.webp" },
+    { year: "1945", img: "/sejarah/bendera-merah-putih.webp" },
+    { year: "Kini", img: "/sejarah/banjarmasin baiman.webp" }
+  ];
+  const translatedTimeline = tLocal('timelineData') || [];
+  const timelineData = timelineDataMeta.map((t, idx) => ({
+    ...t,
+    ...(translatedTimeline[idx] || {})
+  }));
+
+  const perangBanjarDataMeta = [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 }
+  ];
+  const translatedPerang = tLocal('perangBanjarData') || [];
+  const perangBanjarData = perangBanjarDataMeta.map((p, idx) => ({
+    ...p,
+    ...(translatedPerang[idx] || {})
+  }));
+
+  // Sync activeTab when language changes to prevent out of bounds (though it has same length)
   useEffect(() => {
+    setActiveTab(0);
+  }, [language]);
+
+  // Dynamic Page Metadata (SEO & JSON-LD)
+  useEffect(() => {
+    const titles = {
+      id: "Sejarah & Lintas Waktu Kota Banjarmasin - Portal Resmi",
+      en: "History & Timeline of Banjarmasin - Official Portal",
+      ms: "Sejarah & Lintas Waktu Kota Banjarmasin - Portal Rasmi",
+      zh: "马辰市历史与发展沿革 - 官方门户网站"
+    };
+    const descriptions = {
+      id: "Telusuri jejak Kesultanan Banjar sejak 1526, heroisme Perang Banjar Pangeran Antasari, era keemasan lada, hingga transformasi metropolitan modern.",
+      en: "Trace the footprints of the Banjar Sultanate since 1526, Prince Antasari's heroism in the Banjar War, the pepper golden age, and modern metropolitan transformation.",
+      ms: "Terokai jejak Kesultanan Banjar sejak 1526, semangat waja Perang Banjar Pangeran Antasari, zaman keemasan lada hitam, sehingga transformasi metropolitan moden.",
+      zh: "探索自1526年成立的马辰苏丹国历史底蕴、安达沙里王子的抗荷抗争历史、黑胡椒贸易港黄金时代及现代都市转型。"
+    };
+
+    document.title = titles[language] || titles.id;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', descriptions[language] || descriptions.id);
+
+    // Inject JSON-LD Schema
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "ItemPage",
+      "name": titles[language] || titles.id,
+      "description": descriptions[language] || descriptions.id,
+      "url": window.location.href,
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": timelineData.map((t, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": t.title,
+          "description": t.desc
+        }))
+      }
+    };
+
+    let schemaScript = document.getElementById('jsonld-schema');
+    if (!schemaScript) {
+      schemaScript = document.createElement('script');
+      schemaScript.setAttribute('type', 'application/ld+json');
+      schemaScript.setAttribute('id', 'jsonld-schema');
+      document.head.appendChild(schemaScript);
+    }
+    schemaScript.textContent = JSON.stringify(schemaData);
+
     window.scrollTo(0, 0);
-  }, []);
+
+    return () => {
+      if (schemaScript) schemaScript.remove();
+    };
+  }, [language]);
 
   return (
     <>
@@ -114,13 +139,13 @@ export default function Sejarah() {
           {/* Typography Box (Teks duluan di atas) */}
           <div className="relative z-30 text-center w-full max-w-3xl px-4 pt-4 mb-12 sm:mb-16 animate-fade-in">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-3 font-heading">
-              ✦ LINTAS WAKTU 1526 — KINI
+              {tLocal('heroTag')}
             </span>
             <h1 className="hero-title !mb-4 text-4xl sm:text-5xl lg:text-6xl font-black">
-              Menyelami <span className="text-sasirangan">Sejarah</span>
+              {tLocal('heroTitle')} <span className="text-sasirangan">{tLocal('heroTitleSpan')}</span>
             </h1>
             <p className="hero-subtitle mx-auto !mb-0 !max-w-2xl text-sm sm:text-base leading-relaxed text-[var(--text-muted)]">
-              Berawal dari bandar rempah di muara Sungai Barito, Banjarmasin telah berevolusi melewati berbagai zaman—dari era Kesultanan Banjar yang masyhur hingga menjadi Metropolitan Seribu Sungai saat ini.
+              {tLocal('heroSubtitle')}
             </p>
           </div>
 
@@ -175,13 +200,13 @@ export default function Sejarah() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ KRONOLOGI PERADABAN
+              {tLocal('section1Tag')}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
-              Jejak Lintas <span className="text-[#F4C038]">Abad</span>
+              {tLocal('section1Title')} <span className="text-[#F4C038]">{tLocal('section1TitleSpan')}</span>
             </h2>
             <p className="text-[var(--text-muted)] font-body mt-3">
-              Klik pada tahun untuk menelusuri evolusi Kota Banjarmasin dari masa ke masa.
+              {tLocal('section1Desc')}
             </p>
           </div>
 
@@ -247,13 +272,13 @@ export default function Sejarah() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ SANG PELOPOR & PAHLAWAN
+              {tLocal('section2Tag')}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
-              Dua Pilar <span className="text-[#33C3B3]">Sejarah</span>
+              {tLocal('section2Title')} <span className="text-[#33C3B3]">{tLocal('section2TitleSpan')}</span>
             </h2>
             <p className="text-[var(--text-muted)] font-body mt-3">
-              Mengenal sosok pendiri kesultanan dan pahlawan nasional yang mengukir jiwa kesatria Banjar.
+              {tLocal('section2Desc')}
             </p>
           </div>
 
@@ -276,13 +301,13 @@ export default function Sejarah() {
               <div className="lg:col-span-7 p-8 sm:p-12 text-left relative z-10 flex flex-col justify-between h-full">
                 <div>
                   <span className="inline-block px-4 py-1.5 rounded-full bg-[#F4C038]/15 border border-[#F4C038]/30 text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-4 shadow-sm">
-                    👑 RAJA ISLAM PERTAMA (1526)
+                    {tLocal('tokoh1Tag')}
                   </span>
                   <h3 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-4 group-hover:text-[#F4C038] transition-colors">
-                    Sultan Suriansyah
+                    {tLocal('tokoh1Title')}
                   </h3>
                   <p className="text-[var(--text-muted)] font-body text-sm sm:text-base leading-relaxed mb-8">
-                    Terlahir dengan nama Raden Samudera, beliau adalah raja pertama Kesultanan Banjar yang memeluk Islam. Pemerintahannya di Kuin memancarkan fondasi hukum istana, adab kesantunan, dan arsitektur bersejarah yang menjadi tonggak peradaban Kalimantan Selatan.
+                    {tLocal('tokoh1Desc')}
                   </p>
                 </div>
                 
@@ -290,11 +315,11 @@ export default function Sejarah() {
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">🕌</span>
                     <div>
-                      <span className="text-[10px] text-[var(--text-muted)] block uppercase font-bold tracking-wider">Warisan Bersejarah</span>
-                      <span className="text-sm font-bold text-[var(--text-main)]">Masjid Sultan Suriansyah (Kuin)</span>
+                      <span className="text-[10px] text-[var(--text-muted)] block uppercase font-bold tracking-wider">{tLocal('tokoh1FooterTag')}</span>
+                      <span className="text-sm font-bold text-[var(--text-main)]">{tLocal('tokoh1FooterVal')}</span>
                     </div>
                   </div>
-                  <span className="text-xs font-extrabold text-[#F4C038] bg-[#F4C038]/10 px-3 py-1.5 rounded-xl border border-[#F4C038]/20">Abad Ke-16</span>
+                  <span className="text-xs font-extrabold text-[#F4C038] bg-[#F4C038]/10 px-3 py-1.5 rounded-xl border border-[#F4C038]/20">{tLocal('tokoh1FooterRight')}</span>
                 </div>
               </div>
             </div>
@@ -315,18 +340,18 @@ export default function Sejarah() {
               <div className="lg:col-span-7 lg:order-1 p-8 sm:p-12 text-left relative z-10 flex flex-col justify-between h-full">
                 <div>
                   <span className="inline-block px-4 py-1.5 rounded-full bg-[#33C3B3]/15 border border-[#33C3B3]/30 text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-4 shadow-sm">
-                    ⚔️ PAHLAWAN NASIONAL (1809 - 1862)
+                    {tLocal('tokoh2Tag')}
                   </span>
                   <h3 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-4 group-hover:text-[#33C3B3] transition-colors">
-                    Pangeran Antasari
+                    {tLocal('tokoh2Title')}
                   </h3>
                   <p className="text-[var(--text-muted)] font-body text-sm sm:text-base leading-relaxed mb-6">
-                    Pemimpin tertinggi Perang Banjar yang mengobarkan perlawanan semesta melawan penjajahan kolonial. Keteguhan prinsip dan strategi perang gerilyanya di pedalaman Barito menjadikan beliau salah satu tokoh paling ditakuti militer Belanda.
+                    {tLocal('tokoh2Desc')}
                   </p>
                   
                   {/* Legend Quote Callout */}
                   <div className="mb-6 p-4 rounded-2xl bg-[#33C3B3]/10 border border-[#33C3B3]/30 italic text-sm sm:text-base text-[var(--text-main)] font-heading font-bold shadow-inner">
-                    "Haram Manyerah Waja Sampai Kaputing"
+                    "{tLocal('section5Title')} {tLocal('section5TitleSpan')}"
                   </div>
                 </div>
                 
@@ -334,11 +359,11 @@ export default function Sejarah() {
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">🛡️</span>
                     <div>
-                      <span className="text-[10px] text-[var(--text-muted)] block uppercase font-bold tracking-wider">Filosofi Mental</span>
-                      <span className="text-sm font-bold text-[var(--text-main)]">Semangat Baja Rakyat Banjar</span>
+                      <span className="text-[10px] text-[var(--text-muted)] block uppercase font-bold tracking-wider">{tLocal('tokoh2FooterTag')}</span>
+                      <span className="text-sm font-bold text-[var(--text-main)]">{tLocal('tokoh2FooterVal')}</span>
                     </div>
                   </div>
-                  <span className="text-xs font-extrabold text-[#33C3B3] bg-[#33C3B3]/10 px-3 py-1.5 rounded-xl border border-[#33C3B3]/20">Gelar Panembahan</span>
+                  <span className="text-xs font-extrabold text-[#33C3B3] bg-[#33C3B3]/10 px-3 py-1.5 rounded-xl border border-[#33C3B3]/20">{tLocal('tokoh2FooterRight')}</span>
                 </div>
               </div>
             </div>
@@ -357,23 +382,23 @@ export default function Sejarah() {
             
             <div className="lg:col-span-5">
               <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-                ✦ ABAD KE-17 & 18
+                {tLocal('section3Tag')}
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-6">
-                Evolusi Bandar <br/><span className="text-[#F4C038]">Rempah Dunia</span>
+                {tLocal('section3Title')} <br/><span className="text-[#F4C038]">{tLocal('section3TitleSpan')}</span>
               </h2>
               <p className="text-[var(--text-muted)] font-body leading-relaxed mb-6">
-                Letak Banjarmasin yang strategis di persimpangan sungai Barito dan Martapura menjadikannya magnet perdagangan internasional. Lada hitam Banjar diakui sebagai salah satu komoditas terbaik di dunia pada abad ke-17.
+                {tLocal('section3Desc')}
               </p>
               <div className="p-6 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] space-y-3">
                 <div className="flex items-center gap-3 text-sm font-bold text-[var(--text-main)]">
-                  <span className="text-[#33C3B3]">✓</span> Monopoli VOC & Inggris sempat ditolak sultan
+                  <span className="text-[#33C3B3]">✓</span> {tLocal('section3Bul1')}
                 </div>
                 <div className="flex items-center gap-3 text-sm font-bold text-[var(--text-main)]">
-                  <span className="text-[#33C3B3]">✓</span> Pasar Terapung jadi urat nadi distribusi lada
+                  <span className="text-[#33C3B3]">✓</span> {tLocal('section3Bul2')}
                 </div>
                 <div className="flex items-center gap-3 text-sm font-bold text-[var(--text-main)]">
-                  <span className="text-[#33C3B3]">✓</span> Mata uang kuno & sistem barter antar-bangsa
+                  <span className="text-[#33C3B3]">✓</span> {tLocal('section3Bul3')}
                 </div>
               </div>
             </div>
@@ -382,21 +407,21 @@ export default function Sejarah() {
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
                 <div className="h-[200px] sm:h-[260px] rounded-3xl overflow-hidden shadow-xl border border-[var(--glass-border)] relative group">
                   <img loading="lazy" src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" alt="Pasar Terapung" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                  <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">Pasar Terapung Abad 16</div>
+                  <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">{tLocal('section3Col1Title')}</div>
                 </div>
                 <div className="p-6 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-center">
-                  <span className="text-3xl sm:text-4xl font-black text-[#F4C038] font-heading block mb-1">500+</span>
-                  <span className="text-xs text-[var(--text-muted)] font-bold uppercase tracking-wider">Tahun Tradisi Sungai</span>
+                  <span className="text-3xl sm:text-4xl font-black text-[#F4C038] font-heading block mb-1">{tLocal('section3Col2Title')}</span>
+                  <span className="text-xs text-[var(--text-muted)] font-bold uppercase tracking-wider">{tLocal('section3Col2Sub')}</span>
                 </div>
               </div>
               <div className="space-y-4 sm:space-y-6">
                 <div className="p-6 rounded-3xl bg-teal-500/10 border border-teal-500/30 text-center">
-                  <span className="text-3xl sm:text-4xl font-black text-[#33C3B3] font-heading block mb-1">#1</span>
-                  <span className="text-xs text-[var(--text-muted)] font-bold uppercase tracking-wider">Komoditas Lada Terbaik Era VOC</span>
+                  <span className="text-3xl sm:text-4xl font-black text-[#33C3B3] font-heading block mb-1">{tLocal('section3Col3Title')}</span>
+                  <span className="text-xs text-[var(--text-muted)] font-bold uppercase tracking-wider">{tLocal('section3Col3Sub')}</span>
                 </div>
                 <div className="h-[200px] sm:h-[260px] rounded-3xl overflow-hidden shadow-xl border border-[var(--glass-border)] relative group">
                   <img loading="lazy" src="/profil kota/sungai.webp" alt="Sungai Martapura" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                  <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">Jalur Martapura</div>
+                  <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">{tLocal('section3Col4Title')}</div>
                 </div>
               </div>
             </div>
@@ -412,13 +437,13 @@ export default function Sejarah() {
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ KRONIK PERLAWANAN 1859 - 1905
+              {tLocal('section4Tag')}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
-              Arsip Perang <span className="text-[#F4C038]">Banjar</span>
+              {tLocal('section4Title')} <span className="text-[#F4C038]">{tLocal('section4TitleSpan')}</span>
             </h2>
             <p className="text-[var(--text-muted)] font-body mt-3">
-              Strategi perang sungai dan perjuangan rakyat mempertahankan tanah leluhur. Klik untuk membuka catatan.
+              {tLocal('section4Desc')}
             </p>
           </div>
 
@@ -482,21 +507,21 @@ export default function Sejarah() {
         
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <span className="inline-block text-xs font-extrabold tracking-[0.3em] uppercase text-[#F4C038] mb-6 font-heading">
-            ✦ EPILOG SEJARAH & MASA DEPAN
+            {tLocal('section5Tag')}
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[var(--text-main)] font-heading leading-tight mb-8 drop-shadow-2xl">
-            "Haram Manyerah <br/>
-            <span className="text-[#33C3B3]">Waja Sampai Kaputing"</span>
+            "{tLocal('section5Title')} <br/>
+            <span className="text-[#33C3B3]">{tLocal('section5TitleSpan')}</span>"
           </h2>
           <p className="text-base sm:text-xl text-[var(--text-muted)] font-body max-w-2xl mx-auto leading-relaxed mb-10">
-            Sebuah sumpah perjuangan peninggalan leluhur yang kini mengalir dalam darah setiap warga Banjarmasin untuk membangun kota sungai yang bersih, berdaya saing, dan bermartabat.
+            {tLocal('section5Desc')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/wisata" className="bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-black px-8 py-4 rounded-full shadow-md transition-transform hover:-translate-y-1 text-sm sm:text-base">
-              Jelajahi Wisata Sejarah ➔
+              {tLocal('exploreHistory')}
             </Link>
             <Link to="/profil" className="bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#33C3B3] text-[var(--text-main)] font-black px-8 py-4 rounded-full transition-all text-sm sm:text-base">
-              Kembali ke Profil Kota
+              {tLocal('backToProfile')}
             </Link>
           </div>
         </div>

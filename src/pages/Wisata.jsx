@@ -3,152 +3,135 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import InteractiveMap from "../components/InteractiveMap";
-
-const heroDestinations = [
-  {
-    id: "pasar-terapung",
-    title: "Pasar Terapung",
-    tag: "Subuh - Lok Baintan",
-    location: "Lok Baintan, Kuin",
-    image: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
-    badge: "Warisan Dunia",
-    desc: "Pasar tradisional di atas perahu kelotok tempat para Acil bertransaksi sayur, buah, dan kuliner khas Banjar sejak fajar menyingsing.",
-    heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
-  },
-  {
-    id: "siring-martapura",
-    title: "Menara Pandang",
-    tag: "24 Jam - Siring",
-    location: "Menara Pandang, Siring",
-    image: "/wisata/960px-Menara_Pandang_Banjarmasin.webp",
-    badge: "Landmark Kota",
-    desc: "Kawasan terbuka hijau di tepian Sungai Martapura yang menjadi titik kumpul warga dan pusat susur sungai kelotok.",
-    heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]",
-  },
-  {
-    id: "patung-bekantan",
-    title: "Patung Bekantan",
-    tag: "Ikon - Martapura",
-    location: "Siring Sungai Martapura",
-    image: "/wisata/960px-Monumen_Patung_Bekantan_Ba.webp",
-    badge: "Maskot Borneo",
-    desc: "Monumen megah maskot satwa endemik Kalimantan Selatan yang menyemburkan air langsung ke arah Sungai Martapura.",
-    heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]",
-  },
-  {
-    id: "sabilal-muhtadin",
-    title: "Masjid Raya Sabilal Muhtadin",
-    tag: "Religi - Pusat Kota",
-    location: "Jl. Jend. Sudirman",
-    image: "/wisata/960px-Masjid_Raya_Sabilal_Muhtad.webp",
-    badge: "Ikon Religi",
-    desc: "Masjid raya kebanggaan warga Kalimantan Selatan dengan arsitektur megah dan kubah tembaga yang khas, dikelilingi hutan kota yang asri.",
-    heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]",
-  },
-  {
-    id: "museum-waja-sampai-kaputing",
-    title: "Museum Wasaka",
-    tag: "Sejarah - Banua Anyar",
-    location: "Sungai Jingah, Banjarmasin Utara",
-    image: "/wisata/960px-Museum_Waja_Sampai_Kaputin.webp",
-    badge: "Edukasi & Sejarah",
-    desc: "Museum perjuangan rakyat Kalimantan Selatan yang berlokasi di rumah adat Banjar bergaya Bubungan Tinggi, menyimpan ribuan artefak bersejarah pahlawan Banjar.",
-    heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
-  },
-  {
-    id: "masjid-suriansyah",
-    title: "Masjid Sultan Suriansyah",
-    tag: "Religi - Kuin Utara",
-    location: "Kuin Utara, Banjarmasin Utara",
-    image: "/wisata/masjid sultan suriansyah.webp",
-    badge: "Wisata Religi",
-    desc: "Masjid bersejarah tertua di Kalimantan Selatan bergaya arsitektur tradisional Banjar dengan ukiran kaligrafi kayu ukir khas abadi.",
-    heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
-  },
-  {
-    id: "rumah-adat-bubungan-tinggi",
-    title: "Rumah Adat Bubungan Tinggi",
-    tag: "Arsitektur - Banua Anyar",
-    location: "Komplek Rumah Adat Banjar",
-    image: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp",
-    badge: "Warisan Arsitektur",
-    desc: "Mahakarya arsitektur tradisional suku Banjar dengan atap menjulang tinggi (Bubungan Tinggi) dan ukiran relief kaligrafi flora khas Kalimantan Selatan.",
-    heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]",
-  },
-  {
-    id: "taman-siring-martapura",
-    title: "Taman Siring 0 Km",
-    tag: "Taman Kota - Jl. Sudirman",
-    location: "Tepian Sungai Martapura",
-    image: "/wisata/960px-Taman_Siring_Banjarmasin.webp",
-    badge: "Ruang Publik",
-    desc: "Kawasan pedestrian ramah pejalan kaki di sepanjang pesisir sungai yang dilengkapi arena skateboard, pasar kaget akhir pekan, dan dermaga susur sungai.",
-    heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
-  },
-  {
-    id: "tugu-nol-kilometer",
-    title: "Tugu Nol Kilometer",
-    tag: "Landmark - Pal 0",
-    location: "Siring Nol Kilometer",
-    image: "/wisata/menara tugu pal 0.webp",
-    badge: "Titik Nol Kota",
-    desc: "Monumen bersejarah penanda titik pusat acuan jarak geometris Kota Banjarmasin, menghadap langsung ke deretan kantor gubernuran lawas dan sungai.",
-    heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
-  },
-];
-
-const itineraryRoadmap = [
-  { time: "05:30 WIB", title: "Subuh Fajar di Lok Baintan", desc: "Menyaksikan serbuan ratusan perahu jukung tradisional yang bertransaksi hasil bumi saat matahari terbit.", icon: "sunrise", duration: "3 Jam", highlight: "Pasar Terapung" },
-  { time: "08:30 WIB", title: "Sarapan Soto Banjar Autentik", desc: "Menikmati hangatnya kuah rempah Soto Banjar Bang Amat di tepian sungai ditemani petikan musik Panting.", icon: "food", duration: "1.5 Jam", highlight: "Kuliner Legendaris" },
-  { time: "14:00 WIB", title: "Eksplorasi Menara Pandang & Siring", desc: "Berfoto di landmark Patung Bekantan dan melihat panorama 360 derajat Kota Banjarmasin dari puncak menara.", icon: "tower", duration: "2 Jam", highlight: "Ikon Kota" },
-  { time: "17:00 WIB", title: "Senja di Kampung Hijau & Biru", desc: "Menyusuri permukiman tematik warna-warni di pesisir sungai sambil menikmati angin sore dan lampu tanglung.", icon: "house", duration: "2 Jam", highlight: "Wisata Kampung" },
-];
-
-const officialKelotokRoutes = [
-  {
-    title: "Susur Sungai Dalam Kota",
-    category: "Rute Reguler Paling Favorit",
-    price: "Rp 15.000 / Orang",
-    duration: "± 45 Menit",
-    schedule: "Setiap Hari (Sore & Malam)",
-    path: "Siring Menara Pandang ➔ Patung Bekantan ➔ Kampung Hijau/Biru",
-    desc: "Rute favorit wisatawan untuk menikmati panorama tepian Sungai Martapura, jembatan pasar lama, dan kelip lampu Kampung Hijau saat sore hingga malam hari.",
-    img: "/wisata/960px-Taman_Siring_Banjarmasin.webp"
-  },
-  {
-    title: "Pasar Terapung Lok Baintan",
-    category: "Rute Wisata Budaya Subuh",
-    price: "Rp 450.000 / Perahu",
-    duration: "± 3 - 4 Jam",
-    schedule: "Subuh (05.30 WITA)",
-    path: "Dermaga Siring ➔ Kuin ➔ Sungai Martapura ➔ Lok Baintan",
-    desc: "Perjalanan eksplorasi menyusuri urat nadi sungai menuju pasar terapung alami abad ke-16. Kapasitas kelotok carter hingga 15-20 penumpang dengan rompi pengaman.",
-    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp"
-  },
-  {
-    title: "Wisata Heritage & Religi",
-    category: "Rute Sejarah Banjar",
-    price: "Rp 20.000 / Orang",
-    duration: "± 1.5 Jam",
-    schedule: "Sabtu & Minggu Pagi/Sore",
-    path: "Siring ➔ Masjid Sultan Suriansyah ➔ Museum Wasaka",
-    desc: "Menyinggahi jejak Kesultanan Banjar di Kuin Utara dan menyaksikan langsung kemegahan arsitektur Rumah Adat Bubungan Tinggi tempat Museum Wasaka berada.",
-    img: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp"
-  }
-];
-
-const heroHeroItems = heroDestinations.slice(0, 5);
-
-const whyHighlights = [
-  { emoji: "🛶", label: "Susur Sungai", desc: "1.000+ aliran sungai menjadi jalur wisata tak tertandingi di Nusantara", color: "#33C3B3" },
-  { emoji: "🌅", label: "Pasar Subuh", desc: "Pasar terapung Lok Baintan aktif sejak abad ke-16 -- pengalaman tiada dua", color: "#F4C038" },
-  { emoji: "🍜", label: "Kuliner Khas", desc: "Soto Banjar, Ketupat Kandangan, hingga Es Cendol legendaris Martapura", color: "#F97316" },
-  { emoji: "🕌", label: "Heritage 1526", desc: "Jejak sejarah kerajaan Islam tertua Kalimantan di setiap sudut kota", color: "#A78BFA" },
-];
+import { useLanguage } from "../context/LanguageContext";
+import { pagesTranslations } from "../translations/pagesTranslations";
 
 export default function Wisata() {
+  const { language } = useLanguage();
+
+  const tLocal = (key) => {
+    return pagesTranslations[language]?.wisata?.[key] || pagesTranslations['id']?.wisata?.[key];
+  };
+
+  const heroDestinationsMeta = [
+    { id: "pasar-terapung", image: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
+    { id: "siring-martapura", image: "/wisata/960px-Menara_Pandang_Banjarmasin.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
+    { id: "patung-bekantan", image: "/wisata/960px-Monumen_Patung_Bekantan_Ba.webp", heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]" },
+    { id: "sabilal-muhtadin", image: "/wisata/960px-Masjid_Raya_Sabilal_Muhtad.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
+    { id: "museum-waja-sampai-kaputing", image: "/wisata/960px-Museum_Waja_Sampai_Kaputin.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
+    { id: "masjid-suriansyah", image: "/wisata/masjid sultan suriansyah.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
+    { id: "rumah-adat-bubungan-tinggi", image: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
+    { id: "taman-siring-martapura", image: "/wisata/960px-Taman_Siring_Banjarmasin.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
+    { id: "tugu-nol-kilometer", image: "/wisata/menara tugu pal 0.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" }
+  ];
+
+  const translatedDestinations = tLocal('heroDestinations') || [];
+  const heroDestinations = heroDestinationsMeta.map((h, idx) => ({
+    ...h,
+    ...(translatedDestinations[idx] || {})
+  }));
+
+  const itineraryRoadmapMeta = [
+    { icon: "sunrise" },
+    { icon: "food" },
+    { icon: "tower" },
+    { icon: "house" }
+  ];
+  const translatedItinerary = tLocal('itineraryRoadmap') || [];
+  const itineraryRoadmap = itineraryRoadmapMeta.map((i, idx) => ({
+    ...i,
+    ...(translatedItinerary[idx] || {})
+  }));
+
+  const officialKelotokRoutesMeta = [
+    { img: "/wisata/960px-Taman_Siring_Banjarmasin.webp" },
+    { img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp" },
+    { img: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp" }
+  ];
+  const translatedRoutes = tLocal('officialKelotokRoutes') || [];
+  const officialKelotokRoutes = officialKelotokRoutesMeta.map((r, idx) => ({
+    ...r,
+    ...(translatedRoutes[idx] || {})
+  }));
+
+  const whyHighlightsIcons = [
+    { emoji: "🛶", color: "#33C3B3" },
+    { emoji: "🌅", color: "#F4C038" },
+    { emoji: "🍜", color: "#F97316" },
+    { emoji: "🕌", color: "#A78BFA" }
+  ];
+  const translatedWhy = tLocal('whyHighlights') || [];
+  const whyHighlights = whyHighlightsIcons.map((w, idx) => ({
+    ...w,
+    ...(translatedWhy[idx] || {})
+  }));
+
   const [carouselItems, setCarouselItems] = useState(heroDestinations);
 
+  // Sync state when language changes
+  useEffect(() => {
+    setCarouselItems(heroDestinations);
+  }, [language]);
+
+  // Dynamic Page Metadata (SEO & JSON-LD)
+  useEffect(() => {
+    const titles = {
+      id: "Destinasi Wisata Ikonik Banjarmasin - Portal Kota Seribu Sungai",
+      en: "Iconic Tourism Destinations of Banjarmasin - Portal of Thousand Rivers",
+      ms: "Destinasi Wisata Ikonik Banjarmasin - Portal Kota Seribu Sungai",
+      zh: "马辰标志性旅游目的地 - 千河之城门户网站"
+    };
+    const descriptions = {
+      id: "Jelajahi pasar terapung Lok Baintan, Menara Pandang, Patung Bekantan, Masjid Sultan Suriansyah, dan susur sungai kelotok.",
+      en: "Explore Lok Baintan floating market, Menara Pandang, Bekantan Statue, Sultan Suriansyah Mosque, and kelotok river cruises.",
+      ms: "Terokai pasar terapung Lok Baintan, Menara Pandang, Patung Bekantan, Masjid Sultan Suriansyah, dan susur sungai kelotok.",
+      zh: "探索洛拜丹水上市场、观景台、长鼻猴雕像、苏丹苏里安夏清真寺及传统木船运河游览。"
+    };
+
+    document.title = titles[language] || titles.id;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', descriptions[language] || descriptions.id);
+
+    // Inject JSON-LD Schema
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "ItemPage",
+      "name": titles[language] || titles.id,
+      "description": descriptions[language] || descriptions.id,
+      "url": window.location.href,
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": heroDestinations.map((d, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": d.title,
+          "description": d.desc,
+          "image": window.location.origin + d.image
+        }))
+      }
+    };
+
+    let schemaScript = document.getElementById('jsonld-schema');
+    if (!schemaScript) {
+      schemaScript = document.createElement('script');
+      schemaScript.setAttribute('type', 'application/ld+json');
+      schemaScript.setAttribute('id', 'jsonld-schema');
+      document.head.appendChild(schemaScript);
+    }
+    schemaScript.textContent = JSON.stringify(schemaData);
+
+    window.scrollTo(0, 0);
+
+    return () => {
+      if (schemaScript) schemaScript.remove();
+    };
+  }, [language]);
   const handleNext = () => {
     setCarouselItems(prev => {
       const newItems = [...prev];
@@ -175,8 +158,6 @@ export default function Wisata() {
     });
   };
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
-
   useEffect(() => {
     const targets = document.querySelectorAll(".wisata-reveal, .wisata-reveal-left, .wisata-reveal-right");
     if (!targets.length) return;
@@ -199,14 +180,14 @@ export default function Wisata() {
       <section className="pt-28 sm:pt-32 pb-12 max-w-[1240px] mx-auto px-4 relative overflow-hidden">
         <div className="text-center max-w-4xl mx-auto mb-8 relative z-10 wisata-reveal">
           <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-            ✦ EKSPLORASI DESTINASI BORNEO
+            {tLocal('heroTag')}
           </span>
           <h1 className="hero-title !mb-3">
-            Jelajahi Pesona &amp; <br className="hidden sm:inline" />
-            <span className="text-sasirangan">Wisata Seribu Sungai</span>
+            {tLocal('heroTitle')} <br className="hidden sm:inline" />
+            <span className="text-sasirangan">{tLocal('heroTitleSpan')}</span>
           </h1>
           <p className="hero-subtitle mx-auto !mb-6 !max-w-2xl px-2">
-            Temukan pesona destinasi ikonik dari pasar terapung subuh hingga susur sungai Martapura dengan pesona bahari Borneo.
+            {tLocal('heroSubtitle')}
           </p>
         </div>
       </section>
@@ -296,14 +277,14 @@ export default function Wisata() {
           {/* Left Text */}
           <div className="relative z-10 w-full lg:w-5/12 text-left">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-4">
-              ✦ Mengapa Harus Banjarmasin
+              ✦ {tLocal('whyTitle')} {tLocal('whyTitleSpan')}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white font-heading leading-tight mb-6">
-              Kota yang Tak Pernah <br className="hidden lg:block" />
-              <span className="text-[#F4C038]">Bisa Dilupakan</span>
+              {tLocal('whyTitle')} <br className="hidden lg:block" />
+              <span className="text-[#F4C038]">{tLocal('whyTitleSpan')}</span>
             </h2>
             <p className="text-sm sm:text-base text-white/70 font-body leading-relaxed mb-8 max-w-md">
-              Dari fajar di atas perahu hingga senja di tepian sungai -- setiap sudut kota ini menawarkan cerita dan pesona budaya bahari yang berbeda.
+              {tLocal('whySubtitle')}
             </p>
           </div>
 
@@ -398,7 +379,7 @@ export default function Wisata() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 bg-transparent border border-white hover:bg-white hover:text-black text-white font-bold text-xs px-6 py-3 rounded-full transition-all uppercase tracking-widest"
                     >
-                      Discover Location
+                      {language === 'zh' ? '探索目的地' : language === 'en' ? 'Discover Location' : 'Eksplorasi Destinasi'}
                     </a>
                   </div>
                 </div>
@@ -446,9 +427,15 @@ export default function Wisata() {
 
       <section className="py-20 max-w-[1240px] mx-auto px-4 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-16 wisata-reveal">
-          <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">ITINERARI RUTE SERIBU SUNGAI</span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">Jelajahi Alur <span className="text-[#F4C038]">Waktu Borneo</span></h2>
-          <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">Simulasi rekomendasi perjalanan satu hari penuh menyusuri urat nadi perairan Kota Banjarmasin dengan kelotok wisata.</p>
+          <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
+            {language === 'zh' ? '千河之城一日游行程路线' : language === 'en' ? 'ONE DAY RIVER ROADMAP ITINERARY' : 'ITINERARI RUTE SERIBU SUNGAI'}
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
+            {tLocal('roadmapTitle')} <span className="text-[#F4C038]">{tLocal('roadmapTitleSpan')}</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">
+            {tLocal('roadmapSubtitle')}
+          </p>
         </div>
         <div className="relative max-w-4xl mx-auto pl-6 sm:pl-10 space-y-10 before:content-[''] before:absolute before:left-2 sm:before:left-4 before:top-4 before:bottom-4 before:w-[2px] before:bg-gradient-to-b before:from-[#F4C038] before:via-[#008075] before:to-[#33C3B3]">
           {itineraryRoadmap.map((item, idx) => (
@@ -474,9 +461,15 @@ export default function Wisata() {
           ========================================================================= */}
       <section className="py-20 max-w-[1240px] mx-auto px-4 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-16 wisata-reveal">
-          <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">PANDUAN TRANSPARAN &amp; TARIF RESMI</span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">Rute &amp; Tarif Resmi <span className="text-[#F4C038]">Kelotok Wisata</span></h2>
-          <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">Daftar estimasi tarif resmi dari Paguyuban Kelotok Wisata Dermaga Siring Menara Pandang untuk pengalaman liburan yang aman dan transparan.</p>
+          <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
+            {language === 'zh' ? '透明指南与官方收费标准' : language === 'en' ? 'TRANSPARENT GUIDE & OFFICIAL FARES' : 'PANDUAN TRANSPARAN & TARIF RESMI'}
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
+            {tLocal('routesTitle')} <span className="text-[#F4C038]">{tLocal('routesTitleSpan')}</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">
+            {tLocal('routesSubtitle')}
+          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
@@ -500,10 +493,10 @@ export default function Wisata() {
                   
                   <div className="space-y-2 border-t border-[var(--glass-border)] pt-4">
                     <div className="text-xs font-bold text-[var(--text-main)] flex items-center gap-2">
-                      <span className="text-[#33C3B3]">✓</span> Rute: <span className="font-normal text-[var(--text-muted)]">{route.path}</span>
+                      <span className="text-[#33C3B3]">✓</span> {language === 'zh' ? '路线' : 'Rute'}: <span className="font-normal text-[var(--text-muted)]">{route.path}</span>
                     </div>
                     <div className="text-xs font-bold text-[var(--text-main)] flex items-center gap-2">
-                      <span className="text-[#F4C038]">✓</span> Jadwal: <span className="font-normal text-[var(--text-muted)]">{route.schedule}</span>
+                      <span className="text-[#F4C038]">✓</span> {language === 'zh' ? '时间' : language === 'en' ? 'Schedule' : 'Jadwal'}: <span className="font-normal text-[var(--text-muted)]">{route.schedule}</span>
                     </div>
                   </div>
                 </div>
@@ -516,7 +509,7 @@ export default function Wisata() {
                   rel="noreferrer"
                   className="w-full py-3 rounded-xl bg-white/5 hover:bg-[#33C3B3] text-[var(--text-main)] hover:text-[#091422] font-bold text-xs flex items-center justify-center gap-2 transition-all border border-[var(--glass-border)] hover:border-[#33C3B3] uppercase tracking-wider"
                 >
-                  📍 Menuju Dermaga Siring ➔
+                  {language === 'zh' ? '📍 前往 Siring 码头 ➔' : language === 'en' ? '📍 Navigate to Siring Dock ➔' : '📍 Menuju Dermaga Siring ➔'}
                 </a>
               </div>
             </div>

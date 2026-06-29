@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
+import { pagesTranslations } from '../translations/pagesTranslations';
 
 // Data for masonry grid
 const column1Images = [
@@ -58,66 +60,20 @@ const AnimatedStat = ({ value, label, suffix="", inline=false }) => {
   );
 };
 
-const realBanjarmasinData = [
-  {
-    id: "01",
-    tabTitle: "Sungai & Delta",
-    title: "Tata Kelola 100+ Sungai & Ekosistem Delta",
-    subtitle: "Urat Nadi Kehidupan & Peradaban Maritim",
-    desc: "Julukan 'Kota Seribu Sungai' disematkan karena lebih dari 100 sungai aktif membelah kota ini. Sejak era Kerajaan Banjar abad ke-14, sungai seperti Martapura dan Barito menjadi urat nadi perdagangan dan interaksi sosial. Kini, lewat program 'Maharagu Sungai', normalisasi dan kebersihan sungai menjadi prioritas utama.",
-    stats: [
-      { value: "100+", label: "Sungai Aktif Membelah Kota" },
-      { value: "Abad 14", label: "Awal Peradaban Maritim Banjar" }
-    ],
-    color: "#33C3B3"
-  },
-  {
-    id: "02",
-    tabTitle: "IPM & Pelayanan",
-    title: "IPM Sangat Tinggi & Birokrasi Digital",
-    subtitle: "Pelayanan Publik Cepat, Inklusif & Transparan",
-    desc: "Banjarmasin mencatatkan Indeks Pembangunan Manusia (IPM) kategori 'Sangat Tinggi' di Kalimantan Selatan. Melalui kehadiran Mal Pelayanan Publik (MPP) Baiman dan integrasi Satu Data, pemerintah kota mewujudkan layanan birokrasi yang responsif, modern, dan mudah diakses oleh seluruh lapisan warga.",
-    stats: [
-      { value: "Sangat Tinggi", label: "Indeks Pembangunan Manusia" },
-      { value: "MPP Baiman", label: "Pusat Layanan Terintegrasi" }
-    ],
-    color: "#F4C038"
-  },
-  {
-    id: "03",
-    tabTitle: "Ekonomi Kreatif",
-    title: "Warisan Pasar Terapung & Akselerasi UMKM",
-    subtitle: "Penggerak Ekonomi Lokal Berdaya Saing Global",
-    desc: "Memadukan pesona budaya legendaris Pasar Terapung (Lok Baintan & Muara Kuin) dengan modernisasi Perumda Pasar Baiman. Program digitalisasi 'Dedikasi Baiman' dan penguatan ribuan pengrajin kain Sasirangan terus mendongkrak perekonomian warga agar tangguh dan berdaya saing.",
-    stats: [
-      { value: "2 Ikon", label: "Pasar Terapung Legendaris" },
-      { value: "Ribuan", label: "UMKM Sasirangan & Kuliner" }
-    ],
-    color: "#33C3B3"
-  },
-  {
-    id: "04",
-    tabTitle: "Kayuh Baimbai",
-    title: "Filosofi Kayuh Baimbai & Gotong Royong",
-    subtitle: "Mendayung Bersama Mewujudkan Kota Baiman",
-    desc: "'Kayuh Baimbai' (Mendayung Bersama-sama) adalah akar filosofi Suku Banjar yang mengajarkan harmoni dan gotong royong. Semangat ini menjadi fondasi kolaborasi erat antara warga dan pemerintah dalam menjaga kebersihan lingkungan, penataan ruang publik, dan menciptakan suasana kota yang damai.",
-    stats: [
-      { value: "Gotong Royong", label: "Jiwa & Kolaborasi Warga" },
-      { value: "Baiman", label: "Barasih wan Nyaman" }
-    ],
-    color: "#F4C038"
-  }
-];
-
 const InteractivePillarSpotlight = () => {
+  const { language } = useLanguage();
+  const t = pagesTranslations[language]?.profil || pagesTranslations['id'].profil;
+  const dataList = t.realBanjarmasinData || [];
   const [activeIdx, setActiveIdx] = useState(0);
-  const activeData = realBanjarmasinData[activeIdx];
+  const activeData = dataList[activeIdx] || dataList[0] || {};
+
+  if (!activeData || Object.keys(activeData).length === 0) return null;
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 relative z-20">
       {/* Spotlight Tabs Header */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8">
-        {realBanjarmasinData.map((item, idx) => {
+        {dataList.map((item, idx) => {
           const isActive = activeIdx === idx;
           return (
             <button
@@ -175,7 +131,7 @@ const InteractivePillarSpotlight = () => {
 
           {/* Right Statistics Badges */}
           <div className="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row lg:flex-col gap-4">
-            {activeData.stats.map((stat, sIdx) => (
+            {(activeData.stats || []).map((stat, sIdx) => (
               <div 
                 key={sIdx}
                 className="flex-1 lg:w-64 bg-black/5 dark:bg-white/5 border border-[var(--glass-border)] rounded-2xl p-5 text-left backdrop-blur-sm hover:border-[#F4C038] transition-colors"
@@ -197,6 +153,11 @@ const InteractivePillarSpotlight = () => {
 
 
 export default function ProfilKota() {
+  const { language } = useLanguage();
+  const tLocal = (key) => {
+    return pagesTranslations[language]?.profil?.[key] || pagesTranslations['id'].profil?.[key] || '';
+  };
+
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
   const [activeNakhodaTab, setActiveNakhodaTab] = useState('walikota');
 
@@ -311,20 +272,20 @@ export default function ProfilKota() {
           
           <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left h-full lg:h-auto pointer-events-auto mb-10 lg:mb-0 lg:pl-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ Profil Pemerintahan
+              {tLocal('heroTag')}
             </span>
             <h1 className="hero-title !mb-3">
-              Banjarmasin <span className="text-sasirangan">Baiman.</span>
+              {tLocal('heroTitle')} <span className="text-sasirangan">{tLocal('heroTitleSpan')}</span>
             </h1>
             <p className="hero-subtitle mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0">
-              Mengenal lebih dekat "Kota Seribu Sungai". Membedah visi, misi, sejarah, dan nilai-nilai "Kayuh Baimbai" yang menjadi landasan pemerintahan kota tertua di Kalimantan ini.
+              {tLocal('heroSubtitle')}
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
               <button className="bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-black px-8 py-4 rounded-full shadow-[0_0_20px_rgba(244,192,56,0.3)] transition-transform hover:-translate-y-1 w-full sm:w-auto text-sm sm:text-base">
-                Eksplorasi Visi
+                {tLocal('exploreBtn')}
               </button>
               <Link to="/sejarah" className="bg-[var(--card-bg)] backdrop-blur-md border border-[var(--glass-border)] hover:bg-[var(--text-main)] hover:text-[var(--martapura-deep)] text-[var(--text-main)] font-black px-8 py-4 rounded-full transition-all w-full sm:w-auto text-sm sm:text-base text-center">
-                Sejarah Kota
+                {tLocal('historyBtn')}
               </Link>
             </div>
           </div>
@@ -340,12 +301,12 @@ export default function ProfilKota() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#F4C038]/10 to-[#33C3B3]/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
         <div className="text-center mb-16 relative z-10 px-4">
-          <span className="text-[#F4C038] font-bold tracking-[0.3em] uppercase text-xs mb-2 drop-shadow-md block">Periode 2025 - 2030</span>
+          <span className="text-[#F4C038] font-bold tracking-[0.3em] uppercase text-xs mb-2 drop-shadow-md block">{tLocal('section1Tag')}</span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[var(--text-main)] font-heading leading-tight">
-            Nakhoda <span className="text-[#33C3B3]">Kota</span>
+            {tLocal('section1Title')} <span className="text-[#33C3B3]">{tLocal('section1TitleSpan')}</span>
           </h2>
           <p className="text-[var(--text-muted)] font-body max-w-2xl mx-auto mt-4">
-            Kepemimpinan kolaboratif yang membawa Banjarmasin melangkah pasti menuju masa depan Baiman (Barasih wan Nyaman).
+            {tLocal('section1Desc')}
           </p>
         </div>
 
@@ -360,21 +321,17 @@ export default function ProfilKota() {
                 Wali Kota
               </span>
               <h3 className="text-3xl xl:text-4xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">
-                H. Muh. Yamin HR
+                {tLocal('nakhoda1Title')}
               </h3>
               <p className="text-[var(--text-muted)] text-sm xl:text-base leading-relaxed mb-6">
-                Memimpin dengan visi tata kelola sungai terpadu, penataan ruang publik modern, serta menghadirkan pelayanan birokrasi yang tanggap dan dekat dengan masyarakat.
+                {tLocal('nakhoda1Desc')}
               </p>
               <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs xl:text-sm font-semibold text-[var(--text-main)]">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Tata Kelola Sungai Berkelanjutan
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Digitalisasi Pelayanan Publik
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Pembangunan Infrastruktur Baiman
-                </div>
+                {(tLocal('nakhoda1Points') || []).map((pt, pIdx) => (
+                  <div key={pIdx} className="flex items-center gap-2.5">
+                    <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> {pt}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -391,7 +348,7 @@ export default function ProfilKota() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                 <div className="absolute bottom-6 left-0 right-0 text-center px-2">
-                  <p className="text-white font-black text-base xl:text-lg tracking-wide drop-shadow-md">H. Muh. Yamin HR</p>
+                  <p className="text-white font-black text-base xl:text-lg tracking-wide drop-shadow-md">{tLocal('nakhoda1Title')}</p>
                   <p className="text-[#F4C038] font-bold text-xs uppercase tracking-widest mt-0.5">Wali Kota</p>
                 </div>
               </div>
@@ -406,7 +363,7 @@ export default function ProfilKota() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                 <div className="absolute bottom-6 left-0 right-0 text-center px-2">
-                  <p className="text-white font-black text-base xl:text-lg tracking-wide drop-shadow-md">Hj. Ananda</p>
+                  <p className="text-white font-black text-base xl:text-lg tracking-wide drop-shadow-md">{tLocal('nakhoda2Title')}</p>
                   <p className="text-[#33C3B3] font-bold text-xs uppercase tracking-widest mt-0.5">Wakil Wali Kota</p>
                 </div>
               </div>
@@ -419,21 +376,17 @@ export default function ProfilKota() {
                 Wakil Wali Kota
               </span>
               <h3 className="text-3xl xl:text-4xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">
-                Hj. Ananda
+                {tLocal('nakhoda2Title')}
               </h3>
               <p className="text-[var(--text-muted)] text-sm xl:text-base leading-relaxed mb-6">
-                Mengawal pemberdayaan ekonomi kreatif lokal, peningkatan kualitas sumber daya manusia, perlindungan perempuan & anak, serta akselerasi UMKM berdaya saing tinggi.
+                {tLocal('nakhoda2Desc')}
               </p>
               <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs xl:text-sm font-semibold text-[var(--text-main)]">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Akselerasi UMKM & Ekonomi Kreatif
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Pemberdayaan Perempuan & Anak
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Peningkatan SDM Generasi Cerdas
-                </div>
+                {(tLocal('nakhoda2Points') || []).map((pt, pIdx) => (
+                  <div key={pt} className="flex items-center gap-2.5">
+                    <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> {pt}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -481,21 +434,20 @@ export default function ProfilKota() {
                 
                 <div className="p-6 sm:p-8 text-left relative z-10 border-t border-[var(--glass-border)] bg-[var(--card-bg)]">
                   <span className="inline-block px-3 py-1 rounded-full bg-[#F4C038]/15 border border-[#F4C038]/30 text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-3 shadow-sm">
-                    Wali Kota Banjarmasin
+                    {tLocal('nakhoda1Tag')}
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3">
-                    H. Muh. Yamin HR
+                    {tLocal('nakhoda1Title')}
                   </h3>
                   <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
-                    Fokus pada tata kelola sungai terpadu, infrastruktur berkelanjutan, dan pelayanan birokrasi yang responsif terhadap warga.
+                    {tLocal('nakhoda1Desc')}
                   </p>
                   <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs sm:text-sm font-semibold text-[var(--text-main)]">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Tata Kelola Sungai Terpadu
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Birokrasi Responsif & Cepat
-                    </div>
+                    {(tLocal('nakhoda1Points') || []).map((pt, pIdx) => (
+                      <div key={pIdx} className="flex items-center gap-2.5">
+                        <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> {pt}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -513,21 +465,20 @@ export default function ProfilKota() {
                 
                 <div className="p-6 sm:p-8 text-left relative z-10 border-t border-[var(--glass-border)] bg-[var(--card-bg)]">
                   <span className="inline-block px-3 py-1 rounded-full bg-[#33C3B3]/15 border border-[#33C3B3]/30 text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-3 shadow-sm">
-                    Wakil Wali Kota Banjarmasin
+                    {tLocal('nakhoda2Tag')}
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3">
-                    Hj. Ananda
+                    {tLocal('nakhoda2Title')}
                   </h3>
                   <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
-                    Mengawal ekosistem ekonomi kreatif berdaya saing, pembedayaan perempuan, dan akselerasi UMKM untuk generasi masa depan.
+                    {tLocal('nakhoda2Desc')}
                   </p>
                   <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs sm:text-sm font-semibold text-[var(--text-main)]">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Ekonomi Kreatif & UMKM
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Pemberdayaan Perempuan & SDM
-                    </div>
+                    {(tLocal('nakhoda2Points') || []).map((pt, pIdx) => (
+                      <div key={pIdx} className="flex items-center gap-2.5">
+                        <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> {pt}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -545,13 +496,13 @@ export default function ProfilKota() {
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 w-full text-center mb-16">
           <span className="text-[#33C3B3] font-bold text-xs sm:text-sm tracking-[0.3em] uppercase font-heading mb-4 block drop-shadow-md">
-            Filosofi Pembangunan
+            {tLocal('section2Tag')}
           </span>
           <h2 className="text-4xl md:text-6xl font-black text-[var(--text-main)] font-heading mb-6 leading-tight">
-            Semangat <span className="text-[#F4C038]">Kayuh Baimbai</span>
+            {tLocal('section2Title')} <span className="text-[#F4C038]">{tLocal('section2TitleSpan')}</span>
           </h2>
           <p className="text-base md:text-lg text-[var(--text-muted)] font-body leading-relaxed max-w-3xl mx-auto">
-            "Mendayung bersama-sama". Sebuah filosofi leluhur Suku Banjar yang mengakar pada interaksi sosial sungai, kini menjadi fondasi kolaborasi interaktif warga dan pemerintah mewujudkan <strong>Banjarmasin Baiman</strong>.
+            {tLocal('section2Desc')}
           </p>
         </div>
 
@@ -594,9 +545,9 @@ export default function ProfilKota() {
         
         <div className="max-w-[1400px] mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <span className="text-[#F4C038] font-bold text-xs tracking-widest uppercase font-heading block mb-2">Kanvas Data Kota</span>
+            <span className="text-[#F4C038] font-bold text-xs tracking-widest uppercase font-heading block mb-2">{tLocal('section3Tag')}</span>
             <h2 className="text-3xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
-              Anatomi <span className="text-[#33C3B3]">Kota Delta</span>
+              {tLocal('section3Title')} <span className="text-[#33C3B3]">{tLocal('section3TitleSpan')}</span>
             </h2>
           </div>
 
@@ -609,14 +560,14 @@ export default function ProfilKota() {
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-full bg-[#F4C038]/20 flex items-center justify-center text-2xl">👥</div>
-                  <span className="text-[#F4C038] font-bold tracking-widest uppercase text-sm">Demografi Penduduk (2024)</span>
+                  <span className="text-[#F4C038] font-bold tracking-widest uppercase text-sm">{tLocal('section3Col1Tag')}</span>
                 </div>
                 <h3 className="text-6xl md:text-8xl lg:text-9xl font-black text-[var(--text-main)] font-heading leading-none mb-4 flex items-baseline">
                   <AnimatedStat value={679} label="" suffix="+" inline /> 
-                  <span className="text-2xl md:text-4xl text-[var(--text-muted)] ml-2 inline-block">Ribu Jiwa</span>
+                  <span className="text-2xl md:text-4xl text-[var(--text-muted)] ml-2 inline-block">{tLocal('section3Col1Suffix')}</span>
                 </h3>
                 <p className="text-lg md:text-xl text-[var(--text-muted)] font-body max-w-xl">
-                  Dengan <strong>67% populasi berada di usia produktif</strong>, Banjarmasin memiliki fondasi SDM yang kuat untuk menggerakkan roda ekonomi regional.
+                  {tLocal('section3Col1Desc')}
                 </p>
               </div>
             </div>
@@ -624,31 +575,31 @@ export default function ProfilKota() {
             {/* Top Right Card (Elevasi) */}
             <div className="lg:col-span-4 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[40px] p-8 shadow-lg flex flex-col justify-center hover:border-[#33C3B3]/50 transition-colors group">
               <div className="text-5xl mb-4 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all">🌊</div>
-              <h4 className="text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading mb-1">-0.16m</h4>
-              <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-bold">Rata-rata Di Bawah Permukaan Laut</p>
+              <h4 className="text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading mb-1">{tLocal('section3Col2Title')}</h4>
+              <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-bold">{tLocal('section3Col2Desc')}</p>
             </div>
 
             {/* Middle Right Card (Islands) */}
             <div className="lg:col-span-4 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[40px] p-8 shadow-lg flex flex-col justify-center hover:border-[#33C3B3]/50 transition-colors group">
               <div className="text-5xl mb-4 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all">🏝️</div>
-              <h4 className="text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading mb-1">25+ Delta</h4>
-              <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-bold">Kepulauan Kecil Pembentuk Kota</p>
+              <h4 className="text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading mb-1">{tLocal('section3Col3Title')}</h4>
+              <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-bold">{tLocal('section3Col3Desc')}</p>
             </div>
 
             {/* Bottom Row - Admin Data */}
             <div className="lg:col-span-6 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[40px] p-8 shadow-lg flex items-center gap-6 group hover:border-[#F4C038]/50 transition-colors">
               <div className="w-20 h-20 shrink-0 rounded-full bg-[#33C3B3]/10 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">🏛️</div>
               <div>
-                <h4 className="text-4xl font-black text-[var(--text-main)] font-heading mb-1">5</h4>
-                <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-bold">Kecamatan Administratif</p>
+                <h4 className="text-4xl font-black text-[var(--text-main)] font-heading mb-1">{tLocal('section3Col4Title')}</h4>
+                <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-bold">{tLocal('section3Col4Desc')}</p>
               </div>
             </div>
 
             <div className="lg:col-span-6 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[40px] p-8 shadow-lg flex items-center gap-6 group hover:border-[#F4C038]/50 transition-colors">
               <div className="w-20 h-20 shrink-0 rounded-full bg-[#F4C038]/10 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">🏘️</div>
               <div>
-                <h4 className="text-4xl font-black text-[var(--text-main)] font-heading mb-1">52</h4>
-                <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-bold">Kelurahan Tersebar</p>
+                <h4 className="text-4xl font-black text-[var(--text-main)] font-heading mb-1">{tLocal('section3Col5Title')}</h4>
+                <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider font-bold">{tLocal('section3Col5Desc')}</p>
               </div>
             </div>
 
@@ -661,9 +612,9 @@ export default function ProfilKota() {
           ========================================================= */}
       <section className="py-24 bg-[var(--bg-main)] border-t border-[var(--glass-border)] relative overflow-hidden">
         <div className="text-center mb-16 px-4">
-          <span className="text-[#F4C038] font-bold text-xs tracking-widest uppercase font-heading block mb-2">Identitas Visual</span>
+          <span className="text-[#F4C038] font-bold text-xs tracking-widest uppercase font-heading block mb-2">{tLocal('section4Tag')}</span>
           <h2 className="text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading">
-            Lambang <span className="text-[#33C3B3]">Daerah</span>
+            {tLocal('section4Title')} <span className="text-[#33C3B3]">{tLocal('section4TitleSpan')}</span>
           </h2>
         </div>
 
@@ -679,28 +630,31 @@ export default function ProfilKota() {
 
             {/* Circular Items */}
             {[
-              { id: 1, title: "Bentuk Perisai", desc: "Persatuan kuat Dayak & Banjar.", icon: "🛡️", pos: "top-0 left-1/2 -translate-x-1/2" },
-              { id: 2, title: "Warna Emas", desc: "Simbol kejayaan & kesuburan.", icon: "✨", pos: "top-[15%] right-0 translate-x-4" },
-              { id: 3, title: "Bubungan Tinggi", desc: "Ikon arsitektur khas Banjar.", icon: "🏛️", pos: "bottom-[15%] right-0 translate-x-4" },
-              { id: 4, title: "Perahu Tambangan", desc: "Urat nadi ekonomi perairan.", icon: "🛶", pos: "bottom-0 left-1/2 -translate-x-1/2" },
-              { id: 5, title: "Daun Nipah", desc: "Kemandirian dari alam rawa.", icon: "🌿", pos: "bottom-[15%] left-0 -translate-x-4" },
-              { id: 6, title: "Kayuh Baimbai", desc: "Semangat gotong royong.", icon: "🚣", pos: "top-[15%] left-0 -translate-x-4" }
-            ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className={`absolute w-80 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 shadow-xl hover:shadow-[0_0_30px_rgba(51,195,179,0.3)] hover:border-[#33C3B3] transition-all duration-500 z-10 flex items-center gap-4 ${item.pos}`}
-              >
-                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--bg-main)] border border-[var(--glass-border)] flex items-center justify-center text-2xl shadow-inner">
-                  {item.icon}
+              { id: 1, icon: "🛡️", pos: "top-0 left-1/2 -translate-x-1/2" },
+              { id: 2, icon: "✨", pos: "top-[15%] right-0 translate-x-4" },
+              { id: 3, icon: "🏛️", pos: "bottom-[15%] right-0 translate-x-4" },
+              { id: 4, icon: "🛶", pos: "bottom-0 left-1/2 -translate-x-1/2" },
+              { id: 5, icon: "🌿", pos: "bottom-[15%] left-0 -translate-x-4" },
+              { id: 6, icon: "🚣", pos: "top-[15%] left-0 -translate-x-4" }
+            ].map((item, idx) => {
+              const transItem = tLocal('section4Items')?.[idx] || {};
+              return (
+                <div 
+                  key={idx} 
+                  className={`absolute w-80 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 shadow-xl hover:shadow-[0_0_30px_rgba(51,195,179,0.3)] hover:border-[#33C3B3] transition-all duration-500 z-10 flex items-center gap-4 ${item.pos}`}
+                >
+                  <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--bg-main)] border border-[var(--glass-border)] flex items-center justify-center text-2xl shadow-inner">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-[var(--text-main)] font-heading mb-1">{transItem.title}</h3>
+                    <p className="text-[var(--text-muted)] font-body text-sm leading-snug">
+                      {transItem.desc}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-black text-[var(--text-main)] font-heading mb-1">{item.title}</h3>
-                  <p className="text-[var(--text-muted)] font-body text-sm leading-snug">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* MOBILE & TABLET VIEW (< Large screens): Compact Emblem Showcase & Sleek 2-Column Grid */}
@@ -713,28 +667,31 @@ export default function ProfilKota() {
             {/* Compact 2-Column Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full text-left">
               {[
-                { id: 1, title: "Bentuk Perisai", desc: "Persatuan kuat Dayak & Banjar.", icon: "🛡️" },
-                { id: 2, title: "Warna Emas", desc: "Simbol kejayaan & kesuburan.", icon: "✨" },
-                { id: 3, title: "Bubungan Tinggi", desc: "Ikon arsitektur khas Banjar.", icon: "🏛️" },
-                { id: 4, title: "Perahu Tambangan", desc: "Urat nadi ekonomi perairan.", icon: "🛶" },
-                { id: 5, title: "Daun Nipah", desc: "Kemandirian dari alam rawa.", icon: "🌿" },
-                { id: 6, title: "Kayuh Baimbai", desc: "Semangat gotong royong.", icon: "🚣" }
-              ].map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className="flex items-center gap-3.5 p-4 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-md hover:border-[#F4C038] transition-all"
-                >
-                  <div className="w-11 h-11 shrink-0 rounded-xl bg-[#F4C038]/10 border border-[#F4C038]/30 flex items-center justify-center text-xl">
-                    {item.icon}
+                { id: 1, icon: "🛡️" },
+                { id: 2, icon: "✨" },
+                { id: 3, icon: "🏛️" },
+                { id: 4, icon: "🛶" },
+                { id: 5, icon: "🌿" },
+                { id: 6, icon: "🚣" }
+              ].map((item, idx) => {
+                const transItem = tLocal('section4Items')?.[idx] || {};
+                return (
+                  <div 
+                    key={idx} 
+                    className="flex items-center gap-3.5 p-4 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-md hover:border-[#F4C038] transition-all"
+                  >
+                    <div className="w-11 h-11 shrink-0 rounded-xl bg-[#F4C038]/10 border border-[#F4C038]/30 flex items-center justify-center text-xl">
+                      {item.icon}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base font-black text-[var(--text-main)] font-heading mb-0.5 truncate">{transItem.title}</h3>
+                      <p className="text-[var(--text-muted)] font-body text-xs leading-snug">
+                        {transItem.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-base font-black text-[var(--text-main)] font-heading mb-0.5 truncate">{item.title}</h3>
-                    <p className="text-[var(--text-muted)] font-body text-xs leading-snug">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -746,53 +703,50 @@ export default function ProfilKota() {
       <section className="py-24 bg-[var(--bg-main)] overflow-hidden border-t border-[var(--glass-border)]">
         <div className="max-w-[1400px] mx-auto px-4 w-full">
           <div className="text-center mb-16">
-            <span className="text-[#33C3B3] font-bold text-xs tracking-widest uppercase font-heading block mb-2">Urat Nadi Ekonomi</span>
+            <span className="text-[#33C3B3] font-bold text-xs tracking-widest uppercase font-heading block mb-2">{tLocal('section5Tag')}</span>
             <h2 className="text-3xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
-              Pusat Jasa & <span className="text-[#F4C038]">Perdagangan</span>
+              {tLocal('section5Title')} <span className="text-[#F4C038]">{tLocal('section5TitleSpan')}</span>
             </h2>
             <p className="text-[var(--text-muted)] mt-4 max-w-xl mx-auto font-body text-sm md:text-base">
-              Menjadi pintu gerbang utama logistik dan maritim untuk wilayah Kalimantan Selatan dan Kalimantan Tengah.
+              {tLocal('section5Desc')}
             </p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px] group/accordion">
             {[
               {
-                title: "Pelabuhan Trisakti",
-                desc: "Salah satu pelabuhan tersibuk dan terbesar di Pulau Kalimantan, menopang arus logistik industri maritim.",
                 img: "/profil kota/pelabuhan trisakti.webp"
               },
               {
-                title: "Kawasan Niaga",
-                desc: "Revitalisasi ruang niaga modern dan pasar tradisional yang mendongkrak ekosistem ekonomi berdaya saing tinggi.",
                 img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp"
               },
               {
-                title: "Jasa Pariwisata",
-                desc: "Pemanfaatan potensi budaya sungai dan hospitality modern sebagai roda penggerak ekonomi warga lokal.",
                 img: "/profil kota/jasa pariwisata.webp"
               }
-            ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden rounded-3xl group/item cursor-pointer border border-[var(--glass-border)] min-h-[260px] sm:min-h-[300px] lg:min-h-0 h-full shadow-lg"
-              >
-                <img loading="lazy" src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover scale-110 group-hover/item:scale-100 transition-transform duration-1000 grayscale group-hover/item:grayscale-0" />
-                
-                {/* Gradient Overlay forced to black for contrast against white text */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover/item:opacity-70 transition-opacity duration-700" />
-                
-                <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full text-left flex flex-col justify-end h-full">
-                  <div className="transform translate-y-0 lg:translate-y-16 group-hover/item:translate-y-0 transition-transform duration-700">
-                    <div className="w-12 h-1 bg-[#F4C038] mb-4 opacity-100 lg:opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 lg:delay-100" />
-                    <h3 className="text-2xl md:text-3xl font-black text-white font-heading mb-2 whitespace-nowrap drop-shadow-md">{item.title}</h3>
-                    <p className="text-sm md:text-base text-slate-300 font-body opacity-100 lg:opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 lg:delay-200 max-w-sm line-clamp-3 lg:line-clamp-none drop-shadow-md">
-                      {item.desc}
-                    </p>
+            ].map((item, idx) => {
+              const transItem = tLocal('section5Items')?.[idx] || {};
+              return (
+                <div 
+                  key={idx} 
+                  className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden rounded-3xl group/item cursor-pointer border border-[var(--glass-border)] min-h-[260px] sm:min-h-[300px] lg:min-h-0 h-full shadow-lg"
+                >
+                  <img loading="lazy" src={item.img} alt={transItem.title} className="absolute inset-0 w-full h-full object-cover scale-110 group-hover/item:scale-100 transition-transform duration-1000 grayscale group-hover/item:grayscale-0" />
+                  
+                  {/* Gradient Overlay forced to black for contrast against white text */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover/item:opacity-70 transition-opacity duration-700" />
+                  
+                  <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full text-left flex flex-col justify-end h-full">
+                    <div className="transform translate-y-0 lg:translate-y-16 group-hover/item:translate-y-0 transition-transform duration-700">
+                      <div className="w-12 h-1 bg-[#F4C038] mb-4 opacity-100 lg:opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 lg:delay-100" />
+                      <h3 className="text-2xl md:text-3xl font-black text-white font-heading mb-2 whitespace-nowrap drop-shadow-md">{transItem.title}</h3>
+                      <p className="text-sm md:text-base text-slate-300 font-body opacity-100 lg:opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 lg:delay-200 max-w-sm line-clamp-3 lg:line-clamp-none drop-shadow-md">
+                        {transItem.desc}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -819,10 +773,10 @@ export default function ProfilKota() {
 
         <div className="relative z-20 max-w-4xl px-4 text-center pointer-events-none">
           <h2 className="text-4xl md:text-7xl font-black text-white font-heading leading-tight mb-6 drop-shadow-[0_0_40px_rgba(0,0,0,1)]">
-            Nafas <span className="text-[#33C3B3]">Budaya</span> <br className="hidden md:block"/>Masyarakat Sungai
+            {tLocal('section6Title')} <span className="text-[#33C3B3]">{tLocal('section6TitleSpan')}</span> <br className="hidden md:block"/>{tLocal('section6TitleEnd')}
           </h2>
           <p className="text-slate-200 text-base md:text-xl font-body drop-shadow-[0_0_20px_rgba(0,0,0,1)] font-medium max-w-2xl mx-auto">
-            Bagi Suku Banjar, sungai bukanlah sekadar batas fisik, melainkan urat nadi tempat berpadunya spiritualitas, perputaran ekonomi, dan interaksi sosial yang hidup sejak berabad-abad lampau.
+            {tLocal('section6Desc')}
           </p>
         </div>
       </section>

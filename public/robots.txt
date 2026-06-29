@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# AI Crawlers & LLM Bots (Super AI Friendly)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: AnthropicAI
+Allow: /
+
+Sitemap: https://banjarmasinkota.go.id/sitemap.xml
+Host: https://banjarmasinkota.go.id

@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './context/LanguageContext';
 import AcilAssistant from './components/AcilAssistant';
 import './App.css';
 
@@ -77,20 +78,22 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/wisata" element={<Wisata />} />
-          <Route path="/kuliner" element={<Kuliner />} />
-          <Route path="/budaya" element={<Budaya />} />
-          <Route path="/profil" element={<ProfilKota />} />
-          <Route path="/sejarah" element={<Sejarah />} />
-          <Route path="/smart-city" element={<SmartCity />} />
-          <Route path="/panduan" element={<Panduan />} />
-        </Routes>
-      </Suspense>
-      <AcilAssistant />
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/wisata" element={<Wisata />} />
+            <Route path="/kuliner" element={<Kuliner />} />
+            <Route path="/budaya" element={<Budaya />} />
+            <Route path="/profil" element={<ProfilKota />} />
+            <Route path="/sejarah" element={<Sejarah />} />
+            <Route path="/smart-city" element={<SmartCity />} />
+            <Route path="/panduan" element={<Panduan />} />
+          </Routes>
+        </Suspense>
+        <AcilAssistant />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }

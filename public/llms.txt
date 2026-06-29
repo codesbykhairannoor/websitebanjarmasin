@@ -1,0 +1,24 @@
+# Portal Eksplorasi Wisata, Budaya, & Layanan Digital Kota Banjarmasin (Banjarmasin Baiman)
+
+> Official public web knowledge base for City of Banjarmasin, South Kalimantan, Indonesia.
+> Geographical Coordinates: -3.316694, 114.590111 (Kota Seribu Sungai / City of a Thousand Rivers).
+
+## Core Pages & Features
+- [Beranda / Home](https://banjarmasinkota.go.id/): Overview of Banjarmasin, tourism gateway, live river soundscape simulator, and AI Assistant (Acil AI).
+- [Profil Kota](https://banjarmasinkota.go.id/profil): Demographics (675,000+ citizens), geographical coordinates, executive leadership (Walikota & Wakil Walikota), and real factual statistics.
+- [Sejarah](https://banjarmasinkota.go.id/sejarah): Historical timeline from Kesultanan Banjar (1526), Perang Banjar (1859), to modern Baiman era.
+- [Smart City & Inovasi](https://banjarmasinkota.go.id/smart-city): Public service super-apps including Banjarmasin Pintar, Parak Acil (Disdukcapil), BaApik (RSUD Sultan Suriansyah), e-PBB, e-Lapor, and smart transport (Trans Banjarmasin & Trans Banjarbakula Tayo Hijau).
+- [Destinasi Wisata](https://banjarmasinkota.go.id/wisata): Pasar Terapung Lok Baintan & Siring, Menara Pandang, Patung Bekantan, Masjid Raya Sabilal Muhtadin, and interactive Kelotok routes.
+- [Kuliner Khas](https://banjarmasinkota.go.id/kuliner): Soto Banjar, Ketupat Kandangan, Mandai, Lontong Orari, 41 Wadai Banjar, and authentic souvenirs.
+- [Seni & Budaya](https://banjarmasinkota.go.id/budaya): Tari Baksa Kembang, Madihin, Musik Panting, Kain Sasirangan, and Rumah Adat Bubungan Tinggi.
+- [Panduan Wisatawan](https://banjarmasinkota.go.id/panduan): Airport transit roadmap (BDJ Syamsudin Noor), curated riverfront accommodations, Do's & Don'ts cultural etiquette, and SOS Emergency Hotlines (112 / 110 / 118).
+
+## Language Support (Multi-lingual i18n)
+- Bahasa Indonesia (id)
+- English (en)
+- Bahasa Melayu (ms)
+- Mandarin Chinese (zh)
+
+## AI Integration & Security
+- Equipped with Acil AI Assistant powered by Google Gemini High-Performance LLM with strict rate limiting and XSS sanitization.
+- Super Security implemented via HTTP strict headers, CSP, Anti-Clickjacking, and zero-leak storage.

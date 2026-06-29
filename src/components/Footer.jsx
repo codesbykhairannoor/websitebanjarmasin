@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="w-full bg-[var(--card-bg)] border-t border-[var(--glass-border)] text-[var(--text-main)] transition-colors duration-300 relative overflow-hidden">
       {/* Decorative Subtle Background Glow */}
@@ -19,13 +21,13 @@ export default function Footer() {
               Banjarmasin<span className="text-[#F4C038]">.</span>
             </Link>
             <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed max-w-sm">
-              Portal Resmi Eksplorasi Pariwisata &amp; Budaya Bumi Lambung Mangkurat. Menyajikan panduan perjalanan tanpa batas di Kota Seribu Sungai.
+              {t('footer.description')}
             </p>
             <div className="pt-2 flex items-center gap-3">
               <span className="w-10 h-10 rounded-2xl bg-[#F4C038]/20 border border-[#F4C038]/40 flex items-center justify-center text-xl shadow-sm">🐵</span>
               <div className="text-xs">
-                <span className="font-heading font-black block text-[var(--text-main)]">Ditemani Maskot Bekantan</span>
-                <span className="text-[var(--text-muted)] font-mono text-[11px]">Siaga 24 Jam di Siring Martapura</span>
+                <span className="font-heading font-black block text-[var(--text-main)]">{t('footer.mascotTitle')}</span>
+                <span className="text-[var(--text-muted)] font-mono text-[11px]">{t('footer.mascotSub')}</span>
               </div>
             </div>
           </div>
@@ -33,50 +35,50 @@ export default function Footer() {
           {/* Col 2: Jelajah Wisata (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-heading font-black text-sm uppercase tracking-wider text-[#00A896]">
-              Jelajah Rasa
+              {t('footer.sectionTravel')}
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm font-body">
-              <li><Link to="/wisata" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🏖️ Destinasi Wisata</Link></li>
-              <li><Link to="/kuliner" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🍲 Kuliner Legendaris</Link></li>
-              <li><Link to="/budaya" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🎭 Budaya &amp; Sasirangan</Link></li>
-              <li><Link to="/panduan" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🗺️ Peta Rute &amp; BRT</Link></li>
+              <li><Link to="/wisata" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🏖️ {t('navbar.tourism')}</Link></li>
+              <li><Link to="/kuliner" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🍲 {t('navbar.culinary')}</Link></li>
+              <li><Link to="/budaya" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🎭 {t('navbar.culture')}</Link></li>
+              <li><Link to="/panduan" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🗺️ {t('navbar.guide')}</Link></li>
             </ul>
           </div>
 
           {/* Col 3: Mengenal Kota (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-heading font-black text-sm uppercase tracking-wider text-[#F4C038]">
-              Tentang Kota
+              {t('footer.sectionAbout')}
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm font-body">
-              <li><Link to="/profil" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">🏛️ Profil Pemerintahan</Link></li>
-              <li><Link to="/sejarah" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">📜 Sejarah Kesultanan 1526</Link></li>
-              <li><Link to="/smart-city" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">⚡ Inovasi Banjarmasin Pintar</Link></li>
-              <li><Link to="/panduan#faq" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">❓ Pertanyaan Umum (FAQ)</Link></li>
+              <li><Link to="/profil" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">🏛️ {t('navbar.profile')}</Link></li>
+              <li><Link to="/sejarah" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">📜 {t('navbar.history')}</Link></li>
+              <li><Link to="/smart-city" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">⚡ {t('navbar.innovation')}</Link></li>
+              <li><Link to="/panduan#faq" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">❓ FAQ</Link></li>
             </ul>
           </div>
 
           {/* Col 4: Layanan & Siaga Darurat (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-heading font-black text-sm uppercase tracking-wider text-rose-500">
-              Layanan &amp; Siaga
+              {t('footer.sectionEmergency')}
             </h4>
             <div className="bg-[var(--bg-main)]/60 border border-[var(--glass-border)] p-4 rounded-2xl space-y-2.5 text-xs font-body">
               <div className="flex items-center justify-between">
-                <span className="text-[var(--text-muted)]">🚨 Call Center</span>
+                <span className="text-[var(--text-muted)]">{t('footer.emergencies.callCenter')}</span>
                 <span className="font-black text-rose-500 font-mono">112</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[var(--text-muted)]">👮‍♂️ Polairud Siring</span>
+                <span className="text-[var(--text-muted)]">{t('footer.emergencies.police')}</span>
                 <span className="font-black text-amber-500 font-mono">110</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[var(--text-muted)]">🏥 RSUD Ulin</span>
+                <span className="text-[var(--text-muted)]">{t('footer.emergencies.hospital')}</span>
                 <span className="font-black text-emerald-500 font-mono">(0511) 3252180</span>
               </div>
             </div>
             <p className="text-[11px] text-[var(--text-muted)] leading-relaxed pt-1">
-              📍 Balai Kota: Jl. RE Martadinata No.1, Banjarmasin Tengah, Kalimantan Selatan.
+              {t('footer.address')}
             </p>
           </div>
 
@@ -84,7 +86,7 @@ export default function Footer() {
 
         {/* Bottom Copyright & Badges */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-body text-[var(--text-muted)]">
-          <p>© 2026 Pemerintah Kota Banjarmasin &amp; Komunitas Wisata. All rights reserved.</p>
+          <p>{t('footer.copyright')}</p>
           <div className="flex items-center gap-4 text-sm font-bold">
             <span className="hover:text-[#F4C038] transition-colors cursor-pointer">🌐 banjarmasin.go.id</span>
             <span>•</span>

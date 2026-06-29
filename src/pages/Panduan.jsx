@@ -3,102 +3,38 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import RouteAccessibilityMap from '../components/RouteAccessibilityMap';
-
-// Katalog Hotel Spesifik (Tanpa Pengulangan di Hero)
-const hotelCategories = {
-  "Riverfront": [
-    {
-      name: "Swiss-Belhotel Borneo",
-      stars: "⭐️⭐️⭐️⭐️",
-      price: "Mulai Rp 650.000 / malam",
-      location: "Jl. Pangeran Antasari No. 86",
-      desc: "Satu-satunya hotel bintang empat di Banjarmasin dengan akses dermaga kelotok pribadi dan teras restoran terbuka yang menghadap langsung ke aktivitas Sungai Martapura.",
-      tag: "Dermaga Pribadi",
-      img: "/panduan/Swiss-Belhotel Borneo Banjarmasi.webp",
-      mapsUrl: "https://maps.google.com/?q=Swiss-Belhotel+Borneo+Banjarmasin"
-    },
-    {
-      name: "Summer Bed & Breakfast",
-      stars: "⭐️⭐️",
-      price: "Mulai Rp 320.000 / malam",
-      location: "Jl. Veteran Sungai Bilu",
-      desc: "Penginapan boutique berdesain interior kayu estetik. Punya kafe rooftop kekinian yang menjadi spot favorit pelancong muda untuk bersantai menikmati sunset sungai.",
-      tag: "Boutique Rooftop",
-      img: "/panduan/Summer Bed & Breakfast.webp",
-      mapsUrl: "https://maps.google.com/?q=Summer+Bed+and+Breakfast+Banjarmasin"
-    }
-  ],
-  "Siring": [
-    {
-      name: "Favehotel Kapt. Tendean",
-      stars: "⭐️⭐️⭐️",
-      price: "Mulai Rp 380.000 / malam",
-      location: "Jl. Kapten Piere Tendean No. 10",
-      desc: "Lokasi terbaik untuk pejalan kaki! Tepat di seberang Menara Pandang dan Siring Tendean. Keluar lobi hotel langsung masuk ke pusat keramaian wisata sungai dan jajanan.",
-      tag: "1 Mnt ke Siring",
-      img: "/panduan/fave hotel.webp",
-      mapsUrl: "https://maps.google.com/?q=Favehotel+Banjarmasin"
-    },
-    {
-      name: "Victoria Hotel River View",
-      stars: "⭐️⭐️⭐️",
-      price: "Mulai Rp 350.000 / malam",
-      location: "Jl. Lambung Mangkurat No. 48",
-      desc: "Berada di pusat pemerintahan kota dengan pemandangan muara sungai yang tenang serta akses mudah ke pusat kuliner malam.",
-      tag: "Pusat Kota",
-      img: "/panduan/Victoria Hotel River View.webp",
-      mapsUrl: "https://maps.google.com/?q=Hotel+Victoria+Banjarmasin"
-    }
-  ],
-  "Bisnis": [
-    {
-      name: "Rattan Inn & Resort",
-      stars: "⭐️⭐️⭐️⭐️",
-      price: "Mulai Rp 700.000 / malam",
-      location: "Jl. A. Yani Km 5.7",
-      desc: "Nuansa resort tropis dengan kolam renang luas ala Bali. Sangat dekat dengan akses jalan protokol menuju Bandara Syamsudin Noor.",
-      tag: "Resort & Bisnis",
-      img: "/panduan/Rattan Inn & Resort.webp",
-      mapsUrl: "https://maps.google.com/?q=Rattan+Inn+Banjarmasin"
-    },
-    {
-      name: "Galaxy Hotel Banjarmasin",
-      stars: "⭐️⭐️⭐️⭐️",
-      price: "Mulai Rp 680.000 / malam",
-      location: "Jl. A. Yani Km 2.5",
-      desc: "Pusat kuliner Chinese & Western eksklusif di dalam hotel, berada di titik strategis pusat perdagangan dan perbelanjaan kota.",
-      tag: "Kuliner Premium",
-      img: "/panduan/galaxy hotel.webp",
-      mapsUrl: "https://maps.google.com/?q=Galaxy+Hotel+Banjarmasin"
-    }
-  ]
-};
-
-// Data FAQ Wisatawan
-const faqList = [
-  {
-    question: "Kapan waktu terbaik mengunjungi Pasar Terapung Lok Baintan?",
-    answer: "Waktu terbaik adalah subuh pukul 05.30 - 07.30 WITA saat matahari terbit dan aktivitas transaksi jual beli di atas perahu jukung tradisional sedang berada di puncak keramaian."
-  },
-  {
-    question: "Apakah pembayaran di transportasi bus BRT dan kelotok bisa cashless?",
-    answer: "Bus BRT Trans Banjarbakula sudah 100% mendukung cashless (QRIS & e-Money dengan tarif flat Rp 5.000). Untuk kelotok wisata reguler di Siring sudah mulai menerima QRIS, namun disarankan tetap membawa uang tunai secukupnya untuk carter rombongan atau berbelanja di pasar terapung."
-  },
-  {
-    question: "Bagaimana cara menuju pusat kota dari Bandara Syamsudin Noor jika tiba malam hari?",
-    answer: "Bus BRT beroperasi dari bandara hingga pukul 19.00 WITA. Jika Anda tiba di atas jam tersebut, Anda dapat menggunakan taksi resmi bandara atau taksi online dengan tarif berkisar Rp 120.000 - Rp 150.000 menuju pusat kota Banjarmasin."
-  },
-  {
-    question: "Apakah aman menyusuri sungai saat musim hujan?",
-    answer: "Sangat aman karena motoris kelotok wisata resmi sudah berpengalaman dan seluruh penumpang diwajibkan mengenakan pelampung (life jacket). Namun hindari susur sungai saat terjadi cuaca ekstrem atau badai angin kencang."
-  },
-  {
-    question: "Bagaimana aturan berpakaian saat mengunjungi tempat ibadah atau situs bersejarah?",
-    answer: "Sangat disarankan mengenakan pakaian yang sopan dan tertutup (menutup bahu dan lutut) saat memasuki kawasan Masjid Sultan Suriansyah atau makam bersejarah sebagai bentuk penghormatan terhadap adat istiadat lokal Banjar."
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
+import { pagesTranslations } from '../translations/pagesTranslations';
 
 export default function Panduan() {
+  const { language } = useLanguage();
+  
+  const tLocal = (key) => {
+    const keys = key.split('.');
+    let translation = pagesTranslations[language]?.panduan;
+    if (!translation) {
+      translation = pagesTranslations['id']?.panduan;
+    }
+    
+    for (const k of keys) {
+      if (translation && translation[k] !== undefined) {
+        translation = translation[k];
+      } else {
+        // Fallback to Indonesian (id)
+        let fallback = pagesTranslations['id']?.panduan;
+        for (const fk of keys) {
+          if (fallback && fallback[fk] !== undefined) {
+            fallback = fallback[fk];
+          } else {
+            return key; // return key if not found
+          }
+        }
+        return fallback;
+      }
+    }
+    return translation;
+  };
+
   const [activeHotelTab, setActiveHotelTab] = useState("Riverfront");
   const [copiedNumber, setCopiedNumber] = useState("");
   const [openFaq, setOpenFaq] = useState(null);
@@ -118,6 +54,77 @@ export default function Panduan() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const hotelCategories = {
+    "Riverfront": [
+      {
+        name: "Swiss-Belhotel Borneo",
+        stars: "⭐️⭐️⭐️⭐️",
+        price: tLocal('hotels.swiss.price'),
+        location: "Jl. Pangeran Antasari No. 86",
+        desc: tLocal('hotels.swiss.desc'),
+        tag: tLocal('hotels.swiss.tag'),
+        img: "/panduan/Swiss-Belhotel Borneo Banjarmasi.webp",
+        mapsUrl: "https://maps.google.com/?q=Swiss-Belhotel+Borneo+Banjarmasin"
+      },
+      {
+        name: "Summer Bed & Breakfast",
+        stars: "⭐️⭐️",
+        price: tLocal('hotels.summer.price'),
+        location: "Jl. Veteran Sungai Bilu",
+        desc: tLocal('hotels.summer.desc'),
+        tag: tLocal('hotels.summer.tag'),
+        img: "/panduan/Summer Bed & Breakfast.webp",
+        mapsUrl: "https://maps.google.com/?q=Summer+Bed+and+Breakfast+Banjarmasin"
+      }
+    ],
+    "Siring": [
+      {
+        name: "Favehotel Kapt. Tendean",
+        stars: "⭐️⭐️⭐️",
+        price: tLocal('hotels.fave.price'),
+        location: "Jl. Kapten Piere Tendean No. 10",
+        desc: tLocal('hotels.fave.desc'),
+        tag: tLocal('hotels.fave.tag'),
+        img: "/panduan/fave hotel.webp",
+        mapsUrl: "https://maps.google.com/?q=Favehotel+Banjarmasin"
+      },
+      {
+        name: "Victoria Hotel River View",
+        stars: "⭐️⭐️⭐️",
+        price: tLocal('hotels.victoria.price'),
+        location: "Jl. Lambung Mangkurat No. 48",
+        desc: tLocal('hotels.victoria.desc'),
+        tag: tLocal('hotels.victoria.tag'),
+        img: "/panduan/Victoria Hotel River View.webp",
+        mapsUrl: "https://maps.google.com/?q=Hotel+Victoria+Banjarmasin"
+      }
+    ],
+    "Bisnis": [
+      {
+        name: "Rattan Inn & Resort",
+        stars: "⭐️⭐️⭐️⭐️",
+        price: tLocal('hotels.rattan.price'),
+        location: "Jl. A. Yani Km 5.7",
+        desc: tLocal('hotels.rattan.desc'),
+        tag: tLocal('hotels.rattan.tag'),
+        img: "/panduan/Rattan Inn & Resort.webp",
+        mapsUrl: "https://maps.google.com/?q=Rattan+Inn+Banjarmasin"
+      },
+      {
+        name: "Galaxy Hotel Banjarmasin",
+        stars: "⭐️⭐️⭐️⭐️",
+        price: tLocal('hotels.galaxy.price'),
+        location: "Jl. A. Yani Km 2.5",
+        desc: tLocal('hotels.galaxy.desc'),
+        tag: tLocal('hotels.galaxy.tag'),
+        img: "/panduan/galaxy hotel.webp",
+        mapsUrl: "https://maps.google.com/?q=Galaxy+Hotel+Banjarmasin"
+      }
+    ]
+  };
+
+  const faqList = tLocal('faqs') || [];
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[var(--bg-main)]">
       <Navbar />
@@ -135,13 +142,13 @@ export default function Panduan() {
           {/* Left Column: Clear High-Impact Typography & Action Anchors */}
           <div className="lg:col-span-7 text-center lg:text-left animate-fadeIn">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#00A896] mb-2 font-heading">
-              ✦ OFFICIAL SURVIVAL GUIDE 2026
+              {tLocal('heroTag')}
             </span>
             <h1 className="hero-title !mb-3">
-              Panduan &amp; Rute <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F4C038] via-amber-400 to-[#00A896]">Wisatawan</span>
+              {tLocal('heroTitle')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F4C038] via-amber-400 to-[#00A896]">{tLocal('heroTitleSpan')}</span>
             </h1>
             <p className="hero-subtitle mx-auto lg:mx-0 !mb-8 !max-w-2xl px-2">
-              Satu halaman komprehensif tanpa pengulangan informasi! Pelajari rute bus BRT bandara, kurasi hotel tepi sungai, etika budaya kelotok, hingga nomor panggilan darurat 24 jam.
+              {tLocal('heroSubtitle')}
             </p>
 
             {/* Quick Navigation Anchors */}
@@ -150,37 +157,37 @@ export default function Panduan() {
                 onClick={() => scrollToSection('transport')}
                 className="px-4 sm:px-5 py-3 rounded-2xl bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-heading font-black text-xs sm:text-sm transition-all shadow-[0_5px_20px_rgba(244,192,56,0.3)] hover:scale-105 flex items-center gap-2"
               >
-                <span>✈️</span> Akses &amp; BRT
+                <span>✈️</span> {tLocal('navAkses')}
               </button>
               <button
                 onClick={() => scrollToSection('peta-rute')}
                 className="px-4 sm:px-5 py-3 rounded-2xl bg-[#00A896] hover:bg-[#008075] text-white font-heading font-black text-xs sm:text-sm transition-all shadow-[0_5px_20px_rgba(0,168,150,0.3)] hover:scale-105 flex items-center gap-2"
               >
-                <span>🗺️</span> Peta Rute
+                <span>🗺️</span> {tLocal('navPeta')}
               </button>
               <button
                 onClick={() => scrollToSection('staycation')}
                 className="px-4 sm:px-5 py-3 rounded-2xl bg-[var(--card-bg)] hover:border-[#00A896] text-[var(--text-main)] border border-[var(--glass-border)] font-heading font-bold text-xs sm:text-sm transition-all flex items-center gap-2 shadow hover:scale-105"
               >
-                <span>🏨</span> Hotel Pilihan
+                <span>🏨</span> {tLocal('navHotel')}
               </button>
               <button
                 onClick={() => scrollToSection('etika')}
                 className="px-4 sm:px-5 py-3 rounded-2xl bg-[var(--card-bg)] hover:border-[#F4C038] text-[var(--text-main)] border border-[var(--glass-border)] font-heading font-bold text-xs sm:text-sm transition-all flex items-center gap-2 shadow hover:scale-105"
               >
-                <span>🌿</span> Etika Budaya
+                <span>🌿</span> {tLocal('navEtika')}
               </button>
               <button
                 onClick={() => scrollToSection('darurat')}
                 className="px-4 sm:px-5 py-3 rounded-2xl bg-rose-500/20 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/30 font-heading font-black text-xs sm:text-sm transition-all flex items-center gap-2"
               >
-                <span>🚨</span> SOS 112
+                <span>🚨</span> {tLocal('navSos')}
               </button>
               <button
                 onClick={() => scrollToSection('faq')}
                 className="px-4 sm:px-5 py-3 rounded-2xl bg-[#00A896]/20 hover:bg-[#00A896] text-[#00A896] hover:text-white border border-[#00A896]/30 font-heading font-black text-xs sm:text-sm transition-all flex items-center gap-2"
               >
-                <span>❓</span> FAQ
+                <span>❓</span> {tLocal('navFaq')}
               </button>
             </div>
           </div>
@@ -208,20 +215,20 @@ export default function Panduan() {
                 🛶
               </motion.div>
               <div className="absolute top-1/2 -right-8 bg-[var(--card-bg)] border border-[var(--glass-border)] text-[var(--text-main)] px-3 py-1.5 rounded-xl text-[10px] font-bold shadow-lg hidden sm:block">
-                📍 27 km Bandara
+                📍 {tLocal('bookDist')}
               </div>
 
               {/* Book Center Illustration */}
               <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-[#F4C038] to-[#00A896] flex items-center justify-center text-5xl shadow-inner mb-4 border-4 border-white/20 animate-pulse">
                 📖
               </div>
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#00A896] mb-1">EDISI RESMI 2026</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#00A896] mb-1">{tLocal('bookTag')}</span>
               <h3 className="text-xl sm:text-2xl font-black text-white font-heading tracking-tight mb-2">
-                Banjarmasin Saku
+                {tLocal('bookTitle')}
               </h3>
               <div className="w-12 h-1 bg-[#F4C038] rounded-full mx-auto mb-3" />
               <p className="text-[11px] text-gray-400 font-mono">
-                Panduan Bertahan &amp; Eksplorasi Seribu Sungai
+                {tLocal('bookDesc')}
               </p>
             </motion.div>
           </div>
@@ -235,118 +242,57 @@ export default function Panduan() {
       <section id="transport" className="py-20 max-w-[1240px] mx-auto px-4 sm:px-6 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-12 animate-fadeIn">
           <span className="text-xs font-black uppercase tracking-widest text-[#00A896] font-heading block mb-2">
-            ✦ ROADMAP KEDATANGAN &amp; TRANSIT
+            {tLocal('section1Tag')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
-            Alur Kedatangan &amp; <span className="text-[#F4C038]">Transit Kota</span>
+            {tLocal('section1Title')} <span className="text-[#F4C038]">{tLocal('section1TitleSpan')}</span>
           </h2>
           <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">
-            Simulasi langkah demi langkah yang saling terhubung dari mendarat di bandara hingga menyusuri sungai dengan kelotok.
+            {tLocal('section1Desc')}
           </p>
         </div>
 
         {/* 4-Step Connected Interactive Roadmap */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           
-          {/* Step 1 */}
-          <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] p-6 rounded-3xl relative overflow-hidden group hover:border-[#F4C038] transition-all shadow-lg flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-4xl">🛬</span>
-                <span className="w-8 h-8 rounded-full bg-[#F4C038] text-[#091422] font-black font-heading text-sm flex items-center justify-center shadow">1</span>
+          {(tLocal('steps') || []).map((step, idx) => {
+            const icons = ["🛬", "🚌", "🏙️", "🛶"];
+            const colors = ["bg-[#F4C038]", "bg-emerald-400", "bg-cyan-400", "bg-purple-400"];
+            const hoverColors = ["hover:border-[#F4C038]", "hover:border-[#00A896]", "hover:border-[#F4C038]", "hover:border-[#00A896]"];
+            const textColors = ["text-[#F4C038]", "text-emerald-400", "text-cyan-400", "text-purple-400"];
+            const bgBadgeColors = ["bg-[#F4C038]/20", "bg-emerald-500/20", "bg-cyan-500/20", "bg-purple-500/20"];
+            const mapUrls = [
+              "https://maps.google.com/?q=Bandara+Syamsudin+Noor",
+              "https://maps.google.com/?q=Terminal+Gambut+Barakat+Km+17",
+              "https://maps.google.com/?q=Menara+Pandang+Banjarmasin",
+              "https://maps.google.com/?q=Dermaga+Kelotok+Siring+Banjarmasin"
+            ];
+            return (
+              <div key={idx} className={`bg-[var(--card-bg)] border border-[var(--glass-border)] p-6 rounded-3xl relative overflow-hidden group ${hoverColors[idx]} transition-all shadow-lg flex flex-col justify-between`}>
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-4xl">{icons[idx]}</span>
+                    <span className={`w-8 h-8 rounded-full ${colors[idx]} text-[#091422] font-black font-heading text-sm flex items-center justify-center shadow`}>{step.num}</span>
+                  </div>
+                  <span className={`text-[10px] font-black ${bgBadgeColors[idx]} ${textColors[idx]} px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block`}>
+                    {step.tag}
+                  </span>
+                  <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
+                    {step.desc}
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-[11px] font-bold">
+                  <span className="text-[#00A896]">{step.price}</span>
+                  <a href={mapUrls[idx]} target="_blank" rel="noopener noreferrer" className="bg-[#F4C038]/15 hover:bg-[#F4C038] text-[#F4C038] hover:text-[#091422] px-2.5 py-1 rounded-lg transition-all flex items-center gap-1 border border-[#F4C038]/30">
+                    <span>🗺️</span> Maps ➔
+                  </a>
+                </div>
               </div>
-              <span className="text-[10px] font-black bg-[#F4C038]/20 text-[#F4C038] px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                Kedatangan Udara
-              </span>
-              <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-2">
-                Bandara Syamsudin Noor
-              </h3>
-              <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
-                Terletak di Banjarbaru (27 km dari pusat kota). Waktu tempuh normal menuju Banjarmasin berkisar <strong>45 - 60 menit</strong>.
-              </p>
-            </div>
-            <div className="pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-[11px] font-bold">
-              <span className="text-[#00A896]">🚕 ± Rp 150k</span>
-              <a href="https://maps.google.com/?q=Bandara+Syamsudin+Noor" target="_blank" rel="noopener noreferrer" className="bg-[#F4C038]/15 hover:bg-[#F4C038] text-[#F4C038] hover:text-[#091422] px-2.5 py-1 rounded-lg transition-all flex items-center gap-1 border border-[#F4C038]/30">
-                <span>🗺️</span> Maps ➔
-              </a>
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] p-6 rounded-3xl relative overflow-hidden group hover:border-[#00A896] transition-all shadow-lg flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-4xl">🚌</span>
-                <span className="w-8 h-8 rounded-full bg-emerald-400 text-[#091422] font-black font-heading text-sm flex items-center justify-center shadow">2</span>
-              </div>
-              <span className="text-[10px] font-black bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                Opsi Hemat Backpacker
-              </span>
-              <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-2">
-                Bus BRT Banjarbakula
-              </h3>
-              <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
-                Naik bus BRT dari halte bandara menuju <strong>Terminal Gambut Barakat (Km 17)</strong>. Bayar praktis pakai QRIS / e-Money.
-              </p>
-            </div>
-            <div className="pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-[11px] font-bold">
-              <span className="text-[#F4C038]">🎟️ Rp 5.000</span>
-              <a href="https://maps.google.com/?q=Terminal+Gambut+Barakat+Km+17" target="_blank" rel="noopener noreferrer" className="bg-[#00A896]/15 hover:bg-[#00A896] text-[#00A896] hover:text-white px-2.5 py-1 rounded-lg transition-all flex items-center gap-1 border border-[#00A896]/30">
-                <span>🗺️</span> Maps ➔
-              </a>
-            </div>
-          </div>
-
-          {/* Step 3 */}
-          <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] p-6 rounded-3xl relative overflow-hidden group hover:border-[#F4C038] transition-all shadow-lg flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-4xl">🏙️</span>
-                <span className="w-8 h-8 rounded-full bg-cyan-400 text-[#091422] font-black font-heading text-sm flex items-center justify-center shadow">3</span>
-              </div>
-              <span className="text-[10px] font-black bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                Transit Pusat Kota
-              </span>
-              <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-2">
-                Menuju Siring Tendean
-              </h3>
-              <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
-                Dari Km 17, lanjutkan bus rute koridor pusat kota turun di halte Siring Menara Pandang atau Pasar Sudimampir.
-              </p>
-            </div>
-            <div className="pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-[11px] font-bold">
-              <span className="text-[#00A896]">📍 Siring Km 0</span>
-              <a href="https://maps.google.com/?q=Menara+Pandang+Banjarmasin" target="_blank" rel="noopener noreferrer" className="bg-[#F4C038]/15 hover:bg-[#F4C038] text-[#F4C038] hover:text-[#091422] px-2.5 py-1 rounded-lg transition-all flex items-center gap-1 border border-[#F4C038]/30">
-                <span>🗺️</span> Maps ➔
-              </a>
-            </div>
-          </div>
-
-          {/* Step 4 */}
-          <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] p-6 rounded-3xl relative overflow-hidden group hover:border-[#00A896] transition-all shadow-lg flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-4xl">🛶</span>
-                <span className="w-8 h-8 rounded-full bg-purple-400 text-[#091422] font-black font-heading text-sm flex items-center justify-center shadow">4</span>
-              </div>
-              <span className="text-[10px] font-black bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                Eksplorasi Perairan
-              </span>
-              <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-2">
-                Sewa Kelotok Wisata
-              </h3>
-              <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
-                Dermaga Siring melayani susur sungai reguler. Untuk carter rombongan subuh ke Pasar Terapung Lok Baintan muat hingga 15 orang.
-              </p>
-            </div>
-            <div className="pt-3 border-t border-[var(--glass-border)] flex items-center justify-between text-[11px] font-bold">
-              <span className="text-[#F4C038]">🚤 ± Rp 400k</span>
-              <a href="https://maps.google.com/?q=Dermaga+Kelotok+Siring+Banjarmasin" target="_blank" rel="noopener noreferrer" className="bg-[#00A896]/15 hover:bg-[#00A896] text-[#00A896] hover:text-white px-2.5 py-1 rounded-lg transition-all flex items-center gap-1 border border-[#00A896]/30">
-                <span>🗺️</span> Maps ➔
-              </a>
-            </div>
-          </div>
+            );
+          })}
 
         </div>
       </section>
@@ -364,13 +310,13 @@ export default function Panduan() {
       <section id="staycation" className="py-20 max-w-[1240px] mx-auto px-4 sm:px-6 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-12 animate-fadeIn">
           <span className="text-xs font-black uppercase tracking-widest text-[#F4C038] font-heading block mb-2">
-            ✦ WHERE TO STAY IN BANJARMASIN
+            {tLocal('section2Tag')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
-            Kurasi <span className="text-[#00A896]">Penginapan Pilihan</span>
+            {tLocal('section2Title')} <span className="text-[#00A896]">{tLocal('section2TitleSpan')}</span>
           </h2>
           <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">
-            Pilih kategori penginapan sesuai selera liburanmu: dari pemandangan sungai langsung hingga akses jalan kaki ke landmark.
+            {tLocal('section2Desc')}
           </p>
         </div>
 
@@ -386,7 +332,7 @@ export default function Panduan() {
                   : "bg-[var(--card-bg)] text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[#00A896]"
               }`}
             >
-              <span>{cat === "Riverfront" ? "🌅 Riverfront View" : cat === "Siring" ? "🚶‍♂️ Jalan Kaki ke Siring" : "🏢 Resort & Bisnis"}</span>
+              <span>{cat === "Riverfront" ? tLocal('hotelTab1') : cat === "Siring" ? tLocal('hotelTab2') : tLocal('hotelTab3')}</span>
             </button>
           ))}
         </div>
@@ -434,7 +380,7 @@ export default function Panduan() {
                   rel="noopener noreferrer"
                   className="w-full py-3.5 rounded-2xl bg-[var(--bg-main)] hover:bg-[#00A896] text-[var(--text-main)] hover:text-white border border-[var(--glass-border)] text-xs font-bold transition-all flex items-center justify-center gap-2 shadow"
                 >
-                  <span>🗺️</span> Buka Lokasi di Google Maps ➔
+                  <span>🗺️</span> {tLocal('hotelBtn')}
                 </a>
               </div>
             </div>
@@ -448,13 +394,13 @@ export default function Panduan() {
       <section id="etika" className="py-20 max-w-[1240px] mx-auto px-4 sm:px-6 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-12 animate-fadeIn">
           <span className="text-xs font-black uppercase tracking-widest text-[#00A896] font-heading block mb-2">
-            ✦ CULTURAL ETIQUETTE
+            {tLocal('section3Tag')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
-            Aturan Main <span className="text-[#F4C038]">Seribu Sungai</span>
+            {tLocal('section3Title')} <span className="text-[#F4C038]">{tLocal('section3TitleSpan')}</span>
           </h2>
           <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">
-            Hormati alam dan adat istiadat setempat agar liburanmu selalu disambut senyuman hangat oleh masyarakat lokal Banjar.
+            {tLocal('section3Desc')}
           </p>
         </div>
 
@@ -466,29 +412,19 @@ export default function Panduan() {
             <div>
               <div className="flex items-center gap-3 text-emerald-400 font-black font-heading text-lg sm:text-xl pb-4 border-b border-emerald-500/20">
                 <span className="w-10 h-10 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-xl">✅</span>
-                <span>DO'S (Sangat Dianjurkan)</span>
+                <span>{tLocal('dosTitle')}</span>
               </div>
               <ul className="space-y-4 text-sm sm:text-base text-[var(--text-main)] font-body leading-relaxed pt-2">
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-400 font-extrabold text-lg">•</span>
-                  <span><strong>Wajib pakai pelampung</strong> (life jacket) selama berada di atas perahu kelotok demi keselamatan.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-400 font-extrabold text-lg">•</span>
-                  <span>Sapa pedagang wanita dengan panggilan sopan <strong>"Acil"</strong> atau pedagang pria dengan <strong>"Paman"</strong> disertai senyuman ramah.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-400 font-extrabold text-lg">•</span>
-                  <span>Berpakaian sopan dan tertutup saat mengunjungi situs religius seperti Masjid Bersejarah Sultan Suriansyah.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-400 font-extrabold text-lg">•</span>
-                  <span>Menawar barang di Pasar Terapung dengan nada lembut dan wajar sebagai bagian dari interaksi budaya.</span>
-                </li>
+                {(tLocal('dosList') || []).map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="text-emerald-400 font-extrabold text-lg">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="mt-6 pt-4 border-t border-emerald-500/20 text-xs font-bold text-emerald-400 font-mono">
-              💡 Nilai plus untuk keramaian dan tata krama
+              {tLocal('dosFooter')}
             </div>
           </div>
 
@@ -497,29 +433,19 @@ export default function Panduan() {
             <div>
               <div className="flex items-center gap-3 text-rose-400 font-black font-heading text-lg sm:text-xl pb-4 border-b border-rose-500/20">
                 <span className="w-10 h-10 rounded-2xl bg-rose-500/20 flex items-center justify-center text-xl">❌</span>
-                <span>DON'TS (Pantangan Keras)</span>
+                <span>{tLocal('dontsTitle')}</span>
               </div>
               <ul className="space-y-4 text-sm sm:text-base text-[var(--text-main)] font-body leading-relaxed pt-2">
-                <li className="flex items-start gap-3">
-                  <span className="text-rose-400 font-extrabold text-lg">•</span>
-                  <span><strong>HARAM membuang sampah ke sungai!</strong> Sungai adalah urat nadi kehidupan dan kehormatan warga Banjarmasin.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-rose-400 font-extrabold text-lg">•</span>
-                  <span>Jangan berdiri mendadak, melompat, atau menggoyangkan perahu kelotok saat berpapasan dengan kapal besar.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-rose-400 font-extrabold text-lg">•</span>
-                  <span>Hindari mengeluarkan kata-kata kasar atau menghina tradisi lokal saat berada di area publik dan pemukiman sungai.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-rose-400 font-extrabold text-lg">•</span>
-                  <span>Jangan memotret warga lokal dari jarak dekat tanpa izin terlebih dahulu, terutama saat aktivitas pribadi di sungai.</span>
-                </li>
+                {(tLocal('dontsList') || []).map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="text-rose-400 font-extrabold text-lg">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="mt-6 pt-4 border-t border-rose-500/20 text-xs font-bold text-rose-400 font-mono">
-              ⚠️ Pelanggaran etika berdampak pada kenyamanan bersama
+              {tLocal('dontsFooter')}
             </div>
           </div>
 
@@ -535,13 +461,13 @@ export default function Panduan() {
           
           <div className="text-center max-w-2xl mx-auto mb-12 relative z-10">
             <span className="inline-block bg-[#E63946] text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest mb-3 animate-pulse">
-              🚨 TOURIST EMERGENCY HOTLINE
+              {tLocal('section4Tag')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-white font-heading mb-3">
-              Layanan Bantuan <span className="text-[#F4C038]">Siaga 24 Jam</span>
+              {tLocal('section4Title')} <span className="text-[#F4C038]">{tLocal('section4TitleSpan')}</span>
             </h2>
             <p className="text-xs sm:text-sm text-gray-300 font-body">
-              Tekan tombol salin di bawah ini saat kondisi darurat. Seluruh layanan terintegrasi dengan petugas siaga Pemerintah Kota Banjarmasin.
+              {tLocal('section4Desc')}
             </p>
           </div>
 
@@ -551,17 +477,17 @@ export default function Panduan() {
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 text-center hover:border-[#F4C038] transition-all flex flex-col justify-between">
               <div>
                 <span className="text-4xl block mb-3">📞</span>
-                <h3 className="text-3xl font-black text-white font-heading mb-1">112</h3>
-                <p className="text-xs font-bold text-[#F4C038] uppercase tracking-wider mb-3">Call Center Pemkot</p>
+                <h3 className="text-3xl font-black text-white font-heading mb-1">{tLocal('hotline1Title')}</h3>
+                <p className="text-xs font-bold text-[#F4C038] uppercase tracking-wider mb-3">{tLocal('hotline1Sub')}</p>
                 <p className="text-[11px] text-gray-300 leading-relaxed mb-6">
-                  Layanan terpadu bebas pulsa 24 jam untuk ambulans medis darurat, pemadam kebakaran, dan penyelamatan.
+                  {tLocal('hotline1Desc')}
                 </p>
               </div>
               <button
                 onClick={() => handleCopy("112")}
                 className="w-full py-3.5 rounded-xl bg-[#F4C038] hover:bg-white text-[#091422] font-black text-xs transition-all shadow-lg flex items-center justify-center gap-2"
               >
-                {copiedNumber === "112" ? "✅ Tersalin!" : "📋 Salin Nomor 112"}
+                {copiedNumber === "112" ? `✅ ${tLocal('copied')}` : `📋 ${tLocal('hotline1Btn')}`}
               </button>
             </div>
 
@@ -569,17 +495,17 @@ export default function Panduan() {
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 text-center hover:border-[#00A896] transition-all flex flex-col justify-between">
               <div>
                 <span className="text-4xl block mb-3">🚤</span>
-                <h3 className="text-3xl font-black text-white font-heading mb-1">110</h3>
-                <p className="text-xs font-bold text-[#00A896] uppercase tracking-wider mb-3">Polairud &amp; Kamtibmas</p>
+                <h3 className="text-3xl font-black text-white font-heading mb-1">{tLocal('hotline2Title')}</h3>
+                <p className="text-xs font-bold text-[#00A896] uppercase tracking-wider mb-3">{tLocal('hotline2Sub')}</p>
                 <p className="text-[11px] text-gray-300 leading-relaxed mb-6">
-                  Unit kepolisian khusus pengamanan perairan Sungai Martapura &amp; Barito. Siaga membantu kendala perahu wisata.
+                  {tLocal('hotline2Desc')}
                 </p>
               </div>
               <button
                 onClick={() => handleCopy("110")}
                 className="w-full py-3.5 rounded-xl bg-[#00A896] hover:bg-[#008075] text-white font-black text-xs transition-all shadow-lg flex items-center justify-center gap-2"
               >
-                {copiedNumber === "110" ? "✅ Tersalin!" : "📋 Salin Nomor 110"}
+                {copiedNumber === "110" ? `✅ ${tLocal('copied')}` : `📋 ${tLocal('hotline2Btn')}`}
               </button>
             </div>
 
@@ -587,17 +513,17 @@ export default function Panduan() {
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 text-center hover:border-[#E63946] transition-all flex flex-col justify-between">
               <div>
                 <span className="text-4xl block mb-3">🏥</span>
-                <h3 className="text-2xl font-black text-white font-heading mb-1">(0511) 3252180</h3>
-                <p className="text-xs font-bold text-[#E63946] uppercase tracking-wider mb-3">RSUD Ulin Banjarmasin</p>
+                <h3 className="text-2xl font-black text-white font-heading mb-1">{tLocal('hotline3Title')}</h3>
+                <p className="text-xs font-bold text-[#E63946] uppercase tracking-wider mb-3">{tLocal('hotline3Sub')}</p>
                 <p className="text-[11px] text-gray-300 leading-relaxed mb-6">
-                  Rumah sakit rujukan tingkat provinsi terlengkap di pusat kota (Jl. A. Yani Km 2.5) dengan fasilitas IGD modern 24 jam.
+                  {tLocal('hotline3Desc')}
                 </p>
               </div>
               <button
                 onClick={() => handleCopy("05113252180")}
                 className="w-full py-3.5 rounded-xl bg-[#E63946] hover:bg-red-700 text-white font-black text-xs transition-all shadow-lg flex items-center justify-center gap-2"
               >
-                {copiedNumber === "05113252180" ? "✅ Tersalin!" : "📋 Salin Nomor RSUD"}
+                {copiedNumber === "05113252180" ? `✅ ${tLocal('copied')}` : `📋 ${tLocal('hotline3Btn')}`}
               </button>
             </div>
 
@@ -611,13 +537,13 @@ export default function Panduan() {
       <section id="faq" className="py-20 max-w-[1000px] mx-auto px-4 sm:px-6 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-12 animate-fadeIn">
           <span className="text-xs font-black uppercase tracking-widest text-[#00A896] font-heading block mb-2">
-            ✦ NEED HELP? WE GOT YOU COVERED
+            {tLocal('section5Tag')}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
-            Pertanyaan <span className="text-[#F4C038]">Umum (FAQ)</span>
+            {tLocal('section5Title')} <span className="text-[#F4C038]">{tLocal('section5TitleSpan')}</span>
           </h2>
           <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">
-            Temukan jawaban cepat atas pertanyaan yang paling sering diajukan oleh wisatawan sebelum berkunjung ke Banjarmasin.
+            {tLocal('section5Desc')}
           </p>
         </div>
 

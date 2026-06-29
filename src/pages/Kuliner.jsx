@@ -2,124 +2,147 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
-// ==========================================
-// DATA STRUCTURES
-// ==========================================
-
-const galleryCards = [
-  { img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", label: "Soto Banjar" },
-  { img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", label: "Ketupat Kandangan" },
-  { img: "/kuliner/buras.webp", label: "Lontong Orari" },
-  { img: "/kuliner/Bingka.webp", label: "Bingka Kentang" },
-  { img: "/kuliner/Iwak_Pakasam_Basanga.webp", label: "Iwak Pakasam" },
-  { img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp", label: "Nasi Itik Gambut" },
-];
-
-const mainDishes = [
-  {
-    id: "soto-banjar",
-    title: "Soto Banjar Legendaris",
-    desc: "Kuah kaldu ayam bening keemasan yang diinfus rempah kapulaga, cengkeh, dan kayu manis. Dihidangkan dengan ketupat, suwiran ayam kampung, dan perkedel kentang super lembut. Sebuah kehangatan di tepi sungai.",
-    aroma: "Rempah Hangat & Gurih",
-    icon: "🍲",
-    img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp",
-    location: "Soto Bang Amat",
-    maps: "https://maps.google.com/?q=Soto+Bang+Amat+Banjarmasin"
-  },
-  {
-    id: "ketupat-kandangan",
-    title: "Ketupat Kandangan Asap",
-    desc: "Ketupat keras berpadu kuah santan keruh berbumbu rempah rahasia. Keajaibannya terletak pada Ikan Haruan (Gabus) yang dipanggang asap terlebih dahulu sebelum disiram kuah, memberikan rasa smokey yang luar biasa.",
-    aroma: "Santan Krimi & Asap",
-    icon: "🥥",
-    img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp",
-    location: "Ketupat Kaum",
-    maps: "https://maps.google.com/?q=Ketupat+Kandangan+Banjarmasin"
-  },
-  {
-    id: "nasi-kuning",
-    title: "Nasi Kuning Bumbu Habang",
-    desc: "Sarapan wajib warga Banua! Nasi kuning pulen bertabur serundeng berpadu sempurna dengan Bumbu Habang (Bumbu Merah) yang dimasak dari cabai kering besar tanpa biji menghasilkan rasa manis, gurih, dan warna merah pekat yang menggoda.",
-    aroma: "Kunyit & Karamel Pedas",
-    icon: "🍛",
-    img: "/kuliner/Nasi_Kuning_Banjar_001.webp",
-    location: "Nasi Kuning Cempaka",
-    maps: "https://maps.google.com/?q=Nasi+Kuning+Cempaka+Banjarmasin"
-  },
-  {
-    id: "lontong-orari",
-    title: "Lontong Orari Jumbo",
-    desc: "Lontong unik berbentuk segitiga berpasangan. Disajikan dengan sayur nangka muda kuah santan cair, ikan gabus atau telur itik rebus bumbu habang, dan taburan bawang goreng melimpah. Porsi kuli, rasa priyayi!",
-    aroma: "Gurih Santan",
-    icon: "🥣",
-    img: "/kuliner/buras.webp",
-    location: "Lontong Orari Sungai Baru",
-    maps: "https://maps.google.com/?q=Lontong+Orari+Banjarmasin"
-  },
-  {
-    id: "gangan-asam",
-    title: "Gangan Asam Kepala Patin",
-    desc: "Sayur kuah kuning segar berpadu asam terong, timun, dan kubis dengan potongan kepala atau daging Ikan Patin / Haruan khas perairan Kalimantan. Perpaduan rasa asam, gurih, dan manis alami dari kaldu ikan segar yang sangat menyegarkan.",
-    aroma: "Asam Segar & Kunyit",
-    icon: "🐟",
-    img: "/kuliner/Gangan_asam_kepala_ikan_di_Cempaka,_Banjarbaru.webp",
-    location: "RM Gangan Asam Cempaka",
-    maps: "https://maps.google.com/?q=Gangan+Asam+Banjarmasin"
-  },
-  {
-    id: "nasi-itik-gambut",
-    title: "Nasi Itik Gambut",
-    desc: "Kuliner ikonik kawasan Gambut bertekstur daging itik super empuk yang dimasak berjam-jam dalam bumbu habang kental beraroma kayu manis dan gula aren gurih. Disajikan hangat dalam bungkusan daun pisang harum yang memikat.",
-    aroma: "Bumbu Habang & Daun Pisang",
-    icon: "🦆",
-    img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp",
-    location: "Nasi Itik Gambut Tenda Biru",
-    maps: "https://maps.google.com/?q=Nasi+Itik+Gambut"
-  }
-];
-
-const wadaiCollection = [
-  { name: "Bingka Kentang Banjar", tag: "Manis Legit & Lembut", img: "/kuliner/Bingka.webp" },
-  { name: "Amparan Tatak Pisang", tag: "Krim Santan Pisang", img: "/kuliner/Resep-Amparan-Tatak-Kue-Khas-Ban.webp" },
-  { name: "Bingka Barandam", tag: "Basah Bunga Cengkeh", img: "/kuliner/358-bingka-barandam-khas-banjar.webp" },
-  { name: "Klepon Martapura", tag: "Lumer Gula Aren", img: "/kuliner/klepon.webp" },
-  { name: "Wadai Kararaban", tag: "Rempah Adas Harum", img: "/kuliner/wadai-kararaban-khas-banjar-1756.webp" },
-];
-
-const olehOleh = [
-  {
-    title: "Mandai 'Daging Nabati'",
-    desc: "Fermentasi kulit buah Cempedak yang diawetkan dengan garam. Saat digoreng, teksturnya berserat menyerupai daging sapi dengan rasa umami asam-gurih yang sangat adiktif.",
-    img: "/kuliner/IMG-20251017-WA0002.webp",
-    span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto",
-  },
-  {
-    title: "Kerupuk Amplang",
-    desc: "Camilan renyah berbahan dasar Ikan Pipih atau Tenggiri khas sungai Kalimantan.",
-    img: "/kuliner/f6cd9fe9a37ece89ca3de6416a14031e.webp",
-    span: "col-span-1 row-span-1 h-[250px]",
-  },
-  {
-    title: "Iwak Pakasam",
-    desc: "Ikan sungai fermentasi beras sangrai yang digoreng garing renyah.",
-    img: "/kuliner/Iwak_Pakasam_Basanga.webp",
-    span: "col-span-1 row-span-1 h-[250px]",
-  },
-  {
-    title: "Sambal Acan Raja Banjar",
-    desc: "Terasi legendaris dipadu buah mangga/binjai khas rawa yang super pedas dan segar.",
-    img: "/kuliner/sambal acan.webp",
-    span: "col-span-1 md:col-span-3 row-span-1 h-[250px]",
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
+import { pagesTranslations } from '../translations/pagesTranslations';
 
 export default function Kuliner() {
-  const [activeTab, setActiveTab] = useState(mainDishes[0]);
+  const { language } = useLanguage();
 
+  const tLocal = (key) => {
+    return pagesTranslations[language]?.kuliner?.[key] || pagesTranslations['id']?.kuliner?.[key];
+  };
+
+  const galleryCardsMeta = [
+    { img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", id: "soto-banjar" },
+    { img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", id: "ketupat-kandangan" },
+    { img: "/kuliner/buras.webp", id: "lontong-orari" },
+    { img: "/kuliner/Bingka.webp", id: "bingka" },
+    { img: "/kuliner/Iwak_Pakasam_Basanga.webp", id: "iwak-pakasam" },
+    { img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp", id: "nasi-itik-gambut" }
+  ];
+
+  const mainDishesMeta = [
+    { id: "soto-banjar", icon: "🍲", img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", maps: "https://maps.google.com/?q=Soto+Bang+Amat+Banjarmasin" },
+    { id: "ketupat-kandangan", icon: "🥥", img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", maps: "https://maps.google.com/?q=Ketupat+Kandangan+Banjarmasin" },
+    { id: "nasi-kuning", icon: "🍛", img: "/kuliner/Nasi_Kuning_Banjar_001.webp", maps: "https://maps.google.com/?q=Nasi+Kuning+Cempaka+Banjarmasin" },
+    { id: "lontong-orari", icon: "🥣", img: "/kuliner/buras.webp", maps: "https://maps.google.com/?q=Lontong+Orari+Banjarmasin" },
+    { id: "gangan-asam", icon: "🐟", img: "/kuliner/Gangan_asam_kepala_ikan_di_Cempaka,_Banjarbaru.webp", maps: "https://maps.google.com/?q=Gangan+Asam+Banjarmasin" },
+    { id: "nasi-itik-gambut", icon: "🦆", img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp", maps: "https://maps.google.com/?q=Nasi+Itik+Gambut" }
+  ];
+
+  const translatedMainDishes = tLocal('mainDishes') || [];
+  const mainDishes = mainDishesMeta.map((d, idx) => ({
+    ...d,
+    ...(translatedMainDishes[idx] || {})
+  }));
+
+  // Map labels for galleryCards
+  const galleryCards = galleryCardsMeta.map((c) => {
+    let title = "";
+    if (c.id === "soto-banjar") title = mainDishes[0]?.title || "Soto Banjar";
+    else if (c.id === "ketupat-kandangan") title = mainDishes[1]?.title || "Ketupat Kandangan";
+    else if (c.id === "lontong-orari") title = mainDishes[3]?.title || "Lontong Orari";
+    else if (c.id === "bingka") title = language === 'zh' ? '土豆冰卡糕' : 'Bingka Kentang';
+    else if (c.id === "iwak-pakasam") title = language === 'zh' ? '发酵鱼' : 'Iwak Pakasam';
+    else if (c.id === "nasi-itik-gambut") title = mainDishes[5]?.title || "Nasi Itik Gambut";
+    return { ...c, label: title };
+  });
+
+  const wadaiCollectionMeta = [
+    { img: "/kuliner/Bingka.webp" },
+    { img: "/kuliner/Resep-Amparan-Tatak-Kue-Khas-Ban.webp" },
+    { img: "/kuliner/358-bingka-barandam-khas-banjar.webp" },
+    { img: "/kuliner/klepon.webp" },
+    { img: "/kuliner/wadai-kararaban-khas-banjar-1756.webp" }
+  ];
+  const translatedWadai = tLocal('wadaiCollection') || [];
+  const wadaiCollection = wadaiCollectionMeta.map((w, idx) => ({
+    ...w,
+    ...(translatedWadai[idx] || {})
+  }));
+
+  const olehOlehMeta = [
+    { span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto", img: "/kuliner/IMG-20251017-WA0002.webp" },
+    { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/f6cd9fe9a37ece89ca3de6416a14031e.webp" },
+    { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/Iwak_Pakasam_Basanga.webp" },
+    { span: "col-span-1 md:col-span-3 row-span-1 h-[250px]", img: "/kuliner/sambal acan.webp" }
+  ];
+  const translatedOleh = tLocal('olehOleh') || [];
+  const olehOleh = olehOlehMeta.map((o, idx) => ({
+    ...o,
+    ...(translatedOleh[idx] || {})
+  }));
+
+  const [activeTab, setActiveTab] = useState(mainDishes[0] || {});
+
+  // Sync activeTab when language changes
   useEffect(() => {
+    if (mainDishes.length > 0) {
+      const currentId = activeTab?.id || mainDishes[0]?.id;
+      const foundDish = mainDishes.find(d => d.id === currentId);
+      setActiveTab(foundDish || mainDishes[0]);
+    }
+  }, [language]);
+
+  // Dynamic Page Metadata (SEO & JSON-LD)
+  useEffect(() => {
+    const titles = {
+      id: "Surga Kuliner Otentik Banjarmasin - Portal Kota Seribu Sungai",
+      en: "Authentic Culinary Paradise of Banjarmasin - Portal of Thousand Rivers",
+      ms: "Syurga Kuliner Otentik Banjarmasin - Portal Kota Seribu Sungai",
+      zh: "马辰非遗美食与风味天堂 - 千河之城门户网站"
+    };
+    const descriptions = {
+      id: "Temukan kelezatan Soto Banjar, Ketupat Kandangan, Lontong Orari, wadai tradisional Bingka Kentang, dan oleh-oleh khas Borneo.",
+      en: "Discover the deliciousness of Soto Banjar, Ketupat Kandangan, Lontong Orari, traditional Bingka Kentang cakes, and Borneo souvenirs.",
+      ms: "Terokai kelezatan Soto Banjar, Ketupat Kandangan, Lontong Orari, wadai tradisional Bingka Kentang, dan buah tangan khas Borneo.",
+      zh: "探索传统马辰鸡汤、柴火熏鱼配米糕、巨无霸三角米糕、土豆冰卡糕及尖蜜双果皮素肉等马辰特产美食。"
+    };
+
+    document.title = titles[language] || titles.id;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', descriptions[language] || descriptions.id);
+
+    // Inject JSON-LD Schema
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "ItemPage",
+      "name": titles[language] || titles.id,
+      "description": descriptions[language] || descriptions.id,
+      "url": window.location.href,
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": mainDishes.map((d, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": d.title,
+          "description": d.desc,
+          "image": window.location.origin + d.img
+        }))
+      }
+    };
+
+    let schemaScript = document.getElementById('jsonld-schema');
+    if (!schemaScript) {
+      schemaScript = document.createElement('script');
+      schemaScript.setAttribute('type', 'application/ld+json');
+      schemaScript.setAttribute('id', 'jsonld-schema');
+      document.head.appendChild(schemaScript);
+    }
+    schemaScript.textContent = JSON.stringify(schemaData);
+
     window.scrollTo(0, 0);
-  }, []);
+
+    return () => {
+      if (schemaScript) schemaScript.remove();
+    };
+  }, [language]);
 
 
 
@@ -188,14 +211,14 @@ export default function Kuliner() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ KULINER OTENTIK BORNEO
+              {tLocal('heroTag')}
             </span>
             <h1 className="hero-title !mb-3">
-              Surga Cita Rasa <br className="hidden sm:inline" />
-              <span className="text-sasirangan">Kota Seribu Sungai</span>
+              {tLocal('heroTitle')} <br className="hidden sm:inline" />
+              <span className="text-sasirangan">{tLocal('heroTitleSpan')}</span>
             </h1>
             <p className="hero-subtitle mx-auto !mb-6 !max-w-2xl px-2">
-              Eksplorasi mahakarya kuliner dari warisan resep leluhur, disajikan hangat dengan sentuhan cinta dari dapur para <span className="font-bold text-[var(--sasirangan-gold)]">Acil</span> di tepian sungai.
+              {tLocal('heroSubtitle')}
             </p>
           </motion.div>
         </div>
@@ -236,9 +259,15 @@ export default function Kuliner() {
             ========================================================= */}
         <section className="py-20 sm:py-24 border-t border-[var(--glass-border)]">
           <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[#F4C038] font-bold tracking-widest text-xs sm:text-sm uppercase mb-2 block">Cita Rasa Berat Warisan Leluhur</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Sajian Utama Legendaris</h2>
-            <p className="max-w-2xl mx-auto text-[var(--text-muted)] text-sm sm:text-base md:text-lg">Pilar utama kuliner Banua peninggalan pelaut dan saudagar abad pertengahan yang kaya akan rempah.</p>
+            <span className="text-[#F4C038] font-bold tracking-widest text-xs sm:text-sm uppercase mb-2 block">
+              {tLocal('section1Tag')}
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">
+              {tLocal('section1Title')} <span className="text-[#F4C038]">{tLocal('section1TitleSpan')}</span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-[var(--text-muted)] text-sm sm:text-base md:text-lg">
+              {tLocal('section1Desc')}
+            </p>
           </div>
 
           {/* Side-by-Side Menu & Feature Showcase Container */}
@@ -291,7 +320,7 @@ export default function Kuliner() {
                     <div>
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                         <span className="inline-flex items-center gap-1.5 bg-[#33C3B3]/20 border border-[#33C3B3]/40 px-3 py-1 rounded-full text-xs font-bold text-[#33C3B3]">
-                          ✦ {activeTab.aroma}
+                          ✦ {tLocal('aromaLabel')}: {activeTab.aroma}
                         </span>
                         <span className="hidden md:inline-flex bg-black/40 backdrop-blur-md text-[#F4C038] px-3 py-1 rounded-full text-xs font-bold border border-white/10">
                           📍 {activeTab.location}
@@ -309,7 +338,7 @@ export default function Kuliner() {
                     
                     <div className="pt-4 border-t border-[var(--glass-border)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                       <span className="text-[10px] sm:text-xs text-[var(--text-muted)] italic">
-                        *Kedai terverifikasi
+                        {tLocal('verifiedNote')}
                       </span>
                       <a 
                         href={activeTab.maps} 
@@ -317,8 +346,7 @@ export default function Kuliner() {
                         rel="noopener noreferrer" 
                         className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#F4C038] text-black font-black rounded-full hover:bg-white hover:text-black transition-all shadow-[0_4px_20px_rgba(244,192,56,0.3)] text-xs sm:text-sm text-center"
                       >
-                        <span>Navigasi ke Kedai</span>
-                        <span>➔</span>
+                        {tLocal('navigateBtn')}
                       </a>
                     </div>
                   </div>
@@ -334,10 +362,14 @@ export default function Kuliner() {
         <section className="py-20 sm:py-24 border-t border-[var(--glass-border)]">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-2xl">
-              <span className="text-[#F4C038] font-bold tracking-widest text-sm uppercase mb-2 block">Warisan Manis Legendaris</span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Warisan Wadai Tradisional Banjar</h2>
+              <span className="text-[#F4C038] font-bold tracking-widest text-sm uppercase mb-2 block">
+                {tLocal('section2Tag')}
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">
+                {tLocal('section2Title')} <span className="text-[#F4C038]">{tLocal('section2TitleSpan')}</span>
+              </h2>
               <p className="text-[var(--text-muted)] text-sm sm:text-base md:text-lg leading-relaxed">
-                Kue manis tradisional (Wadai) khas Bumi Lambung Mangkurat dengan tekstur lembut, legit, dan aroma santan pandan yang memanjakan lidah di setiap gigitan.
+                {tLocal('section2Desc')}
               </p>
             </div>
           </div>
@@ -372,20 +404,22 @@ export default function Kuliner() {
 
             <div className="relative z-10 p-6 sm:p-8 md:p-16 max-w-2xl">
               <div className="bg-black/40 backdrop-blur-xl border border-white/20 p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[2.5rem] shadow-xl transform hover:scale-[1.02] transition-transform duration-500">
-                <span className="text-[#33C3B3] font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">Santap Senja di Bantaran Sungai</span>
+                <span className="text-[#33C3B3] font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">
+                  {tLocal('section3Tag')}
+                </span>
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-heading font-black text-white mb-4 sm:mb-6 leading-tight">
-                  Dermaga Kuliner <span className="text-[var(--sasirangan-gold)]">Tepi Sungai</span>
+                  {tLocal('section3Title')} <span className="text-[var(--sasirangan-gold)]">{tLocal('section3TitleSpan')}</span>
                 </h2>
                 <p className="text-white/90 text-xs sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
-                  Rasakan sensasi menyantap hangatnya Soto Banjar dan hidangan lezat lainnya ditemani semilir angin sungai dan pemandangan perahu kelotok yang melintas di Sentra Kuliner Banua Anyar serta kawasan Siring.
+                  {tLocal('section3Desc')}
                 </p>
                 <a 
                   href="https://maps.google.com/?q=Sentra+Kuliner+Banua+Anyar+Banjarmasin" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-[var(--sasirangan-gold)] text-black font-black rounded-full hover:bg-white hover:text-black transition-colors shadow-lg"
+                  className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-[var(--sasirangan-gold)] text-black font-black rounded-full hover:bg-white hover:text-black transition-colors shadow-lg text-xs sm:text-sm"
                 >
-                  📍 Jelajahi Kuliner Tepi Sungai
+                  {tLocal('section3Btn')}
                 </a>
               </div>
             </div>
@@ -397,9 +431,15 @@ export default function Kuliner() {
             ========================================================= */}
         <section className="py-20 sm:py-24 border-t border-[var(--glass-border)] mb-16 sm:mb-20">
           <div className="text-center mb-12 sm:mb-16">
-            <span className="text-[#33C3B3] font-bold tracking-widest text-xs sm:text-sm uppercase mb-2 block">Bawa Pulang Kenangan</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Oleh-Oleh Tak Terlupakan</h2>
-            <p className="max-w-2xl mx-auto text-[var(--text-muted)] text-sm sm:text-base md:text-lg">Cendera mata kuliner legendaris yang akan membangkitkan rindu Anda pada Kota Seribu Sungai.</p>
+            <span className="text-[#33C3B3] font-bold tracking-widest text-xs sm:text-sm uppercase mb-2 block">
+              {tLocal('section4Tag')}
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">
+              {tLocal('section4Title')} <span className="text-[var(--text-main)]">{tLocal('section4TitleSpan')}</span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-[var(--text-muted)] text-sm sm:text-base md:text-lg">
+              {tLocal('section4Desc')}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[auto]">
