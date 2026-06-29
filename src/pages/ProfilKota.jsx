@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 // Data for masonry grid
 const column1Images = [
-  "/profil kota/LOGO KOTA BANJARMASIN - 328 KB.webp",
+  "/profil kota/kantor walikota.webp",
   "/sejarah/banjarmasin baiman.webp",
   "/wisata/menara tugu pal 0.webp",
   "/wisata/960px-Masjid_Raya_Sabilal_Muhtad.webp"
@@ -543,12 +543,33 @@ export default function ProfilKota() {
           SECTION 3: ASYMMETRIC CITY DASHBOARD (GEO & DEMO)
           ========================================================= */}
       <section className="relative py-24 bg-[var(--bg-main)] border-t border-[var(--glass-border)] overflow-hidden">
-        {/* Abstract River Flow SVG Background */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
-           <svg viewBox="0 0 1000 300" className="w-full h-full stroke-[#33C3B3] stroke-[1] fill-transparent">
-             <path d="M0,150 Q150,50 300,150 T600,150 T900,150 T1200,150" />
-             <path d="M0,170 Q150,70 300,170 T600,170 T900,170 T1200,170" opacity="0.5" />
-           </svg>
+        {/* Background Overlay: Wali Kota Portrait & Authentic Sasirangan Geometric Motif */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+          {/* Sasirangan Geometric Pattern SVG */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.07] dark:opacity-[0.14]" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="sasirangan-motif" width="80" height="80" patternUnits="userSpaceOnUse">
+                <path d="M40 0 L80 40 L40 80 L0 40 Z" fill="none" stroke="#F4C038" strokeWidth="1.5" />
+                <path d="M40 15 L65 40 L40 65 L15 40 Z" fill="none" stroke="#33C3B3" strokeWidth="1" />
+                <circle cx="40" cy="40" r="3.5" fill="#F4C038" />
+                <circle cx="0" cy="0" r="2.5" fill="#33C3B3" />
+                <circle cx="80" cy="0" r="2.5" fill="#33C3B3" />
+                <circle cx="0" cy="80" r="2.5" fill="#33C3B3" />
+                <circle cx="80" cy="80" r="2.5" fill="#33C3B3" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#sasirangan-motif)" />
+          </svg>
+
+          {/* Subtle Wali Kota Watermark on the right */}
+          <img 
+            loading="lazy"
+            src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" 
+            alt="Wali Kota Watermark" 
+            className="absolute right-0 bottom-0 w-full lg:w-1/2 h-full object-cover object-top opacity-10 dark:opacity-15 mix-blend-luminosity grayscale filter"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-main)] via-transparent to-[var(--bg-main)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-main)] via-transparent to-transparent" />
         </div>
         
         <div className="max-w-[1400px] mx-auto px-4 relative z-10">
@@ -680,7 +701,7 @@ export default function ProfilKota() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row h-[800px] lg:h-[600px] gap-2 lg:gap-4 group/accordion">
+          <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px] group/accordion">
             {[
               {
                 title: "Pelabuhan Trisakti",
@@ -690,7 +711,7 @@ export default function ProfilKota() {
               {
                 title: "Kawasan Niaga",
                 desc: "Revitalisasi ruang niaga modern dan pasar tradisional yang mendongkrak ekosistem ekonomi berdaya saing tinggi.",
-                img: "/profil kota/sungai.webp"
+                img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp"
               },
               {
                 title: "Jasa Pariwisata",
@@ -700,7 +721,7 @@ export default function ProfilKota() {
             ].map((item, idx) => (
               <div 
                 key={idx} 
-                className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden rounded-3xl group/item cursor-pointer border border-[var(--glass-border)] h-full shadow-lg"
+                className="relative flex-1 lg:hover:flex-[2.5] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden rounded-3xl group/item cursor-pointer border border-[var(--glass-border)] min-h-[260px] sm:min-h-[300px] lg:min-h-0 h-full shadow-lg"
               >
                 <img loading="lazy" src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover scale-110 group-hover/item:scale-100 transition-transform duration-1000 grayscale group-hover/item:grayscale-0" />
                 
