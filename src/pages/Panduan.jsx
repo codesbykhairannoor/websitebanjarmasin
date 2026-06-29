@@ -134,13 +134,13 @@ export default function Panduan() {
           
           {/* Left Column: Clear High-Impact Typography & Action Anchors */}
           <div className="lg:col-span-7 text-center lg:text-left animate-fadeIn">
-            <span className="text-sm font-black uppercase tracking-widest text-[#F4C038] font-heading block mb-2">
+            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#00A896] mb-2 font-heading">
               ✦ OFFICIAL SURVIVAL GUIDE 2026
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-[var(--text-main)] font-heading leading-tight mb-4 md:mb-6">
+            <h1 className="hero-title !mb-3">
               Panduan &amp; Rute <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F4C038] via-amber-400 to-[#00A896]">Wisatawan</span>
             </h1>
-            <p className="text-sm md:text-base text-[var(--text-muted)] font-body leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="hero-subtitle mx-auto lg:mx-0 !mb-8 !max-w-2xl px-2">
               Satu halaman komprehensif tanpa pengulangan informasi! Pelajari rute bus BRT bandara, kurasi hotel tepi sungai, etika budaya kelotok, hingga nomor panggilan darurat 24 jam.
             </p>
 
