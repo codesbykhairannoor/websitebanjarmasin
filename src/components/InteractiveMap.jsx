@@ -117,8 +117,6 @@ const mapLocations = [
   }
 ];
 
-import { useLanguage } from '../context/LanguageContext';
-import { pagesTranslations } from '../translations/pagesTranslations';
 
 export default function InteractiveMap() {
   const { language } = useLanguage();

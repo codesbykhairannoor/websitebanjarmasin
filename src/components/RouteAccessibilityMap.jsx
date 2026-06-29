@@ -237,35 +237,56 @@ export default function RouteAccessibilityMap() {
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef({});
-  const [activeLoc, setActiveLoc] = useState(routeLocations[0]);
+  
+  const locationsT = tMap('locations') || [];
+  const translatedLocations = routeLocations.map((loc, index) => {
+    const locT = locationsT[index] || {};
+    return {
+      ...loc,
+      title: locT.title || loc.title,
+      category: locT.category || loc.category,
+      desc: locT.desc || loc.desc,
+      info: locT.info || loc.info
+    };
+  });
+
+  const [activeLoc, setActiveLoc] = useState(translatedLocations[0]);
   const [selectedCategory, setSelectedCategory] = useState("Semua");
 
-  const categories = ["Semua", "🚌 Rute BRT", "🏝️ Destinasi Wisata", "🛶 Dermaga Sungai", "🏨 Hotel Pilihan", "🚨 Posko Darurat"];
+  const categories = tMap('categories') || ["Semua", "🚌 Rute BRT", "🏝️ Destinasi Wisata", "🛶 Dermaga Sungai", "🏨 Hotel Pilihan", "🚨 Posko Darurat"];
+  const selectedCategoryIndex = categories.indexOf(selectedCategory) !== -1 ? categories.indexOf(selectedCategory) : 0;
 
-  const filteredLocations = selectedCategory === "Semua"
-    ? routeLocations
-    : routeLocations.filter(loc => loc.category === selectedCategory);
+  const filteredLocations = selectedCategoryIndex === 0
+    ? translatedLocations
+    : translatedLocations.filter((loc) => {
+        const originalCategory = routeLocations[translatedLocations.findIndex(tl => tl.id === loc.id)].category;
+        const originalSelectedCat = ["Semua", "🚌 Rute BRT", "🏝️ Destinasi Wisata", "🛶 Dermaga Sungai", "🏨 Hotel Pilihan", "🚨 Posko Darurat"][selectedCategoryIndex];
+        return originalCategory === originalSelectedCat;
+      });
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
-    if (mapInstanceRef.current) return;
 
+    let map = mapInstanceRef.current;
+    
     // Inisialisasi Map pusat di Banjarmasin
-    const map = L.map(mapContainerRef.current, {
-      center: [-3.3300, 114.6200],
-      zoom: 12,
-      zoomControl: false,
-      scrollWheelZoom: false
-    });
+    if (!map) {
+      map = L.map(mapContainerRef.current, {
+        center: [-3.3300, 114.6200],
+        zoom: 12,
+        zoomControl: false,
+        scrollWheelZoom: false
+      });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(map);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
 
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
-    mapInstanceRef.current = map;
+      L.control.zoom({ position: 'bottomright' }).addTo(map);
+      mapInstanceRef.current = map;
+    }
 
     return () => {
       if (mapInstanceRef.current) {
@@ -284,6 +305,7 @@ export default function RouteAccessibilityMap() {
     Object.values(markersRef.current).forEach(marker => marker.remove());
     markersRef.current = {};
 
+    // Tambahkan Markers
     filteredLocations.forEach(loc => {
       const customIcon = L.divIcon({
         className: 'custom-leaflet-pin',
@@ -322,7 +344,7 @@ export default function RouteAccessibilityMap() {
       setActiveLoc(firstLoc);
       map.flyTo(firstLoc.coords, 13, { duration: 1 });
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, language]);
 
   const handleLocationClick = (loc) => {
     setActiveLoc(loc);
