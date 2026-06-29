@@ -179,7 +179,7 @@ export default function SmartCity() {
                 Satu Akun SSO untuk <br/><span className="text-[#F4C038]">Semua Layanan Warga</span>
               </h2>
               <p className="text-[var(--text-muted)] font-body leading-relaxed text-sm sm:text-base">
-                Pemerintah Kota Banjarmasin menghadirkan **"Banjarmasin Pintar"** (Versi 3) sebagai pusat integrasi puluhan aplikasi SKPD. Dengan teknologi *Single Sign-On (SSO)* berbasis NIK-KTP, warga cukup mendaftar satu kali untuk menikmati kemudahan pengurusan dokumen, antrean kesehatan, hingga pemantauan lalu lintas secara real-time.
+                Pemerintah Kota Banjarmasin menghadirkan <strong className="text-[var(--text-main)] font-black">Banjarmasin Pintar</strong> (Versi 3) sebagai pusat integrasi puluhan aplikasi SKPD. Dengan teknologi <span className="text-[var(--text-main)] font-bold">Single Sign-On (SSO)</span> berbasis NIK-KTP, warga cukup mendaftar satu kali untuk menikmati kemudahan pengurusan dokumen, antrean kesehatan, hingga pemantauan lalu lintas secara real-time.
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-2">
@@ -447,7 +447,7 @@ export default function SmartCity() {
               Inovasi <span className="text-[#F4C038]">Si MANTAB</span> & e-Limpas
             </h2>
             <p className="text-[var(--text-muted)] font-body mt-3 text-sm sm:text-base">
-              DPMPTSP Kota Banjarmasin menghadirkan program **Si MANTAB** (*Maantar Perizinan Tanpa Bayar*), di mana dokumen izin usaha yang selesai langsung diantar kurir PT Pos Indonesia secara gratis!
+              DPMPTSP Kota Banjarmasin menghadirkan inovasi <strong className="text-[var(--text-main)] font-black">Si MANTAB</strong> (Maantar Perizinan Tanpa Bayar), di mana dokumen izin usaha yang selesai diproses akan langsung diantarkan oleh kurir PT Pos Indonesia ke alamat rumah pemohon secara gratis!
             </p>
           </div>
 
@@ -480,7 +480,7 @@ export default function SmartCity() {
               </span>
               <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">Diantar Pos Gratis</h4>
               <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed">
-                Bekerja sama dengan PT Pos Indonesia, dokumen fisik izin usaha diantarkan langsung ke alamat rumah pemohon tanpa dipungut biaya (*Gratis/Tanpa Bayar*).
+                Bekerja sama dengan PT Pos Indonesia, dokumen fisik izin usaha diantarkan langsung ke alamat rumah pemohon tanpa dipungut biaya (Gratis / Tanpa Bayar).
               </p>
             </div>
 
@@ -492,7 +492,7 @@ export default function SmartCity() {
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#F4C038] bg-[#F4C038]/15 px-3 py-1 rounded-full inline-block">Smart Economy Pasar</span>
               <h3 className="text-2xl font-black font-heading text-[var(--text-main)]">Sistem Retribusi e-Limpas</h3>
               <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body max-w-xl leading-relaxed">
-                Digitalisasi pembayaran retribusi pasar tradisional dan ekosistem *Baiman Store* untuk mewujudkan transparansi ekonomi dan memajukan pedagang UMKM Sasirangan.
+                Aplikasi resmi Layanan Informasi Pasar (e-Limpas) dari Diskominfotik untuk memantau harga komoditas pangan pokok secara transparan dan digitalisasi retribusi pasar tradisional se-Kota Banjarmasin.
               </p>
             </div>
             <span className="text-4xl bg-[#F4C038]/20 p-4 rounded-2xl shrink-0 border border-[#F4C038]/40 relative z-10">🏪</span>
@@ -558,14 +558,14 @@ export default function SmartCity() {
                     <span className="text-xs font-bold text-[#33C3B3] uppercase tracking-wider block">Dishub Kota Banjarmasin</span>
                     <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Bus Trans Banjarmasin</h3>
                     <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed">
-                      Layanan transportasi umum dalam kota yang dikelola resmi oleh **Pemko Banjarmasin**. Melayani rute strategis mulai dari Terminal KM 6, Pasar Antasari, Kayutangi, Teluk Tiram, hingga rute perluasan ke Alalak. Armada ber-AC nyaman dengan sistem pembayaran non-tunai (QRIS / Kartu Uang Elektronik) serta tarif sangat terjangkau.
+                      Layanan transportasi umum dalam kota milik Pemerintah Kota Banjarmasin yang berfungsi layaknya armada pengumpan (<span className="font-semibold text-[var(--text-main)]">feeder</span>) untuk menghubungkan mobilitas warga dari kawasan permukiman ke halte koridor utama. Melayani rute strategis mulai dari Terminal KM 6, Pasar Antasari, Kayutangi, Teluk Tiram, hingga Alalak. Armada ber-AC nyaman dengan tarif terjangkau (Rp2.000 pelajar & Rp3.000 umum) berbasis pembayaran non-tunai (QRIS / Kartu Uang Elektronik).
                     </p>
                     <div className="pt-2 flex flex-wrap gap-2">
                       <span className="inline-block bg-[#33C3B3]/20 text-[#33C3B3] font-bold text-xs px-4 py-2 rounded-xl border border-[#33C3B3]/30">
                         Tarif Pelajar Rp2.000 ✓
                       </span>
                       <span className="inline-block bg-[#00A896]/20 text-[#00A896] font-bold text-xs px-4 py-2 rounded-xl border border-[#00A896]/30">
-                        Layanan Dalam Kota ✓
+                        Feeder Dalam Kota ✓
                       </span>
                     </div>
                   </div>
@@ -580,14 +580,14 @@ export default function SmartCity() {
                     <span className="text-xs font-bold text-[#E63946] uppercase tracking-wider block">Kemenhub Teman Bus & Pemprov Kalsel</span>
                     <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Bus Trans Banjarbakula</h3>
                     <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed">
-                      Populer disapa warga sebagai **"Tayo Hijau"**, layanan Bus Rapid Transit (BRT) skema *Buy The Service* ini menghubungkan mobilitas aglomerasi Banjarmasin hingga Banjarbaru. Dilengkapi CCTV pengaman dan pembayaran 100% *cashless* (Tap e-Money Mandiri, BRI, BNI, BCA), dengan pelacakan posisi bus real-time di aplikasi **Teman Bus / BTSGo**.
+                      Populer disapa warga sebagai <strong className="text-[var(--text-main)] font-black">"Tayo Hijau"</strong>, sistem Bus Rapid Transit (BRT) Buy The Service ini beroperasi mirip <span className="font-semibold text-[var(--text-main)]">TransJakarta (TJ)</span> untuk melayani koridor utama aglomerasi lintas kota/kabupaten (Banjarmasin - Banjarbaru - Gambut - Bati-Bati). Dilengkapi CCTV pengaman, pembayaran 100% non-tunai (Tap e-Money Mandiri, BRI, BNI, BCA), tarif Rp5.000 umum (Rp2.000 pelajar/lansia), serta pelacakan posisi bus real-time via aplikasi Teman Bus.
                     </p>
                     <div className="pt-2 flex flex-wrap gap-2">
                       <span className="inline-block bg-[#E63946]/20 text-[#E63946] font-bold text-xs px-4 py-2 rounded-xl border border-[#E63946]/30">
-                        100% Cashless & AC ✓
+                        Mirip TransJakarta (BRT) ✓
                       </span>
                       <span className="inline-block bg-[#F4C038]/20 text-[#F4C038] font-bold text-xs px-4 py-2 rounded-xl border border-[#F4C038]/30">
-                        Aglomerasi Banjarbaru ✓
+                        Aglomerasi Lintas Kota ✓
                       </span>
                     </div>
                   </div>
