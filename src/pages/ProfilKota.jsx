@@ -58,6 +58,143 @@ const AnimatedStat = ({ value, label, suffix="", inline=false }) => {
   );
 };
 
+const realBanjarmasinData = [
+  {
+    id: "01",
+    tabTitle: "Sungai & Delta",
+    title: "Tata Kelola 100+ Sungai & Ekosistem Delta",
+    subtitle: "Urat Nadi Kehidupan & Peradaban Maritim",
+    desc: "Julukan 'Kota Seribu Sungai' disematkan karena lebih dari 100 sungai aktif membelah kota ini. Sejak era Kerajaan Banjar abad ke-14, sungai seperti Martapura dan Barito menjadi urat nadi perdagangan dan interaksi sosial. Kini, lewat program 'Maharagu Sungai', normalisasi dan kebersihan sungai menjadi prioritas utama.",
+    stats: [
+      { value: "100+", label: "Sungai Aktif Membelah Kota" },
+      { value: "Abad 14", label: "Awal Peradaban Maritim Banjar" }
+    ],
+    color: "#33C3B3"
+  },
+  {
+    id: "02",
+    tabTitle: "IPM & Pelayanan",
+    title: "IPM Sangat Tinggi & Birokrasi Digital",
+    subtitle: "Pelayanan Publik Cepat, Inklusif & Transparan",
+    desc: "Banjarmasin mencatatkan Indeks Pembangunan Manusia (IPM) kategori 'Sangat Tinggi' di Kalimantan Selatan. Melalui kehadiran Mal Pelayanan Publik (MPP) Baiman dan integrasi Satu Data, pemerintah kota mewujudkan layanan birokrasi yang responsif, modern, dan mudah diakses oleh seluruh lapisan warga.",
+    stats: [
+      { value: "Sangat Tinggi", label: "Indeks Pembangunan Manusia" },
+      { value: "MPP Baiman", label: "Pusat Layanan Terintegrasi" }
+    ],
+    color: "#F4C038"
+  },
+  {
+    id: "03",
+    tabTitle: "Ekonomi Kreatif",
+    title: "Warisan Pasar Terapung & Akselerasi UMKM",
+    subtitle: "Penggerak Ekonomi Lokal Berdaya Saing Global",
+    desc: "Memadukan pesona budaya legendaris Pasar Terapung (Lok Baintan & Muara Kuin) dengan modernisasi Perumda Pasar Baiman. Program digitalisasi 'Dedikasi Baiman' dan penguatan ribuan pengrajin kain Sasirangan terus mendongkrak perekonomian warga agar tangguh dan berdaya saing.",
+    stats: [
+      { value: "2 Ikon", label: "Pasar Terapung Legendaris" },
+      { value: "Ribuan", label: "UMKM Sasirangan & Kuliner" }
+    ],
+    color: "#33C3B3"
+  },
+  {
+    id: "04",
+    tabTitle: "Kayuh Baimbai",
+    title: "Filosofi Kayuh Baimbai & Gotong Royong",
+    subtitle: "Mendayung Bersama Mewujudkan Kota Baiman",
+    desc: "'Kayuh Baimbai' (Mendayung Bersama-sama) adalah akar filosofi Suku Banjar yang mengajarkan harmoni dan gotong royong. Semangat ini menjadi fondasi kolaborasi erat antara warga dan pemerintah dalam menjaga kebersihan lingkungan, penataan ruang publik, dan menciptakan suasana kota yang damai.",
+    stats: [
+      { value: "Gotong Royong", label: "Jiwa & Kolaborasi Warga" },
+      { value: "Baiman", label: "Barasih wan Nyaman" }
+    ],
+    color: "#F4C038"
+  }
+];
+
+const InteractivePillarSpotlight = () => {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const activeData = realBanjarmasinData[activeIdx];
+
+  return (
+    <div className="w-full max-w-6xl mx-auto px-4 relative z-20">
+      {/* Spotlight Tabs Header */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8">
+        {realBanjarmasinData.map((item, idx) => {
+          const isActive = activeIdx === idx;
+          return (
+            <button
+              key={item.id}
+              onClick={() => setActiveIdx(idx)}
+              className={`flex items-center gap-3 p-4 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
+                isActive 
+                  ? "bg-[var(--text-main)] text-[var(--bg-main)] border-[var(--text-main)] shadow-xl scale-[1.02]" 
+                  : "bg-[var(--card-bg)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]"
+              }`}
+            >
+              <span className={`text-xs sm:text-sm font-black font-heading px-2.5 py-1 rounded-lg shrink-0 ${
+                isActive ? "bg-[#33C3B3] text-black" : "bg-black/10 dark:bg-white/10 text-[var(--text-muted)]"
+              }`}>
+                {item.id}
+              </span>
+              <span className="font-bold text-sm sm:text-base tracking-wide truncate">
+                {item.tabTitle}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Main Spotlight Display Card */}
+      <div className="relative bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden transition-all duration-500 text-left">
+        {/* Ambient background glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#33C3B3]/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#F4C038]/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+        
+        {/* Giant Watermark ID */}
+        <div className="absolute -bottom-6 -right-4 lg:-bottom-10 lg:-right-6 text-[8rem] lg:text-[14rem] font-black text-[var(--text-main)] opacity-5 pointer-events-none select-none font-heading leading-none">
+          {activeData.id}
+        </div>
+
+        <div className="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center justify-between">
+          {/* Left Content */}
+          <div className="flex-1">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#33C3B3]/15 border border-[#33C3B3]/30 text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#33C3B3] animate-pulse" /> Data & Fakta Nyata
+            </div>
+            
+            <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-3">
+              {activeData.title}
+            </h3>
+            
+            <h4 className="text-base sm:text-lg font-bold text-[#F4C038] mb-6">
+              {activeData.subtitle}
+            </h4>
+            
+            <p className="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed max-w-3xl">
+              {activeData.desc}
+            </p>
+          </div>
+
+          {/* Right Statistics Badges */}
+          <div className="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row lg:flex-col gap-4">
+            {activeData.stats.map((stat, sIdx) => (
+              <div 
+                key={sIdx}
+                className="flex-1 lg:w-64 bg-black/5 dark:bg-white/5 border border-[var(--glass-border)] rounded-2xl p-5 text-left backdrop-blur-sm hover:border-[#F4C038] transition-colors"
+              >
+                <div className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading tracking-tight mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm font-medium text-[var(--text-muted)] leading-snug">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 export default function ProfilKota() {
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
@@ -398,36 +535,8 @@ export default function ProfilKota() {
           </p>
         </div>
 
-        {/* The Pillars (Gotong Royong Synergy - Horizontal Accordion) */}
-        <div className="relative z-20 max-w-[1400px] w-full mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 h-auto lg:h-[450px]">
-            {[
-              { id: "01", title: "Karakter", desc: "Membangun generasi tangguh yang sehat dan cerdas secara spiritual maupun intelektual.", color: "text-[#F4C038]", borderHover: "hover:border-[#F4C038]" },
-              { id: "02", title: "Pelayanan", desc: "Digitalisasi birokrasi pemerintahan untuk pelayanan publik yang cepat, transparan, dan inklusif.", color: "text-[#33C3B3]", borderHover: "hover:border-[#33C3B3]" },
-              { id: "03", title: "Ekonomi", desc: "Menciptakan ekosistem usaha lokal yang berdaya saing global melalui ekonomi kreatif.", color: "text-[#F4C038]", borderHover: "hover:border-[#F4C038]" },
-              { id: "04", title: "Lingkungan", desc: "Tata kelola sungai dan alam terpadu untuk memastikan keberlanjutan ekosistem delta.", color: "text-[#33C3B3]", borderHover: "hover:border-[#33C3B3]" }
-            ].map((pillar, idx) => (
-              <div 
-                key={idx} 
-                className={`relative flex-1 lg:hover:flex-[2.5] transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)] group rounded-3xl lg:rounded-[40px] border border-[var(--glass-border)] bg-[var(--card-bg)] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-end p-6 lg:p-10 min-h-[160px] lg:min-h-0 ${pillar.borderHover}`}
-              >
-                {/* Large Background ID */}
-                <div className="absolute -bottom-6 -right-4 lg:-bottom-10 lg:-right-6 text-[8rem] lg:text-[12rem] font-black text-[var(--text-main)] opacity-5 group-hover:opacity-10 transition-opacity duration-500 font-heading pointer-events-none select-none leading-none">
-                  {pillar.id}
-                </div>
-                
-                <div className="relative z-10 w-full lg:w-[400px]">
-                  <h4 className={`text-2xl lg:text-3xl font-black font-heading mb-2 md:mb-4 ${pillar.color} drop-shadow-sm`}>
-                    {pillar.title}
-                  </h4>
-                  <p className="text-[var(--text-muted)] font-body text-sm lg:text-base leading-relaxed opacity-100 lg:opacity-0 lg:translate-y-4 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-500 delay-100">
-                    {pillar.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Interactive Spotlight Showcase with Real Banjarmasin Data */}
+        <InteractivePillarSpotlight />
       </section>
 
       {/* =========================================================
