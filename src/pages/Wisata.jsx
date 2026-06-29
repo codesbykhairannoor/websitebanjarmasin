@@ -330,7 +330,7 @@ export default function Wisata() {
       {/* =========================================================================
           SECTION 3: BACKDROP SHOWCASE - TRULY FULL WIDTH (Edge-to-Edge)
           ========================================================================= */}
-      <div className="wisata-reveal w-full relative min-h-[650px] sm:min-h-[750px] lg:min-h-[850px] overflow-hidden flex flex-col justify-center py-12 sm:py-20 mt-8 sm:mt-16">
+      <div className="w-full relative min-h-[650px] sm:min-h-[750px] lg:min-h-[800px] overflow-hidden flex items-center py-16 mt-12">
         {(() => {
           const activeShowcase = carouselItems[0];
           const thumbnails = carouselItems.slice(1);
@@ -357,10 +357,10 @@ export default function Wisata() {
               <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#050B14]/95 via-black/20 to-black/30 pointer-events-none" />
 
               {/* Constrained Content Wrapper centered vertically */}
-              <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-between flex-1 relative z-10 py-10 my-auto gap-8 lg:gap-12">
+              <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-between relative z-10 gap-8 lg:gap-12">
                 
                 {/* Left Text Content */}
-                <div className="w-full lg:w-5/12 flex flex-col justify-center flex-1 mb-6 lg:mb-0 wisata-reveal-left">
+                <div className="w-full lg:w-5/12 flex flex-col justify-center mb-6 lg:mb-0">
                   <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                     <span className="w-8 sm:w-12 h-[3px] bg-white" />
                     <span className="text-white font-bold text-xs sm:text-sm tracking-[0.2em] uppercase font-heading drop-shadow">
