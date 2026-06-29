@@ -440,7 +440,7 @@ export default function ProfilKota() {
           </div>
 
           {/* MOBILE & TABLET VIEW (< Large screens): Interactive Spotlight Tabs (Uncropped Full Portrait) */}
-          <div className="flex flex-col items-center gap-6 lg:hidden">
+          <div className="flex flex-col items-center gap-6 pb-8 lg:hidden">
             
             {/* Tab Buttons */}
             <div className="flex p-1.5 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-2xl shadow-md w-full max-w-sm">
@@ -466,9 +466,9 @@ export default function ProfilKota() {
               </button>
             </div>
 
-            {/* Active Card Showcase */}
+            {/* Active Card Showcase with Floating Spacing */}
             {activeNakhodaTab === 'walikota' ? (
-              <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl animate-fade-in">
+              <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.45)] dark:shadow-[0_20px_50px_rgba(244,192,56,0.15)] animate-fade-in mb-8 sm:mb-12 transform -translate-y-2 transition-all duration-500">
                 {/* Uncropped Portrait Container */}
                 <div className="relative w-full max-h-[440px] sm:max-h-[500px] flex justify-center items-end overflow-hidden bg-gradient-to-b from-black/10 via-transparent to-[var(--card-bg)] pt-8 px-4">
                   <img 
@@ -500,7 +500,7 @@ export default function ProfilKota() {
                 </div>
               </div>
             ) : (
-              <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl animate-fade-in">
+              <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.45)] dark:shadow-[0_20px_50px_rgba(51,195,179,0.15)] animate-fade-in mb-8 sm:mb-12 transform -translate-y-2 transition-all duration-500">
                 {/* Uncropped Portrait Container */}
                 <div className="relative w-full max-h-[440px] sm:max-h-[500px] flex justify-center items-end overflow-hidden bg-gradient-to-b from-black/10 via-transparent to-[var(--card-bg)] pt-8 px-4">
                   <img 

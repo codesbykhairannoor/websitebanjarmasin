@@ -23,42 +23,54 @@ const PageLoader = () => (
 
 export default function App() {
   React.useEffect(() => {
-    // Global Intersection Observer for scroll animations
+    // Global Intersection Observer for smooth hardware-accelerated scroll animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
-            // Optional: observer.unobserve(entry.target) if we only want it to animate once
-            // observer.unobserve(entry.target);
+            // Unobserve once animated to guarantee buttery smooth scrolling without CPU overhead
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
 
-    // Function to re-observe elements
+    // Function to re-observe elements across all pages
     const observeElements = () => {
-      const elements = document.querySelectorAll('section, .bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right');
+      const elements = document.querySelectorAll(
+        'section, .bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right, [class*="rounded-3xl"]:not(button):not(a):not(input), [class*="rounded-[40px]"]:not(button):not(a), [class*="rounded-[32px]"]:not(button):not(a)'
+      );
       elements.forEach((el) => {
         if (!el.classList.contains('scroll-animate') && 
             !el.classList.contains('wisata-reveal') && 
             !el.classList.contains('wisata-reveal-left') && 
-            !el.classList.contains('wisata-reveal-right')) {
+            !el.classList.contains('wisata-reveal-right') &&
+            !el.classList.contains('in-view')) {
           el.classList.add('scroll-animate');
+          observer.observe(el);
+        } else if (!el.classList.contains('in-view')) {
+          observer.observe(el);
         }
-        observer.observe(el);
       });
     };
 
     // Observe initially
     observeElements();
 
-    // Re-observe when DOM changes (e.g. route change)
-    const mutationObserver = new MutationObserver(observeElements);
+    // Debounced Re-observe when DOM changes (e.g. route change or data loading)
+    let timeoutId = null;
+    const debouncedObserve = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(observeElements, 150);
+    };
+
+    const mutationObserver = new MutationObserver(debouncedObserve);
     mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      if (timeoutId) clearTimeout(timeoutId);
       observer.disconnect();
       mutationObserver.disconnect();
     };
