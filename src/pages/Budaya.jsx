@@ -118,22 +118,22 @@ const seniPertunjukanData = [
     title: 'Sinoman Hadrah',
     subtitle: 'Penyambut Tamu & Pengantin',
     category: 'Seni Islami WBTb',
-    image: '/budaya/panting.webp',
+    image: '/budaya/sinoman_hadrah.png',
     quote: '"Sinoman hadir merayakan, hadrah bergema menyambut keberkahan."',
     desc: 'Kesenian tradisional Banjar memadukan qasidah (seni suara) dan tari yang ditampilkan menyambut tamu kehormatan dan dalam rangkaian prosesi perkawinan adat Banjar.',
     badgeColor: 'bg-[#7C3AED]',
     icon: '🕌'
   },
   {
-    id: 'batimung',
-    title: 'Ritual Batimung',
-    subtitle: 'Spa Rempah Adat Pernikahan',
-    category: 'Upacara Adat WBTb 2024',
-    image: '/budaya/anyaman-purun.webp',
-    quote: '"Batimung membersihkan raga, rempah bumi memberkahi jiwa pengantin."',
-    desc: 'Ritual perawatan tubuh tradisional calon pengantin Banjar menggunakan uap rempah-rempah alami. Ditetapkan sebagai WBTb Indonesia tahun 2024, termasuk dalam rangkaian upacara perkawinan adat Banjar.',
+    id: 'mamanda',
+    title: 'Seni Teater Mamanda',
+    subtitle: 'Sandiwara Tradisional Banjar',
+    category: 'Seni Teater WBTb',
+    image: '/budaya/teater_mamanda.png',
+    quote: '"Kisah Raja dan Wazir, panggung sandiwara cermin kehidupan masyarakat Banjar."',
+    desc: 'Seni teater tradisional khas Kalimantan Selatan yang menceritakan kehidupan istana, diselingi humor, interaksi penonton, kritik sosial, dan pesan moral luhur.',
     badgeColor: 'bg-[#D97706]',
-    icon: '🌿'
+    icon: '🎭'
   }
 ];
 
