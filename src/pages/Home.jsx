@@ -8,7 +8,20 @@ import { useLanguage } from '../context/LanguageContext';
 export default function Home() {
   const { language, t } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 50) setActiveSlide((p) => (p + 1) % showcaseItems.length); // Kiri
+    if (distance < -50) setActiveSlide((p) => (p === 0 ? showcaseItems.length - 1 : p - 1)); // Kanan
+  };
   // === STATE FOR HERO SLIDES ===
   const showcaseImages = [
     { id: 0, shortTitle: "Sambutan", icon: "✨", btnLink: "#wisata", img: "/hero_sungai_martapura.png" },
@@ -225,14 +238,19 @@ export default function Home() {
         </div>
 
         {/* MOBILE SLIDER (Hidden on Desktop) */}
-        <div className="md:hidden w-full h-full relative z-10 overflow-hidden">
+        <div 
+          className="md:hidden absolute inset-0 w-full h-full z-10 overflow-hidden"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {showcaseItems.map((item, i) => {
             const isActive = activeSlide === i;
             return (
               <div key={item.id} className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${isActive ? "opacity-100 z-20" : "opacity-0 z-10"}`}>
                 <img loading="lazy" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-out ${isActive ? "scale-110" : "scale-100"}`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
-                <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-24 px-5 max-w-5xl text-white transition-all duration-1000 delay-300 ${isActive ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
+                <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-all duration-1000 delay-300 ${isActive ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                   <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
                   <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-tight leading-tight mb-2 drop-shadow-lg text-white">{item.title}</h1>
                   <p className="text-sm font-bold text-sasirangan mb-3 font-heading drop-shadow-md">{item.subtitle}</p>
@@ -296,7 +314,7 @@ export default function Home() {
                 <div className="bento-overlay">
                   <div className="bento-top">
                     <span className="bento-badge">{s.category}</span>
-                    <span className="bento-time">{s.time}</span>
+                    <span className="bento-time hidden sm:flex">{s.time}</span>
                   </div>
                   <div className="bento-bottom">
                     <h3 className="bento-title">{s.title}</h3>
@@ -338,11 +356,11 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="culinary-tabs-bar hide-scrollbar flex overflow-x-auto gap-4 mb-8 pb-4 snap-x justify-start md:justify-center px-4">
+          <div className="culinary-tabs-bar hide-scrollbar flex flex-nowrap overflow-x-auto gap-4 mb-8 pb-4 snap-x justify-start md:justify-center px-4">
             {foods.map((item) => (
               <button 
                 key={item.id}
-                className={`px-6 py-3 rounded-full font-bold text-sm transition-all border shadow-sm snap-center shrink-0 ${activeTab === item.id ? 'bg-[#33C3B3] border-[#33C3B3] text-white shadow-[#33C3B3]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                className={`px-6 py-3 rounded-full font-bold text-sm transition-all border shadow-sm snap-center shrink-0 whitespace-nowrap ${activeTab === item.id ? 'bg-[#33C3B3] border-[#33C3B3] text-white shadow-[#33C3B3]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                 onClick={() => setActiveTab(item.id)}
               >
                 {item.tabTitle}
@@ -370,9 +388,9 @@ export default function Home() {
               <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
                 <h3 className="text-2xl md:text-4xl font-black text-[var(--text-main)] font-heading mb-4 leading-tight">{currentFood.name}</h3>
                 
-                <div className="inline-flex items-center gap-3 bg-[var(--bg-main)] px-5 py-3 rounded-2xl border border-[var(--glass-border)] mb-6 mx-auto lg:mx-0 w-max">
-                  <span className="text-xl">🌿</span>
-                  <p className="text-xs md:text-sm font-bold text-[var(--text-main)] uppercase tracking-wider">{currentFood.aroma}</p>
+                <div className="inline-flex items-center gap-2 sm:gap-3 bg-[var(--bg-main)] px-4 sm:px-5 py-3 rounded-2xl border border-[var(--glass-border)] mb-6 mx-auto lg:mx-0 w-fit max-w-full overflow-hidden">
+                  <span className="text-lg md:text-xl shrink-0">🌿</span>
+                  <p className="text-[10px] sm:text-xs md:text-sm font-bold text-[var(--text-main)] uppercase tracking-wider truncate whitespace-normal sm:whitespace-nowrap line-clamp-2 sm:line-clamp-none">{currentFood.aroma}</p>
                 </div>
 
                 <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-8">
@@ -623,9 +641,9 @@ export default function Home() {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-[#33C3B3] font-bold text-xs uppercase tracking-widest bg-[#33C3B3]/10 px-3 py-1.5 rounded-full">{currentMap.type}</span>
-                  <span className="text-[var(--text-muted)] text-xs font-mono">📍 {currentMap.coords}</span>
+                <div className="flex justify-between items-start sm:items-center mb-6 gap-3">
+                  <span className="text-[#33C3B3] font-bold text-xs uppercase tracking-widest bg-[#33C3B3]/10 px-3 py-1.5 rounded-full shrink-0">{currentMap.type}</span>
+                  <span className="text-[var(--text-muted)] text-[10px] sm:text-xs font-mono break-all sm:break-normal text-right hidden sm:block">📍 {currentMap.coords}</span>
                 </div>
 
                 <h4 className="text-2xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">{currentMap.title}</h4>
