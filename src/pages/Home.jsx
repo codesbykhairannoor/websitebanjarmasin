@@ -24,11 +24,11 @@ export default function Home() {
   };
   // === STATE FOR HERO SLIDES ===
   const showcaseImages = [
-    { id: 0, shortTitle: "Sambutan", icon: "✨", btnLink: "#wisata", img: "/hero_sungai_martapura.png" },
+    { id: 0, shortTitle: "Sambutan", icon: "✨", btnLink: "#wisata", img: "/home/banjarmasinkota.webp" },
     { id: 1, shortTitle: "Sungai", icon: "🛶", btnLink: "/wisata", img: "/hero_pasar_terapung.png" },
     { id: 2, shortTitle: "Kuliner", icon: "🍜", btnLink: "/kuliner", img: "/hero_soto_banjar.png" },
     { id: 3, shortTitle: "Budaya", icon: "🏛️", btnLink: "/sejarah", img: "/hero_kain_sasirangan.png" },
-    { id: 4, shortTitle: "Inovasi", icon: "🚀", btnLink: "/smart-city", img: "/hero_menara_pandang.png" }
+    { id: 4, shortTitle: "Inovasi", icon: "🚀", btnLink: "/smart-city", img: "/profil kota/trans banjarbakula.webp" }
   ];
   const slides = t('home.hero.slides') || [];
   const showcaseItems = showcaseImages.map((item, idx) => ({
