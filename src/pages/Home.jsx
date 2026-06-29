@@ -203,15 +203,15 @@ export default function Home() {
                 onClick={() => setActiveSlide(i)}
                 className={`relative overflow-hidden transition-[flex] duration-500 ease-out select-none ${
                   isActive
-                    ? "flex-[8] lg:flex-[10] z-20 shadow-2xl cursor-default"
-                    : "flex-[1.2] lg:flex-[1.5] cursor-pointer group border-r border-white/15 last:border-0 hover:brightness-125 hover:shadow-[inset_0_0_35px_rgba(244,192,56,0.4)] transition-[filter,box-shadow] duration-300"
+                    ? "flex-[10] lg:flex-[12] z-20 shadow-2xl cursor-default"
+                    : "flex-[0.8] lg:flex-[1] cursor-pointer group border-r border-white/15 last:border-0 hover:brightness-125 hover:shadow-[inset_0_0_35px_rgba(244,192,56,0.4)] transition-[filter,box-shadow] duration-300"
                 }`}
               >
                 <img loading="lazy" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${isActive ? "scale-105 brightness-100" : "grayscale-[30%] brightness-75 group-hover:brightness-100"}`} />
                 {isActive ? (
                   <>
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 pointer-events-none" />
-                    <div className="absolute inset-0 z-20 p-8 md:p-14 lg:p-16 flex flex-col justify-center max-w-xl text-white overflow-y-auto">
+                    <div className="absolute inset-0 z-20 p-8 md:p-14 lg:p-16 flex flex-col justify-center max-w-xl text-white overflow-hidden">
                       <span className="text-[#F4C038] font-heading font-extrabold text-xs md:text-sm tracking-[0.2em] uppercase mb-2 block animate-fadeIn">{item.tag}</span>
                       <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-3 drop-shadow-md animate-fadeIn text-white">{item.title}</h1>
                       <p className="text-base md:text-xl font-bold text-sasirangan mb-4 font-heading animate-fadeIn">{item.subtitle}</p>
