@@ -75,7 +75,7 @@ const pillarsData = [
 
 export default function SmartCity() {
   const [activeAppTab, setActiveAppTab] = useState("parakAcil");
-  const [activeEcoTab, setActiveEcoTab] = useState("transBanjarbakula");
+  const [activeTransportTab, setActiveTransportTab] = useState("transBanjarmasin");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -137,11 +137,6 @@ export default function SmartCity() {
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                  <span className="text-[10px] font-bold text-white uppercase tracking-wider bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
-                    Faktual Pemko
-                  </span>
-                </div>
               </div>
             </div>
           ))}
@@ -163,9 +158,6 @@ export default function SmartCity() {
               </div>
               <div className="flex-1 relative overflow-hidden">
                 <img src={pillar.img} alt={pillar.title} loading="lazy" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                  <span className="text-[10px] font-bold text-white bg-black/60 px-3 py-1 rounded-full">Faktual Pemko</span>
-                </div>
               </div>
             </div>
           ))}
@@ -350,27 +342,27 @@ export default function SmartCity() {
               </a>
             </div>
 
-            {/* Card 2: BaApik */}
+            {/* Card 2: Banjarmasin Pintar */}
             <div className="bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[32px] p-6 sm:p-8 hover:border-[#00A896] transition-all shadow-xl flex flex-col justify-between relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-48 h-48 bg-teal-500/10 rounded-full blur-[60px] pointer-events-none group-hover:bg-teal-500/20 transition-all"></div>
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="w-14 h-14 rounded-2xl bg-[#00A896]/20 border border-[#00A896]/40 flex items-center justify-center text-3xl">🩺</span>
-                  <span className="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-[#00A896]/20 text-[#00A896]">Dinas Kesehatan</span>
+                  <span className="w-14 h-14 rounded-2xl bg-[#00A896]/20 border border-[#00A896]/40 flex items-center justify-center text-3xl">📱</span>
+                  <span className="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-[#00A896]/20 text-[#00A896]">Diskominfotik</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3">
-                  Aplikasi BaApik
+                  Super-App Banjarmasin Pintar
                 </h3>
                 <p className="text-[var(--text-muted)] font-body text-sm leading-relaxed mb-6">
-                  Sistem registrasi pasien terpadu untuk RSUD Sultan Suriansyah dan seluruh Puskesmas se-Kota Banjarmasin. Pasien dapat memilih jadwal dokter dan mendapatkan kepastian waktu layan tanpa harus datang subuh.
+                  Aplikasi resmi integrasi layanan publik Kota Banjarmasin dalam satu genggaman. Warga dapat mengakses layanan antrean online RSUD/Puskesmas, info tagihan pajak PBB, pengaduan masyarakat E-Lapor, hingga layanan administrasi daerah.
                 </p>
                 <div className="space-y-2 mb-6">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Kepastian nomor antrean real-time</div>
-                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Rekam medis elektronik terpadu</div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Terintegrasi puluhan layanan publik</div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-main)]"><span className="text-[#00A896]">✓</span> Download resmi di Google Play Store</div>
                 </div>
               </div>
               <a href="https://play.google.com/store/apps/details?id=id.go.banjarmasinkota.banjarmasinpintar" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--card-bg)] hover:bg-[#00A896] hover:text-white text-[var(--text-main)] font-black text-xs py-3.5 px-6 rounded-xl border border-[var(--glass-border)] transition-all">
-                Akses via Banjarmasin Pintar ➔
+                Download Banjarmasin Pintar ➔
               </a>
             </div>
 
@@ -452,92 +444,92 @@ export default function SmartCity() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ SMART MOBILITY & ENVIRONMENT
+              ✦ SMART MOBILITY & TRANSPORTASI
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
-              Inovasi Transportasi & <span className="text-[#33C3B3]">Ekologi</span>
+              Moda Transportasi <span className="text-[#33C3B3]">Modern</span>
             </h2>
             <p className="text-[var(--text-muted)] font-body mt-3 text-sm sm:text-base">
-              Modernisasi transportasi publik Buy The Service (BTS) terintegrasi serta pemantauan perairan secara digital.
+              Mengenal dua armada bus unggulan yang melayani mobilitas warga di dalam kota hingga aglomerasi antar-wilayah.
             </p>
           </div>
 
           {/* Toggle Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             <button
-              onClick={() => setActiveEcoTab("transBanjarbakula")}
+              onClick={() => setActiveTransportTab("transBanjarmasin")}
               className={`px-6 py-3 rounded-full font-heading font-black text-xs sm:text-sm transition-all border ${
-                activeEcoTab === "transBanjarbakula"
+                activeTransportTab === "transBanjarmasin"
                   ? 'bg-[#33C3B3] text-[#091422] border-[#33C3B3] shadow-[0_0_20px_rgba(51,195,179,0.4)] scale-105'
                   : 'bg-[var(--bg-main)] text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[#33C3B3]'
               }`}
             >
-              🚌 Trans Banjarbakula (Tayo Hijau)
+              🚐 Trans Banjarmasin (Bus Dalam Kota)
             </button>
             <button
-              onClick={() => setActiveEcoTab("cctv")}
+              onClick={() => setActiveTransportTab("transBanjarbakula")}
               className={`px-6 py-3 rounded-full font-heading font-black text-xs sm:text-sm transition-all border ${
-                activeEcoTab === "cctv"
+                activeTransportTab === "transBanjarbakula"
                   ? 'bg-[#E63946] text-white border-[#E63946] shadow-[0_0_20px_rgba(230,57,70,0.4)] scale-105'
                   : 'bg-[var(--bg-main)] text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[#E63946]'
               }`}
             >
-              📹 Live CCTV ATCS & Maharagu Sungai
+              🚌 Trans Banjarbakula (Tayo Hijau BRT)
             </button>
           </div>
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={activeEcoTab}
+              key={activeTransportTab}
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
               className="bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-[32px] p-6 sm:p-10 max-w-4xl mx-auto shadow-2xl grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
             >
-              {activeEcoTab === "transBanjarbakula" ? (
+              {activeTransportTab === "transBanjarmasin" ? (
                 <>
                   <div className="md:col-span-7 space-y-4 text-left">
-                    <span className="text-xs font-bold text-[#33C3B3] uppercase tracking-wider block">Kemenhub BTS & Pemprov Kalsel</span>
-                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Bus Trans Banjarbakula</h3>
+                    <span className="text-xs font-bold text-[#33C3B3] uppercase tracking-wider block">Dishub Kota Banjarmasin</span>
+                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Bus Trans Banjarmasin</h3>
                     <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed">
-                      Populer disebut warga sebagai **"Tayo Hijau"**, sistem Bus Rapid Transit (BRT) modern ini melayani rute aglomerasi Banjarmasin hingga Banjarbaru. Dilengkapi CCTV pengaman, sistem pembayaran 100% *cashless* (e-Money Mandiri, BRI, BNI, BCA), tarif terjangkau (Rp5.000 umum / Rp2.000 pelajar & lansia), serta pelacakan posisi bus real-time via aplikasi **Teman Bus / BTSGo**.
+                      Layanan transportasi umum dalam kota yang dikelola resmi oleh **Pemko Banjarmasin**. Melayani rute strategis mulai dari Terminal KM 6, Pasar Antasari, Kayutangi, Teluk Tiram, hingga rute perluasan ke Alalak. Armada ber-AC nyaman dengan sistem pembayaran non-tunai (QRIS / Kartu Uang Elektronik) serta tarif sangat terjangkau.
                     </p>
                     <div className="pt-2 flex flex-wrap gap-2">
                       <span className="inline-block bg-[#33C3B3]/20 text-[#33C3B3] font-bold text-xs px-4 py-2 rounded-xl border border-[#33C3B3]/30">
-                        100% Cashless & Full AC ✓
-                      </span>
-                      <span className="inline-block bg-[#F4C038]/20 text-[#F4C038] font-bold text-xs px-4 py-2 rounded-xl border border-[#F4C038]/30">
                         Tarif Pelajar Rp2.000 ✓
+                      </span>
+                      <span className="inline-block bg-[#00A896]/20 text-[#00A896] font-bold text-xs px-4 py-2 rounded-xl border border-[#00A896]/30">
+                        Layanan Dalam Kota ✓
                       </span>
                     </div>
                   </div>
                   <div className="md:col-span-5 h-[240px] rounded-2xl overflow-hidden shadow-lg relative">
-                    <img loading="lazy" src="/profil kota/trans banjarbakula.webp" alt="Trans Banjarbakula Koridor Banjarmasin" className="w-full h-full object-cover" />
-                    <div className="absolute bottom-3 left-3 bg-[#091422]/80 backdrop-blur-md text-[#33C3B3] text-[10px] font-bold px-3 py-1 rounded-full border border-[#33C3B3]/40">📍 Koridor Siring & Pal 0</div>
+                    <img loading="lazy" src="/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp" alt="Armada Trans Banjarmasin" className="w-full h-full object-cover" />
+                    <div className="absolute bottom-3 left-3 bg-[#091422]/80 backdrop-blur-md text-[#33C3B3] text-[10px] font-bold px-3 py-1 rounded-full border border-[#33C3B3]/40">📍 Koridor Dalam Kota</div>
                   </div>
                 </>
               ) : (
                 <>
                   <div className="md:col-span-7 space-y-4 text-left">
-                    <span className="text-xs font-bold text-[#E63946] uppercase tracking-wider block">Diskominfotik & Maharagu Sungai</span>
-                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Integrasi CCTV & Ekologi</h3>
+                    <span className="text-xs font-bold text-[#E63946] uppercase tracking-wider block">Kemenhub Teman Bus & Pemprov Kalsel</span>
+                    <h3 className="text-2xl sm:text-3xl font-black font-heading text-[var(--text-main)]">Bus Trans Banjarbakula</h3>
                     <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed">
-                      Command Center memantau arus lalu lintas di puluhan persimpangan ATCS dan situasi debit air sungai 24 jam non-stop. Warga dapat memantau kondisi jalan secara live melalui aplikasi **Banjarmasin Pintar**, bersinergi dengan program gotong royong warga *"Maharagu Sungai"* untuk menjaga kebersihan halaman depan kota.
+                      Populer disapa warga sebagai **"Tayo Hijau"**, layanan Bus Rapid Transit (BRT) skema *Buy The Service* ini menghubungkan mobilitas aglomerasi Banjarmasin hingga Banjarbaru. Dilengkapi CCTV pengaman dan pembayaran 100% *cashless* (Tap e-Money Mandiri, BRI, BNI, BCA), dengan pelacakan posisi bus real-time di aplikasi **Teman Bus / BTSGo**.
                     </p>
                     <div className="pt-2 flex flex-wrap gap-2">
                       <span className="inline-block bg-[#E63946]/20 text-[#E63946] font-bold text-xs px-4 py-2 rounded-xl border border-[#E63946]/30">
-                        Live Stream via HP ✓
+                        100% Cashless & AC ✓
                       </span>
-                      <span className="inline-block bg-[#00A896]/20 text-[#00A896] font-bold text-xs px-4 py-2 rounded-xl border border-[#00A896]/30">
-                        Maharagu Sungai ✓
+                      <span className="inline-block bg-[#F4C038]/20 text-[#F4C038] font-bold text-xs px-4 py-2 rounded-xl border border-[#F4C038]/30">
+                        Aglomerasi Banjarbaru ✓
                       </span>
                     </div>
                   </div>
                   <div className="md:col-span-5 h-[240px] rounded-2xl overflow-hidden shadow-lg relative">
-                    <img loading="lazy" src="/profil kota/sungai.webp" alt="CCTV & Ekologi Sungai" className="w-full h-full object-cover" />
-                    <div className="absolute top-3 left-3 bg-red-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full animate-pulse">● LIVE ATCS</div>
+                    <img loading="lazy" src="/profil kota/trans banjarbakula.webp" alt="Trans Banjarbakula Tayo Hijau" className="w-full h-full object-cover" />
+                    <div className="absolute bottom-3 left-3 bg-[#091422]/80 backdrop-blur-md text-[#E63946] text-[10px] font-bold px-3 py-1 rounded-full border border-[#E63946]/40">📍 Koridor Siring & Pal 0</div>
                   </div>
                 </>
               )}
