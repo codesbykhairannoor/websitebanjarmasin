@@ -619,42 +619,93 @@ export default function ProfilKota() {
         </div>
 
         <div className="max-w-[1200px] mx-auto px-4">
-          {/* DESKTOP VIEW (Large screens): Radial Circular Layout (AMAN / Untouched) */}
-          <div className="hidden lg:block relative w-full h-[700px]">
-            {/* Center Emblem */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-72 z-20 group flex justify-center items-center">
-              <div className="w-full h-full relative group-hover:scale-105 transition-transform duration-700 flex justify-center items-center">
-                 <img loading="lazy" src="/profil kota/LOGO KOTA BANJARMASIN - 328 KB.webp" alt="Lambang Kota Banjarmasin" className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(244,192,56,0.4)]" />
-              </div>
+          {/* DESKTOP VIEW (Large screens): 3-Column Grid Layout */}
+          <div className="hidden lg:grid grid-cols-3 gap-6 items-center max-w-6xl mx-auto w-full min-h-[600px]">
+            
+            {/* Left Column */}
+            <div className="flex flex-col gap-12 items-end justify-center">
+              {[
+                { idx: 5, icon: "🚣" },
+                { idx: 4, icon: "🌿" }
+              ].map((item) => {
+                const transItem = tLocal('section4Items')?.[item.idx] || {};
+                return (
+                  <div key={item.idx} className="w-[340px] bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 shadow-xl hover:shadow-[0_0_30px_rgba(51,195,179,0.3)] hover:border-[#33C3B3] transition-all duration-500 flex items-center gap-4 text-left">
+                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--bg-main)] border border-[var(--glass-border)] flex items-center justify-center text-2xl shadow-inner">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-1">{transItem.title}</h3>
+                      <p className="text-[var(--text-muted)] font-body text-xs leading-snug">{transItem.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Circular Items */}
-            {[
-              { id: 1, icon: "🛡️", pos: "top-0 left-1/2 -translate-x-1/2" },
-              { id: 2, icon: "✨", pos: "top-[15%] right-0 translate-x-4" },
-              { id: 3, icon: "🏛️", pos: "bottom-[15%] right-0 translate-x-4" },
-              { id: 4, icon: "🛶", pos: "bottom-0 left-1/2 -translate-x-1/2" },
-              { id: 5, icon: "🌿", pos: "bottom-[15%] left-0 -translate-x-4" },
-              { id: 6, icon: "🚣", pos: "top-[15%] left-0 -translate-x-4" }
-            ].map((item, idx) => {
-              const transItem = tLocal('section4Items')?.[idx] || {};
-              return (
-                <div 
-                  key={idx} 
-                  className={`absolute w-80 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 shadow-xl hover:shadow-[0_0_30px_rgba(51,195,179,0.3)] hover:border-[#33C3B3] transition-all duration-500 z-10 flex items-center gap-4 ${item.pos}`}
-                >
-                  <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--bg-main)] border border-[var(--glass-border)] flex items-center justify-center text-2xl shadow-inner">
-                    {item.icon}
+            {/* Center Column (Logo & Top/Bottom Items) */}
+            <div className="flex flex-col items-center justify-between h-full py-4 gap-10">
+              {[
+                { idx: 0, icon: "🛡️" }
+              ].map((item) => {
+                const transItem = tLocal('section4Items')?.[item.idx] || {};
+                return (
+                  <div key={item.idx} className="w-[340px] bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 shadow-xl hover:shadow-[0_0_30px_rgba(51,195,179,0.3)] hover:border-[#33C3B3] transition-all duration-500 flex items-center gap-4 text-left">
+                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--bg-main)] border border-[var(--glass-border)] flex items-center justify-center text-2xl shadow-inner">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-1">{transItem.title}</h3>
+                      <p className="text-[var(--text-muted)] font-body text-xs leading-snug">{transItem.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-black text-[var(--text-main)] font-heading mb-1">{transItem.title}</h3>
-                    <p className="text-[var(--text-muted)] font-body text-sm leading-snug">
-                      {transItem.desc}
-                    </p>
+                );
+              })}
+
+              {/* Logo */}
+              <div className="w-64 h-auto relative group flex justify-center items-center my-4">
+                 <img loading="lazy" src="/profil kota/LOGO KOTA BANJARMASIN - 328 KB.webp" alt="Lambang Kota Banjarmasin" className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(244,192,56,0.4)] group-hover:scale-105 transition-transform duration-700" />
+              </div>
+
+              {[
+                { idx: 3, icon: "🛶" }
+              ].map((item) => {
+                const transItem = tLocal('section4Items')?.[item.idx] || {};
+                return (
+                  <div key={item.idx} className="w-[340px] bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 shadow-xl hover:shadow-[0_0_30px_rgba(51,195,179,0.3)] hover:border-[#33C3B3] transition-all duration-500 flex items-center gap-4 text-left">
+                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--bg-main)] border border-[var(--glass-border)] flex items-center justify-center text-2xl shadow-inner">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-1">{transItem.title}</h3>
+                      <p className="text-[var(--text-muted)] font-body text-xs leading-snug">{transItem.desc}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col gap-12 items-start justify-center">
+              {[
+                { idx: 1, icon: "✨" },
+                { idx: 2, icon: "🏛️" }
+              ].map((item) => {
+                const transItem = tLocal('section4Items')?.[item.idx] || {};
+                return (
+                  <div key={item.idx} className="w-[340px] bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 shadow-xl hover:shadow-[0_0_30px_rgba(51,195,179,0.3)] hover:border-[#33C3B3] transition-all duration-500 flex items-center gap-4 text-left">
+                    <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--bg-main)] border border-[var(--glass-border)] flex items-center justify-center text-2xl shadow-inner">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-black text-[var(--text-main)] font-heading mb-1">{transItem.title}</h3>
+                      <p className="text-[var(--text-muted)] font-body text-xs leading-snug">{transItem.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
           </div>
 
           {/* MOBILE & TABLET VIEW (< Large screens): Compact Emblem Showcase & Sleek 2-Column Grid */}
