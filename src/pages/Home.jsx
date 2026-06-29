@@ -91,13 +91,13 @@ export default function Home() {
       title: "Menara Pandang & Siring",
       category: "Landmark Kota",
       time: "⏰ Terbuka 24 Jam",
-      img: "/profil kota/sungai.webp",
+      img: "/wisata/960px-Menara_Pandang_Banjarmasin.webp",
       span: "bento-span-1"
     },
     {
       id: 3,
-      title: "Pulau Kembang Borneo",
-      category: "Hutan & Ekosistem",
+      title: "Monumen Patung Bekantan",
+      category: "Ikon Wisata",
       time: "⏰ 08.00 - 17.00 WITA",
       img: "/wisata/960px-Monumen_Patung_Bekantan_Ba.webp",
       span: "bento-span-1"
@@ -367,7 +367,7 @@ export default function Home() {
         </section>
 
         {/* 2. TASTE OF BANJAR (KULINER) */}
-        <section id="kuliner" className="py-20 md:py-32 bg-borneo-deep rounded-[40px] px-4 md:px-12 my-12 shadow-xl border border-[var(--glass-border)]">
+        <section id="kuliner" className="py-20 md:py-32 bg-[var(--card-bg)] rounded-[40px] px-4 md:px-12 my-12 shadow-xl border border-[var(--glass-border)]">
           <motion.div 
             className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -378,10 +378,10 @@ export default function Home() {
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
               ✦ GASTRONOMI OTENTIK
             </span>
-            <h2 className="text-3xl md:text-5xl font-black text-white font-heading leading-tight mb-4">
+            <h2 className="text-3xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
               Kuliner <span className="text-[#F4C038]">Legendaris</span> Banjar
             </h2>
-            <p className="text-sm md:text-base text-gray-300 font-body leading-relaxed max-w-2xl mx-auto px-2">
+            <p className="text-sm md:text-base text-[var(--text-muted)] font-body leading-relaxed max-w-2xl mx-auto px-2">
               Dirancang dengan filosofi *Mobile-First Spotlight Menu*. Pilih menu di bawah ini untuk menjelajahi kelezatan dan filosofi historis setiap hidangan.
             </p>
           </motion.div>
@@ -434,7 +434,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Link to="/kuliner" className="text-white hover:text-[#F4C038] font-bold text-sm md:text-base hover:underline transition-colors">Lihat Katalog Kuliner Lengkap ➔</Link>
+            <Link to="/kuliner" className="text-[#33C3B3] hover:text-[#2AA698] font-bold text-sm md:text-base hover:underline transition-colors">Lihat Katalog Kuliner Lengkap ➔</Link>
           </motion.div>
         </section>
 
@@ -509,8 +509,8 @@ export default function Home() {
         {/* 4. SMART CITY & EKOLOGI (NEW) */}
         <section id="smartcity" className="py-20 md:py-32 relative overflow-hidden rounded-[40px] my-12 shadow-2xl border border-[var(--glass-border)] mx-4 md:mx-0">
           <div className="absolute inset-0 z-0">
-            <img src="/hero_menara_pandang.png" className="w-full h-full object-cover brightness-[0.35]" alt="Smart City Night" loading="lazy"/>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#050B14]/90 to-transparent mix-blend-multiply"></div>
+            <img src="/hero_menara_pandang.png" className="w-full h-full object-cover brightness-[0.7]" alt="Smart City Night" loading="lazy"/>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#091422]/95 via-[#091422]/70 to-[#33C3B3]/20"></div>
           </div>
           
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6 md:px-16 h-full py-10">
@@ -520,13 +520,13 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-4 font-heading bg-[#33C3B3]/10 backdrop-blur-md px-4 py-2 rounded-full border border-[#33C3B3]/30">
+              <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-4 font-heading bg-[#33C3B3]/20 backdrop-blur-md px-4 py-2 rounded-full border border-[#33C3B3]/40">
                 ✦ BANJARMASIN BAIMAN
               </span>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white font-heading leading-tight mb-6">
                 Kota Pintar <br className="hidden md:block"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#33C3B3] to-[#F4C038]">Harmoni Ekologi</span>
               </h2>
-              <p className="text-gray-300 text-sm md:text-base lg:text-lg mb-8 leading-relaxed max-w-lg">
+              <p className="text-gray-200 text-sm md:text-base lg:text-lg mb-8 leading-relaxed max-w-lg">
                 Integrasi cerdas antara super-app pelayanan digital masyarakat dengan komitmen memelihara kelestarian ekosistem sungai. Sebuah visi nyata menuju masa depan yang inklusif.
               </p>
               <Link to="/smart-city" className="bg-gradient-to-r from-[#33C3B3] to-[#00A896] hover:brightness-110 text-white px-8 py-4 rounded-full font-bold shadow-xl transition-all hover:-translate-y-1 inline-block">
@@ -541,25 +541,25 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="bg-white/5 backdrop-blur-xl rounded-[32px] p-5 md:p-6 border border-white/10 shadow-2xl flex items-center gap-5 hover:bg-white/10 transition-colors">
-                <div className="w-14 h-14 bg-blue-500/20 rounded-full flex items-center justify-center text-2xl border border-blue-400/30 shrink-0">📱</div>
+              <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
+                <div className="w-14 h-14 bg-blue-500/30 rounded-full flex items-center justify-center text-2xl border border-blue-400/50 shrink-0 shadow-lg">📱</div>
                 <div>
                   <h4 className="text-white font-bold text-base md:text-lg">Super-App Banjarmasin Pintar</h4>
-                  <p className="text-gray-400 text-xs md:text-sm">Layanan satu pintu administrasi warga</p>
+                  <p className="text-gray-300 text-xs md:text-sm">Layanan satu pintu administrasi warga</p>
                 </div>
               </div>
-              <div className="bg-white/5 backdrop-blur-xl rounded-[32px] p-5 md:p-6 border border-white/10 shadow-2xl flex items-center gap-5 translate-x-0 md:translate-x-8 hover:bg-white/10 transition-colors">
-                <div className="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center text-2xl border border-green-400/30 shrink-0">🌿</div>
+              <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 translate-x-0 md:translate-x-8 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
+                <div className="w-14 h-14 bg-green-500/30 rounded-full flex items-center justify-center text-2xl border border-green-400/50 shrink-0 shadow-lg">🌿</div>
                 <div>
                   <h4 className="text-white font-bold text-base md:text-lg">Sensor Kualitas Sungai</h4>
-                  <p className="text-gray-400 text-xs md:text-sm">Monitoring real-time kesehatan air</p>
+                  <p className="text-gray-300 text-xs md:text-sm">Monitoring real-time kesehatan air</p>
                 </div>
               </div>
-              <div className="bg-white/5 backdrop-blur-xl rounded-[32px] p-5 md:p-6 border border-white/10 shadow-2xl flex items-center gap-5 hover:bg-white/10 transition-colors">
-                <div className="w-14 h-14 bg-yellow-500/20 rounded-full flex items-center justify-center text-2xl border border-yellow-400/30 shrink-0">📷</div>
+              <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
+                <div className="w-14 h-14 bg-yellow-500/30 rounded-full flex items-center justify-center text-2xl border border-yellow-400/50 shrink-0 shadow-lg">📷</div>
                 <div>
                   <h4 className="text-white font-bold text-base md:text-lg">CCTV Lalu Lintas AI</h4>
-                  <p className="text-gray-400 text-xs md:text-sm">Keamanan kota 24/7 terintegrasi</p>
+                  <p className="text-gray-300 text-xs md:text-sm">Keamanan kota 24/7 terintegrasi</p>
                 </div>
               </div>
             </motion.div>
@@ -588,9 +588,9 @@ export default function Home() {
 
           <div className="flex overflow-x-auto lg:grid lg:grid-cols-3 gap-6 pb-8 pt-4 snap-x hide-scrollbar px-4 lg:px-0">
             {[
-              { img: "/panduan/swiss_belhotel_borneo.webp", badge: "Premium", title: "Swiss-Belhotel Borneo", desc: "Berada tepat di tepi sungai dengan akses langsung ke dermaga kelotok privat." },
-              { img: "/panduan/aston_banua.webp", badge: "Bisnis", title: "Aston Banua Hotel", desc: "Berada di gerbang masuk kota, cocok untuk mobilitas ekstra cepat via bandara." },
-              { img: "/wisata/960px-Taman_Siring_Sungai_Martap.webp", badge: "Publik", title: "BRT Trans Banjarbakula", desc: "Bus AC nyaman beroperasi menembus bandara hingga titik Nol Kilometer kota." }
+              { img: "/panduan/Swiss-Belhotel Borneo Banjarmasi.webp", badge: "Premium", title: "Swiss-Belhotel Borneo", desc: "Berada tepat di tepi sungai dengan akses langsung ke dermaga kelotok privat." },
+              { img: "/panduan/galaxy hotel.webp", badge: "Bisnis", title: "Galaxy Hotel", desc: "Berada di gerbang masuk kota, cocok untuk mobilitas ekstra cepat via bandara." },
+              { img: "/wisata/menara tugu pal 0.webp", badge: "Publik", title: "BRT Trans Banjarbakula", desc: "Bus AC nyaman beroperasi menembus bandara hingga titik Nol Kilometer kota." }
             ].map((item, idx) => (
               <motion.div 
                 key={idx} 
