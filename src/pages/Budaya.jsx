@@ -199,37 +199,7 @@ const sanggarResmiData = [
   }
 ];
 
-// MOBILE INTERACTIVE SPOTLIGHT ITEMS (Super Clean & Responsive di HP)
-const mobileLookbookItems = [
-  {
-    tabName: '🌸 Tari Istana',
-    title: 'Tari Baksa Kembang',
-    tag: 'Tari Kebesaran Banjar',
-    img: '/budaya/tari baksa kembang.webp'
-  },
-  {
-    tabName: '🎭 Teater Tradisional',
-    title: 'Seni Mamanda',
-    tag: 'Sandiwara Banjar',
-    img: '/budaya/mamanda.webp'
-  },
-  {
-    tabName: '🕌 Seni Islami',
-    title: 'Sinoman Hadrah',
-    tag: 'Tari Penyambut Tamu',
-    img: '/budaya/tari-sinoman-hadrah-kolosal-lgjw.webp'
-  },
-  {
-    tabName: '✨ Wastra Adat',
-    title: 'Kain Sasirangan',
-    tag: 'Kain Jelujur Alami',
-    img: '/budaya/motif bayam raj.webp'
-  }
-];
-
 export default function Budaya() {
-  // State Mobile Hero Spotlight
-  const [activeMobileHero, setActiveMobileHero] = useState(mobileLookbookItems[0]);
 
   // State Section 1: Sasirangan Spotlight
   const [activeMotif, setActiveMotif] = useState(sasiranganData[0]);
@@ -267,57 +237,12 @@ export default function Budaya() {
           </p>
         </div>
 
-        {/* Desktop 5-Column Grid */}
-        <div className="hidden md:grid grid-cols-5 gap-6 items-center relative">
+        {/* Responsive Grid Layout (Mobile 2-Cols with Centerpiece on top, Desktop 5-Cols) */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 md:gap-6 items-center relative">
 
-          {/* KOLOM 1 */}
-          <div className="col-span-1 flex flex-col justify-center">
-            <div className="relative rounded-[32px] overflow-hidden h-[260px] bg-amber-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
-              <img
-                src="/budaya/motif bayam raj.webp"
-                alt="Wastra Sasirangan"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <span className="absolute bottom-3 left-3 bg-[#F4C038] text-[#091422] font-black text-[9px] px-3 py-1 rounded-full shadow">
-                Sasirangan
-              </span>
-            </div>
-          </div>
-
-          {/* KOLOM 2 */}
-          <div className="col-span-1 flex flex-col gap-4">
-            <div className="relative rounded-2xl overflow-hidden h-[160px] bg-teal-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
-              <img
-                src="/budaya/atap bubungan tinggi.webp"
-                alt="Rumah Adat Bubungan Tinggi"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#33C3B3] font-black text-[8px] px-2.5 py-1 rounded border border-white/10">
-                Arsitektur
-              </span>
-            </div>
-
-            <div className="relative rounded-2xl overflow-hidden h-[160px] bg-yellow-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
-              <img
-                src="/budaya/anyaman-purun.webp"
-                alt="Anyaman Kayu Ulin"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] px-2.5 py-1 rounded border border-white/10">
-                Anyaman
-              </span>
-            </div>
-          </div>
-
-          {/* KOLOM 3 */}
-          <div className="col-span-1 relative flex flex-col items-center justify-center">
-            <div className="w-full max-w-[260px] h-[440px] rounded-[40px] overflow-hidden border-2 border-[#F4C038] shadow-lg relative group bg-[#050B14] mx-auto hover:-translate-y-1 transition-transform duration-200">
+          {/* KOLOM 3 (CENTERPIECE: Tari Baksa Kembang) - Di mobile naik ke atas order-1 */}
+          <div className="col-span-2 md:col-span-1 order-1 md:order-3 relative flex flex-col items-center justify-center">
+            <div className="w-full max-w-[320px] md:max-w-[260px] h-[340px] md:h-[440px] rounded-[32px] md:rounded-[40px] overflow-hidden border-2 border-[#F4C038] shadow-lg relative group bg-[#050B14] mx-auto hover:-translate-y-1 transition-transform duration-200">
               <img
                 src="/budaya/tari baksa kembang.webp"
                 alt="Tari Baksa Kembang"
@@ -325,21 +250,64 @@ export default function Budaya() {
                 decoding="async"
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-[#050B14]/20 to-transparent p-4 flex flex-col justify-end text-center pb-8">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#33C3B3] mb-1 font-heading">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-[#050B14]/20 to-transparent p-4 flex flex-col justify-end text-center pb-6 md:pb-8">
+                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#33C3B3] mb-1 font-heading">
                   Warisan Abad ke-16
                 </span>
-                <h3 className="text-xl font-black text-white mb-0 font-heading">
+                <h3 className="text-lg md:text-xl font-black text-white mb-0 font-heading">
                   Tari Baksa Kembang
                 </h3>
               </div>
             </div>
           </div>
 
+          {/* KOLOM 1 */}
+          <div className="col-span-1 order-2 md:order-1 flex flex-col justify-center">
+            <div className="relative rounded-[24px] md:rounded-[32px] overflow-hidden h-[180px] md:h-[260px] bg-amber-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
+              <img
+                src="/budaya/motif bayam raj.webp"
+                alt="Wastra Sasirangan"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
+                Sasirangan
+              </span>
+            </div>
+          </div>
+
+          {/* KOLOM 2 */}
+          <div className="col-span-1 order-3 md:order-2 flex flex-col gap-3 md:gap-4">
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden h-[120px] md:h-[160px] bg-teal-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
+              <img
+                src="/budaya/atap bubungan tinggi.webp"
+                alt="Rumah Adat Bubungan Tinggi"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
+                Arsitektur
+              </span>
+            </div>
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden h-[120px] md:h-[160px] bg-yellow-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
+              <img
+                src="/budaya/anyaman-purun.webp"
+                alt="Anyaman Kayu Ulin"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
+                Anyaman
+              </span>
+            </div>
+          </div>
+
           {/* KOLOM 4 */}
-          <div className="col-span-1 flex flex-col gap-4">
-            <div className="relative rounded-2xl overflow-hidden h-[160px] bg-orange-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
+          <div className="col-span-1 order-4 md:order-4 flex flex-col gap-3 md:gap-4">
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden h-[120px] md:h-[160px] bg-orange-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#F4C038] transition-all duration-200">
               <img
                 src="/budaya/mamanda.webp"
                 alt="Teater Mamanda"
@@ -347,12 +315,11 @@ export default function Budaya() {
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute bottom-2 right-2 bg-[#091422]/90 text-[#008075] font-black text-[8px] px-2.5 py-1 rounded border border-white/10">
+              <span className="absolute bottom-2 right-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
                 Teater Mamanda
               </span>
             </div>
-
-            <div className="relative rounded-2xl overflow-hidden h-[160px] bg-sky-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden h-[120px] md:h-[160px] bg-sky-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
               <img
                 src="/budaya/tari-sinoman-hadrah-kolosal-lgjw.webp"
                 alt="Sinoman Hadrah"
@@ -360,75 +327,31 @@ export default function Budaya() {
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute bottom-2 right-2 bg-[#091422]/90 text-[#00A896] font-black text-[8px] px-2.5 py-1 rounded border border-white/10">
+              <span className="absolute bottom-2 right-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
                 Sinoman Hadrah
               </span>
             </div>
           </div>
 
           {/* KOLOM 5 */}
-          <div className="col-span-1 flex flex-col justify-center relative">
-            <div className="relative rounded-[32px] overflow-hidden h-[260px] bg-emerald-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
+          <div className="col-span-1 order-5 md:order-5 flex flex-col justify-center relative">
+            <div className="relative rounded-[24px] md:rounded-[32px] overflow-hidden h-[180px] md:h-[260px] bg-emerald-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
               <img
-                src="/budaya/motif kembang kacang.webp"
-                alt="Seni Kalimantan"
+                src="/budaya/panting.webp"
+                alt="Musik Panting"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute bottom-3 right-3 bg-[#091422]/90 text-[#00A896] font-black text-[9px] px-3 py-1 rounded-full shadow border border-white/10">
-                Wastra Motif
+              <span className="absolute bottom-2 right-2 md:bottom-3 md:right-3 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] md:text-[9px] px-2.5 py-1 rounded border border-white/10 shadow-md">
+                Musik Panting
               </span>
             </div>
           </div>
 
         </div>
 
-        {/* Mobile / Tablet View (Interactive Spotlight Banner & Tabs) */}
-        <div className="flex md:hidden flex-col items-center w-full pt-2 pb-6 px-1">
 
-          {/* Main Hero Card Spotlight */}
-          <div className="w-full h-[380px] sm:h-[420px] rounded-[32px] overflow-hidden relative shadow-2xl border border-white/15 bg-slate-900 transition-all duration-300">
-            <img
-              key={activeMobileHero.img}
-              src={activeMobileHero.img}
-              alt={activeMobileHero.title}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover animate-fadeIn"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#091422] via-[#091422]/50 to-transparent opacity-95" />
-
-            <div className="absolute bottom-6 left-5 right-5 text-left">
-              <span className="inline-block bg-[#F4C038] text-[#091422] font-black text-[10px] px-3 py-1 rounded-full mb-2 shadow-md uppercase tracking-wider">
-                {activeMobileHero.tag}
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-black text-white font-heading leading-tight mb-2 drop-shadow-md">
-                {activeMobileHero.title}
-              </h3>
-            </div>
-          </div>
-
-          {/* Interactive Spotlight Tabs */}
-          <div className="flex items-center justify-center flex-wrap gap-2 mt-5 w-full">
-            {mobileLookbookItems.map((item, idx) => {
-              const isActive = activeMobileHero.title === item.title;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveMobileHero(item)}
-                  className={`px-3.5 py-2 rounded-full text-xs font-bold font-heading transition-all duration-200 border ${isActive
-                      ? 'bg-[#F4C038] text-[#091422] border-[#F4C038] shadow-md scale-105'
-                      : 'bg-white/5 text-slate-300 border-white/10 hover:bg-white/10'
-                    }`}
-                >
-                  {item.tabName}
-                </button>
-              );
-            })}
-          </div>
-
-        </div>
 
       </section>
 
