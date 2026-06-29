@@ -14,7 +14,7 @@ const hotelCategories = {
       location: "Jl. Pangeran Antasari No. 86",
       desc: "Satu-satunya hotel bintang empat di Banjarmasin dengan akses dermaga kelotok pribadi dan teras restoran terbuka yang menghadap langsung ke aktivitas Sungai Martapura.",
       tag: "Dermaga Pribadi",
-      img: "/panduan/swiss_belhotel_borneo.png",
+      img: "/panduan/Swiss-Belhotel Borneo Banjarmasi.webp",
       mapsUrl: "https://maps.google.com/?q=Swiss-Belhotel+Borneo+Banjarmasin"
     },
     {
@@ -24,7 +24,7 @@ const hotelCategories = {
       location: "Jl. Veteran Sungai Bilu",
       desc: "Penginapan boutique berdesain interior kayu estetik. Punya kafe rooftop kekinian yang menjadi spot favorit pelancong muda untuk bersantai menikmati sunset sungai.",
       tag: "Boutique Rooftop",
-      img: "/panduan/summer_bed_breakfast.png",
+      img: "/panduan/Summer Bed & Breakfast.webp",
       mapsUrl: "https://maps.google.com/?q=Summer+Bed+and+Breakfast+Banjarmasin"
     }
   ],
@@ -36,7 +36,7 @@ const hotelCategories = {
       location: "Jl. Kapten Piere Tendean No. 10",
       desc: "Lokasi terbaik untuk pejalan kaki! Tepat di seberang Menara Pandang dan Siring Tendean. Keluar lobi hotel langsung masuk ke pusat keramaian wisata sungai dan jajanan.",
       tag: "1 Mnt ke Siring",
-      img: "/panduan/favehotel_tendean.png",
+      img: "/panduan/fave hotel.webp",
       mapsUrl: "https://maps.google.com/?q=Favehotel+Banjarmasin"
     },
     {
@@ -46,7 +46,7 @@ const hotelCategories = {
       location: "Jl. Lambung Mangkurat No. 48",
       desc: "Berada di pusat pemerintahan kota dengan pemandangan muara sungai yang tenang serta akses mudah ke pusat kuliner malam.",
       tag: "Pusat Kota",
-      img: "/panduan/victoria_hotel_river_view.png",
+      img: "/panduan/Victoria Hotel River View.webp",
       mapsUrl: "https://maps.google.com/?q=Hotel+Victoria+Banjarmasin"
     }
   ],
@@ -58,7 +58,7 @@ const hotelCategories = {
       location: "Jl. A. Yani Km 5.7",
       desc: "Nuansa resort tropis dengan kolam renang luas ala Bali. Sangat dekat dengan akses jalan protokol menuju Bandara Syamsudin Noor.",
       tag: "Resort & Bisnis",
-      img: "/panduan/rattan_inn_resort.png",
+      img: "/panduan/Rattan Inn & Resort.webp",
       mapsUrl: "https://maps.google.com/?q=Rattan+Inn+Banjarmasin"
     },
     {
@@ -68,7 +68,7 @@ const hotelCategories = {
       location: "Jl. A. Yani Km 2.5",
       desc: "Pusat kuliner Chinese & Western eksklusif di dalam hotel, berada di titik strategis pusat perdagangan dan perbelanjaan kota.",
       tag: "Kuliner Premium",
-      img: "/panduan/galaxy_hotel_banjarmasin.png",
+      img: "/panduan/galaxy hotel.webp",
       mapsUrl: "https://maps.google.com/?q=Galaxy+Hotel+Banjarmasin"
     }
   ]
@@ -125,22 +125,22 @@ export default function Panduan() {
       {/* =========================================================
           HERO SECTION: THE FLOATING 3D GUIDEBOOK ORNAMENT
           ========================================================= */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 max-w-[1240px] mx-auto min-h-[640px] flex items-center">
+      <section className="relative pt-32 pb-12 sm:pb-20 px-4 sm:px-6 max-w-[1240px] mx-auto flex items-center">
         {/* Glow Backgrounds - Hanya di Dark Mode */}
         <div className="hidden dark:block absolute top-1/4 left-10 w-72 h-72 bg-[#00A896]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="hidden dark:block absolute bottom-10 right-10 w-96 h-96 bg-[#F4C038]/15 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full relative z-10">
           
           {/* Left Column: Clear High-Impact Typography & Action Anchors */}
           <div className="lg:col-span-7 text-center lg:text-left animate-fadeIn">
-            <span className="inline-block bg-[#00A896]/20 text-[#00A896] border border-[#00A896]/40 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em] font-heading mb-4">
+            <span className="text-sm font-black uppercase tracking-widest text-[#F4C038] font-heading block mb-2">
               ✦ OFFICIAL SURVIVAL GUIDE 2026
             </span>
-            <h1 className="text-4xl sm:text-6xl font-black text-[var(--text-main)] font-heading leading-[1.1] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-[var(--text-main)] font-heading leading-tight mb-4 md:mb-6">
               Panduan &amp; Rute <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F4C038] via-amber-400 to-[#00A896]">Wisatawan</span>
             </h1>
-            <p className="text-sm sm:text-base text-[var(--text-muted)] font-body leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-sm md:text-base text-[var(--text-muted)] font-body leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
               Satu halaman komprehensif tanpa pengulangan informasi! Pelajari rute bus BRT bandara, kurasi hotel tepi sungai, etika budaya kelotok, hingga nomor panggilan darurat 24 jam.
             </p>
 
@@ -186,11 +186,11 @@ export default function Panduan() {
           </div>
 
           {/* Right Column: Decorative Animated 3D Book Graphic ("Cuman Hiasan Buku Animasi") */}
-          <div className="lg:col-span-5 flex items-center justify-center relative">
+          <div className="lg:col-span-5 flex items-center justify-center relative mt-12 lg:mt-0 pb-10 lg:pb-0">
             <motion.div
               animate={{ y: [-12, 12, -12], rotateZ: [-1, 1, -1] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-64 sm:w-80 h-80 sm:h-96 rounded-3xl bg-gradient-to-br from-[#1A2634] via-[#091422] to-[#121E28] border-2 border-[#F4C038]/40 shadow-[0_25px_70px_rgba(0,168,150,0.25)] flex flex-col items-center justify-center p-6 text-center transform -rotate-3"
+              className="relative w-[280px] sm:w-[320px] lg:w-80 h-[320px] sm:h-[360px] lg:h-96 rounded-3xl bg-gradient-to-br from-[#1A2634] via-[#091422] to-[#121E28] border-2 border-[#F4C038]/40 shadow-[0_25px_70px_rgba(0,168,150,0.25)] flex flex-col items-center justify-center p-6 text-center transform -rotate-3 mx-auto"
             >
               {/* Floating Orbiting Badges (Decorative Leaves) */}
               <motion.div
