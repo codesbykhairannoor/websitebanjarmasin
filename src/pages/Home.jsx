@@ -9,67 +9,67 @@ const showcaseItems = [
   {
     id: 0,
     shortTitle: "Sambutan",
-    icon: "🐵",
+    icon: "✨",
     title: "Selamat Datang di Banjarmasin!",
-    subtitle: "Ditemani Acil, Maskot Resmi Bekantan Kita 🐵",
-    desc: "Halo sanak! Saya Acil siap menemanimu menjelajahi keajaiban Kota Seribu Sungai. Mulai dari budaya terapung yang legendaris, kuliner rempah haruan yang menggugah selera, hingga pesona kota pintar yang asri dan baiman!",
-    tag: "✦ PORTAL RESMI KOTA BANJARMASIN",
-    price: "100% Eksplorasi Gratis",
-    btnText: "Mulai Petualangan Bareng Acil ➔",
+    subtitle: "Pusat Peradaban & Pesona Jantung Borneo",
+    desc: "Bersiaplah memulai penjelajahan tak terlupakan di Kota Seribu Sungai. Resapi eksotika budaya terapung yang melegenda, kelezatan rempah kuliner autentik, hingga pesona tata kota modern yang asri dan baiman.",
+    tag: "✦ GERBANG UTAMA KALIMANTAN",
+    price: "Eksplorasi Dimulai",
+    btnText: "Mulai Petualangan ➔",
     btnLink: "#wisata",
-    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp"
+    img: "/hero_sungai_martapura.webp"
   },
   {
     id: 1,
     shortTitle: "Sungai",
     icon: "🛶",
-    title: "Denyut Kehidupan di Atas Air",
-    subtitle: "Tradisi Pasar Terapung & Susur Sungai",
-    desc: "Saksikan keunikan transaksi barter di atas jukung tradisional di Lok Baintan saat fajar menyingsing, serta nikmati syahdunya senja menyusuri aliran sungai membelah jantung kota.",
-    tag: "✦ WISATA DAN PROFIL KOTA",
-    price: "Destinasi Ikonik",
+    title: "Eksotika Kehidupan di Atas Air",
+    subtitle: "Magisnya Fajar di Pasar Terapung & Susur Sungai",
+    desc: "Menyaksikan langsung denyut nadi perdagangan tradisional di atas perahu jukung saat fajar menyingsing, dan rasakan ketenangan batin ketika menyusuri aliran Sungai Martapura yang membelah keindahan kota.",
+    tag: "✦ DESTINASI IKONIK",
+    price: "Kearifan Lokal",
     btnText: "Buka Peta Wisata ➔",
     btnLink: "/wisata",
-    img: "/profil kota/sungai.webp"
+    img: "/hero_pasar_terapung.webp"
   },
   {
     id: 2,
     shortTitle: "Kuliner",
     icon: "🍜",
-    title: "Rempah Autentik Borneo",
-    subtitle: "Soto Banjar Keemasan & Ketupat Kandangan",
-    desc: "Manjakan lidahmu dengan perpaduan kaldu rempah kapulaga hangat, perkedel kentang lembut, serta aroma smokey khas ikan haruan asap panggang yang diwariskan turun-temurun.",
-    tag: "✦ EKSPLORASI KULINER",
-    price: "Kuliner Legendaris",
-    btnText: "Cicipi Kuliner Banjar ➔",
+    title: "Simfoni Rempah Autentik Borneo",
+    subtitle: "Kehangatan Soto Banjar & Ketupat Kandangan",
+    desc: "Sebuah mahakarya rasa dari paduan kaldu rempah kapulaga, kelembutan perkedel, dan aroma khas ikan haruan panggang yang resep aslinya dijaga ketat melintasi berbagai generasi.",
+    tag: "✦ WARISAN KULINER",
+    price: "Cita Rasa Legendaris",
+    btnText: "Cicipi Menu Banjar ➔",
     btnLink: "/kuliner",
-    img: "/kuliner/buras.webp"
+    img: "/hero_soto_banjar.webp"
   },
   {
     id: 3,
     shortTitle: "Budaya",
     icon: "🏛️",
-    title: "Adab & Karya Kain Sasirangan",
-    subtitle: "Sejarah Kesultanan Sejak Tahun 1526",
-    desc: "Mengagumi keanggunan motif kain Sasirangan dari pewarna serat kayu alami, keindahan Tari Baksa Kembang, dan kekokohan arsitektur kayu ulin Masjid Sultan Suriansyah.",
+    title: "Keanggunan Tradisi Leluhur",
+    subtitle: "Estetika Sasirangan & Jejak Kesultanan",
+    desc: "Menelusuri keagungan sejarah Kesultanan Banjar sejak tahun 1526, mengagumi kerumitan pola wastra Sasirangan pewarna alami, hingga menyaksikan kemegahan arsitektur kayu ulin peninggalan masa lalu.",
     tag: "✦ BUDAYA & SEJARAH",
-    price: "Warisan Leluhur",
+    price: "Jejak Peradaban",
     btnText: "Jelajahi Sejarah ➔",
     btnLink: "/sejarah",
-    img: "/budaya/motif bayam raj.webp"
+    img: "/hero_kain_sasirangan.webp"
   },
   {
     id: 4,
     shortTitle: "Inovasi",
     icon: "🚀",
-    title: "Banjarmasin Baiman & Pintar",
-    subtitle: "Integrasi Digital & Kelestarian Ekologi",
-    desc: "Menyatukan teknologi pelayanan publik digital melalui super-app Banjarmasin Pintar dengan kepedulian lingkungan real-time pemantauan sungai demi kota yang bersih dan nyaman.",
-    tag: "✦ DIGITALISASI KOTA",
-    price: "Layanan Terpadu",
-    btnText: "Masuk Ekosistem Smart City ➔",
+    title: "Smart City Seribu Sungai",
+    subtitle: "Integrasi Pelayanan Digital & Ekologi",
+    desc: "Wajah baru Banjarmasin yang memadukan ekosistem super-app pelayanan publik dengan komitmen pelestarian lingkungan sungai secara real-time, mewujudkan tata kota yang modern, bersih, dan inklusif.",
+    tag: "✦ BANJARMASIN PINTAR",
+    price: "Kota Masa Depan",
+    btnText: "Ekosistem Smart City ➔",
     btnLink: "/smart-city",
-    img: "/sejarah/banjarmasin baiman.webp"
+    img: "/hero_menara_pandang.webp"
   }
 ];
 
@@ -238,7 +238,7 @@ export default function Home() {
                       <span className="text-[#F4C038] font-heading font-extrabold text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase mb-1 sm:mb-2 block animate-fadeIn">
                         {item.tag}
                       </span>
-                      <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-2 sm:mb-3 drop-shadow-md animate-fadeIn">
+                      <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-2 sm:mb-3 drop-shadow-md animate-fadeIn text-white">
                         {item.title}
                       </h1>
                       <p className="text-sm sm:text-base md:text-xl font-bold text-sasirangan mb-2 sm:mb-4 font-heading animate-fadeIn">
