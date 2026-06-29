@@ -111,8 +111,21 @@ export default function Sejarah() {
 
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 relative flex flex-col items-center">
           
-          {/* Asymmetric Horizontal Collage Row (Sejejer Ga Simetris) */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 w-full max-w-6xl mx-auto mb-16 pt-10 items-start justify-items-center">
+          {/* Typography Box (Teks duluan di atas) */}
+          <div className="relative z-30 text-center w-full max-w-3xl px-4 pt-4 mb-12 sm:mb-16 animate-fade-in">
+            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-3 font-heading">
+              ✦ LINTAS WAKTU 1526 — KINI
+            </span>
+            <h1 className="hero-title !mb-4 text-4xl sm:text-5xl lg:text-6xl font-black">
+              Menyelami <span className="text-sasirangan">Sejarah</span>
+            </h1>
+            <p className="hero-subtitle mx-auto !mb-0 !max-w-2xl text-sm sm:text-base leading-relaxed text-[var(--text-muted)]">
+              Berawal dari bandar rempah di muara Sungai Barito, Banjarmasin telah berevolusi melewati berbagai zaman—dari era Kesultanan Banjar yang masyhur hingga menjadi Metropolitan Seribu Sungai saat ini.
+            </p>
+          </div>
+
+          {/* Asymmetric Horizontal Collage Row (Baru di bawahnya gambar) */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 w-full max-w-6xl mx-auto pt-4 pb-6 items-start justify-items-center">
             
             {/* Frame 1 */}
             <div className="transform -rotate-3 lg:-translate-y-6 hover:rotate-0 transition-all duration-500">
@@ -150,19 +163,6 @@ export default function Sejarah() {
               />
             </div>
 
-          </div>
-
-          {/* Typography Box (Teks Di Bawahnya) */}
-          <div className="relative z-30 text-center w-full max-w-3xl px-4 mt-6 lg:mt-10 animate-fade-in">
-            <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-3 font-heading">
-              ✦ LINTAS WAKTU 1526 — KINI
-            </span>
-            <h1 className="hero-title !mb-4 text-4xl sm:text-5xl lg:text-6xl font-black">
-              Menyelami <span className="text-sasirangan">Sejarah</span>
-            </h1>
-            <p className="hero-subtitle mx-auto !mb-0 !max-w-2xl text-sm sm:text-base leading-relaxed text-[var(--text-muted)]">
-              Berawal dari bandar rempah di muara Sungai Barito, Banjarmasin telah berevolusi melewati berbagai zaman—dari era Kesultanan Banjar yang masyhur hingga menjadi Metropolitan Seribu Sungai saat ini.
-            </p>
           </div>
 
         </div>
