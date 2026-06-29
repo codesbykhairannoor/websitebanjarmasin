@@ -111,9 +111,8 @@ export default function Sejarah() {
 
         <div className="max-w-[1400px] mx-auto px-4 relative min-h-[640px] lg:min-h-[750px] flex flex-col md:flex-row items-start justify-center pt-4 md:pt-10">
           
-          {/* Desktop Left Group (3 Frames) */}
-          <div className="hidden md:block absolute left-2 lg:left-8 top-4 w-full max-w-[360px] pointer-events-none">
-            {/* Frame 1: Top Left Outer */}
+          {/* Desktop Left Frames (Outer & Inner) */}
+          <div className="hidden md:block absolute left-2 lg:left-8 top-4 w-full max-w-[320px] pointer-events-none">
             <div className="pointer-events-auto">
               <HangingFrame 
                 src="/sejarah/Kesultanan-Banjar.webp" 
@@ -122,22 +121,12 @@ export default function Sejarah() {
                 height="h-[250px] lg:h-[330px]"
               />
             </div>
-            {/* Frame 2: Middle Left Inner */}
             <div className="pointer-events-auto">
               <HangingFrame 
                 src="/sejarah/PERANG_BANJAR_1857-1859.webp" 
                 className="absolute left-28 lg:left-44 top-48 lg:top-60 z-20 rotate-2"
                 width="w-[170px] lg:w-[220px]"
                 height="h-[230px] lg:h-[290px]"
-              />
-            </div>
-            {/* Frame 3 (NEW): Bottom Left Center */}
-            <div className="pointer-events-auto">
-              <HangingFrame 
-                src="/sejarah/bendera-merah-putih.webp" 
-                className="absolute left-8 lg:left-20 top-[360px] lg:top-[450px] z-10 -rotate-2"
-                width="w-[160px] lg:w-[210px]"
-                height="h-[220px] lg:h-[280px]"
               />
             </div>
           </div>
@@ -155,9 +144,28 @@ export default function Sejarah() {
             </p>
           </div>
 
-          {/* Desktop Right Group (3 Frames) */}
-          <div className="hidden md:block absolute right-2 lg:right-8 top-0 w-full max-w-[360px] pointer-events-none">
-            {/* Frame 4: Top Right Outer */}
+          {/* Desktop Center-Bottom Gap Frames (Precisely filling the empty center void below text) */}
+          <div className="hidden md:flex absolute left-0 right-0 top-[270px] lg:top-[310px] justify-center items-start gap-8 lg:gap-16 pointer-events-none z-20 px-4">
+            <div className="pointer-events-auto transform -rotate-3 hover:rotate-0 transition-transform duration-500 -translate-x-6 lg:-translate-x-10">
+              <HangingFrame 
+                src="/sejarah/bendera-merah-putih.webp" 
+                className="relative shadow-2xl"
+                width="w-[170px] lg:w-[220px]"
+                height="h-[230px] lg:h-[290px]"
+              />
+            </div>
+            <div className="pointer-events-auto transform rotate-3 hover:rotate-0 transition-transform duration-500 translate-x-6 lg:translate-x-10">
+              <HangingFrame 
+                src="/profil kota/pelabuhan trisakti.webp" 
+                className="relative shadow-2xl"
+                width="w-[170px] lg:w-[220px]"
+                height="h-[230px] lg:h-[290px]"
+              />
+            </div>
+          </div>
+
+          {/* Desktop Right Frames (Outer & Inner) */}
+          <div className="hidden md:block absolute right-2 lg:right-8 top-0 w-full max-w-[320px] pointer-events-none">
             <div className="pointer-events-auto">
               <HangingFrame 
                 src="/sejarah/250px-Lukisan_Sultan_Suriansyah.webp" 
@@ -166,22 +174,12 @@ export default function Sejarah() {
                 height="h-[250px] lg:h-[330px]"
               />
             </div>
-            {/* Frame 5: Middle Right Inner */}
             <div className="pointer-events-auto">
               <HangingFrame 
                 src="/sejarah/pangeran antasari.webp" 
                 className="absolute right-28 lg:right-44 top-44 lg:top-56 z-20 -rotate-2"
                 width="w-[170px] lg:w-[220px]"
                 height="h-[230px] lg:h-[290px]"
-              />
-            </div>
-            {/* Frame 6 (NEW): Bottom Right Center */}
-            <div className="pointer-events-auto">
-              <HangingFrame 
-                src="/profil kota/pelabuhan trisakti.webp" 
-                className="absolute right-8 lg:right-20 top-[350px] lg:top-[440px] z-10 rotate-2"
-                width="w-[160px] lg:w-[210px]"
-                height="h-[220px] lg:h-[280px]"
               />
             </div>
           </div>
