@@ -195,6 +195,160 @@ const InteractivePillarSpotlight = () => {
   );
 };
 
+const MobileNakhodaShowcase = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const leaders = [
+    {
+      role: "Wali Kota",
+      fullName: "H. Muh. Yamin HR",
+      color: "#F4C038",
+      desc: "Memimpin dengan visi tata kelola sungai terpadu, penataan ruang publik modern, serta menghadirkan pelayanan birokrasi yang tanggap dan dekat dengan masyarakat.",
+      points: [
+        "Tata Kelola Sungai Berkelanjutan",
+        "Digitalisasi Pelayanan Publik",
+        "Pembangunan Infrastruktur Baiman"
+      ],
+      img: "/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp"
+    },
+    {
+      role: "Wakil Wali Kota",
+      fullName: "Hj. Ananda",
+      color: "#33C3B3",
+      desc: "Mengawal pemberdayaan ekonomi kreatif lokal, peningkatan kualitas sumber daya manusia, perlindungan perempuan & anak, serta akselerasi UMKM berdaya saing tinggi.",
+      points: [
+        "Akselerasi UMKM & Ekonomi Kreatif",
+        "Pemberdayaan Perempuan & Anak",
+        "Peningkatan SDM Generasi Cerdas"
+      ],
+      img: "/profil kota/Wakil_Wali_Kota_Banjarmasin_Anan.webp"
+    }
+  ];
+  const active = leaders[activeTab];
+
+  return (
+    <div className="lg:hidden w-full pt-8">
+      {/* Interactive Tabs */}
+      <div className="flex p-1.5 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-2xl mb-8 max-w-sm mx-auto shadow-lg">
+        {leaders.map((ldr, idx) => (
+          <button
+            key={idx}
+            onClick={() => setActiveTab(idx)}
+            className={`flex-1 py-3 px-3 rounded-xl font-heading font-black text-xs sm:text-sm transition-all duration-300 ${
+              activeTab === idx
+                ? idx === 0 
+                  ? "bg-[#F4C038] text-[#091422] shadow-md scale-105" 
+                  : "bg-[#33C3B3] text-[#091422] shadow-md scale-105"
+                : "text-[var(--text-muted)] hover:text-[var(--text-main)]"
+            }`}
+          >
+            {ldr.role}
+          </button>
+        ))}
+      </div>
+
+      {/* Grounded Showcase Card */}
+      <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl pt-8 px-6 sm:px-8 shadow-2xl flex flex-col justify-between overflow-hidden transition-all duration-500">
+        <div className="text-left mb-8">
+          <span className="inline-block font-bold text-xs uppercase tracking-widest mb-1" style={{ color: active.color }}>
+            {active.role} Banjarmasin
+          </span>
+          <h3 className="text-3xl font-black text-[var(--text-main)] font-heading mb-4">
+            {active.fullName}
+          </h3>
+          <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
+            {active.desc}
+          </p>
+          <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs font-semibold text-[var(--text-main)]">
+            {active.points.map((pt, pIdx) => (
+              <div key={pIdx} className="flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: active.color }} />
+                <span>{pt}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Photo touching the exact bottom border */}
+        <div className="relative w-64 sm:w-72 h-[360px] sm:h-[400px] mx-auto rounded-t-3xl overflow-hidden border-t-2 border-x-2 shadow-2xl self-end mt-auto" style={{ borderColor: active.color }}>
+          <img 
+            loading="lazy" 
+            src={active.img} 
+            alt={active.fullName} 
+            className="w-full h-full object-cover object-top transition-transform duration-700" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+          <div className="absolute bottom-5 left-0 right-0 text-center px-2">
+            <p className="text-white font-black text-base tracking-wide drop-shadow-md">{active.fullName}</p>
+            <p className="font-bold text-[10px] uppercase tracking-widest mt-0.5" style={{ color: active.color }}>{active.role}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const LambangDaerahShowcase = () => {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const items = [
+    { title: "Bentuk Perisai", desc: "Persatuan kuat Dayak & Banjar dalam melestarikan pertahanan serta keamanan kota.", icon: "🛡️" },
+    { title: "Warna Emas", desc: "Simbol kejayaan, keluhuran budi pekerti, dan kesuburan alam Banua Banjar.", icon: "✨" },
+    { title: "Bubungan Tinggi", desc: "Ikon arsitektur rumah adat khas Banjar yang mencerminkan martabat & keanggunan adat.", icon: "🏛️" },
+    { title: "Perahu Tambangan", desc: "Urat nadi transportasi dan ekonomi perairan sungai yang menggerakkan kehidupan warga.", icon: "🛶" },
+    { title: "Daun Nipah", desc: "Kemandirian dan adaptasi tinggi masyarakat yang hidup berdampingan dengan ekosistem rawa.", icon: "🌿" },
+    { title: "Kayuh Baimbai", desc: "Semangat mendayung bersama dan gotong royong warga mewujudkan kemajuan kota.", icon: "🚣" }
+  ];
+  const active = items[activeIdx];
+
+  return (
+    <div className="max-w-6xl mx-auto px-4">
+      {/* Top Layout: Center Logo Showcase */}
+      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 mb-12 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl sm:rounded-[40px] p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <div className="absolute -right-10 -bottom-10 w-80 h-80 bg-[#F4C038]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -left-10 -top-10 w-80 h-80 bg-[#33C3B3]/10 rounded-full blur-3xl pointer-events-none" />
+        
+        {/* Emblem Image */}
+        <div className="w-48 sm:w-60 shrink-0 relative group flex justify-center py-2">
+          <img loading="lazy" src="/profil kota/LOGO KOTA BANJARMASIN - 328 KB.webp" alt="Lambang Kota Banjarmasin" className="w-full h-auto object-contain drop-shadow-[0_0_35px_rgba(244,192,56,0.4)] group-hover:scale-105 transition-transform duration-500" />
+        </div>
+
+        {/* Dynamic Spotlight Details */}
+        <div className="flex-1 text-center lg:text-left z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F4C038]/15 border border-[#F4C038]/30 text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-4">
+            <span>{active.icon}</span> Makna Filosofis #{activeIdx + 1}
+          </div>
+          <h3 className="text-2xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
+            {active.title}
+          </h3>
+          <p className="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed max-w-2xl">
+            {active.desc}
+          </p>
+        </div>
+      </div>
+
+      {/* Interactive Tabs Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        {items.map((item, idx) => {
+          const isSelected = activeIdx === idx;
+          return (
+            <button
+              key={idx}
+              onClick={() => setActiveIdx(idx)}
+              className={`p-4 rounded-2xl border flex flex-col items-center text-center transition-all duration-300 cursor-pointer ${
+                isSelected 
+                  ? "bg-[#33C3B3] text-[#091422] border-[#33C3B3] shadow-lg shadow-[#33C3B3]/25 scale-105 font-black" 
+                  : "bg-[var(--card-bg)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#F4C038]"
+              }`}
+            >
+              <span className="text-2xl sm:text-3xl mb-2 block">{item.icon}</span>
+              <span className="text-xs sm:text-sm font-bold tracking-tight line-clamp-1">{item.title}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 
 export default function ProfilKota() {
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
@@ -438,82 +592,8 @@ export default function ProfilKota() {
 
           </div>
 
-          {/* MOBILE & TABLET VIEW (< Large screens): Direct Typography & Grounded Photos */}
-          <div className="flex flex-col gap-16 lg:hidden">
-            
-            {/* Wali Kota Mobile Section */}
-            <div className="flex flex-col sm:flex-row items-end gap-8 border-b border-[var(--glass-border)] pb-0">
-              <div className="flex-1 text-left pb-8 sm:pb-12">
-                <span className="inline-block text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-2">
-                  Wali Kota
-                </span>
-                <h3 className="text-3xl font-black text-[var(--text-main)] font-heading mb-3">
-                  H. Muh. Yamin HR
-                </h3>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-4">
-                  Fokus pada tata kelola sungai terpadu, infrastruktur berkelanjutan, dan pelayanan birokrasi yang responsif terhadap warga.
-                </p>
-                <div className="space-y-2 text-xs font-semibold text-[var(--text-main)]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4C038]" /> Tata Kelola Sungai Terpadu
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4C038]" /> Birokrasi Responsif & Cepat
-                  </div>
-                </div>
-              </div>
-              <div className="relative w-64 sm:w-60 h-[380px] sm:h-[420px] shrink-0 mx-auto sm:mx-0 rounded-t-3xl overflow-hidden border-t-2 border-x-2 border-[#F4C038]/60 shadow-xl self-end">
-                <img 
-                  loading="lazy" 
-                  src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" 
-                  alt="H. Muh. Yamin HR" 
-                  className="w-full h-full object-cover object-top" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-0 right-0 text-center px-2">
-                  <p className="text-white font-black text-sm tracking-wide">H. Muh. Yamin HR</p>
-                  <p className="text-[#F4C038] font-bold text-[10px] uppercase tracking-widest mt-0.5">Wali Kota</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Wakil Wali Kota Mobile Section */}
-            <div className="flex flex-col sm:flex-row items-end gap-8 pb-0">
-              <div className="flex-1 text-left pb-8 sm:pb-12">
-                <span className="inline-block text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-2">
-                  Wakil Wali Kota
-                </span>
-                <h3 className="text-3xl font-black text-[var(--text-main)] font-heading mb-3">
-                  Hj. Ananda
-                </h3>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-4">
-                  Mengawal ekosistem ekonomi kreatif berdaya saing, pembedayaan perempuan, dan akselerasi UMKM untuk generasi masa depan.
-                </p>
-                <div className="space-y-2 text-xs font-semibold text-[var(--text-main)]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#33C3B3]" /> Ekonomi Kreatif & UMKM
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#33C3B3]" /> Pemberdayaan Perempuan & SDM
-                  </div>
-                </div>
-              </div>
-              <div className="relative w-64 sm:w-60 h-[380px] sm:h-[420px] shrink-0 mx-auto sm:mx-0 rounded-t-3xl overflow-hidden border-t-2 border-x-2 border-[#33C3B3]/60 shadow-xl self-end">
-                <img 
-                  loading="lazy" 
-                  src="/profil kota/Wakil_Wali_Kota_Banjarmasin_Anan.webp" 
-                  alt="Hj. Ananda" 
-                  className="w-full h-full object-cover object-top" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-0 right-0 text-center px-2">
-                  <p className="text-white font-black text-sm tracking-wide">Hj. Ananda</p>
-                  <p className="text-[#33C3B3] font-bold text-[10px] uppercase tracking-widest mt-0.5">Wakil Wali Kota</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
+          {/* MOBILE & TABLET VIEW (< Large screens): Interactive Leadership Showcase */}
+          <MobileNakhodaShowcase />
 
         </div>
       </section>
@@ -647,43 +727,7 @@ export default function ProfilKota() {
           </h2>
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="relative w-full h-auto lg:h-[700px] flex flex-col lg:block items-center justify-center gap-6">
-            
-            {/* Center Emblem */}
-            <div className="relative w-48 h-64 md:w-56 md:h-72 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-20 group flex justify-center items-center">
-              <div className="w-full h-full relative group-hover:scale-105 transition-transform duration-700 flex justify-center items-center">
-                 <img loading="lazy" src="/profil kota/LOGO KOTA BANJARMASIN - 328 KB.webp" alt="Lambang Kota Banjarmasin" className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(244,192,56,0.4)]" />
-              </div>
-            </div>
-
-            {/* Circular Items */}
-            {[
-              { id: 1, title: "Bentuk Perisai", desc: "Persatuan kuat Dayak & Banjar.", icon: "🛡️", pos: "lg:top-0 lg:left-1/2 lg:-translate-x-1/2" },
-              { id: 2, title: "Warna Emas", desc: "Simbol kejayaan & kesuburan.", icon: "✨", pos: "lg:top-[15%] lg:right-0 lg:translate-x-4" },
-              { id: 3, title: "Bubungan Tinggi", desc: "Ikon arsitektur khas Banjar.", icon: "🏛️", pos: "lg:bottom-[15%] lg:right-0 lg:translate-x-4" },
-              { id: 4, title: "Perahu Tambangan", desc: "Urat nadi ekonomi perairan.", icon: "🛶", pos: "lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2" },
-              { id: 5, title: "Daun Nipah", desc: "Kemandirian dari alam rawa.", icon: "🌿", pos: "lg:bottom-[15%] lg:left-0 lg:-translate-x-4" },
-              { id: 6, title: "Kayuh Baimbai", desc: "Semangat gotong royong.", icon: "🚣", pos: "lg:top-[15%] lg:left-0 lg:-translate-x-4" }
-            ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className={`lg:absolute w-full sm:w-80 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 shadow-xl hover:shadow-[0_0_30px_rgba(51,195,179,0.3)] hover:border-[#33C3B3] transition-all duration-500 z-10 flex items-center gap-4 ${item.pos}`}
-              >
-                <div className="w-14 h-14 shrink-0 rounded-2xl bg-[var(--bg-main)] border border-[var(--glass-border)] flex items-center justify-center text-2xl shadow-inner">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-black text-[var(--text-main)] font-heading mb-1">{item.title}</h3>
-                  <p className="text-[var(--text-muted)] font-body text-sm leading-snug">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-
-          </div>
-        </div>
+        <LambangDaerahShowcase />
       </section>
 
       {/* =========================================================
