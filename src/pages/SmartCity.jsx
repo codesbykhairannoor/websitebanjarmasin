@@ -142,25 +142,38 @@ export default function SmartCity() {
           ))}
         </div>
 
-        {/* Mobile Stacked Pillars */}
-        <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 pt-6 max-w-lg mx-auto">
-          {pillarsData.map((pillar) => (
-            <div
-              key={pillar.id}
-              className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-xl flex flex-col h-[340px]"
-            >
-              <div className={`p-5 bg-gradient-to-br ${pillar.gradient} text-white flex items-center justify-between`}>
-                <div>
-                  <h3 className="font-heading font-black text-lg">{pillar.title}</h3>
-                  <span className="text-xs text-white/90">{pillar.subtitle}</span>
+        {/* Mobile Horizontal Swipe Showcase Pillars */}
+        <div className="md:hidden pt-4 pb-8 px-4">
+          <div className="flex items-center justify-between mb-3 px-2">
+            <span className="text-xs font-bold font-heading text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#33C3B3] animate-pulse"></span> Geser Pilar Smart City ➔
+            </span>
+          </div>
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 scrollbar-none">
+            {pillarsData.map((pillar) => (
+              <div
+                key={pillar.id}
+                className="w-[280px] sm:w-[320px] h-[260px] shrink-0 snap-center bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[28px] overflow-hidden shadow-xl flex flex-col justify-between relative group"
+              >
+                <img src={pillar.img} alt={pillar.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 -z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#091422] via-[#091422]/60 to-transparent -z-10" />
+                
+                <div className="p-4 flex justify-end">
+                  <span className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow border border-white/20 text-white">
+                    {pillar.icon}
+                  </span>
                 </div>
-                <span className="text-3xl">{pillar.icon}</span>
+
+                <div className="p-5 text-white">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-white/20 backdrop-blur-md text-white mb-2">
+                    Pilar 0{pillar.id}
+                  </span>
+                  <h3 className="font-heading font-black text-xl leading-tight text-white mb-1">{pillar.title}</h3>
+                  <p className="text-xs text-white/80 font-body line-clamp-2">{pillar.subtitle}</p>
+                </div>
               </div>
-              <div className="flex-1 relative overflow-hidden">
-                <img src={pillar.img} alt={pillar.title} loading="lazy" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
@@ -171,117 +184,119 @@ export default function SmartCity() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-6 space-y-6">
-              <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] px-3 py-1 rounded-full bg-[#33C3B3]/10 border border-[#33C3B3]/30 font-heading">
+            <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
+              <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] px-3.5 py-1.5 rounded-full bg-[#33C3B3]/10 border border-[#33C3B3]/30 font-heading shadow-sm">
                 ✦ SUPER APPS RESMI PEMKO
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
                 Satu Akun SSO untuk <br/><span className="text-[#F4C038]">Semua Layanan Warga</span>
               </h2>
-              <p className="text-[var(--text-muted)] font-body leading-relaxed text-sm sm:text-base">
+              <p className="text-[var(--text-muted)] font-body leading-relaxed text-sm sm:text-base max-w-xl mx-auto lg:mx-0">
                 Pemerintah Kota Banjarmasin menghadirkan <strong className="text-[var(--text-main)] font-black">Banjarmasin Pintar</strong> (Versi 3) sebagai pusat integrasi puluhan aplikasi SKPD. Dengan teknologi <span className="text-[var(--text-main)] font-bold">Single Sign-On (SSO)</span> berbasis NIK-KTP, warga cukup mendaftar satu kali untuk menikmati kemudahan pengurusan dokumen, antrean kesehatan, hingga pemantauan lalu lintas secara real-time.
               </p>
 
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)]">
-                  <span className="text-2xl font-black text-[#33C3B3] font-heading block mb-1">SSO NIK</span>
+              <div className="grid grid-cols-2 gap-4 pt-2 max-w-md mx-auto lg:mx-0">
+                <div className="p-4 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-md text-left">
+                  <span className="text-xl sm:text-2xl font-black text-[#33C3B3] font-heading block mb-1">SSO NIK</span>
                   <span className="text-xs text-[var(--text-muted)] font-bold">Integrasi KTP Elektronik</span>
                 </div>
-                <div className="p-4 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)]">
-                  <span className="text-2xl font-black text-[#F4C038] font-heading block mb-1">Versi 3.0</span>
+                <div className="p-4 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-md text-left">
+                  <span className="text-xl sm:text-2xl font-black text-[#F4C038] font-heading block mb-1">Versi 3.0</span>
                   <span className="text-xs text-[var(--text-muted)] font-bold">Super-App Generasi Terbaru</span>
                 </div>
               </div>
 
-              <div className="pt-4 flex flex-wrap gap-4 items-center">
+              <div className="pt-4 flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
                 <a
                   href="https://play.google.com/store/search?q=banjarmasin+pintar&c=apps"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#008075] hover:bg-[#00665e] text-white font-black px-6 py-3.5 rounded-2xl shadow-lg flex items-center gap-3 transition-all transform hover:-translate-y-1 text-sm sm:text-base"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#008075] to-[#00A896] hover:from-[#00665e] hover:to-[#008075] text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-teal-500/25 transition-all transform hover:-translate-y-1 text-sm sm:text-base"
                 >
-                  <span>📱</span> Unduh Banjarmasin Pintar di Google Play
+                  <span className="text-xl">📱</span> Unduh Banjarmasin Pintar di Google Play
                 </a>
               </div>
             </div>
 
             {/* Interactive App Drawer Simulation */}
-            <div className="lg:col-span-6 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[36px] p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div className="lg:col-span-6 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[36px] p-5 sm:p-8 shadow-2xl relative overflow-hidden">
               <div className="flex items-center justify-between border-b border-[var(--glass-border)] pb-4 mb-6">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2.5">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-amber-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-xs font-bold font-heading text-[var(--text-muted)] uppercase tracking-wider">Simulasi Menu Super-App</span>
+                <span className="text-xs font-bold font-heading text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1.5">
+                  <span>💫</span> Simulasi Menu Super-App
+                </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 mb-6">
                 <button
                   onClick={() => setActiveAppTab("parakAcil")}
-                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                  className={`p-3 rounded-2xl border flex items-center gap-2.5 text-left transition-all ${
                     activeAppTab === "parakAcil"
-                      ? 'bg-[#F4C038] text-[#091422] border-[#F4C038] shadow-md scale-105'
-                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                      ? 'bg-gradient-to-r from-[#F4C038] to-[#f5b014] text-[#091422] border-transparent shadow-lg shadow-amber-500/25 scale-[1.02]'
+                      : 'bg-[var(--bg-main)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#F4C038]/50 shadow-sm opacity-90 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-2xl">📋</span>
-                  <span className="font-heading font-black text-xs text-center">Parak Acil</span>
+                  <span className="w-8 h-8 rounded-xl bg-black/10 dark:bg-white/10 flex items-center justify-center text-lg shrink-0">📋</span>
+                  <span className="font-heading font-black text-xs leading-tight line-clamp-1">Parak Acil</span>
                 </button>
                 <button
                   onClick={() => setActiveAppTab("baApik")}
-                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                  className={`p-3 rounded-2xl border flex items-center gap-2.5 text-left transition-all ${
                     activeAppTab === "baApik"
-                      ? 'bg-[#00A896] text-white border-[#00A896] shadow-md scale-105'
-                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                      ? 'bg-gradient-to-r from-[#00A896] to-[#008075] text-white border-transparent shadow-lg shadow-teal-500/25 scale-[1.02]'
+                      : 'bg-[var(--bg-main)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#00A896]/50 shadow-sm opacity-90 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-2xl">🏥</span>
-                  <span className="font-heading font-black text-xs text-center">BaApik RS</span>
+                  <span className="w-8 h-8 rounded-xl bg-white/20 dark:bg-black/10 flex items-center justify-center text-lg shrink-0">🏥</span>
+                  <span className="font-heading font-black text-xs leading-tight line-clamp-1">BaApik RS</span>
                 </button>
                 <button
                   onClick={() => setActiveAppTab("salamRindu")}
-                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                  className={`p-3 rounded-2xl border flex items-center gap-2.5 text-left transition-all ${
                     activeAppTab === "salamRindu"
-                      ? 'bg-[#33C3B3] text-[#091422] border-[#33C3B3] shadow-md scale-105'
-                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                      ? 'bg-gradient-to-r from-[#33C3B3] to-[#2aa698] text-[#091422] border-transparent shadow-lg shadow-teal-400/25 scale-[1.02]'
+                      : 'bg-[var(--bg-main)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]/50 shadow-sm opacity-90 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-2xl">📄</span>
-                  <span className="font-heading font-black text-xs text-center">SALAM-RINDU</span>
+                  <span className="w-8 h-8 rounded-xl bg-black/10 dark:bg-white/10 flex items-center justify-center text-lg shrink-0">📄</span>
+                  <span className="font-heading font-black text-xs leading-tight line-clamp-1">SALAM-RINDU</span>
                 </button>
                 <button
                   onClick={() => setActiveAppTab("siSintal")}
-                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                  className={`p-3 rounded-2xl border flex items-center gap-2.5 text-left transition-all ${
                     activeAppTab === "siSintal"
-                      ? 'bg-[#9D4EDD] text-white border-[#9D4EDD] shadow-md scale-105'
-                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                      ? 'bg-gradient-to-r from-[#9D4EDD] to-[#7b36b3] text-white border-transparent shadow-lg shadow-purple-500/25 scale-[1.02]'
+                      : 'bg-[var(--bg-main)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#9D4EDD]/50 shadow-sm opacity-90 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-2xl">🎁</span>
-                  <span className="font-heading font-black text-xs text-center">SI-SINTAL</span>
+                  <span className="w-8 h-8 rounded-xl bg-white/20 dark:bg-black/10 flex items-center justify-center text-lg shrink-0">🎁</span>
+                  <span className="font-heading font-black text-xs leading-tight line-clamp-1">SI-SINTAL</span>
                 </button>
                 <button
                   onClick={() => setActiveAppTab("epbb")}
-                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                  className={`p-3 rounded-2xl border flex items-center gap-2.5 text-left transition-all ${
                     activeAppTab === "epbb"
-                      ? 'bg-[#219EBC] text-white border-[#219EBC] shadow-md scale-105'
-                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                      ? 'bg-gradient-to-r from-[#219EBC] to-[#187890] text-white border-transparent shadow-lg shadow-cyan-500/25 scale-[1.02]'
+                      : 'bg-[var(--bg-main)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#219EBC]/50 shadow-sm opacity-90 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-2xl">💳</span>
-                  <span className="font-heading font-black text-xs text-center">e-PBB & Pajak</span>
+                  <span className="w-8 h-8 rounded-xl bg-white/20 dark:bg-black/10 flex items-center justify-center text-lg shrink-0">💳</span>
+                  <span className="font-heading font-black text-xs leading-tight line-clamp-1">e-PBB & Pajak</span>
                 </button>
                 <button
                   onClick={() => setActiveAppTab("elapor")}
-                  className={`p-3.5 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all ${
+                  className={`p-3 rounded-2xl border flex items-center gap-2.5 text-left transition-all ${
                     activeAppTab === "elapor"
-                      ? 'bg-[#E63946] text-white border-[#E63946] shadow-md scale-105'
-                      : 'bg-[var(--bg-main)]/50 text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#33C3B3]'
+                      ? 'bg-gradient-to-r from-[#E63946] to-[#c22d39] text-white border-transparent shadow-lg shadow-red-500/25 scale-[1.02]'
+                      : 'bg-[var(--bg-main)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-[#E63946]/50 shadow-sm opacity-90 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-2xl">📣</span>
-                  <span className="font-heading font-black text-xs text-center">E-Lapor 112</span>
+                  <span className="w-8 h-8 rounded-xl bg-white/20 dark:bg-black/10 flex items-center justify-center text-lg shrink-0">📣</span>
+                  <span className="font-heading font-black text-xs leading-tight line-clamp-1">E-Lapor 112</span>
                 </button>
               </div>
 
@@ -292,66 +307,71 @@ export default function SmartCity() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-[var(--bg-main)] p-6 rounded-2xl border border-[var(--glass-border)]"
+                  className="bg-[var(--bg-main)] p-6 sm:p-7 rounded-2xl border border-[var(--glass-border)] shadow-inner relative overflow-hidden"
                 >
+                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-[var(--glass-border)] text-[10px] font-extrabold tracking-widest uppercase text-[var(--text-muted)]">
+                    <span>⚡ Single Sign-On NIK</span>
+                    <span className="text-emerald-500 flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Terhubung SKPD</span>
+                  </div>
+
                   {activeAppTab === "parakAcil" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#F4C038] uppercase tracking-widest block mb-1">Disdukcapil Banjarmasin</span>
-                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">Parak Acil Online</h4>
-                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                      <span className="text-[10px] font-extrabold text-[#F4C038] uppercase tracking-widest block mb-1">Disdukcapil Banjarmasin</span>
+                      <h4 className="font-heading font-black text-xl text-[var(--text-main)] mb-2">Parak Acil Online</h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed mb-5">
                         Pelayanan Pendaftaran Penduduk dan Pencatatan Sipil Online. Warga dapat mengajukan cetak KTP-el, Kartu Keluarga, Akta Kelahiran, dan KIA langsung dari ponsel terintegrasi di menu Super-App.
                       </p>
-                      <span className="text-xs font-bold text-[#33C3B3]">Layanan administrasi tanpa antre ✓</span>
+                      <span className="inline-block bg-[#F4C038]/15 text-[#F4C038] border border-[#F4C038]/30 px-3.5 py-1.5 rounded-xl text-xs font-bold">Layanan administrasi tanpa antre ✓</span>
                     </div>
                   )}
                   {activeAppTab === "baApik" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#00A896] uppercase tracking-widest block mb-1">Dinkes & RSUD Sultan Suriansyah</span>
-                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">Aplikasi BaApik</h4>
-                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                      <span className="text-[10px] font-extrabold text-[#00A896] uppercase tracking-widest block mb-1">Dinkes & RSUD Sultan Suriansyah</span>
+                      <h4 className="font-heading font-black text-xl text-[var(--text-main)] mb-2">Aplikasi BaApik</h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed mb-5">
                         Banjarmasin Aplikasi Pasien Internal Kesehatan. Mempermudah pendaftaran berobat online, cek jadwal dokter, dan reservasi nomor antrean di seluruh Puskesmas dan RSUD Kota Banjarmasin secara presisi.
                       </p>
-                      <span className="text-xs font-bold text-[#00A896]">Kepastian nomor antrean secara real-time ✓</span>
+                      <span className="inline-block bg-[#00A896]/15 text-[#00A896] border border-[#00A896]/30 px-3.5 py-1.5 rounded-xl text-xs font-bold">Kepastian nomor antrean secara real-time ✓</span>
                     </div>
                   )}
                   {activeAppTab === "salamRindu" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#33C3B3] uppercase tracking-widest block mb-1">DPMPTSP Kota Banjarmasin</span>
-                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">SALAM-RINDU Perizinan</h4>
-                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                      <span className="text-[10px] font-extrabold text-[#33C3B3] uppercase tracking-widest block mb-1">DPMPTSP Kota Banjarmasin</span>
+                      <h4 className="font-heading font-black text-xl text-[var(--text-main)] mb-2">SALAM-RINDU Perizinan</h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed mb-5">
                         Sistem aplikasi layanan perizinan usaha maupun non-OSS terpadu. Mempermudah pelaku UMKM dan investor mengajukan izin reklame, izin kesehatan, dan berbagai surat ketetapan daerah secara transparan.
                       </p>
-                      <span className="text-xs font-bold text-[#33C3B3]">Proses perizinan transparan & cepat ✓</span>
+                      <span className="inline-block bg-[#33C3B3]/15 text-[#33C3B3] border border-[#33C3B3]/30 px-3.5 py-1.5 rounded-xl text-xs font-bold">Proses perizinan transparan & cepat ✓</span>
                     </div>
                   )}
                   {activeAppTab === "siSintal" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#9D4EDD] uppercase tracking-widest block mb-1">Dinas Sosial Banjarmasin</span>
-                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">SI-SINTAL Cek Bansos</h4>
-                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                      <span className="text-[10px] font-extrabold text-[#9D4EDD] uppercase tracking-widest block mb-1">Dinas Sosial Banjarmasin</span>
+                      <h4 className="font-heading font-black text-xl text-[var(--text-main)] mb-2">SI-SINTAL Cek Bansos</h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed mb-5">
                         Layanan pengecekan Data Terpadu Kesejahteraan Sosial (DTKS) dan informasi penyaluran bantuan sosial (Bansos) bagi warga berhak secara akurat dan tepat sasaran.
                       </p>
-                      <span className="text-xs font-bold text-[#9D4EDD]">Data kesejahteraan transparan ✓</span>
+                      <span className="inline-block bg-[#9D4EDD]/15 text-[#9D4EDD] border border-[#9D4EDD]/30 px-3.5 py-1.5 rounded-xl text-xs font-bold">Data kesejahteraan transparan ✓</span>
                     </div>
                   )}
                   {activeAppTab === "epbb" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#219EBC] uppercase tracking-widest block mb-1">Badan Pengelola Keuangan & Pendapatan</span>
-                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">e-PBB & Pajak Daerah</h4>
-                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                      <span className="text-[10px] font-extrabold text-[#219EBC] uppercase tracking-widest block mb-1">Badan Pengelola Keuangan & Pendapatan</span>
+                      <h4 className="font-heading font-black text-xl text-[var(--text-main)] mb-2">e-PBB & Pajak Daerah</h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed mb-5">
                         Kemudahan pengecekan tagihan Pajak Bumi dan Bangunan (PBB-P2) serta pembayaran pajak daerah secara online melalui integrasi QRIS dan Virtual Account Bank Kalsel.
                       </p>
-                      <span className="text-xs font-bold text-[#219EBC]">Transparan, Cepat, & Aman ✓</span>
+                      <span className="inline-block bg-[#219EBC]/15 text-[#219EBC] border border-[#219EBC]/30 px-3.5 py-1.5 rounded-xl text-xs font-bold">Transparan, Cepat, & Aman ✓</span>
                     </div>
                   )}
                   {activeAppTab === "elapor" && (
                     <div>
-                      <span className="text-[10px] font-bold text-[#E63946] uppercase tracking-widest block mb-1">Diskominfotik & BPBD</span>
-                      <h4 className="font-heading font-black text-lg text-[var(--text-main)] mb-2">E-Lapor & Darurat 112</h4>
-                      <p className="text-xs text-[var(--text-muted)] font-body leading-relaxed mb-4">
+                      <span className="text-[10px] font-extrabold text-[#E63946] uppercase tracking-widest block mb-1">Diskominfotik & BPBD</span>
+                      <h4 className="font-heading font-black text-xl text-[var(--text-main)] mb-2">E-Lapor & Darurat 112</h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed mb-5">
                         Saluran pengaduan aspirasi masyarakat, pantauan CCTV lalu lintas ATCS, dan panggilan darurat gratis 112 (kebakaran, ambulans, rescue) dengan pemantauan penanganan langsung.
                       </p>
-                      <span className="text-xs font-bold text-[#E63946]">Respons Cepat 24 Jam ✓</span>
+                      <span className="inline-block bg-[#E63946]/15 text-[#E63946] border border-[#E63946]/30 px-3.5 py-1.5 rounded-xl text-xs font-bold">Respons Cepat 24 Jam ✓</span>
                     </div>
                   )}
                 </motion.div>
