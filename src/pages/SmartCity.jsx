@@ -89,7 +89,7 @@ export default function SmartCity() {
           HERO SECTION: CURVED 5-PILLAR ARC SHOWCASE
           ========================================================= */}
       <div className="bg-[var(--bg-main)] pt-28 sm:pt-32 pb-0 overflow-hidden relative">
-        <div className="hidden dark:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-teal-500/10 blur-[160px] rounded-full pointer-events-none -z-10" />
+        <div className="hidden dark:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-teal-500/10 blur-[160px] rounded-full pointer-events-none select-none transform-gpu -z-10" />
 
         <div className="text-center max-w-4xl mx-auto px-4 mb-8 sm:mb-12 relative z-10">
           <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-3 font-heading">
@@ -135,7 +135,8 @@ export default function SmartCity() {
                   src={pillar.img}
                   alt={pillar.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 transform-gpu"
                 />
               </div>
             </div>
@@ -146,7 +147,14 @@ export default function SmartCity() {
       {/* =========================================================
           SECTION 1: SHOWCASE SUPER-APP "BANJARMASIN PINTAR"
           ========================================================= */}
-      <section id="superapp" className="py-24 bg-[var(--bg-main)] relative overflow-hidden border-t border-[var(--glass-border)]">
+      <motion.section
+        id="superapp"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="py-24 bg-[var(--bg-main)] relative overflow-hidden border-t border-[var(--glass-border)]"
+      >
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -346,12 +354,18 @@ export default function SmartCity() {
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* =========================================================
           SECTION 2: LAYANAN KEPENDUDUKAN & KESEHATAN (DUAL CARDS)
           ========================================================= */}
-      <section className="py-24 bg-[var(--card-bg)] border-y border-[var(--glass-border)] relative">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="py-24 bg-[var(--card-bg)] border-y border-[var(--glass-border)] relative"
+      >
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
@@ -418,12 +432,18 @@ export default function SmartCity() {
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* =========================================================
           SECTION 3: REVOLUSI PERIZINAN & PASAR (STEPPER WORKFLOW)
           ========================================================= */}
-      <section className="py-24 bg-[var(--bg-main)] relative overflow-hidden">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="py-24 bg-[var(--bg-main)] relative overflow-hidden"
+      >
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#F4C038] mb-2 font-heading">
@@ -485,12 +505,18 @@ export default function SmartCity() {
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* =========================================================
           SECTION 4: SMART MOBILITY & EKOLOGI (INTERACTIVE TABS)
           ========================================================= */}
-      <section className="py-24 bg-[var(--card-bg)] border-t border-[var(--glass-border)] relative">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="py-24 bg-[var(--card-bg)] border-t border-[var(--glass-border)] relative"
+      >
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
@@ -578,7 +604,7 @@ export default function SmartCity() {
                     </div>
                   </div>
                   <div className="md:col-span-5 h-[240px] rounded-2xl overflow-hidden shadow-lg relative">
-                    <img loading="lazy" src="/profil kota/trans banjarbakula.webp" alt="Trans Banjarbakula Tayo Hijau" className="w-full h-full object-cover" />
+                    <img loading="lazy" decoding="async" src="/profil kota/trans banjarbakula.webp" alt="Trans Banjarbakula Tayo Hijau" className="w-full h-full object-cover transform-gpu" />
                     <div className="absolute bottom-3 left-3 bg-[#091422]/80 backdrop-blur-md text-[#E63946] text-[10px] font-bold px-3 py-1 rounded-full border border-[#E63946]/40">📍 Koridor Siring & Pal 0</div>
                   </div>
                 </>
@@ -587,12 +613,18 @@ export default function SmartCity() {
           </AnimatePresence>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* =========================================================
           SECTION 5: SMART SOCIETY & EPILOG (CTA)
           ========================================================= */}
-      <section className="py-28 bg-gradient-to-b from-[var(--card-bg)] to-[var(--bg-main)] relative text-center overflow-hidden border-t border-[var(--glass-border)]">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="py-28 bg-gradient-to-b from-[var(--card-bg)] to-[var(--bg-main)] relative text-center overflow-hidden border-t border-[var(--glass-border)]"
+      >
         
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <span className="inline-block text-xs font-extrabold tracking-[0.3em] uppercase text-[#7B2CBF] mb-6 font-heading">
@@ -614,7 +646,7 @@ export default function SmartCity() {
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </>
