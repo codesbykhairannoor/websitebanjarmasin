@@ -198,6 +198,7 @@ const InteractivePillarSpotlight = () => {
 
 export default function ProfilKota() {
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+  const [activeNakhodaTab, setActiveNakhodaTab] = useState('walikota');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -438,74 +439,99 @@ export default function ProfilKota() {
 
           </div>
 
-          {/* MOBILE & TABLET VIEW (< Large screens): Clean Unified Showcase Cards (No Text Repetition) */}
-          <div className="flex flex-col gap-8 lg:hidden">
+          {/* MOBILE & TABLET VIEW (< Large screens): Interactive Spotlight Tabs (Uncropped Full Portrait) */}
+          <div className="flex flex-col items-center gap-6 lg:hidden">
             
-            {/* Wali Kota Mobile Card */}
-            <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-xl">
-              <div className="relative w-full h-80 sm:h-96 overflow-hidden bg-black/10">
-                <img 
-                  loading="lazy" 
-                  src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" 
-                  alt="H. Muh. Yamin HR - Wali Kota Banjarmasin" 
-                  className="w-full h-full object-cover object-top" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] via-transparent to-transparent opacity-90" />
-              </div>
-              
-              <div className="p-6 sm:p-8 text-left -mt-6 relative z-10">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#F4C038]/15 border border-[#F4C038]/30 text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-3 shadow-sm">
-                  Wali Kota Banjarmasin
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3">
-                  H. Muh. Yamin HR
-                </h3>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
-                  Fokus pada tata kelola sungai terpadu, infrastruktur berkelanjutan, dan pelayanan birokrasi yang responsif terhadap warga.
-                </p>
-                <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs sm:text-sm font-semibold text-[var(--text-main)]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Tata Kelola Sungai Terpadu
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Birokrasi Responsif & Cepat
-                  </div>
-                </div>
-              </div>
+            {/* Tab Buttons */}
+            <div className="flex p-1.5 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-2xl shadow-md w-full max-w-sm">
+              <button
+                onClick={() => setActiveNakhodaTab('walikota')}
+                className={`flex-1 py-3 px-4 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer ${
+                  activeNakhodaTab === 'walikota'
+                    ? 'bg-[#F4C038] text-[#091422] shadow-lg shadow-[#F4C038]/25 scale-[1.02]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'
+                }`}
+              >
+                <span>🎖️</span> Wali Kota
+              </button>
+              <button
+                onClick={() => setActiveNakhodaTab('wakil')}
+                className={`flex-1 py-3 px-4 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer ${
+                  activeNakhodaTab === 'wakil'
+                    ? 'bg-[#33C3B3] text-[#091422] shadow-lg shadow-[#33C3B3]/25 scale-[1.02]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'
+                }`}
+              >
+                <span>✨</span> Wakil Wali Kota
+              </button>
             </div>
 
-            {/* Wakil Wali Kota Mobile Card */}
-            <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-xl">
-              <div className="relative w-full h-80 sm:h-96 overflow-hidden bg-black/10">
-                <img 
-                  loading="lazy" 
-                  src="/profil kota/Wakil_Wali_Kota_Banjarmasin_Anan.webp" 
-                  alt="Hj. Ananda - Wakil Wali Kota Banjarmasin" 
-                  className="w-full h-full object-cover object-top" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] via-transparent to-transparent opacity-90" />
-              </div>
-              
-              <div className="p-6 sm:p-8 text-left -mt-6 relative z-10">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#33C3B3]/15 border border-[#33C3B3]/30 text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-3 shadow-sm">
-                  Wakil Wali Kota Banjarmasin
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3">
-                  Hj. Ananda
-                </h3>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
-                  Mengawal ekosistem ekonomi kreatif berdaya saing, pembedayaan perempuan, dan akselerasi UMKM untuk generasi masa depan.
-                </p>
-                <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs sm:text-sm font-semibold text-[var(--text-main)]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Ekonomi Kreatif & UMKM
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Pemberdayaan Perempuan & SDM
+            {/* Active Card Showcase */}
+            {activeNakhodaTab === 'walikota' ? (
+              <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl animate-fade-in">
+                {/* Uncropped Portrait Container */}
+                <div className="relative w-full max-h-[440px] sm:max-h-[500px] flex justify-center items-end overflow-hidden bg-gradient-to-b from-black/10 via-transparent to-[var(--card-bg)] pt-8 px-4">
+                  <img 
+                    loading="lazy" 
+                    src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" 
+                    alt="H. Muh. Yamin HR - Wali Kota Banjarmasin" 
+                    className="w-auto h-[340px] sm:h-[400px] object-contain object-bottom filter drop-shadow-2xl transition-all duration-500" 
+                  />
+                </div>
+                
+                <div className="p-6 sm:p-8 text-left relative z-10 border-t border-[var(--glass-border)] bg-[var(--card-bg)]">
+                  <span className="inline-block px-3 py-1 rounded-full bg-[#F4C038]/15 border border-[#F4C038]/30 text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-3 shadow-sm">
+                    Wali Kota Banjarmasin
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3">
+                    H. Muh. Yamin HR
+                  </h3>
+                  <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
+                    Fokus pada tata kelola sungai terpadu, infrastruktur berkelanjutan, dan pelayanan birokrasi yang responsif terhadap warga.
+                  </p>
+                  <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs sm:text-sm font-semibold text-[var(--text-main)]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Tata Kelola Sungai Terpadu
+                    </div>
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Birokrasi Responsif & Cepat
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl animate-fade-in">
+                {/* Uncropped Portrait Container */}
+                <div className="relative w-full max-h-[440px] sm:max-h-[500px] flex justify-center items-end overflow-hidden bg-gradient-to-b from-black/10 via-transparent to-[var(--card-bg)] pt-8 px-4">
+                  <img 
+                    loading="lazy" 
+                    src="/profil kota/Wakil_Wali_Kota_Banjarmasin_Anan.webp" 
+                    alt="Hj. Ananda - Wakil Wali Kota Banjarmasin" 
+                    className="w-auto h-[340px] sm:h-[400px] object-contain object-bottom filter drop-shadow-2xl transition-all duration-500" 
+                  />
+                </div>
+                
+                <div className="p-6 sm:p-8 text-left relative z-10 border-t border-[var(--glass-border)] bg-[var(--card-bg)]">
+                  <span className="inline-block px-3 py-1 rounded-full bg-[#33C3B3]/15 border border-[#33C3B3]/30 text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-3 shadow-sm">
+                    Wakil Wali Kota Banjarmasin
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3">
+                    Hj. Ananda
+                  </h3>
+                  <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
+                    Mengawal ekosistem ekonomi kreatif berdaya saing, pembedayaan perempuan, dan akselerasi UMKM untuk generasi masa depan.
+                  </p>
+                  <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs sm:text-sm font-semibold text-[var(--text-main)]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Ekonomi Kreatif & UMKM
+                    </div>
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Pemberdayaan Perempuan & SDM
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
           </div>
 
