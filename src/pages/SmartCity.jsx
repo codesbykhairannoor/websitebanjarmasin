@@ -142,11 +142,11 @@ export default function SmartCity() {
                 className={`group bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-xl md:shadow-2xl transition-all duration-500 flex flex-col relative rounded-t-xl sm:rounded-t-2xl ${pillar.heightClass} ${pillar.transformClass}`}
               >
                 {/* Top Gradient Header */}
-                <div className={`p-1.5 sm:p-3 md:p-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[110px] sm:h-[120px] md:h-[150px] lg:h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
+                <div className={`pt-5 pb-1.5 px-1.5 sm:p-3 md:p-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[120px] sm:h-[120px] md:h-[150px] lg:h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
                   <div className="absolute -right-2 -bottom-2 text-3xl sm:text-5xl md:text-6xl opacity-20 pointer-events-none select-none">
                     {pillar.icon}
                   </div>
-                  <span className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xs sm:text-base md:text-xl shadow mx-auto md:mx-0 shrink-0">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-sm sm:text-base md:text-xl shadow mx-auto md:mx-0 shrink-0">
                     {pillar.icon}
                   </span>
                   <div className="w-full text-center md:text-left mt-1 sm:mt-0 flex flex-col items-center md:items-start flex-1">
