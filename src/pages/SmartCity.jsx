@@ -14,9 +14,9 @@ const pillarsData = [
     color: "#00A896",
     gradient: "from-[#00A896] to-[#028090]",
     img: "/profil kota/kantor walikota.webp",
-    heightClass: "h-[520px] lg:h-[600px]",
-    clipStyle: { clipPath: "polygon(0 0, 100% 50px, 100% 100%, 0 100%)" },
-    alignClass: "text-left items-start",
+    heightClass: "h-[210px] sm:h-[380px] md:h-[520px] lg:h-[600px]",
+    clipStyle: { clipPath: "polygon(0 0, 100% 20px, 100% 100%, 0 100%)" },
+    alignClass: "text-center md:text-left items-center md:items-start",
     transformClass: "hover:brightness-110 hover:shadow-[0_0_35px_rgba(0,168,150,0.5)]"
   },
   {
@@ -27,9 +27,9 @@ const pillarsData = [
     color: "#E63946",
     gradient: "from-[#E63946] to-[#B81D24]",
     img: "/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp",
-    heightClass: "h-[440px] lg:h-[510px]",
-    clipStyle: { clipPath: "polygon(0 0, 100% 40px, 100% 100%, 0 100%)" },
-    alignClass: "text-left items-start",
+    heightClass: "h-[180px] sm:h-[320px] md:h-[440px] lg:h-[510px]",
+    clipStyle: { clipPath: "polygon(0 0, 100% 15px, 100% 100%, 0 100%)" },
+    alignClass: "text-center md:text-left items-center md:items-start",
     transformClass: "hover:brightness-110 hover:shadow-[0_0_35px_rgba(230,57,70,0.5)]"
   },
   {
@@ -40,7 +40,7 @@ const pillarsData = [
     color: "#33C3B3",
     gradient: "from-[#33C3B3] to-[#008075]",
     img: "/profil kota/sungai.webp",
-    heightClass: "h-[360px] lg:h-[420px]",
+    heightClass: "h-[155px] sm:h-[260px] md:h-[360px] lg:h-[420px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
     alignClass: "text-center items-center",
     transformClass: "z-20 shadow-[0_0_35px_rgba(51,195,179,0.4)] border-[#33C3B3] hover:brightness-110 hover:shadow-[0_0_45px_rgba(51,195,179,0.7)]"
@@ -53,9 +53,9 @@ const pillarsData = [
     color: "#F4C038",
     gradient: "from-[#F4C038] to-[#D99B00]",
     img: "/profil kota/pasar wadai.webp",
-    heightClass: "h-[440px] lg:h-[510px]",
-    clipStyle: { clipPath: "polygon(0 40px, 100% 0, 100% 100%, 0 100%)" },
-    alignClass: "text-right items-end",
+    heightClass: "h-[180px] sm:h-[320px] md:h-[440px] lg:h-[510px]",
+    clipStyle: { clipPath: "polygon(0 15px, 100% 0, 100% 100%, 0 100%)" },
+    alignClass: "text-center md:text-right items-center md:items-end",
     transformClass: "hover:brightness-110 hover:shadow-[0_0_35px_rgba(244,192,56,0.5)]"
   },
   {
@@ -66,9 +66,9 @@ const pillarsData = [
     color: "#7B2CBF",
     gradient: "from-[#7B2CBF] to-[#5A189A]",
     img: "/profil kota/rs ulin.webp",
-    heightClass: "h-[520px] lg:h-[600px]",
-    clipStyle: { clipPath: "polygon(0 50px, 100% 0, 100% 100%, 0 100%)" },
-    alignClass: "text-right items-end",
+    heightClass: "h-[210px] sm:h-[380px] md:h-[520px] lg:h-[600px]",
+    clipStyle: { clipPath: "polygon(0 20px, 100% 0, 100% 100%, 0 100%)" },
+    alignClass: "text-center md:text-right items-center md:items-end",
     transformClass: "hover:brightness-110 hover:shadow-[0_0_35px_rgba(123,44,191,0.5)]"
   }
 ];
@@ -103,27 +103,27 @@ export default function SmartCity() {
           </p>
         </div>
 
-        {/* Desktop Curved 5-Pillar Arc */}
-        <div className="hidden md:grid grid-cols-5 gap-3 lg:gap-4 max-w-[1300px] mx-auto px-6 -mt-10 lg:-mt-16 pb-0 relative z-20 items-end">
+        {/* Responsive 5-Pillar Arc (Ramping on Mobile, Full on Desktop) */}
+        <div className="grid grid-cols-5 gap-1 sm:gap-2.5 md:gap-3 lg:gap-4 max-w-[1300px] mx-auto px-1.5 sm:px-4 md:px-6 -mt-4 sm:-mt-10 lg:-mt-16 pb-0 relative z-20 items-end">
           {pillarsData.map((pillar) => (
             <div
               key={pillar.id}
               style={pillar.clipStyle}
-              className={`group bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-2xl transition-all duration-500 flex flex-col relative ${pillar.heightClass} ${pillar.transformClass}`}
+              className={`group bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-xl md:shadow-2xl transition-all duration-500 flex flex-col relative rounded-t-xl sm:rounded-t-2xl ${pillar.heightClass} ${pillar.transformClass}`}
             >
               {/* Top Gradient Header */}
-              <div className={`p-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[150px] lg:h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
-                <div className="absolute -right-4 -bottom-4 text-6xl opacity-20 pointer-events-none select-none">
+              <div className={`p-1.5 sm:p-3 md:p-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[75px] sm:h-[120px] md:h-[150px] lg:h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
+                <div className="absolute -right-2 -bottom-2 text-3xl sm:text-5xl md:text-6xl opacity-20 pointer-events-none select-none">
                   {pillar.icon}
                 </div>
-                <span className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow">
+                <span className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xs sm:text-base md:text-xl shadow mx-auto md:mx-0 shrink-0">
                   {pillar.icon}
                 </span>
-                <div>
-                  <h3 className="font-heading font-black text-base lg:text-lg leading-tight">
+                <div className="w-full text-center md:text-left mt-1 sm:mt-0">
+                  <h3 className="font-heading font-black text-[8.5px] sm:text-xs md:text-base lg:text-lg leading-[1.1] sm:leading-tight line-clamp-2">
                     {pillar.title}
                   </h3>
-                  <span className="text-[11px] font-medium text-white/90 block mt-0.5">
+                  <span className="hidden sm:block text-[10px] md:text-[11px] font-medium text-white/90 mt-0.5 line-clamp-1">
                     {pillar.subtitle}
                   </span>
                 </div>
@@ -140,40 +140,6 @@ export default function SmartCity() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Mobile Horizontal Swipe Showcase Pillars */}
-        <div className="md:hidden pt-4 pb-8 px-4">
-          <div className="flex items-center justify-between mb-3 px-2">
-            <span className="text-xs font-bold font-heading text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#33C3B3] animate-pulse"></span> Geser Pilar Smart City ➔
-            </span>
-          </div>
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 scrollbar-none">
-            {pillarsData.map((pillar) => (
-              <div
-                key={pillar.id}
-                className="w-[280px] sm:w-[320px] h-[260px] shrink-0 snap-center bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[28px] overflow-hidden shadow-xl flex flex-col justify-between relative group"
-              >
-                <img src={pillar.img} alt={pillar.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 -z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#091422] via-[#091422]/60 to-transparent -z-10" />
-                
-                <div className="p-4 flex justify-end">
-                  <span className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow border border-white/20 text-white">
-                    {pillar.icon}
-                  </span>
-                </div>
-
-                <div className="p-5 text-white">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-white/20 backdrop-blur-md text-white mb-2">
-                    Pilar 0{pillar.id}
-                  </span>
-                  <h3 className="font-heading font-black text-xl leading-tight text-white mb-1">{pillar.title}</h3>
-                  <p className="text-xs text-white/80 font-body line-clamp-2">{pillar.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
