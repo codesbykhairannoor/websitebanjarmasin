@@ -9,11 +9,11 @@ import Footer from '../components/Footer';
 
 const galleryCards = [
   { img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", label: "Soto Banjar" },
-  { img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", label: "Ketupat" },
+  { img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", label: "Ketupat Kandangan" },
   { img: "/kuliner/buras.webp", label: "Lontong Orari" },
   { img: "/kuliner/Bingka.webp", label: "Bingka Kentang" },
   { img: "/kuliner/Iwak_Pakasam_Basanga.webp", label: "Iwak Pakasam" },
-  { img: "/kuliner/Gangan_asam_kepala_ikan_di_Cempaka,_Banjarbaru.webp", label: "Gangan Asam" },
+  { img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp", label: "Nasi Itik Gambut" },
 ];
 
 const mainDishes = [
@@ -30,7 +30,7 @@ const mainDishes = [
   {
     id: "ketupat-kandangan",
     title: "Ketupat Kandangan Asap",
-    desc: "Ketupat keras berpadu kuah santan keruh berbumbu rempah rahasia. Keajaibannya terletak pada Ikan Haruan (Gabus) yang dipanggang asap terlebih dahulu sebelum disiram kuah, memberikan rasa 'smokey' yang luar biasa.",
+    desc: "Ketupat keras berpadu kuah santan keruh berbumbu rempah rahasia. Keajaibannya terletak pada Ikan Haruan (Gabus) yang dipanggang asap terlebih dahulu sebelum disiram kuah, memberikan rasa smokey yang luar biasa.",
     aroma: "Santan Krimi & Asap",
     icon: "🥥",
     img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp",
@@ -40,7 +40,7 @@ const mainDishes = [
   {
     id: "nasi-kuning",
     title: "Nasi Kuning Bumbu Habang",
-    desc: "Sarapan wajib warga Banua! Nasi kuning pulen bertabur serundeng berpadu sempurna dengan Bumbu Habang (Bumbu Merah) yang dimasak dari cabai kering besar tanpa biji—menghasilkan rasa manis, gurih, dan warna merah pekat yang menggoda.",
+    desc: "Sarapan wajib warga Banua! Nasi kuning pulen bertabur serundeng berpadu sempurna dengan Bumbu Habang (Bumbu Merah) yang dimasak dari cabai kering besar tanpa biji menghasilkan rasa manis, gurih, dan warna merah pekat yang menggoda.",
     aroma: "Kunyit & Karamel Pedas",
     icon: "🍛",
     img: "/kuliner/Nasi_Kuning_Banjar_001.webp",
@@ -91,24 +91,24 @@ const olehOleh = [
   {
     title: "Mandai 'Daging Nabati'",
     desc: "Fermentasi kulit buah Cempedak yang diawetkan dengan garam. Saat digoreng, teksturnya berserat menyerupai daging sapi dengan rasa umami asam-gurih yang sangat adiktif.",
-    img: "/kuliner/Screenshot_20241126_150106_Googl.webp",
+    img: "/kuliner/IMG-20251017-WA0002.webp",
     span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto",
   },
   {
     title: "Kerupuk Amplang",
-    desc: "Camilan renyah berbahan dasar Ikan Pipih atau Tenggiri.",
-    img: "/kuliner/IMG-20251017-WA0002.webp",
+    desc: "Camilan renyah berbahan dasar Ikan Pipih atau Tenggiri khas sungai Kalimantan.",
+    img: "/kuliner/f6cd9fe9a37ece89ca3de6416a14031e.webp",
     span: "col-span-1 row-span-1 h-[250px]",
   },
   {
     title: "Iwak Pakasam",
-    desc: "Ikan sungai fermentasi beras sangrai yang digoreng garing.",
+    desc: "Ikan sungai fermentasi beras sangrai yang digoreng garing renyah.",
     img: "/kuliner/Iwak_Pakasam_Basanga.webp",
     span: "col-span-1 row-span-1 h-[250px]",
   },
   {
-    title: "Sambal Acan",
-    desc: "Terasi legendaris dipadu buah mangga/binjai khas rawa.",
+    title: "Sambal Acan Raja Banjar",
+    desc: "Terasi legendaris dipadu buah mangga/binjai khas rawa yang super pedas dan segar.",
     img: "/kuliner/sambal acan.webp",
     span: "col-span-1 md:col-span-3 row-span-1 h-[250px]",
   }
@@ -175,35 +175,34 @@ export default function Kuliner() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
-              ✦ GASTRONOMI OTENTIK BORNEO
+              ✦ KULINER OTENTIK BORNEO
             </span>
             <h1 className="hero-title !mb-3">
               Surga Cita Rasa <br className="hidden sm:inline" />
               <span className="text-sasirangan">Kota Seribu Sungai</span>
             </h1>
             <p className="hero-subtitle mx-auto !mb-6 !max-w-2xl px-2">
-              Eksplorasi mahakarya kuliner dari warisan resep leluhur, disajikan hangat dengan sentuhan cinta dari dapur para *Acil* di tepian sungai.
+              Eksplorasi mahakarya kuliner dari warisan resep leluhur, disajikan hangat dengan sentuhan cinta dari dapur para <span className="font-bold text-[var(--sasirangan-gold)]">Acil</span> di tepian sungai.
             </p>
           </motion.div>
         </div>
 
-        {/* 3D DRUM CAROUSEL (CSS MURNI - INFINITE SCROLL, NO LAG) */}
-        <div className="w-full relative h-[280px] sm:h-[400px] md:h-[500px] flex justify-center items-center [perspective:1500px]">
+        {/* 3D DRUM CAROUSEL (CSS MURNI - INFINITE SCROLL, NO LAG, LUAS ANTI-DEMPET) */}
+        <div className="w-full relative h-[300px] sm:h-[420px] md:h-[550px] flex justify-center items-center [perspective:1800px]">
           <div className="relative w-full h-full flex justify-center items-center drum-container">
             {/* Duplikasi array menjadi 10 item untuk membentuk silinder tertutup */}
             {[...galleryCards, ...galleryCards.slice(0, 4)].map((card, idx) => (
               <div 
                 key={idx}
-                className="drum-card absolute w-[140px] h-[200px] sm:w-[220px] sm:h-[320px] md:w-[300px] md:h-[450px]"
-                // Rotasi dibagi 10 (36 derajat). Jarak (translateZ) otomatis diatur dari @keyframes wrapper (karena ini convex)
+                className="drum-card absolute w-[130px] h-[190px] sm:w-[190px] sm:h-[280px] md:w-[260px] md:h-[390px]"
                 style={{ 
-                  transform: `rotateY(${idx * 36}deg) translateZ(clamp(350px, 40vw, 600px))` 
+                  transform: `rotateY(${idx * 36}deg) translateZ(clamp(420px, 50vw, 780px))` 
                 }}
               >
                 <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] relative bg-[var(--card-bg)]">
                   <img loading="lazy" decoding="async" src={card.img} alt={card.label} className="w-full h-full object-cover pointer-events-auto transform-gpu" />
-                  <div className="absolute bottom-4 left-4 right-4 text-center">
-                    <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border border-white/20 inline-block">
+                  <div className="absolute bottom-3 left-3 right-3 text-center">
+                    <span className="bg-black/70 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] sm:text-xs md:text-sm font-bold border border-white/20 inline-block">
                       {card.label}
                     </span>
                   </div>
@@ -220,73 +219,88 @@ export default function Kuliner() {
       <div className="app-container">
         
         {/* =========================================================
-            SECTION 1: INTERACTIVE SPOTLIGHT (MAHAKARYA GASTRONOMI)
+            SECTION 1: INTERACTIVE SPOTLIGHT (SAJIAN UTAMA LEGENDA)
             ========================================================= */}
         <section className="py-20 sm:py-24 border-t border-[var(--glass-border)]">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Mahakarya Gastronomi</h2>
-            <p className="max-w-2xl mx-auto text-[var(--text-muted)] text-sm sm:text-base md:text-lg">Pilar utama kuliner Banua peninggalan pelaut dan saudagar abad pertengahan.</p>
+          <div className="text-center mb-10 sm:mb-14">
+            <span className="text-[#F4C038] font-bold tracking-widest text-xs sm:text-sm uppercase mb-2 block">Cita Rasa Berat Warisan Leluhur</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Sajian Utama Legendaris</h2>
+            <p className="max-w-2xl mx-auto text-[var(--text-muted)] text-sm sm:text-base md:text-lg">Pilar utama kuliner Banua peninggalan pelaut dan saudagar abad pertengahan yang kaya akan rempah.</p>
           </div>
 
-          <div className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-[2rem] sm:rounded-[2.5rem] p-4 sm:p-6 md:p-10 shadow-xl">
-            {/* Tabs Bar */}
-            <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-10 justify-center">
-              {mainDishes.map((dish) => (
-                <button
-                  key={dish.id}
-                  onClick={() => setActiveTab(dish)}
-                  className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm md:text-base font-bold transition-all duration-300 ${activeTab.id === dish.id ? 'bg-[#F4C038] text-[var(--martapura-deep)] shadow-[0_4px_20px_rgba(244,192,56,0.4)] scale-105' : 'bg-[var(--card-bg)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--glass-border)] border border-[var(--glass-border)]'}`}
-                >
-                  {dish.title}
-                </button>
-              ))}
-            </div>
-
-            {/* Content Showcase */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="flex flex-col md:flex-row gap-6 sm:gap-8 lg:gap-12 items-center"
+          {/* Horizontal Scroll Menu Tabs (Anti Bertumpuk di Mobile) */}
+          <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-8 sm:mb-12 hide-scrollbar px-2 sm:px-0 snap-x">
+            {mainDishes.map((dish) => (
+              <button
+                key={dish.id}
+                onClick={() => setActiveTab(dish)}
+                className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm md:text-base font-bold transition-all duration-300 flex-shrink-0 snap-start flex items-center gap-2 ${activeTab.id === dish.id ? 'bg-[#F4C038] text-[var(--martapura-deep)] shadow-[0_4px_20px_rgba(244,192,56,0.4)] scale-105' : 'bg-[var(--card-bg)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--glass-border)] border border-[var(--glass-border)]'}`}
               >
-                <div className="w-full md:w-1/2 h-[280px] sm:h-[350px] md:h-[450px] rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden relative shadow-2xl group">
-                  <img loading="lazy" decoding="async" src={activeTab.img} alt={activeTab.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 transform-gpu" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex justify-between items-end">
-                    <div>
-                      <p className="text-white/80 text-xs sm:text-sm font-bold uppercase tracking-wider mb-1">Paling Dicari</p>
-                      <p className="text-white font-heading font-black text-xl sm:text-2xl drop-shadow-md">{activeTab.location}</p>
-                    </div>
-                    <a href={activeTab.maps} target="_blank" rel="noopener noreferrer" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-[#33C3B3] text-black flex items-center justify-center hover:bg-[#F4C038] transition-colors shadow-lg">
-                      📍
-                    </a>
-                  </div>
-                </div>
+                <span>{dish.icon}</span>
+                <span>{dish.title}</span>
+              </button>
+            ))}
+          </div>
 
-                <div className="w-full md:w-1/2 flex flex-col justify-center">
-                  <div className="inline-flex items-center gap-2 bg-[#33C3B3]/20 border border-[#33C3B3]/40 px-4 py-2 rounded-full mb-6 w-fit">
-                    <span className="text-lg">{activeTab.icon}</span>
-                    <span className="text-[#33C3B3] font-bold text-sm">{activeTab.aroma}</span>
+          {/* Feature Showcase Card (Sleek Widescreen Layout) */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab.id}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.4 }}
+              className="bg-[var(--card-bg)] backdrop-blur-2xl border border-[var(--glass-border)] rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-0"
+            >
+              {/* Left Image Showcase */}
+              <div className="lg:col-span-6 h-[300px] sm:h-[400px] lg:h-[520px] relative overflow-hidden group">
+                <img loading="lazy" decoding="async" src={activeTab.img} alt={activeTab.title} className="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-700 transform-gpu" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent lg:hidden" />
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex justify-between items-end lg:hidden">
+                  <span className="bg-black/60 backdrop-blur-md text-[#F4C038] px-3 py-1 rounded-full text-xs font-bold border border-white/20">
+                    📍 {activeTab.location}
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Content Area */}
+              <div className="lg:col-span-6 p-6 sm:p-10 lg:p-14 flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-4 sm:mb-6">
+                    <span className="inline-flex items-center gap-2 bg-[#33C3B3]/20 border border-[#33C3B3]/40 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-[#33C3B3]">
+                      ✦ {activeTab.aroma}
+                    </span>
+                    <span className="hidden lg:inline-flex bg-black/40 backdrop-blur-md text-[#F4C038] px-4 py-1 rounded-full text-xs sm:text-sm font-bold border border-white/10">
+                      📍 {activeTab.location}
+                    </span>
                   </div>
                   
-                  <h3 className="text-4xl md:text-5xl font-black font-heading text-[var(--text-main)] mb-6 leading-tight">
+                  <h3 className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-[var(--text-main)] mb-4 sm:mb-6 leading-tight">
                     {activeTab.title}
                   </h3>
                   
-                  <p className="text-lg text-[var(--text-muted)] leading-relaxed mb-8">
+                  <p className="text-sm sm:text-base md:text-lg text-[var(--text-muted)] leading-relaxed mb-6 sm:mb-8">
                     {activeTab.desc}
                   </p>
-                  
-                  <a href={activeTab.maps} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-[#F4C038] text-[#F4C038] font-bold rounded-full hover:bg-[#F4C038] hover:text-black transition-all group w-fit">
-                    Telusuri Kedai Terbaik <span className="group-hover:translate-x-1 transition-transform">➔</span>
+                </div>
+                
+                <div className="pt-4 border-t border-[var(--glass-border)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                  <span className="text-xs sm:text-sm text-[var(--text-muted)] italic">
+                    *Rekomendasi kedai resmi terverifikasi
+                  </span>
+                  <a 
+                    href={activeTab.maps} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 bg-[#F4C038] text-black font-black rounded-full hover:bg-white hover:text-black transition-all shadow-[0_4px_20px_rgba(244,192,56,0.3)] text-sm sm:text-base text-center"
+                  >
+                    <span>Navigasi ke Kedai</span>
+                    <span>➔</span>
                   </a>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </section>
 
         {/* =========================================================
@@ -298,7 +312,7 @@ export default function Kuliner() {
               <span className="text-[#F4C038] font-bold tracking-widest text-sm uppercase mb-2 block">Warisan Manis Legendaris</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black mb-4 text-[var(--text-main)]">Warisan Wadai Tradisional Banjar</h2>
               <p className="text-[var(--text-muted)] text-sm sm:text-base md:text-lg leading-relaxed">
-                Kue manis tradisional (*Wadai*) khas Bumi Lambung Mangkurat dengan tekstur lembut, legit, dan aroma santan pandan yang memanjakan lidah di setiap gigitan.
+                Kue manis tradisional (Wadai) khas Bumi Lambung Mangkurat dengan tekstur lembut, legit, dan aroma santan pandan yang memanjakan lidah di setiap gigitan.
               </p>
             </div>
           </div>
@@ -322,23 +336,23 @@ export default function Kuliner() {
         </section>
 
         {/* =========================================================
-            SECTION 3: TRADISI PASAR TERAPUNG (PARALLAX + CTA)
+            SECTION 3: DERMAGA KULINER TEPI SUNGAI (PARALLAX + CTA)
             ========================================================= */}
         <section className="py-20 sm:py-24 border-t border-[var(--glass-border)]">
           <div className="relative w-full rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden h-[450px] sm:h-[500px] md:h-[600px] flex items-center shadow-lg border border-[var(--glass-border)]">
             <div className="absolute inset-0">
-              <img loading="lazy" decoding="async" src="/wisata/960px-Pasar_Terapung_Siring_Banj.webp" alt="Pasar Terapung Lok Baintan" className="w-full h-full object-cover scale-105 transform-gpu" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-transparent" />
+              <img loading="lazy" decoding="async" src="/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp" alt="Dermaga Kuliner Banua Anyar" className="w-full h-full object-cover scale-105 transform-gpu" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
             </div>
 
             <div className="relative z-10 p-6 sm:p-8 md:p-16 max-w-2xl">
               <div className="bg-black/40 backdrop-blur-xl border border-white/20 p-6 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[2.5rem] shadow-xl transform hover:scale-[1.02] transition-transform duration-500">
-                <span className="text-[#33C3B3] font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">Sarapan Pagi di Atas Jukung</span>
+                <span className="text-[#33C3B3] font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">Santap Senja di Bantaran Sungai</span>
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-heading font-black text-white mb-4 sm:mb-6 leading-tight">
-                  Eksotika <span className="text-[var(--sasirangan-gold)]">Pasar Terapung</span>
+                  Dermaga Kuliner <span className="text-[var(--sasirangan-gold)]">Tepi Sungai</span>
                 </h2>
                 <p className="text-white/90 text-xs sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
-                  Tinggalkan hiruk pikuk daratan. Di Sentra Kuliner Banua Anyar dan Pasar Terapung Lok Baintan, Anda tidak hanya membeli makanan, tapi membeli pengalaman magis menyantap hidangan hangat ditemani goyangan ombak sungai dan perahu kelotok yang melintas.
+                  Rasakan sensasi menyantap hangatnya Soto Banjar dan hidangan lezat lainnya ditemani semilir angin sungai dan pemandangan perahu kelotok yang melintas di Sentra Kuliner Banua Anyar serta kawasan Siring.
                 </p>
                 <a 
                   href="https://maps.google.com/?q=Sentra+Kuliner+Banua+Anyar+Banjarmasin" 
@@ -346,7 +360,7 @@ export default function Kuliner() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-[var(--sasirangan-gold)] text-black font-black rounded-full hover:bg-white hover:text-black transition-colors shadow-lg"
                 >
-                  📍 Navigasi ke Banua Anyar
+                  📍 Jelajahi Kuliner Tepi Sungai
                 </a>
               </div>
             </div>
