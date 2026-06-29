@@ -68,6 +68,50 @@ const mapLocations = [
     desc: "Pulau delta di tengah Sungai Barito yang menjadi habitat ribuan kera ekor panjang dan pura peninggalan lawas.",
     time: "07.00 - 17.00 WITA",
     mapsUrl: "https://maps.google.com/?q=Pulau+Kembang"
+  },
+  {
+    id: 7,
+    title: "Rumah Adat Bubungan Tinggi & Museum Wasaka",
+    category: "Wisata Sejarah",
+    coords: [-3.3031, 114.6082],
+    emoji: "🏛️",
+    color: "#7B2CBF",
+    desc: "Mahakarya arsitektur rumah adat Banjar berdinding ukiran kayu ulin tempat menyimpan artefak perjuangan pahlawan Wasaka.",
+    time: "08.00 - 15.00 WITA",
+    mapsUrl: "https://maps.google.com/?q=Museum+Wasaka+Banjarmasin"
+  },
+  {
+    id: 8,
+    title: "Tugu Nol Kilometer (Pal 0)",
+    category: "Landmark",
+    coords: [-3.3168, 114.5901],
+    emoji: "📍",
+    color: "#F4C038",
+    desc: "Monumen penanda titik nol kilometer acuan jarak Kota Banjarmasin yang dikelilingi taman terbuka hijau di tepi sungai.",
+    time: "24 Jam Terbuka",
+    mapsUrl: "https://maps.google.com/?q=Tugu+Nol+Kilometer+Banjarmasin"
+  },
+  {
+    id: 9,
+    title: "Masjid Raya Sabilal Muhtadin",
+    category: "Wisata Sejarah",
+    coords: [-3.3175, 114.5889],
+    emoji: "🕌",
+    color: "#00A896",
+    desc: "Masjid raya terbesar kebanggaan warga Kalsel dengan kubah tembaga megah di tengah hutan kota seluas 10 hektar.",
+    time: "04.00 - 22.00 WITA",
+    mapsUrl: "https://maps.google.com/?q=Masjid+Raya+Sabilal+Muhtadin"
+  },
+  {
+    id: 10,
+    title: "Taman Siring 0 Km",
+    category: "Landmark",
+    coords: [-3.3179, 114.5910],
+    emoji: "🌳",
+    color: "#33C3B3",
+    desc: "Kawasan pedestrian santai pesisir sungai Martapura yang dilengkapi arena rekreasi keluarga dan dermaga kelotok wisata.",
+    time: "06.00 - 22.00 WITA",
+    mapsUrl: "https://maps.google.com/?q=Taman+Siring+Banjarmasin"
   }
 ];
 

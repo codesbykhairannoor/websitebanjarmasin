@@ -65,6 +65,36 @@ const heroDestinations = [
     desc: "Masjid bersejarah tertua di Kalimantan Selatan bergaya arsitektur tradisional Banjar dengan ukiran kaligrafi kayu ukir khas abadi.",
     heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
   },
+  {
+    id: "rumah-adat-bubungan-tinggi",
+    title: "Rumah Adat Bubungan Tinggi",
+    tag: "Arsitektur - Banua Anyar",
+    location: "Komplek Rumah Adat Banjar",
+    image: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp",
+    badge: "Warisan Arsitektur",
+    desc: "Mahakarya arsitektur tradisional suku Banjar dengan atap menjulang tinggi (Bubungan Tinggi) dan ukiran relief kaligrafi flora khas Kalimantan Selatan.",
+    heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]",
+  },
+  {
+    id: "taman-siring-martapura",
+    title: "Taman Siring 0 Km",
+    tag: "Taman Kota - Jl. Sudirman",
+    location: "Tepian Sungai Martapura",
+    image: "/wisata/960px-Taman_Siring_Banjarmasin.webp",
+    badge: "Ruang Publik",
+    desc: "Kawasan pedestrian ramah pejalan kaki di sepanjang pesisir sungai yang dilengkapi arena skateboard, pasar kaget akhir pekan, dan dermaga susur sungai.",
+    heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
+  },
+  {
+    id: "tugu-nol-kilometer",
+    title: "Tugu Nol Kilometer",
+    tag: "Landmark - Pal 0",
+    location: "Siring Nol Kilometer",
+    image: "/wisata/menara tugu pal 0.webp",
+    badge: "Titik Nol Kota",
+    desc: "Monumen bersejarah penanda titik pusat acuan jarak geometris Kota Banjarmasin, menghadap langsung ke deretan kantor gubernuran lawas dan sungai.",
+    heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]",
+  },
 ];
 
 const itineraryRoadmap = [
@@ -74,10 +104,37 @@ const itineraryRoadmap = [
   { time: "17:00 WIB", title: "Senja di Kampung Hijau & Biru", desc: "Menyusuri permukiman tematik warna-warni di pesisir sungai sambil menikmati angin sore dan lampu tanglung.", icon: "house", duration: "2 Jam", highlight: "Wisata Kampung" },
 ];
 
-const polaroidStories = [
-  { name: "Rina & Keluarga", origin: "Wisatawan Jakarta", quote: "Pengalaman susur sungai paling berkesan! Acil kelotoknya sangat ramah, pantun madihinnya bikin tertawa sepanjang jalan.", img: "/wisata/960px-Taman_Siring_Banjarmasin.webp", rotate: "rotate-2 sm:rotate-3 hover:rotate-0" },
-  { name: "Acil Imur", origin: "Pemandu Kelotok Resmi", quote: "Ayo dangsanak berataan naik kelotok kami! Keselamatan terjamin, rompi pelampung lengkap, dan rute dijamin puas.", img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp", rotate: "-rotate-2 sm:-rotate-3 hover:rotate-0" },
-  { name: "Budi Santoso", origin: "Wisatawan Surabaya", quote: "Pasar terapung Lok Baintan saat subuh benar-benar magis. Beli kue bingka langsung dari atas perahu jukung!", img: "/kuliner/Bingka.webp", rotate: "rotate-1 sm:rotate-2 hover:rotate-0" },
+const officialKelotokRoutes = [
+  {
+    title: "Susur Sungai Dalam Kota",
+    category: "Rute Reguler Paling Favorit",
+    price: "Rp 15.000 / Orang",
+    duration: "± 45 Menit",
+    schedule: "Setiap Hari (Sore & Malam)",
+    path: "Siring Menara Pandang ➔ Patung Bekantan ➔ Kampung Hijau/Biru",
+    desc: "Rute favorit wisatawan untuk menikmati panorama tepian Sungai Martapura, jembatan pasar lama, dan kelip lampu Kampung Hijau saat sore hingga malam hari.",
+    img: "/wisata/960px-Taman_Siring_Banjarmasin.webp"
+  },
+  {
+    title: "Pasar Terapung Lok Baintan",
+    category: "Rute Wisata Budaya Subuh",
+    price: "Rp 450.000 / Perahu",
+    duration: "± 3 - 4 Jam",
+    schedule: "Subuh (05.30 WITA)",
+    path: "Dermaga Siring ➔ Kuin ➔ Sungai Martapura ➔ Lok Baintan",
+    desc: "Perjalanan eksplorasi menyusuri urat nadi sungai menuju pasar terapung alami abad ke-16. Kapasitas kelotok carter hingga 15-20 penumpang dengan rompi pengaman.",
+    img: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp"
+  },
+  {
+    title: "Wisata Heritage & Religi",
+    category: "Rute Sejarah Banjar",
+    price: "Rp 20.000 / Orang",
+    duration: "± 1.5 Jam",
+    schedule: "Sabtu & Minggu Pagi/Sore",
+    path: "Siring ➔ Masjid Sultan Suriansyah ➔ Museum Wasaka",
+    desc: "Menyinggahi jejak Kesultanan Banjar di Kuin Utara dan menyaksikan langsung kemegahan arsitektur Rumah Adat Bubungan Tinggi tempat Museum Wasaka berada.",
+    img: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp"
+  }
 ];
 
 const heroHeroItems = heroDestinations.slice(0, 5);
@@ -412,26 +469,55 @@ export default function Wisata() {
         </div>
       </section>
 
+      {/* =========================================================================
+          SECTION 5: PANDUAN TARIF RESMI & RUTE SUSUR SUNGAI KELOTOK WISATA SIRING
+          ========================================================================= */}
       <section className="py-20 max-w-[1240px] mx-auto px-4 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-16 wisata-reveal">
-          <span className="text-xs font-black uppercase tracking-widest text-[#F4C038] font-heading block mb-2">CERITA WISATAWAN &amp; SENYUM ACIL</span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">Momen Hangat di <span className="text-[#33C3B3]">Atas Kelotok</span></h2>
-          <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">Pengalaman autentik penuh kehangatan dari para penjelajah bahari bersama pemandu lokal berlisensi.</p>
+          <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">PANDUAN TRANSPARAN &amp; TARIF RESMI</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">Rute &amp; Tarif Resmi <span className="text-[#F4C038]">Kelotok Wisata</span></h2>
+          <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">Daftar estimasi tarif resmi dari Paguyuban Kelotok Wisata Dermaga Siring Menara Pandang untuk pengalaman liburan yang aman dan transparan.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          {polaroidStories.map((story, idx) => (
-            <div key={idx} className={`wisata-reveal bg-white p-5 rounded-2xl shadow-2xl transition-all duration-300 transform ${story.rotate} text-slate-900 border-4 border-white`}>
-              <div className="h-52 rounded-xl overflow-hidden mb-4 relative bg-slate-200 shadow-inner">
-                <img src={story.img} alt={story.name} loading="lazy" decoding="async" className="w-full h-full object-cover" />
-                <span className="absolute bottom-2 right-2 bg-[#008075] text-white font-black text-[9px] px-2.5 py-0.5 rounded shadow uppercase">Verified Acil Tour</span>
-              </div>
-              <p className="text-xs font-body italic text-slate-700 leading-relaxed mb-4">"{story.quote}"</p>
-              <div className="border-t border-slate-200 pt-3 flex items-center justify-between">
-                <div>
-                  <h4 className="text-sm font-black font-heading text-slate-900">{story.name}</h4>
-                  <span className="text-[10px] text-slate-500 font-semibold">{story.origin}</span>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+          {officialKelotokRoutes.map((route, idx) => (
+            <div key={idx} className="wisata-reveal bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between hover:border-[#33C3B3] transition-all duration-300 group">
+              <div>
+                <div className="h-48 sm:h-56 overflow-hidden relative">
+                  <img src={route.img} alt={route.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 transform-gpu" />
+                  <div className="absolute top-3 left-3 bg-[#091422]/80 backdrop-blur-md text-[#F4C038] text-[10px] font-black px-3 py-1 rounded-full border border-[#F4C038]/30">
+                    {route.duration}
+                  </div>
+                  <div className="absolute bottom-3 right-3 bg-[#33C3B3] text-[#091422] font-black text-xs px-3 py-1 rounded-lg shadow">
+                    {route.price}
+                  </div>
                 </div>
-                <div className="text-amber-500 text-sm">*****</div>
+                
+                <div className="p-6 sm:p-7">
+                  <span className="text-[11px] font-bold text-[#33C3B3] uppercase tracking-wider block mb-1">{route.category}</span>
+                  <h3 className="text-xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">{route.title}</h3>
+                  <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed mb-4">{route.desc}</p>
+                  
+                  <div className="space-y-2 border-t border-[var(--glass-border)] pt-4">
+                    <div className="text-xs font-bold text-[var(--text-main)] flex items-center gap-2">
+                      <span className="text-[#33C3B3]">✓</span> Rute: <span className="font-normal text-[var(--text-muted)]">{route.path}</span>
+                    </div>
+                    <div className="text-xs font-bold text-[var(--text-main)] flex items-center gap-2">
+                      <span className="text-[#F4C038]">✓</span> Jadwal: <span className="font-normal text-[var(--text-muted)]">{route.schedule}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-0">
+                <a
+                  href={`https://maps.google.com/?q=Dermaga+Kelotok+Siring+Banjarmasin`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full py-3 rounded-xl bg-white/5 hover:bg-[#33C3B3] text-[var(--text-main)] hover:text-[#091422] font-bold text-xs flex items-center justify-center gap-2 transition-all border border-[var(--glass-border)] hover:border-[#33C3B3] uppercase tracking-wider"
+                >
+                  📍 Menuju Dermaga Siring ➔
+                </a>
               </div>
             </div>
           ))}
