@@ -142,21 +142,21 @@ const hotspotData = [
   {
     id: 'atap',
     title: 'Atap Bubungan Tinggi',
-    x: '38%', y: '18%',
+    x: '72%', y: '25%',
     desc: 'Atap meluncur tajam ke langit hingga 45 derajat. Melambangkan pohon hayat dan hubungan vertikal antara manusia dengan Sang Pencipta.',
     filosofi: 'Ketinggian melambangkan martabat kebangsawanan dan kemuliaan budi.'
   },
   {
     id: 'anjung',
     title: 'Anjung Sayap Istana',
-    x: '25%', y: '55%',
+    x: '88%', y: '55%',
     desc: 'Sayap bangunan yang menjorok keluar di sisi kiri dan kanan ibarat burung garuda yang sedang membentangkan sayapnya melindungi rakyat.',
     filosofi: 'Melambangkan keseimbangan hidup antara urusan duniawi dan ukhrawi.'
   },
   {
     id: 'ukiran',
     title: 'Ukiran Tatawatan Ulin',
-    x: '75%', y: '65%',
+    x: '35%', y: '65%',
     desc: 'Ukiran relief terawang pada pagar jelujur bermotif sulur kembang kacang dan nanas.',
     filosofi: 'Kayu ulin besi anti-lapuk melambangkan keteguhan iman dan kesucian hati masyarakat Banjar.'
   }
@@ -280,8 +280,8 @@ export default function Budaya() {
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute bottom-3 left-3 bg-[#F4C038] text-[#091422] font-black text-[9px] px-2.5 py-1 rounded-full shadow">
-                🌸 Sasirangan
+              <span className="absolute bottom-3 left-3 bg-[#F4C038] text-[#091422] font-black text-[9px] px-3 py-1 rounded-full shadow">
+                Sasirangan
               </span>
             </div>
           </div>
@@ -291,13 +291,13 @@ export default function Budaya() {
             <div className="relative rounded-2xl overflow-hidden h-[160px] bg-teal-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
               <img
                 src="/budaya/atap bubungan tinggi.webp"
-                alt="Perahu Kelotok Sungai"
+                alt="Rumah Adat Bubungan Tinggi"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#33C3B3] font-black text-[8px] px-2 py-0.5 rounded border border-white/10">
-                🛶 Sungai
+              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#33C3B3] font-black text-[8px] px-2.5 py-1 rounded border border-white/10">
+                Arsitektur
               </span>
             </div>
 
@@ -309,16 +309,14 @@ export default function Budaya() {
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] px-2 py-0.5 rounded border border-white/10">
-                ✨ Anyaman
+              <span className="absolute bottom-2 left-2 bg-[#091422]/90 text-[#F4C038] font-black text-[8px] px-2.5 py-1 rounded border border-white/10">
+                Anyaman
               </span>
             </div>
           </div>
 
           {/* KOLOM 3 */}
           <div className="col-span-1 relative flex flex-col items-center justify-center">
-            <span className="text-2xl text-[#F4C038] mb-2 select-none inline-block">✦</span>
-
             <div className="w-full max-w-[260px] h-[440px] rounded-[40px] overflow-hidden border-2 border-[#F4C038] shadow-lg relative group bg-[#050B14] mx-auto hover:-translate-y-1 transition-transform duration-200">
               <img
                 src="/budaya/tari baksa kembang.webp"
@@ -337,9 +335,6 @@ export default function Budaya() {
                 </h3>
               </div>
             </div>
-
-            <span className="absolute bottom-2 left-2 text-lg">🌸</span>
-            <span className="absolute top-8 right-2 text-lg">🌺</span>
           </div>
 
           {/* KOLOM 4 */}
@@ -352,8 +347,8 @@ export default function Budaya() {
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute top-2 right-2 bg-[#008075] text-white font-bold text-[8px] px-2 py-0.5 rounded">
-                🎭 Teater Mamanda
+              <span className="absolute bottom-2 right-2 bg-[#091422]/90 text-[#008075] font-black text-[8px] px-2.5 py-1 rounded border border-white/10">
+                Teater Mamanda
               </span>
             </div>
 
@@ -365,18 +360,14 @@ export default function Budaya() {
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute top-2 right-2 bg-[#00A896] text-white font-bold text-[8px] px-2 py-0.5 rounded">
-                🕌 Sinoman Hadrah
+              <span className="absolute bottom-2 right-2 bg-[#091422]/90 text-[#00A896] font-black text-[8px] px-2.5 py-1 rounded border border-white/10">
+                Sinoman Hadrah
               </span>
             </div>
           </div>
 
           {/* KOLOM 5 */}
           <div className="col-span-1 flex flex-col justify-center relative">
-            <div className="hidden md:flex absolute -top-6 -right-3 w-16 h-16 rounded-full bg-[#091422]/95 border border-[#F4C038] items-center justify-center z-20 shadow-md">
-              <span className="text-[10px] font-black text-[#F4C038]">✦</span>
-            </div>
-
             <div className="relative rounded-[32px] overflow-hidden h-[260px] bg-emerald-500/10 border border-[var(--glass-border)] shadow-md group hover:border-[#33C3B3] transition-all duration-200">
               <img
                 src="/budaya/motif kembang kacang.webp"
@@ -385,8 +376,8 @@ export default function Budaya() {
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <span className="absolute top-3 right-3 bg-[#00A896] text-white font-black text-[9px] px-2.5 py-1 rounded-full shadow">
-                #Heritage
+              <span className="absolute bottom-3 right-3 bg-[#091422]/90 text-[#00A896] font-black text-[9px] px-3 py-1 rounded-full shadow border border-white/10">
+                Wastra Motif
               </span>
             </div>
           </div>
