@@ -23,10 +23,13 @@ export default function Home() {
     ...(slides[idx] || {})
   }));
 
-  // === AUTO-PLAY HERO SLIDER ===
+  // === AUTO-PLAY HERO SLIDER (HANYA UNTUK MOBILE) ===
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % showcaseItems.length);
+      // Hanya auto-play jika lebar layar < 768px (Mobile)
+      if (window.innerWidth < 768) {
+        setActiveSlide((prev) => (prev + 1) % showcaseItems.length);
+      }
     }, 5000);
     return () => clearInterval(timer);
   }, [showcaseItems.length]);
