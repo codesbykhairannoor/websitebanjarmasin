@@ -217,9 +217,9 @@ export default function Home() {
                       <p className="text-sm md:text-base text-gray-200 mb-6 leading-relaxed line-clamp-3 animate-fadeIn">{item.desc}</p>
                       <div className="flex flex-wrap items-center gap-4 animate-fadeIn">
                         {item.btnLink.startsWith('#') ? (
-                          <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20"><span>⚡</span> {item.btnText}</a>
+                          <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</a>
                         ) : (
-                          <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20"><span>⚡</span> {item.btnText}</Link>
+                          <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</Link>
                         )}
                         <span className="text-sm font-bold text-gray-300 bg-white/10 backdrop-blur-md px-4 py-3 rounded-full border border-white/20">{item.price}</span>
                       </div>
@@ -257,9 +257,9 @@ export default function Home() {
                   <p className="text-xs text-gray-200 mb-6 leading-relaxed line-clamp-3 drop-shadow-md">{item.desc}</p>
                   <div className="flex flex-wrap items-center gap-3">
                     {item.btnLink.startsWith('#') ? (
-                      <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2"><span>⚡</span> {item.btnText}</a>
+                      <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</a>
                     ) : (
-                      <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2"><span>⚡</span> {item.btnText}</Link>
+                      <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
                     )}
                   </div>
                 </div>
@@ -356,14 +356,19 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="culinary-tabs-bar hide-scrollbar flex flex-nowrap overflow-x-auto gap-4 mb-8 pb-4 snap-x justify-start md:justify-center px-4">
+          <div className="hide-scrollbar flex overflow-x-auto gap-4 md:gap-6 mb-10 pb-4 snap-x px-4 sm:justify-center">
             {foods.map((item) => (
               <button 
                 key={item.id}
-                className={`px-6 py-3 rounded-full font-bold text-sm transition-all border shadow-sm snap-center shrink-0 whitespace-nowrap ${activeTab === item.id ? 'bg-[#33C3B3] border-[#33C3B3] text-white shadow-[#33C3B3]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                 onClick={() => setActiveTab(item.id)}
+                className={`flex flex-col md:flex-row items-center gap-2 md:gap-3 shrink-0 snap-center group w-20 md:w-auto md:px-6 md:py-3 md:rounded-full transition-all md:border ${activeTab === item.id ? 'md:bg-[#33C3B3] md:border-[#33C3B3] md:shadow-[#33C3B3]/30 md:shadow-lg' : 'md:bg-transparent md:border-[var(--glass-border)] hover:md:bg-[var(--glass-border)]'}`}
               >
-                {item.tabTitle}
+                <div className={`relative w-16 h-16 md:w-8 md:h-8 overflow-hidden rounded-full transition-all duration-300 md:border-2 ${activeTab === item.id ? 'border-4 border-[#33C3B3] md:border-white scale-110 md:scale-100 shadow-lg shadow-[#33C3B3]/30 md:shadow-none' : 'border-4 border-transparent md:border-transparent group-hover:scale-105'}`}>
+                  <img src={item.img} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
+                </div>
+                <span className={`font-bold text-xs md:text-sm transition-colors text-center leading-tight ${activeTab === item.id ? 'text-[#33C3B3] md:text-white' : 'text-[var(--text-muted)] md:text-[var(--text-main)] group-hover:text-[var(--text-main)]'}`}>
+                  {item.tabTitle}
+                </span>
               </button>
             ))}
           </div>
@@ -583,13 +588,13 @@ export default function Home() {
 
         {/* 6. UTILITY PLANNER (RUTE) */}
         <section id="planner" className="py-16 md:py-24 mb-0">
-          <div className="planner-glass relative overflow-hidden rounded-[40px] p-6 md:p-12 lg:p-16 border border-[var(--glass-border)] shadow-2xl bg-[var(--card-bg)] flex flex-col lg:flex-row gap-12 items-center mx-4 md:mx-0">
+          <div className="planner-glass relative overflow-hidden rounded-[40px] p-5 md:p-12 lg:p-16 border border-[var(--glass-border)] shadow-2xl bg-[var(--card-bg)] flex flex-col lg:flex-row gap-6 lg:gap-12 items-center mx-4 md:mx-0">
             {/* Ambient background glow */}
             <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#33C3B3]/10 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#F4C038]/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="flex-1 relative z-10 w-full">
-              <div className="flex items-center gap-4 bg-[var(--bg-main)]/50 backdrop-blur-xl border border-[var(--glass-border)] p-4 rounded-3xl w-max mb-8 shadow-sm">
+              <div className="hidden md:flex items-center gap-4 bg-[var(--bg-main)]/50 backdrop-blur-xl border border-[var(--glass-border)] p-4 rounded-3xl w-max mb-8 shadow-sm">
                 <span className="text-3xl">🌤️</span>
                 <div>
                   <h4 className="font-heading font-bold text-xs text-[var(--text-muted)] uppercase tracking-wider">Banjarmasin ({t('home.planner.timezone', 'WITA')})</h4>
@@ -597,38 +602,26 @@ export default function Home() {
                 </div>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
+              <h2 className="text-3xl md:text-4xl font-black text-[var(--text-main)] font-heading leading-tight mb-3 md:mb-4">
                 {t('home.planner.title')}
               </h2>
-              <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-8">
+              <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-6 md:mb-8">
                 {t('home.planner.desc')}
               </p>
 
-              <div className="flex flex-wrap gap-3">
-                <button 
-                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'lokbaintan' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
-                  onClick={() => setActiveSpot('lokbaintan')}
-                >
-                  🛶 {t('home.planner.spots.lokbaintan.title').split(' ').slice(-2).join(' ')}
-                </button>
-                <button 
-                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'siring' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
-                  onClick={() => setActiveSpot('siring')}
-                >
-                  🗼 {t('home.planner.spots.siring.title').split(' ').slice(-2).join(' ')}
-                </button>
-                <button 
-                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'sotoamat' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
-                  onClick={() => setActiveSpot('sotoamat')}
-                >
-                  🍲 {t('home.planner.spots.sotoamat.title').split(' ').slice(-2).join(' ')}
-                </button>
-                <button 
-                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'pulaukembang' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
-                  onClick={() => setActiveSpot('pulaukembang')}
-                >
-                  🏝️ {t('home.planner.spots.pulaukembang.title').split(' ').slice(-2).join(' ')}
-                </button>
+              <div className="flex overflow-x-auto md:flex-wrap gap-3 pb-4 md:pb-0 hide-scrollbar snap-x -mx-5 px-5 md:mx-0 md:px-0">
+                {['lokbaintan', 'siring', 'sotoamat', 'pulaukembang'].map(key => {
+                   const icon = key==='lokbaintan' ? '🛶' : key==='siring' ? '🗼' : key==='sotoamat' ? '🍲' : '🏝️';
+                   return (
+                    <button 
+                      key={key}
+                      className={`shrink-0 snap-center map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === key ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                      onClick={() => setActiveSpot(key)}
+                    >
+                      {icon} {t(`home.planner.spots.${key}.title`).split(' ').slice(-2).join(' ')}
+                    </button>
+                   )
+                })}
               </div>
             </div>
 
@@ -646,18 +639,18 @@ export default function Home() {
                   <span className="text-[var(--text-muted)] text-[10px] sm:text-xs font-mono break-all sm:break-normal text-right hidden sm:block">📍 {currentMap.coords}</span>
                 </div>
 
-                <h4 className="text-2xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">{currentMap.title}</h4>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed italic mb-6">"{currentMap.highlight}"</p>
+                <h4 className="text-xl md:text-2xl font-black text-[var(--text-main)] font-heading mb-2 md:mb-3 leading-tight">{currentMap.title}</h4>
+                <p className="text-[var(--text-muted)] text-xs md:text-sm leading-relaxed italic mb-5 md:mb-6">"{currentMap.highlight}"</p>
 
-                <div className="space-y-4 mb-8 bg-[var(--card-bg)] p-5 rounded-2xl border border-[var(--glass-border)]">
-                  <div>
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8 bg-[var(--card-bg)] p-4 md:p-5 rounded-2xl border border-[var(--glass-border)]">
+                  <div className="flex-1">
                     <span className="block text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{t('home.planner.transportTitle')}</span>
-                    <span className="text-[var(--text-main)] font-bold text-sm">{currentMap.transport}</span>
+                    <span className="text-[var(--text-main)] font-bold text-xs md:text-sm leading-snug block">{currentMap.transport}</span>
                   </div>
-                  <div className="h-[1px] w-full bg-[var(--glass-border)]"></div>
-                  <div>
+                  <div className="w-full sm:w-[1px] h-[1px] sm:h-auto bg-[var(--glass-border)]"></div>
+                  <div className="flex-1">
                     <span className="block text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{t('home.planner.bestTimeTitle')}</span>
-                    <span className="text-[var(--text-main)] font-bold text-sm">{currentMap.bestTime}</span>
+                    <span className="text-[var(--text-main)] font-bold text-xs md:text-sm leading-snug block">{currentMap.bestTime}</span>
                   </div>
                 </div>
 
