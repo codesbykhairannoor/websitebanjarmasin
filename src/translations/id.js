@@ -127,16 +127,22 @@ export const id = {
           desc: "Ketupat pulen yang disiram kuah santan kaya bumbu kuning tradisional. Dipadukan dengan lauk ikan haruan (gabus) panggang asap yang memberikan cita rasa mendalam yang tiada duanya."
         },
         {
-          name: "Lontong Orari Legendaris",
-          tabTitle: "🌙 Lontong Orari",
-          aroma: "Perpaduan Manis Gurih Bumbu Habang Khas Banjar",
-          desc: "Lontong segitiga berukuran jumbo dengan siraman bumbu habang (merah) yang pekat. Disertai lauk telur bebek dan ayam kampung yang meresap sempurna hingga ke serat daging."
+          name: "Amparan Tatak Pisang",
+          tabTitle: "🍌 Amparan Tatak",
+          aroma: "Manis Legit Pisang & Gurih Santan Kukus",
+          desc: "Kue tradisional (wadai) berlapis dua dengan tekstur lembut lumer di mulut. Lapisan bawah kaya akan potongan pisang manis, sementara lapisan atasnya adalah puding santan gurih yang pecah di lidah."
         },
         {
           name: "Bingka Kentang Kembang",
           tabTitle: "🍯 Bingka Kentang",
           aroma: "Legit Lembut Aroma Santan Bakar & Kentang",
           desc: "Kue basah tradisional berbentuk kelopak bunga kembang bundar. Memiliki tekstur super lembut dan manis legit alami dari campuran kentang premium serta santan kelapa bakar."
+        },
+        {
+          name: "Sambal Acan Raja Banjar",
+          tabTitle: "🌶️ Sambal Acan",
+          aroma: "Pedas Menyengat & Terasi Fermentasi Harum",
+          desc: "Oleh-oleh wajib khas Banjar! Sambal terasi (acan) yang difermentasi khusus dan dicampur dengan perasan mangga kuini atau ramania, menghasilkan sensasi pedas, asam, dan gurih yang luar biasa."
         }
       ]
     },

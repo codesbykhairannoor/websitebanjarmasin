@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,44 +8,20 @@ import { useLanguage } from '../context/LanguageContext';
 export default function Home() {
   const { language, t } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
 
-  const handleTouchStart = (e) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-  const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    if (distance > 50) setActiveSlide((p) => (p + 1) % showcaseItems.length); // Kiri
-    if (distance < -50) setActiveSlide((p) => (p === 0 ? showcaseItems.length - 1 : p - 1)); // Kanan
-  };
   // === STATE FOR HERO SLIDES ===
   const showcaseImages = [
-    { id: 0, shortTitle: "Sambutan", icon: "✨", btnLink: "#wisata", img: "/hero_sungai_martapura.png" },
-    { id: 1, shortTitle: "Sungai", icon: "🛶", btnLink: "/wisata", img: "/hero_pasar_terapung.png" },
-    { id: 2, shortTitle: "Kuliner", icon: "🍜", btnLink: "/kuliner", img: "/hero_soto_banjar.png" },
-    { id: 3, shortTitle: "Budaya", icon: "🏛️", btnLink: "/sejarah", img: "/hero_kain_sasirangan.png" },
-    { id: 4, shortTitle: "Inovasi", icon: "🚀", btnLink: "/smart-city", img: "/hero_menara_pandang.png" }
+    { id: 0, shortTitle: "Sambutan", icon: "Γ£¿", btnLink: "#wisata", img: "/hero_sungai_martapura.png" },
+    { id: 1, shortTitle: "Sungai", icon: "≡ƒ¢╢", btnLink: "/wisata", img: "/hero_pasar_terapung.png" },
+    { id: 2, shortTitle: "Kuliner", icon: "≡ƒì£", btnLink: "/kuliner", img: "/hero_soto_banjar.png" },
+    { id: 3, shortTitle: "Budaya", icon: "≡ƒÅ¢∩╕Å", btnLink: "/sejarah", img: "/hero_kain_sasirangan.png" },
+    { id: 4, shortTitle: "Inovasi", icon: "≡ƒÜÇ", btnLink: "/smart-city", img: "/hero_menara_pandang.png" }
   ];
   const slides = t('home.hero.slides') || [];
   const showcaseItems = showcaseImages.map((item, idx) => ({
     ...item,
     ...(slides[idx] || {})
   }));
-
-  // === AUTO-PLAY HERO SLIDER (HANYA UNTUK MOBILE) ===
-  useEffect(() => {
-    const timer = setInterval(() => {
-      // Hanya auto-play jika lebar layar < 768px (Mobile)
-      if (window.innerWidth < 768) {
-        setActiveSlide((prev) => (prev + 1) % showcaseItems.length);
-      }
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [showcaseItems.length]);
 
   // === STATE FOR QUICK DISCOVERY ===
   const spotsImages = [
@@ -65,9 +41,8 @@ export default function Home() {
   const foodsImages = [
     { id: 1, img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", price: "Rp 25.000" },
     { id: 2, img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", price: "Rp 30.000" },
-    { id: 3, img: "/kuliner/Resep-Amparan-Tatak-Kue-Khas-Ban.webp", price: "Rp 15.000" },
-    { id: 4, img: "/kuliner/Bingka.webp", price: "Rp 45.000" },
-    { id: 5, img: "/kuliner/sambal acan.webp", price: "Rp 20.000" }
+    { id: 3, img: "/kuliner/buras.webp", price: "Rp 35.000" },
+    { id: 4, img: "/kuliner/Bingka.webp", price: "Rp 45.000" }
   ];
   const translatedFoods = t('home.kuliner.foods') || [];
   const foods = foodsImages.map((food, idx) => ({
@@ -82,22 +57,22 @@ export default function Home() {
   const spotsData = {
     lokbaintan: {
       ...spotsDataTranslated.lokbaintan,
-      coords: "3.3167° S, 114.5901° E",
+      coords: "3.3167┬░ S, 114.5901┬░ E",
       mapsUrl: "https://maps.google.com/?q=Pasar+Terapung+Lok+Baintan"
     },
     siring: {
       ...spotsDataTranslated.siring,
-      coords: "3.3186° S, 114.5924° E",
+      coords: "3.3186┬░ S, 114.5924┬░ E",
       mapsUrl: "https://maps.google.com/?q=Menara+Pandang+Banjarmasin"
     },
     sotoamat: {
       ...spotsDataTranslated.sotoamat,
-      coords: "3.3012° S, 114.6035° E",
+      coords: "3.3012┬░ S, 114.6035┬░ E",
       mapsUrl: "https://maps.google.com/?q=Soto+Bang+Amat+Banjarmasin"
     },
     pulaukembang: {
       ...spotsDataTranslated.pulaukembang,
-      coords: "3.3045° S, 114.5589° E",
+      coords: "3.3045┬░ S, 114.5589┬░ E",
       mapsUrl: "https://maps.google.com/?q=Pulau+Kembang+Barito"
     }
   };
@@ -109,13 +84,13 @@ export default function Home() {
       id: "Portal Wisata Resmi Banjarmasin - Kota Seribu Sungai",
       en: "Official Tourism Portal of Banjarmasin - City of a Thousand Rivers",
       ms: "Portal Pelancongan Rasmi Banjarmasin - Kota Seribu Sungai",
-      zh: "马辰官方旅游门户网站 - 千河之城"
+      zh: "Θ⌐¼Φ╛░σ«ÿµû╣µùàµ╕╕Θù¿µê╖τ╜æτ½Ö - σìâµ▓│Σ╣ïσƒÄ"
     };
     const descriptions = {
       id: "Jelajahi keindahan budaya sungai, kuliner legendaris, kain Sasirangan, dan destinasi ikonik Kota Banjarmasin.",
       en: "Explore the beauty of river culture, legendary culinary, Sasirangan fabrics, and iconic destinations of Banjarmasin.",
       ms: "Terokai keindahan budaya sungai, kuliner legenda, kain Sasirangan, dan destinasi ikonik Kota Banjarmasin.",
-      zh: "探索马辰河流文化的美丽、传奇美食、萨希朗安扎染布和标志性景点。"
+      zh: "µÄóτ┤óΘ⌐¼Φ╛░µ▓│µ╡üµûçσîûτÜäτ╛ÄΣ╕╜πÇüΣ╝áσÑçτ╛ÄΘúƒπÇüΦÉ¿σ╕îµ£ùσ«ëµëÄµƒôσ╕âσÆîµáçσ┐ùµÇºµÖ»τé╣πÇé"
     };
 
     document.title = titles[language] || titles.id;
@@ -192,9 +167,7 @@ export default function Home() {
           HERO SECTION (DISNEY+ SHOWCASE ACCORDION FULL-WIDTH)
           ========================================================= */}
       <section className="relative w-full h-screen min-h-[600px] bg-[var(--bg-main)] pt-[56px] sm:pt-[60px] overflow-hidden flex flex-col border-b border-[var(--glass-border)]">
-        
-        {/* DESKTOP ACCORDION (Hidden on Mobile) */}
-        <div className="hidden md:flex w-full flex-1 gap-[1px] bg-white/10 relative z-10 overflow-hidden">
+        <div className="w-full flex-1 flex flex-col md:flex-row gap-[1px] bg-white/10 relative z-10 overflow-hidden">
           {showcaseItems.map((item, i) => {
             const isActive = activeSlide === i;
             return (
@@ -203,76 +176,91 @@ export default function Home() {
                 onClick={() => setActiveSlide(i)}
                 className={`relative overflow-hidden transition-[flex] duration-500 ease-out select-none ${
                   isActive
-                    ? "flex-[8] lg:flex-[10] z-20 shadow-2xl cursor-default"
-                    : "flex-[1.2] lg:flex-[1.5] cursor-pointer group border-r border-white/15 last:border-0 hover:brightness-125 hover:shadow-[inset_0_0_35px_rgba(244,192,56,0.4)] transition-[filter,box-shadow] duration-300"
+                    ? "flex-[5] sm:flex-[6] md:flex-[8] lg:flex-[10] z-20 shadow-2xl cursor-default"
+                    : "flex-[0.85] sm:flex-[1] md:flex-[1.2] lg:flex-[1.5] cursor-pointer group border-b md:border-b-0 md:border-r border-white/15 last:border-0 hover:brightness-125 hover:shadow-[inset_0_0_35px_rgba(244,192,56,0.4)] transition-[filter,box-shadow] duration-300"
                 }`}
               >
-                <img loading="lazy" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${isActive ? "scale-105 brightness-100" : "grayscale-[30%] brightness-75 group-hover:brightness-100"}`} />
+                {/* Background Image */}
+                <img loading="lazy"
+                  src={item.img}
+                  alt={item.title}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+                    isActive ? "scale-105 brightness-100" : "grayscale-[30%] brightness-75 group-hover:brightness-100"
+                  }`}
+                />
+
+                {/* Content Overlay when ACTIVE */}
                 {isActive ? (
                   <>
-                    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 pointer-events-none" />
-                    <div className="absolute inset-0 z-20 p-8 md:p-14 lg:p-16 flex flex-col justify-center max-w-xl text-white overflow-y-auto">
-                      <span className="text-[#F4C038] font-heading font-extrabold text-xs md:text-sm tracking-[0.2em] uppercase mb-2 block animate-fadeIn">{item.tag}</span>
-                      <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-3 drop-shadow-md animate-fadeIn text-white">{item.title}</h1>
-                      <p className="text-base md:text-xl font-bold text-sasirangan mb-4 font-heading animate-fadeIn">{item.subtitle}</p>
-                      <p className="text-sm md:text-base text-gray-200 mb-6 leading-relaxed line-clamp-3 animate-fadeIn">{item.desc}</p>
-                      <div className="flex flex-wrap items-center gap-4 animate-fadeIn">
+                    <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black via-black/85 to-transparent w-full md:w-3/4 lg:w-2/3 z-10 pointer-events-none" />
+                    <div className="absolute inset-0 z-20 p-5 sm:p-8 md:p-14 lg:p-16 flex flex-col justify-end md:justify-center max-w-xl text-white overflow-y-auto">
+                      <span className="text-[#F4C038] font-heading font-extrabold text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase mb-1 sm:mb-2 block animate-fadeIn">
+                        {item.tag}
+                      </span>
+                      <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-2 sm:mb-3 drop-shadow-md animate-fadeIn text-white">
+                        {item.title}
+                      </h1>
+                      <p className="text-sm sm:text-base md:text-xl font-bold text-sasirangan mb-2 sm:mb-4 font-heading animate-fadeIn">
+                        {item.subtitle}
+                      </p>
+                      <p className="hidden sm:block text-xs md:text-base text-gray-200 mb-4 sm:mb-6 leading-relaxed line-clamp-2 md:line-clamp-3 animate-fadeIn">
+                        {item.desc}
+                      </p>
+                      <div className="flex flex-wrap items-center gap-3 sm:gap-4 animate-fadeIn">
                         {item.btnLink.startsWith('#') ? (
-                          <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</a>
+                          <a
+                            href={item.btnLink}
+                            className="bg-[#F4C038] hover:bg-white text-[#091422] px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-heading font-black text-xs sm:text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20"
+                          >
+                            <span>ΓÜí</span> {item.btnText}
+                          </a>
                         ) : (
-                          <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</Link>
+                          <Link
+                            to={item.btnLink}
+                            className="bg-[#F4C038] hover:bg-white text-[#091422] px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-heading font-black text-xs sm:text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20"
+                          >
+                            <span>ΓÜí</span> {item.btnText}
+                          </Link>
                         )}
-                        <span className="text-sm font-bold text-gray-300 bg-white/10 backdrop-blur-md px-4 py-3 rounded-full border border-white/20">{item.price}</span>
+                        <span className="text-[11px] sm:text-sm font-bold text-gray-300 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2 sm:py-3 rounded-full border border-white/20">
+                          {item.price}
+                        </span>
                       </div>
                     </div>
                   </>
                 ) : (
-                  <div className="absolute inset-0 flex flex-col justify-between items-center p-4 z-10 pointer-events-none bg-gradient-to-t from-black/90 via-black/20 to-black/60">
-                    <div className="flex-1 flex items-center justify-center py-4 overflow-hidden">
-                      <span className="block font-heading font-extrabold text-white text-sm tracking-widest uppercase -rotate-90 whitespace-nowrap drop-shadow-lg opacity-70 group-hover:opacity-100 transition-opacity">{item.title}</span>
+                  /* Content Overlay when INACTIVE */
+                  <>
+                    {/* Desktop Inactive: Vertical Text Strip */}
+                    <div className="hidden md:flex absolute inset-0 flex-col justify-between items-center p-3 sm:p-4 z-10 pointer-events-none bg-gradient-to-t from-black/90 via-black/20 to-black/60">
+                      <span className="w-8 h-8 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-xs font-bold text-[#F4C038] shrink-0">
+                        0{i + 1}
+                      </span>
+                      <div className="flex-1 flex items-center justify-center py-4 overflow-hidden">
+                        <span className="block font-heading font-extrabold text-white text-xs sm:text-sm tracking-widest uppercase -rotate-90 whitespace-nowrap drop-shadow-lg">
+                          {item.shortTitle}
+                        </span>
+                      </div>
+                      <span className="text-xl shrink-0 drop-shadow">{item.icon}</span>
                     </div>
-                  </div>
+
+                    {/* Mobile Inactive: Horizontal Bar Strip */}
+                    <div className="md:hidden absolute inset-0 flex items-center justify-between px-5 z-10 pointer-events-none bg-black/75">
+                      <div className="flex items-center gap-3">
+                        <span className="w-6 h-6 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-[10px] font-bold text-[#F4C038]">
+                          0{i + 1}
+                        </span>
+                        <span className="font-heading font-extrabold text-white text-xs tracking-widest uppercase drop-shadow-md">
+                          {item.shortTitle}
+                        </span>
+                      </div>
+                      <span className="text-lg drop-shadow">{item.icon}</span>
+                    </div>
+                  </>
                 )}
               </div>
             );
           })}
-        </div>
-
-        {/* MOBILE SLIDER (Hidden on Desktop) */}
-        <div 
-          className="md:hidden absolute inset-0 w-full h-full z-10 overflow-hidden"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          {showcaseItems.map((item, i) => {
-            const isActive = activeSlide === i;
-            return (
-              <div key={item.id} className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${isActive ? "opacity-100 z-20" : "opacity-0 z-10"}`}>
-                <img loading="lazy" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-out ${isActive ? "scale-110" : "scale-100"}`} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
-                <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-all duration-1000 delay-300 ${isActive ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
-                  <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
-                  <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-tight leading-tight mb-2 drop-shadow-lg text-white">{item.title}</h1>
-                  <p className="text-sm font-bold text-sasirangan mb-3 font-heading drop-shadow-md">{item.subtitle}</p>
-                  <p className="text-xs text-gray-200 mb-6 leading-relaxed line-clamp-3 drop-shadow-md">{item.desc}</p>
-                  <div className="flex flex-wrap items-center gap-3">
-                    {item.btnLink.startsWith('#') ? (
-                      <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</a>
-                    ) : (
-                      <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-          {/* Navigation Dots Indicator */}
-          <div className="absolute bottom-8 left-0 w-full z-30 flex justify-center items-center gap-3">
-            {showcaseItems.map((_, i) => (
-              <button key={i} onClick={() => setActiveSlide(i)} className={`transition-all duration-500 rounded-full ${activeSlide === i ? "w-8 h-2 bg-[#F4C038]" : "w-2 h-2 bg-white/50 hover:bg-white/80"}`} aria-label={`Go to slide ${i + 1}`} />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -315,7 +303,7 @@ export default function Home() {
                 <div className="bento-overlay">
                   <div className="bento-top">
                     <span className="bento-badge">{s.category}</span>
-                    <span className="bento-time hidden sm:flex">{s.time}</span>
+                    <span className="bento-time">{s.time}</span>
                   </div>
                   <div className="bento-bottom">
                     <h3 className="bento-title">{s.title}</h3>
@@ -357,19 +345,14 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="hide-scrollbar flex overflow-x-auto gap-4 md:gap-6 mb-10 pb-4 snap-x px-4 sm:justify-center">
+          <div className="culinary-tabs-bar hide-scrollbar flex overflow-x-auto gap-4 mb-8 pb-4 snap-x justify-start md:justify-center px-4">
             {foods.map((item) => (
               <button 
                 key={item.id}
+                className={`px-6 py-3 rounded-full font-bold text-sm transition-all border shadow-sm snap-center shrink-0 ${activeTab === item.id ? 'bg-[#33C3B3] border-[#33C3B3] text-white shadow-[#33C3B3]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex flex-col md:flex-row items-center gap-2 md:gap-3 shrink-0 snap-center group w-20 md:w-auto md:px-6 md:py-3 md:rounded-full transition-all md:border ${activeTab === item.id ? 'md:bg-[#33C3B3] md:border-[#33C3B3] md:shadow-[#33C3B3]/30 md:shadow-lg' : 'md:bg-transparent md:border-[var(--glass-border)] hover:md:bg-[var(--glass-border)]'}`}
               >
-                <div className={`relative w-16 h-16 md:w-8 md:h-8 overflow-hidden rounded-full transition-all duration-300 md:border-2 ${activeTab === item.id ? 'border-4 border-[#33C3B3] md:border-white scale-110 md:scale-100 shadow-lg shadow-[#33C3B3]/30 md:shadow-none' : 'border-4 border-transparent md:border-transparent group-hover:scale-105'}`}>
-                  <img src={item.img} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
-                </div>
-                <span className={`font-bold text-xs md:text-sm transition-colors text-center leading-tight ${activeTab === item.id ? 'text-[#33C3B3] md:text-white' : 'text-[var(--text-muted)] md:text-[var(--text-main)] group-hover:text-[var(--text-main)]'}`}>
-                  {item.tabTitle}
-                </span>
+                {item.tabTitle}
               </button>
             ))}
           </div>
@@ -394,9 +377,9 @@ export default function Home() {
               <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
                 <h3 className="text-2xl md:text-4xl font-black text-[var(--text-main)] font-heading mb-4 leading-tight">{currentFood.name}</h3>
                 
-                <div className="inline-flex items-center gap-2 sm:gap-3 bg-[var(--bg-main)] px-4 sm:px-5 py-3 rounded-2xl border border-[var(--glass-border)] mb-6 mx-auto lg:mx-0 w-fit max-w-full overflow-hidden">
-                  <span className="text-lg md:text-xl shrink-0">🌿</span>
-                  <p className="text-[10px] sm:text-xs md:text-sm font-bold text-[var(--text-main)] uppercase tracking-wider truncate whitespace-normal sm:whitespace-nowrap line-clamp-2 sm:line-clamp-none">{currentFood.aroma}</p>
+                <div className="inline-flex items-center gap-3 bg-[var(--bg-main)] px-5 py-3 rounded-2xl border border-[var(--glass-border)] mb-6 mx-auto lg:mx-0 w-max">
+                  <span className="text-xl">≡ƒî┐</span>
+                  <p className="text-xs md:text-sm font-bold text-[var(--text-main)] uppercase tracking-wider">{currentFood.aroma}</p>
                 </div>
 
                 <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-8">
@@ -431,14 +414,14 @@ export default function Home() {
               
               <div className="flex flex-col gap-6 mb-8 text-left px-4 lg:px-0">
                 <div className="flex gap-4 items-start p-6 rounded-3xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-sm hover:shadow-lg transition-shadow">
-                  <span className="text-3xl md:text-4xl shrink-0">🧵</span>
+                  <span className="text-3xl md:text-4xl shrink-0">≡ƒº╡</span>
                   <div>
                     <h3 className="font-heading font-bold text-[var(--text-main)] mb-2 text-lg">{t('home.budaya.cards.0.title')}</h3>
                     <p className="text-sm text-[var(--text-muted)] leading-relaxed">{t('home.budaya.cards.0.desc')}</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start p-6 rounded-3xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-sm hover:shadow-lg transition-shadow">
-                  <span className="text-3xl md:text-4xl shrink-0">🛶</span>
+                  <span className="text-3xl md:text-4xl shrink-0">≡ƒ¢╢</span>
                   <div>
                     <h3 className="font-heading font-bold text-[var(--text-main)] mb-2 text-lg">{t('home.budaya.cards.1.title')}</h3>
                     <p className="text-sm text-[var(--text-muted)] leading-relaxed">{t('home.budaya.cards.1.desc')}</p>
@@ -513,21 +496,21 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
-                <div className="w-14 h-14 bg-blue-500/30 rounded-full flex items-center justify-center text-2xl border border-blue-400/50 shrink-0 shadow-lg">📱</div>
+                <div className="w-14 h-14 bg-blue-500/30 rounded-full flex items-center justify-center text-2xl border border-blue-400/50 shrink-0 shadow-lg">≡ƒô▒</div>
                 <div>
                   <h4 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.0.title')}</h4>
                   <p className="text-gray-300 text-xs md:text-sm">{t('home.smartCity.cards.0.desc')}</p>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 translate-x-0 md:translate-x-8 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
-                <div className="w-14 h-14 bg-green-500/30 rounded-full flex items-center justify-center text-2xl border border-green-400/50 shrink-0 shadow-lg">🚦</div>
+                <div className="w-14 h-14 bg-green-500/30 rounded-full flex items-center justify-center text-2xl border border-green-400/50 shrink-0 shadow-lg">≡ƒÜª</div>
                 <div>
                   <h4 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.1.title')}</h4>
                   <p className="text-gray-300 text-xs md:text-sm">{t('home.smartCity.cards.1.desc')}</p>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
-                <div className="w-14 h-14 bg-yellow-500/30 rounded-full flex items-center justify-center text-2xl border border-yellow-400/50 shrink-0 shadow-lg">🏛️</div>
+                <div className="w-14 h-14 bg-yellow-500/30 rounded-full flex items-center justify-center text-2xl border border-yellow-400/50 shrink-0 shadow-lg">≡ƒÅ¢∩╕Å</div>
                 <div>
                   <h4 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.2.title')}</h4>
                   <p className="text-gray-300 text-xs md:text-sm">{t('home.smartCity.cards.2.desc')}</p>
@@ -575,7 +558,7 @@ export default function Home() {
                   <h3 className="font-heading font-black text-xl md:text-2xl text-[var(--text-main)] mb-3">{item.title}</h3>
                   <p className="text-sm md:text-base text-[var(--text-muted)] leading-relaxed mb-6 flex-1">{item.desc}</p>
                   <Link to="/panduan" className="text-[#33C3B3] font-bold text-sm md:text-base hover:text-[#2AA698] flex items-center gap-2 group-hover:gap-4 transition-all">
-                    {t('home.panduan.readDetails', 'Baca Detail Panduan')} <span>➔</span>
+                    {t('home.panduan.readDetails', 'Baca Detail Panduan')} <span>Γ₧ö</span>
                   </Link>
                 </div>
               </motion.div>
@@ -589,40 +572,52 @@ export default function Home() {
 
         {/* 6. UTILITY PLANNER (RUTE) */}
         <section id="planner" className="py-16 md:py-24 mb-0">
-          <div className="planner-glass relative overflow-hidden rounded-[40px] p-5 md:p-12 lg:p-16 border border-[var(--glass-border)] shadow-2xl bg-[var(--card-bg)] flex flex-col lg:flex-row gap-6 lg:gap-12 items-center mx-4 md:mx-0">
+          <div className="planner-glass relative overflow-hidden rounded-[40px] p-6 md:p-12 lg:p-16 border border-[var(--glass-border)] shadow-2xl bg-[var(--card-bg)] flex flex-col lg:flex-row gap-12 items-center mx-4 md:mx-0">
             {/* Ambient background glow */}
             <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#33C3B3]/10 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#F4C038]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div className="flex-1 relative z-10 w-full min-w-0">
-              <div className="hidden md:flex items-center gap-4 bg-[var(--bg-main)]/50 backdrop-blur-xl border border-[var(--glass-border)] p-4 rounded-3xl w-max mb-8 shadow-sm">
-                <span className="text-3xl">🌤️</span>
+            <div className="flex-1 relative z-10 w-full">
+              <div className="flex items-center gap-4 bg-[var(--bg-main)]/50 backdrop-blur-xl border border-[var(--glass-border)] p-4 rounded-3xl w-max mb-8 shadow-sm">
+                <span className="text-3xl">≡ƒîñ∩╕Å</span>
                 <div>
                   <h4 className="font-heading font-bold text-xs text-[var(--text-muted)] uppercase tracking-wider">Banjarmasin ({t('home.planner.timezone', 'WITA')})</h4>
-                  <p className="text-[var(--text-main)] font-black text-sm">31°C • {t('home.planner.weather', 'Tropis Cerah & Hangat')}</p>
+                  <p className="text-[var(--text-main)] font-black text-sm">31┬░C ΓÇó {t('home.planner.weather', 'Tropis Cerah & Hangat')}</p>
                 </div>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-black text-[var(--text-main)] font-heading leading-tight mb-3 md:mb-4">
+              <h2 className="text-3xl md:text-4xl font-black text-[var(--text-main)] font-heading leading-tight mb-4">
                 {t('home.planner.title')}
               </h2>
-              <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-6 md:mb-8">
+              <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-8">
                 {t('home.planner.desc')}
               </p>
 
-              <div className="flex overflow-x-auto md:flex-wrap gap-3 pb-4 md:pb-0 hide-scrollbar snap-x -mx-5 px-5 md:mx-0 md:px-0">
-                {['lokbaintan', 'siring', 'sotoamat', 'pulaukembang'].map(key => {
-                   const icon = key==='lokbaintan' ? '🛶' : key==='siring' ? '🗼' : key==='sotoamat' ? '🍲' : '🏝️';
-                   return (
-                    <button 
-                      key={key}
-                      className={`shrink-0 snap-center map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === key ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
-                      onClick={() => setActiveSpot(key)}
-                    >
-                      {icon} {t(`home.planner.spots.${key}.title`).split(' ').slice(-2).join(' ')}
-                    </button>
-                   )
-                })}
+              <div className="flex flex-wrap gap-3">
+                <button 
+                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'lokbaintan' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                  onClick={() => setActiveSpot('lokbaintan')}
+                >
+                  ≡ƒ¢╢ {t('home.planner.spots.lokbaintan.title').split(' ').slice(-2).join(' ')}
+                </button>
+                <button 
+                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'siring' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                  onClick={() => setActiveSpot('siring')}
+                >
+                  ≡ƒù╝ {t('home.planner.spots.siring.title').split(' ').slice(-2).join(' ')}
+                </button>
+                <button 
+                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'sotoamat' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                  onClick={() => setActiveSpot('sotoamat')}
+                >
+                  ≡ƒì▓ {t('home.planner.spots.sotoamat.title').split(' ').slice(-2).join(' ')}
+                </button>
+                <button 
+                  className={`map-tab-btn px-5 py-3 rounded-full font-bold text-sm transition-all border shadow-sm ${activeSpot === 'pulaukembang' ? 'bg-[#F4C038] border-[#F4C038] text-[#091422] shadow-[#F4C038]/30' : 'bg-transparent border-[var(--glass-border)] text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                  onClick={() => setActiveSpot('pulaukembang')}
+                >
+                  ≡ƒÅ¥∩╕Å {t('home.planner.spots.pulaukembang.title').split(' ').slice(-2).join(' ')}
+                </button>
               </div>
             </div>
 
@@ -635,23 +630,23 @@ export default function Home() {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="flex justify-between items-start sm:items-center mb-6 gap-3">
-                  <span className="text-[#33C3B3] font-bold text-xs uppercase tracking-widest bg-[#33C3B3]/10 px-3 py-1.5 rounded-full shrink-0">{currentMap.type}</span>
-                  <span className="text-[var(--text-muted)] text-[10px] sm:text-xs font-mono break-all sm:break-normal text-right hidden sm:block">📍 {currentMap.coords}</span>
+                <div className="flex justify-between items-center mb-6">
+                  <span className="text-[#33C3B3] font-bold text-xs uppercase tracking-widest bg-[#33C3B3]/10 px-3 py-1.5 rounded-full">{currentMap.type}</span>
+                  <span className="text-[var(--text-muted)] text-xs font-mono">≡ƒôì {currentMap.coords}</span>
                 </div>
 
-                <h4 className="text-xl md:text-2xl font-black text-[var(--text-main)] font-heading mb-2 md:mb-3 leading-tight">{currentMap.title}</h4>
-                <p className="text-[var(--text-muted)] text-xs md:text-sm leading-relaxed italic mb-5 md:mb-6">"{currentMap.highlight}"</p>
+                <h4 className="text-2xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">{currentMap.title}</h4>
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed italic mb-6">"{currentMap.highlight}"</p>
 
-                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8 bg-[var(--card-bg)] p-4 md:p-5 rounded-2xl border border-[var(--glass-border)]">
-                  <div className="flex-1">
+                <div className="space-y-4 mb-8 bg-[var(--card-bg)] p-5 rounded-2xl border border-[var(--glass-border)]">
+                  <div>
                     <span className="block text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{t('home.planner.transportTitle')}</span>
-                    <span className="text-[var(--text-main)] font-bold text-xs md:text-sm leading-snug block">{currentMap.transport}</span>
+                    <span className="text-[var(--text-main)] font-bold text-sm">{currentMap.transport}</span>
                   </div>
-                  <div className="w-full sm:w-[1px] h-[1px] sm:h-auto bg-[var(--glass-border)]"></div>
-                  <div className="flex-1">
+                  <div className="h-[1px] w-full bg-[var(--glass-border)]"></div>
+                  <div>
                     <span className="block text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{t('home.planner.bestTimeTitle')}</span>
-                    <span className="text-[var(--text-main)] font-bold text-xs md:text-sm leading-snug block">{currentMap.bestTime}</span>
+                    <span className="text-[var(--text-main)] font-bold text-sm">{currentMap.bestTime}</span>
                   </div>
                 </div>
 
@@ -661,7 +656,7 @@ export default function Home() {
                   rel="noopener noreferrer" 
                   className="w-full block text-center bg-[#F4C038] hover:bg-white text-[#091422] font-black text-sm py-4 rounded-full transition-colors shadow-lg"
                 >
-                  🗺️ {t('home.planner.ctaMaps')}
+                  ≡ƒù║∩╕Å {t('home.planner.ctaMaps')}
                 </a>
               </motion.div>
             </AnimatePresence>

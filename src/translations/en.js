@@ -127,16 +127,22 @@ export const en = {
           desc: "Rice cakes drenched in thick, yellow traditional coconut gravy. Paired with smoked haruan (snakehead) fish that offers a deep, unparalleled flavor profile."
         },
         {
-          name: "Legendary Lontong Orari",
-          tabTitle: "🌙 Lontong Orari",
-          aroma: "Blend of Sweet & Savory Banjar Red Chili Sauce",
-          desc: "Jumbo-sized triangular rice cakes with rich red sauce. Served with duck eggs and free-range chicken that are fully absorbed to the meat fibers."
+          name: "Amparan Tatak Pisang",
+          tabTitle: "🍌 Amparan Tatak",
+          aroma: "Sweet Banana & Savory Steamed Coconut Milk",
+          desc: "A two-layered traditional cake (wadai) with a soft, melt-in-the-mouth texture. The bottom layer is rich with sweet banana slices, while the top layer is a savory coconut milk pudding."
         },
         {
           name: "Bingka Kentang Kembang",
           tabTitle: "🍯 Bingka Kentang",
           aroma: "Sweet Soft Roasted Coconut Milk & Potato Aroma",
           desc: "Traditional flower-shaped wet cake. Has a super soft texture and natural sweet taste from premium potatoes and roasted coconut milk mix."
+        },
+        {
+          name: "Sambal Acan Raja Banjar",
+          tabTitle: "🌶️ Sambal Acan",
+          aroma: "Spicy & Fragrant Fermented Shrimp Paste",
+          desc: "A must-have Banjar souvenir! Fermented shrimp paste (acan) mixed with local mango extracts, creating an extraordinary sensation of spicy, sour, and savory flavors."
         }
       ]
     },

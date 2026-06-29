@@ -44,6 +44,10 @@
   padding: 0;
 }
 
+.app-container {
+  @apply w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12;
+}
+
 html, body {
   width: 100%;
   max-width: 100vw;

@@ -127,16 +127,22 @@ export const zh = {
           desc: "用传统黄色椰奶浓汤浸泡的米糕。搭配烤烟熏鳢鱼（snakehead fish），带来深邃且无与伦比的风味层次。"
         },
         {
-          name: "传奇奥拉里红酱米糕 (Lontong Orari)",
-          tabTitle: "🌙 奥拉里米糕",
-          aroma: "马辰红辣酱的甜咸交织风味",
-          desc: "三角形的巨大米糕，淋上浓郁的红酱（bumbu habang）。搭配完全入味的鸭蛋和走地鸡肉。"
+          name: "阿姆帕兰塔塔克香蕉糕 (Amparan Tatak)",
+          tabTitle: "🍌 香蕉椰奶糕",
+          aroma: "香甜香蕉与咸香蒸椰奶",
+          desc: "这是一种入口即化的双层传统糕点（wadai）。底层富含香甜的香蕉块，而顶层则是咸香的椰奶布丁。"
         },
         {
           name: "花型烤椰奶土豆糕 (Bingka Kentang)",
           tabTitle: "🍯 烤椰奶土豆糕",
           aroma: "香甜软糯的烤椰奶与土豆香气",
           desc: "传统花瓣形状的湿糕点。混合了优质土豆与烤椰奶，口感超级松软，甜度天然。"
+        },
+        {
+          name: "拉惹班贾尔虾酱 (Sambal Acan)",
+          tabTitle: "🌶️ 传统发酵虾酱",
+          aroma: "辛辣且充满发酵虾酱的独特香气",
+          desc: "马辰必买特产（Oleh-oleh）！发酵虾酱（acan）混合本地芒果汁，带来辛辣、酸爽和鲜美的绝佳风味体验。"
         }
       ]
     },
