@@ -1355,6 +1355,27 @@ export const pagesTranslations = {
       ]
     },
     wisata: {
+      interactiveMap: {
+        tag: "✦ THOUSAND RIVERS EXPLORATION RADAR",
+        title: "Interactive",
+        titleSpan: "Tourism Map",
+        subtitle: "Click destinations on the list or pins on the map to fly dynamically to the location.",
+        lokasiTerpilih: "Selected Location",
+        bukaRute: "Open Route ➔",
+        categories: ["All", "Landmark", "Maritime Tourism", "City Icon", "Historical Tourism", "Gastronomy", "Nature Tourism"],
+        locations: [
+          { title: "Menara Pandang & Siring Martapura", category: "Landmark", desc: "An iconic landmark in the city center with a 360-degree view of the Martapura River and kelotok dock activities." },
+          { title: "Lok Baintan Floating Market", category: "Maritime Tourism", desc: "A traditional floating market active since the 16th century. Experience buying and selling on jukung boats at dawn." },
+          { title: "Bekantan Mascot Statue", category: "City Icon", desc: "A giant bronze statue of Borneo's endemic primate, spraying water directly into the Martapura River." },
+          { title: "Sultan Suriansyah Historic Mosque", category: "Historical Tourism", desc: "The oldest mosque in South Kalimantan built in 1526, featuring traditional Banjar ironwood architecture." },
+          { title: "Soto Bang Amat Culinary Dock", category: "Gastronomy", desc: "Authentic Banjar soto culinary experience on the riverbank while enjoying traditional Panting music." },
+          { title: "Kembang Island Conservation", category: "Nature Tourism", desc: "A delta island in the middle of the Barito River, home to thousands of long-tailed macaques and ancient temples." },
+          { title: "Bubungan Tinggi House & Wasaka Museum", category: "Historical Tourism", desc: "A masterpiece of Banjar traditional architecture with carved ironwood walls, housing artifacts of Wasaka heroes." },
+          { title: "Zero Kilometer Monument (Pal 0)", category: "Landmark", desc: "A marker monument for the zero kilometer reference point of Banjarmasin, surrounded by a green park on the riverbank." },
+          { title: "Sabilal Muhtadin Grand Mosque", category: "Historical Tourism", desc: "The largest grand mosque and pride of South Kalimantan citizens, with a magnificent copper dome in a 10-hectare urban forest." },
+          { title: "Siring 0 Km Park", category: "Landmark", desc: "A relaxing pedestrian area along the Martapura riverbank, equipped with family recreation arenas and tourist kelotok docks." }
+        ]
+      },
       heroTag: "✦ EXPLORE BORNEO DESTINATIONS",
       heroTitle: "Discover the Charm of the",
       heroTitleSpan: "City of a Thousand Rivers",
@@ -1980,24 +2001,24 @@ export const pagesTranslations = {
     wisata: {
 
       interactiveMap: {
-        tag: "✦ 千河探索雷达",
-        title: "互动地图",
-        titleSpan: "马辰旅游",
-        subtitle: "在列表中点击目的地或在地图上点击图钉，即可动态直接飞往该地点。",
-        lokasiTerpilih: "所选位置",
-        bukaRute: "打开路线 ➔",
-        categories: ["全部", "地标", "海洋旅游", "城市标志", "历史", "美食", "自然"],
+        tag: "✦ RADAR PENEROKAAN SERIBU SUNGAI",
+        title: "Peta Interaktif",
+        titleSpan: "Pelancongan Banjar",
+        subtitle: "Klik destinasi pada senarai atau pin di peta untuk terbang terus ke lokasi secara dinamik.",
+        lokasiTerpilih: "Lokasi Dipilih",
+        bukaRute: "Buka Laluan ➔",
+        categories: ["Semua", "Mercu Tanda", "Pelancongan Bahari", "Ikon Bandar", "Pelancongan Sejarah", "Gastronomi", "Pelancongan Alam"],
         locations: [
-          { title: "观景塔 & 马塔普拉河滨", category: "地标", desc: "市中心的标志性建筑，可360度全景俯瞰马塔普拉河及传统游船码头的活动。" },
-          { title: "Lok Baintan 水上市场", category: "海洋旅游", desc: "自16世纪活跃至今的传统水上市场。体验黎明时分在小木船上进行以物易物的乐趣。" },
-          { title: "长鼻猴吉祥物雕像", category: "城市标志", desc: "婆罗洲特有动物的巨型青铜雕像，直接向马塔普拉河喷水。" },
-          { title: "苏丹苏里安夏历史清真寺", category: "历史", desc: "南加里曼丹最古老的清真寺，建于1526年，采用独特的班查尔铁木建筑风格。" },
-          { title: "Bang Amat 索托美食码头", category: "美食", desc: "在河畔享用正宗的班查尔索托汤，同时欣赏传统的班查尔潘廷音乐表演。" },
-          { title: "Kembang岛自然保护区", category: "自然", desc: "巴里托河中央的一个三角洲岛屿，是数千只长尾猕猴和一座古老寺庙的栖息地。" },
-          { title: "Bubungan Tinggi 传统房屋及 Wasaka 博物馆", category: "历史", desc: "班查尔传统建筑的杰作，带有雕刻铁木墙，保存着 Wasaka 英雄斗争的文物。" },
-          { title: "零公里纪念碑 (Pal 0)", category: "地标", desc: "标志着马辰市零公里参考点的纪念碑，四周环绕着河畔的绿色开放公园。" },
-          { title: "Sabilal Muhtadin 大清真寺", category: "历史", desc: "南加里曼丹人民的骄傲，最大的大清真寺，在10公顷的城市森林中拥有宏伟的铜制圆顶。" },
-          { title: "Siring 0公里公园", category: "地标", desc: "沿马塔普拉河岸的休闲步行区，配备了家庭娱乐设施和旅游船码头。" }
+          { title: "Menara Pandang & Siring Martapura", category: "Mercu Tanda", desc: "Mercu tanda ikonik di pusat bandar dengan pemandangan 360 darjah Sungai Martapura dan aktiviti dermaga kelotok." },
+          { title: "Pasar Terapung Lok Baintan", category: "Pelancongan Bahari", desc: "Pasar atas air tradisional sejak abad ke-16. Rasai sensasi jual beli menggunakan perahu jukung di waktu subuh." },
+          { title: "Patung Maskot Bekantan", category: "Ikon Bandar", desc: "Patung gangsa gergasi primat endemik Borneo yang menyemburkan air langsung ke arah Sungai Martapura." },
+          { title: "Masjid Bersejarah Sultan Suriansyah", category: "Pelancongan Sejarah", desc: "Masjid tertua di Kalimantan Selatan yang dibina pada tahun 1526, berarsitektur kayu ulin khas Banjar." },
+          { title: "Dermaga Kuliner Soto Bang Amat", category: "Gastronomi", desc: "Pengalaman kulinari soto Banjar autentik di tepian sungai sambil menikmati muzik Panting khas Banjar." },
+          { title: "Konservasi Pulau Kembang", category: "Pelancongan Alam", desc: "Pulau delta di tengah Sungai Barito yang menjadi habitat ribuan kera ekor panjang dan kuil purba." },
+          { title: "Rumah Adat Bubungan Tinggi & Muzium Wasaka", category: "Pelancongan Sejarah", desc: "Karya agung seni bina tradisional Banjar berdinding ukiran kayu ulin tempat menyimpan artifak pahlawan Wasaka." },
+          { title: "Tugu Sifar Kilometer (Pal 0)", category: "Mercu Tanda", desc: "Monumen penanda titik sifar kilometer acuan jarak Kota Banjarmasin yang dikelilingi taman hijau di tepi sungai." },
+          { title: "Masjid Raya Sabilal Muhtadin", category: "Pelancongan Sejarah", desc: "Masjid raya terbesar kebanggaan warga Kalsel dengan kubah tembaga megah di tengah hutan bandar 10 hektar." },
+          { title: "Taman Siring 0 Km", category: "Mercu Tanda", desc: "Kawasan pejalan kaki santai pesisir sungai Martapura yang dilengkapi arena rekreasi keluarga dan dermaga kelotok." }
         ]
       },
       heroTag: "✦ EKSPLORASI DESTINASI BORNEO",
@@ -2622,6 +2643,27 @@ export const pagesTranslations = {
       ]
     },
     wisata: {
+      interactiveMap: {
+        tag: "✦ 千河探索雷达",
+        title: "互动地图",
+        titleSpan: "马辰旅游",
+        subtitle: "在列表中点击目的地或在地图上点击图钉，即可动态直接飞往该地点。",
+        lokasiTerpilih: "所选位置",
+        bukaRute: "打开路线 ➔",
+        categories: ["全部", "地标", "海洋旅游", "城市标志", "历史", "美食", "自然"],
+        locations: [
+          { title: "观景塔 & 马塔普拉河滨", category: "地标", desc: "市中心的标志性建筑，可360度全景俯瞰马塔普拉河及传统游船码头的活动。" },
+          { title: "Lok Baintan 水上市场", category: "海洋旅游", desc: "自16世纪活跃至今的传统水上市场。体验黎明时分在小木船上进行以物易物的乐趣。" },
+          { title: "长鼻猴吉祥物雕像", category: "城市标志", desc: "婆罗洲特有动物的巨型青铜雕像，直接向马塔普拉河喷水。" },
+          { title: "苏丹苏里安夏历史清真寺", category: "历史", desc: "南加里曼丹最古老的清真寺，建于1526年，采用独特的班查尔铁木建筑风格。" },
+          { title: "Bang Amat 索托美食码头", category: "美食", desc: "在河畔享用正宗的班查尔索托汤，同时欣赏传统的班查尔潘廷音乐表演。" },
+          { title: "Kembang岛自然保护区", category: "自然", desc: "巴里托河中央的一个三角洲岛屿，是数千只长尾猕猴和一座古老寺庙的栖息地。" },
+          { title: "Bubungan Tinggi 传统房屋及 Wasaka 博物馆", category: "历史", desc: "班查尔传统建筑的杰作，带有雕刻铁木墙，保存着 Wasaka 英雄斗争的文物。" },
+          { title: "零公里纪念碑 (Pal 0)", category: "地标", desc: "标志着马辰市零公里参考点的纪念碑，四周环绕着河畔的绿色开放公园。" },
+          { title: "Sabilal Muhtadin 大清真寺", category: "历史", desc: "南加里曼丹人民的骄傲，最大的大清真寺，在10公顷的城市森林中拥有宏伟的铜制圆顶。" },
+          { title: "Siring 0公里公园", category: "地标", desc: "沿马塔普拉河岸的休闲步行区，配备了家庭娱乐设施和旅游船码头。" }
+        ]
+      },
       heroTag: "✦ 探索婆罗洲绝美景点",
       heroTitle: "领略无限魅力的",
       heroTitleSpan: "千河之城",

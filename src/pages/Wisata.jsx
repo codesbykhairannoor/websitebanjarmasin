@@ -427,7 +427,7 @@ export default function Wisata() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 bg-transparent border border-white hover:bg-white hover:text-black text-white font-bold text-xs px-6 py-3 rounded-full transition-all uppercase tracking-widest"
                     >
-                      {language === 'zh' ? '探索目的地' : language === 'en' ? 'Discover Location' : 'Eksplorasi Destinasi'}
+                      {language === 'zh' ? '探索目的地' : language === 'en' ? 'Discover Location' : language === 'ms' ? 'Teroka Destinasi' : 'Eksplorasi Destinasi'}
                     </a>
                   </div>
                 </div>
@@ -476,7 +476,7 @@ export default function Wisata() {
       <section className="py-20 max-w-[1240px] mx-auto px-4 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-16 wisata-reveal">
           <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
-            {language === 'zh' ? '千河之城一日游行程路线' : language === 'en' ? 'ONE DAY RIVER ROADMAP ITINERARY' : 'ITINERARI RUTE SERIBU SUNGAI'}
+            {language === 'zh' ? '千河之城一日游行程路线' : language === 'en' ? 'ONE DAY RIVER ROADMAP ITINERARY' : language === 'ms' ? 'ITINERARI LALUAN SERIBU SUNGAI' : 'ITINERARI RUTE SERIBU SUNGAI'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
             {tLocal('roadmapTitle')} <span className="text-[#F4C038]">{tLocal('roadmapTitleSpan')}</span>
@@ -510,7 +510,7 @@ export default function Wisata() {
       <section className="py-20 max-w-[1240px] mx-auto px-4 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-16 wisata-reveal">
           <span className="text-xs font-black uppercase tracking-widest text-[#33C3B3] font-heading block mb-2">
-            {language === 'zh' ? '透明指南与官方收费标准' : language === 'en' ? 'TRANSPARENT GUIDE & OFFICIAL FARES' : 'PANDUAN TRANSPARAN & TARIF RESMI'}
+            {language === 'zh' ? '透明指南与官方收费标准' : language === 'en' ? 'TRANSPARENT GUIDE & OFFICIAL FARES' : language === 'ms' ? 'PANDUAN TELUS & KADAR RASMI' : 'PANDUAN TRANSPARAN & TARIF RESMI'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
             {tLocal('routesTitle')} <span className="text-[#F4C038]">{tLocal('routesTitleSpan')}</span>
@@ -541,10 +541,10 @@ export default function Wisata() {
                   
                   <div className="space-y-2 border-t border-[var(--glass-border)] pt-4">
                     <div className="text-xs font-bold text-[var(--text-main)] flex items-center gap-2">
-                      <span className="text-[#33C3B3]">✓</span> {language === 'zh' ? '路线' : 'Rute'}: <span className="font-normal text-[var(--text-muted)]">{route.path}</span>
+                      <span className="text-[#33C3B3]">✓</span> {language === 'zh' ? '路线' : language === 'en' ? 'Route' : language === 'ms' ? 'Laluan' : 'Rute'}: <span className="font-normal text-[var(--text-muted)]">{route.path}</span>
                     </div>
                     <div className="text-xs font-bold text-[var(--text-main)] flex items-center gap-2">
-                      <span className="text-[#F4C038]">✓</span> {language === 'zh' ? '时间' : language === 'en' ? 'Schedule' : 'Jadwal'}: <span className="font-normal text-[var(--text-muted)]">{route.schedule}</span>
+                      <span className="text-[#F4C038]">✓</span> {language === 'zh' ? '时间' : language === 'en' ? 'Schedule' : language === 'ms' ? 'Jadual' : 'Jadwal'}: <span className="font-normal text-[var(--text-muted)]">{route.schedule}</span>
                     </div>
                   </div>
                 </div>
@@ -557,7 +557,7 @@ export default function Wisata() {
                   rel="noreferrer"
                   className="w-full py-3 rounded-xl bg-white/5 hover:bg-[#33C3B3] text-[var(--text-main)] hover:text-[#091422] font-bold text-xs flex items-center justify-center gap-2 transition-all border border-[var(--glass-border)] hover:border-[#33C3B3] uppercase tracking-wider"
                 >
-                  {language === 'zh' ? '📍 前往 Siring 码头 ➔' : language === 'en' ? '📍 Navigate to Siring Dock ➔' : '📍 Menuju Dermaga Siring ➔'}
+                  {language === 'zh' ? '📍 前往 Siring 码头 ➔' : language === 'en' ? '📍 Navigate to Siring Dock ➔' : language === 'ms' ? '📍 Menuju Jeti Siring ➔' : '📍 Menuju Dermaga Siring ➔'}
                 </a>
               </div>
             </div>
