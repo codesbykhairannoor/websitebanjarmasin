@@ -197,7 +197,7 @@ export default function ProfilKota() {
       {/* =========================================================
           SECTION 1: NAKHODA KOTA (CENTERED LEADERS WITH SIDE BIO)
           ========================================================= */}
-      <section className="py-24 bg-[var(--bg-main)] relative overflow-hidden border-t border-[var(--glass-border)]">
+      <section className="pt-24 pb-0 bg-[var(--bg-main)] relative overflow-hidden border-t border-[var(--glass-border)]">
         {/* Background Decorative Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#F4C038]/10 to-[#33C3B3]/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -214,37 +214,37 @@ export default function ProfilKota() {
         <div className="w-full max-w-7xl mx-auto px-4 relative z-10">
           
           {/* DESKTOP VIEW (Large screens): Left Bio - Center Photos - Right Bio */}
-          <div className="hidden lg:grid grid-cols-12 gap-8 items-center">
+          <div className="hidden lg:grid grid-cols-12 gap-8 items-end">
             
-            {/* Left Bio: H. Muh. Yamin HR */}
-            <div className="col-span-3 bg-[var(--card-bg)] backdrop-blur-md border border-[var(--glass-border)] hover:border-[#F4C038] rounded-3xl p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-left">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#F4C038]/20 text-[#F4C038] border border-[#F4C038]/40 font-bold text-xs uppercase tracking-wider mb-4">
+            {/* Left Bio: H. Muh. Yamin HR (Direct Typography, No Box) */}
+            <div className="col-span-3 pb-16 text-left">
+              <span className="inline-block text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-3 drop-shadow-md">
                 Wali Kota
               </span>
-              <h3 className="text-2xl font-black text-[var(--text-main)] font-heading mb-2">
+              <h3 className="text-3xl xl:text-4xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">
                 H. Muh. Yamin HR
               </h3>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
+              <p className="text-[var(--text-muted)] text-sm xl:text-base leading-relaxed mb-6">
                 Memimpin dengan visi tata kelola sungai terpadu, penataan ruang publik modern, serta menghadirkan pelayanan birokrasi yang tanggap dan dekat dengan masyarakat.
               </p>
-              <div className="space-y-2 border-t border-[var(--glass-border)] pt-4 text-xs font-semibold text-[var(--text-main)]">
-                <div className="flex items-center gap-2">
+              <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs xl:text-sm font-semibold text-[var(--text-main)]">
+                <div className="flex items-center gap-2.5">
                   <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Tata Kelola Sungai Berkelanjutan
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Digitalisasi Pelayanan Publik
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <span className="w-2 h-2 rounded-full bg-[#F4C038]" /> Pembangunan Infrastruktur Baiman
                 </div>
               </div>
             </div>
 
-            {/* Center Photos: Yamin & Ananda side-by-side */}
-            <div className="col-span-6 flex justify-center items-center gap-4 xl:gap-6 px-2">
+            {/* Center Photos: Standing grounded touching the bottom border */}
+            <div className="col-span-6 flex justify-center items-end gap-4 xl:gap-6 px-2 self-end">
               
               {/* Photo 1: Wali Kota */}
-              <div className="relative w-1/2 max-w-[260px] xl:max-w-[280px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#F4C038]/50 group hover:border-[#F4C038] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(244,192,56,0.25)]">
+              <div className="relative w-1/2 max-w-[280px] xl:max-w-[310px] h-[460px] xl:h-[520px] rounded-t-3xl overflow-hidden border-t-2 border-x-2 border-[#F4C038]/60 group shadow-2xl self-end">
                 <img 
                   loading="lazy" 
                   src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" 
@@ -252,14 +252,14 @@ export default function ProfilKota() {
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                <div className="absolute bottom-4 left-0 right-0 text-center px-2">
-                  <p className="text-white font-black text-sm md:text-base tracking-wide drop-shadow-md">H. Muh. Yamin HR</p>
-                  <p className="text-[#F4C038] font-bold text-[10px] uppercase tracking-widest mt-0.5">Wali Kota</p>
+                <div className="absolute bottom-6 left-0 right-0 text-center px-2">
+                  <p className="text-white font-black text-base xl:text-lg tracking-wide drop-shadow-md">H. Muh. Yamin HR</p>
+                  <p className="text-[#F4C038] font-bold text-xs uppercase tracking-widest mt-0.5">Wali Kota</p>
                 </div>
               </div>
 
               {/* Photo 2: Wakil Wali Kota */}
-              <div className="relative w-1/2 max-w-[260px] xl:max-w-[280px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#33C3B3]/50 group hover:border-[#33C3B3] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(51,195,179,0.25)]">
+              <div className="relative w-1/2 max-w-[280px] xl:max-w-[310px] h-[460px] xl:h-[520px] rounded-t-3xl overflow-hidden border-t-2 border-x-2 border-[#33C3B3]/60 group shadow-2xl self-end">
                 <img 
                   loading="lazy" 
                   src="/profil kota/Wakil_Wali_Kota_Banjarmasin_Anan.webp" 
@@ -267,33 +267,33 @@ export default function ProfilKota() {
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                <div className="absolute bottom-4 left-0 right-0 text-center px-2">
-                  <p className="text-white font-black text-sm md:text-base tracking-wide drop-shadow-md">Hj. Ananda</p>
-                  <p className="text-[#33C3B3] font-bold text-[10px] uppercase tracking-widest mt-0.5">Wakil Wali Kota</p>
+                <div className="absolute bottom-6 left-0 right-0 text-center px-2">
+                  <p className="text-white font-black text-base xl:text-lg tracking-wide drop-shadow-md">Hj. Ananda</p>
+                  <p className="text-[#33C3B3] font-bold text-xs uppercase tracking-widest mt-0.5">Wakil Wali Kota</p>
                 </div>
               </div>
 
             </div>
 
-            {/* Right Bio: Hj. Ananda */}
-            <div className="col-span-3 bg-[var(--card-bg)] backdrop-blur-md border border-[var(--glass-border)] hover:border-[#33C3B3] rounded-3xl p-6 shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-left">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#33C3B3]/20 text-[#33C3B3] border border-[#33C3B3]/40 font-bold text-xs uppercase tracking-wider mb-4">
+            {/* Right Bio: Hj. Ananda (Direct Typography, No Box) */}
+            <div className="col-span-3 pb-16 text-left">
+              <span className="inline-block text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-3 drop-shadow-md">
                 Wakil Wali Kota
               </span>
-              <h3 className="text-2xl font-black text-[var(--text-main)] font-heading mb-2">
+              <h3 className="text-3xl xl:text-4xl font-black text-[var(--text-main)] font-heading mb-3 leading-tight">
                 Hj. Ananda
               </h3>
-              <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6">
+              <p className="text-[var(--text-muted)] text-sm xl:text-base leading-relaxed mb-6">
                 Mengawal pemberdayaan ekonomi kreatif lokal, peningkatan kualitas sumber daya manusia, perlindungan perempuan & anak, serta akselerasi UMKM berdaya saing tinggi.
               </p>
-              <div className="space-y-2 border-t border-[var(--glass-border)] pt-4 text-xs font-semibold text-[var(--text-main)]">
-                <div className="flex items-center gap-2">
+              <div className="space-y-2.5 border-t border-[var(--glass-border)] pt-4 text-xs xl:text-sm font-semibold text-[var(--text-main)]">
+                <div className="flex items-center gap-2.5">
                   <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Akselerasi UMKM & Ekonomi Kreatif
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Pemberdayaan Perempuan & Anak
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <span className="w-2 h-2 rounded-full bg-[#33C3B3]" /> Peningkatan SDM Generasi Cerdas
                 </div>
               </div>
@@ -301,67 +301,77 @@ export default function ProfilKota() {
 
           </div>
 
-          {/* MOBILE & TABLET VIEW (< Large screens): Interactive Showcase Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:hidden">
+          {/* MOBILE & TABLET VIEW (< Large screens): Direct Typography & Grounded Photos */}
+          <div className="flex flex-col gap-16 lg:hidden">
             
-            {/* Wali Kota Mobile Card */}
-            <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl p-6 shadow-xl flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-              <div className="relative w-48 sm:w-44 aspect-[3/4] rounded-2xl overflow-hidden shrink-0 shadow-lg border border-[#F4C038]/50">
+            {/* Wali Kota Mobile Section */}
+            <div className="flex flex-col sm:flex-row items-end gap-8 border-b border-[var(--glass-border)] pb-0">
+              <div className="flex-1 text-left pb-8 sm:pb-12">
+                <span className="inline-block text-[#F4C038] font-bold text-xs uppercase tracking-widest mb-2">
+                  Wali Kota
+                </span>
+                <h3 className="text-3xl font-black text-[var(--text-main)] font-heading mb-3">
+                  H. Muh. Yamin HR
+                </h3>
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-4">
+                  Fokus pada tata kelola sungai terpadu, infrastruktur berkelanjutan, dan pelayanan birokrasi yang responsif terhadap warga.
+                </p>
+                <div className="space-y-2 text-xs font-semibold text-[var(--text-main)]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4C038]" /> Tata Kelola Sungai Terpadu
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4C038]" /> Birokrasi Responsif & Cepat
+                  </div>
+                </div>
+              </div>
+              <div className="relative w-64 sm:w-60 h-[380px] sm:h-[420px] shrink-0 mx-auto sm:mx-0 rounded-t-3xl overflow-hidden border-t-2 border-x-2 border-[#F4C038]/60 shadow-xl self-end">
                 <img 
                   loading="lazy" 
                   src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" 
                   alt="H. Muh. Yamin HR" 
                   className="w-full h-full object-cover object-top" 
                 />
-              </div>
-              <div className="flex-1">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#F4C038]/20 text-[#F4C038] font-bold text-xs uppercase tracking-wider mb-2">
-                  Wali Kota
-                </span>
-                <h3 className="text-2xl font-black text-[var(--text-main)] font-heading mb-3">
-                  H. Muh. Yamin HR
-                </h3>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-4">
-                  Fokus pada tata kelola sungai terpadu, infrastruktur berkelanjutan, dan pelayanan birokrasi yang responsif terhadap warga.
-                </p>
-                <div className="space-y-1.5 text-xs font-semibold text-[var(--text-main)]">
-                  <div className="flex items-center justify-center sm:justify-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4C038]" /> Tata Kelola Sungai Terpadu
-                  </div>
-                  <div className="flex items-center justify-center sm:justify-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4C038]" /> Birokrasi Responsif & Cepat
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-4 left-0 right-0 text-center px-2">
+                  <p className="text-white font-black text-sm tracking-wide">H. Muh. Yamin HR</p>
+                  <p className="text-[#F4C038] font-bold text-[10px] uppercase tracking-widest mt-0.5">Wali Kota</p>
                 </div>
               </div>
             </div>
 
-            {/* Wakil Wali Kota Mobile Card */}
-            <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl p-6 shadow-xl flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-              <div className="relative w-48 sm:w-44 aspect-[3/4] rounded-2xl overflow-hidden shrink-0 shadow-lg border border-[#33C3B3]/50">
+            {/* Wakil Wali Kota Mobile Section */}
+            <div className="flex flex-col sm:flex-row items-end gap-8 pb-0">
+              <div className="flex-1 text-left pb-8 sm:pb-12">
+                <span className="inline-block text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-2">
+                  Wakil Wali Kota
+                </span>
+                <h3 className="text-3xl font-black text-[var(--text-main)] font-heading mb-3">
+                  Hj. Ananda
+                </h3>
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-4">
+                  Mengawal ekosistem ekonomi kreatif berdaya saing, pembedayaan perempuan, dan akselerasi UMKM untuk generasi masa depan.
+                </p>
+                <div className="space-y-2 text-xs font-semibold text-[var(--text-main)]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#33C3B3]" /> Ekonomi Kreatif & UMKM
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#33C3B3]" /> Pemberdayaan Perempuan & SDM
+                  </div>
+                </div>
+              </div>
+              <div className="relative w-64 sm:w-60 h-[380px] sm:h-[420px] shrink-0 mx-auto sm:mx-0 rounded-t-3xl overflow-hidden border-t-2 border-x-2 border-[#33C3B3]/60 shadow-xl self-end">
                 <img 
                   loading="lazy" 
                   src="/profil kota/Wakil_Wali_Kota_Banjarmasin_Anan.webp" 
                   alt="Hj. Ananda" 
                   className="w-full h-full object-cover object-top" 
                 />
-              </div>
-              <div className="flex-1">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#33C3B3]/20 text-[#33C3B3] font-bold text-xs uppercase tracking-wider mb-2">
-                  Wakil Wali Kota
-                </span>
-                <h3 className="text-2xl font-black text-[var(--text-main)] font-heading mb-3">
-                  Hj. Ananda
-                </h3>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-4">
-                  Mengawal ekosistem ekonomi kreatif berdaya saing, pembedayaan perempuan, dan akselerasi UMKM untuk generasi masa depan.
-                </p>
-                <div className="space-y-1.5 text-xs font-semibold text-[var(--text-main)]">
-                  <div className="flex items-center justify-center sm:justify-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#33C3B3]" /> Ekonomi Kreatif & UMKM
-                  </div>
-                  <div className="flex items-center justify-center sm:justify-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#33C3B3]" /> Pemberdayaan Perempuan & SDM
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-4 left-0 right-0 text-center px-2">
+                  <p className="text-white font-black text-sm tracking-wide">Hj. Ananda</p>
+                  <p className="text-[#33C3B3] font-bold text-[10px] uppercase tracking-widest mt-0.5">Wakil Wali Kota</p>
                 </div>
               </div>
             </div>
