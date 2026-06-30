@@ -75,99 +75,6 @@ const pillarsData = [
   }
 ];
 
-const MobileSmartCityHero = ({ pillarsData, tLocal }) => {
-  const [activeIdx, setActiveIdx] = useState(1);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % pillarsData.length);
-    }, 4500);
-    return () => clearInterval(interval);
-  }, [isPaused, pillarsData.length]);
-
-  const activePillar = pillarsData[activeIdx] || pillarsData[0];
-  const transPillar = (tLocal('pillars') || [])[activeIdx] || {};
-
-  return (
-    <div className="lg:hidden w-full max-w-lg mx-auto px-4 mt-4 pb-12 relative z-20">
-      {/* 5 Interactive Pill Selector Bar */}
-      <div className="flex items-center justify-center gap-1.5 sm:gap-2 overflow-x-auto py-2 px-1 mb-5 no-scrollbar">
-        {pillarsData.map((p, idx) => {
-          const isActive = idx === activeIdx;
-          const shortTitle = p.id === 'governance' ? 'Gov' :
-                             p.id === 'living' ? 'Living' :
-                             p.id === 'environment' ? 'Env' :
-                             p.id === 'economy' ? 'Econ' : 'Society';
-          return (
-            <button
-              key={p.id}
-              onClick={() => {
-                setActiveIdx(idx);
-                setIsPaused(true);
-              }}
-              style={isActive ? { backgroundColor: p.color, borderColor: p.color } : {}}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs sm:text-sm font-bold transition-all duration-300 shrink-0 shadow-sm cursor-pointer ${
-                isActive
-                  ? "text-white scale-105 shadow-md font-black"
-                  : "bg-[var(--card-bg)] text-[var(--text-main)] border-[var(--glass-border)] hover:border-white/40 opacity-80 hover:opacity-100"
-              }`}
-            >
-              <span>{p.icon}</span>
-              <span>{shortTitle}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Giant Interactive Stage Card */}
-      <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl relative transition-all duration-500">
-        {/* Top Header Banner */}
-        <div className={`p-5 bg-gradient-to-r ${activePillar.gradient} text-white flex items-center justify-between relative overflow-hidden`}>
-          <div className="absolute -right-4 -bottom-4 text-7xl opacity-15 pointer-events-none select-none">
-            {activePillar.icon}
-          </div>
-          <div className="flex items-center gap-3 relative z-10">
-            <span className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl shadow shrink-0">
-              {activePillar.icon}
-            </span>
-            <div className="text-left">
-              <h3 className="font-heading font-black text-xl leading-tight">
-                {transPillar.title || activePillar.title}
-              </h3>
-              <p className="text-xs text-white/90 font-medium mt-0.5">
-                {transPillar.subtitle || activePillar.subtitle}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* High-Res Hero Image Stage */}
-        <div className="relative w-full h-[280px] sm:h-[360px] overflow-hidden bg-black/10">
-          <img
-            key={activePillar.id}
-            src={activePillar.img}
-            alt={transPillar.title || activePillar.title}
-            loading="eager"
-            className="w-full h-full object-cover animate-fade-in transition-all duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-          
-          <div className="absolute bottom-5 left-5 right-5 text-left text-white">
-            <span className="inline-block px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-[10px] uppercase font-bold tracking-wider mb-2 border border-white/30">
-              Pilar {activeIdx + 1} dari 5
-            </span>
-            <p className="text-xs sm:text-sm text-white/90 line-clamp-2 leading-relaxed drop-shadow">
-              Inovasi cerdas {transPillar.title || activePillar.title} demi mewujudkan Banjarmasin Baiman & Berkelanjutan.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 export default function SmartCity() {
   const { language } = useLanguage();
   
@@ -197,6 +104,7 @@ export default function SmartCity() {
   };
   const [activeAppTab, setActiveAppTab] = useState("parakAcil");
   const [activeTransportTab, setActiveTransportTab] = useState("transBanjarmasin");
+  const [activeHeroIdx, setActiveHeroIdx] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -224,7 +132,8 @@ export default function SmartCity() {
           </p>
         </div>
 
-        {/* DESKTOP VIEW (>= lg): Responsive 5-Pillar Arc */}
+        {/* Responsive 5-Pillar Arc */}
+        {/* DESKTOP VIEW (Large screens >= lg): 5-Pillar Curved Arc */}
         <div className="hidden lg:grid grid-cols-5 gap-4 max-w-[1300px] mx-auto px-6 -mt-16 pb-0 relative z-20 items-end">
           {pillarsData.map((pillar, idx) => {
             const transPillar = (tLocal('pillars') || [])[idx] || {};
@@ -235,18 +144,18 @@ export default function SmartCity() {
                 className={`group bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-2xl transition-all duration-500 flex flex-col relative rounded-t-2xl ${pillar.heightClass} ${pillar.transformClass}`}
               >
                 {/* Top Gradient Header */}
-                <div className={`pt-5 pb-1.5 p-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
+                <div className={`pt-5 pb-1.5 px-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
                   <div className="absolute -right-2 -bottom-2 text-6xl opacity-20 pointer-events-none select-none">
                     {pillar.icon}
                   </div>
                   <span className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow shrink-0">
                     {pillar.icon}
                   </span>
-                  <div className="w-full text-left flex flex-col items-start flex-1 justify-start">
-                    <h3 className="font-heading font-black text-lg leading-tight line-clamp-3">
+                  <div className="w-full mt-0 flex flex-col items-start flex-1 justify-start">
+                    <h3 className="font-heading font-black text-lg leading-tight line-clamp-3 mt-0">
                       {transPillar.title || pillar.title}
                     </h3>
-                    <span className="block text-[11px] font-medium text-white/90 mt-0.5 line-clamp-1">
+                    <span className="text-[11px] font-medium text-white/90 mt-0.5 line-clamp-1">
                       {transPillar.subtitle || pillar.subtitle}
                     </span>
                   </div>
@@ -255,7 +164,7 @@ export default function SmartCity() {
                 {/* Bottom Image Strip */}
                 <div className="flex-1 relative overflow-hidden">
                   <img
-                    src={pillar.img}
+                    src={encodeURI(pillar.img)}
                     alt={transPillar.title || pillar.title}
                     loading="lazy"
                     decoding="async"
@@ -267,8 +176,69 @@ export default function SmartCity() {
           })}
         </div>
 
-        {/* MOBILE & TABLET VIEW (< lg): Interactive Spotlight Hero with 5 Pill Tabs */}
-        <MobileSmartCityHero pillarsData={pillarsData} tLocal={tLocal} />
+        {/* MOBILE & TABLET VIEW (< lg): Interactive Spotlight Accordion (Opsi 1) */}
+        <div className="flex flex-col gap-6 max-w-2xl mx-auto px-4 mt-4 pb-12 relative z-20 lg:hidden">
+          {/* 5 Selector Indicator Pills */}
+          <div className="grid grid-cols-5 gap-1.5 sm:gap-2.5 p-1.5 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-2xl shadow-lg">
+            {pillarsData.map((p, idx) => {
+              const isActive = activeHeroIdx === idx;
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => setActiveHeroIdx(idx)}
+                  className={`flex flex-col items-center justify-center py-2.5 px-1 rounded-xl transition-all duration-300 cursor-pointer ${
+                    isActive ? "text-white shadow-md scale-105 font-black" : "text-[var(--text-muted)] hover:text-[var(--text-main)] bg-black/5 dark:bg-white/5 font-bold"
+                  }`}
+                  style={isActive ? { backgroundColor: p.color } : {}}
+                >
+                  <span className="text-lg sm:text-2xl mb-0.5">{p.icon}</span>
+                  <span className="text-[9px] sm:text-xs uppercase tracking-tight truncate w-full text-center">
+                    {p.title.replace("Smart ", "")}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* 1 Giant Hero Spotlight Card */}
+          {(() => {
+            const activePillar = pillarsData[activeHeroIdx] || pillarsData[0];
+            const transPillar = (tLocal('pillars') || [])[activeHeroIdx] || {};
+            return (
+              <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl animate-fade-in transition-all duration-500">
+                {/* Header Stage */}
+                <div className={`p-6 sm:p-8 bg-gradient-to-br ${activePillar.gradient} text-white relative overflow-hidden flex items-center justify-between`}>
+                  <div className="absolute right-0 top-0 text-8xl opacity-10 pointer-events-none select-none translate-x-4 -translate-y-4">
+                    {activePillar.icon}
+                  </div>
+                  <div className="relative z-10 text-left">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white font-black text-xs uppercase tracking-widest mb-2 shadow-sm">
+                      Pilar #{activeHeroIdx + 1}
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-black font-heading leading-tight">
+                      {transPillar.title || activePillar.title}
+                    </h3>
+                    <p className="text-white/90 text-sm sm:text-base font-medium mt-1">
+                      {transPillar.subtitle || activePillar.subtitle}
+                    </p>
+                  </div>
+                  <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-3xl shrink-0 shadow-lg relative z-10">
+                    {activePillar.icon}
+                  </div>
+                </div>
+
+                {/* Unclipped Wide Photo */}
+                <div className="w-full h-[280px] sm:h-[360px] relative overflow-hidden">
+                  <img
+                    src={encodeURI(activePillar.img)}
+                    alt={transPillar.title || activePillar.title}
+                    className="w-full h-full object-cover transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            );
+          })()}
+        </div>
       </div>
 
       {/* =========================================================
