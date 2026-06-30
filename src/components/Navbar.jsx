@@ -10,11 +10,20 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
   const [openLangDropdown, setOpenLangDropdown] = useState(false);
+  const [openAudioDropdown, setOpenAudioDropdown] = useState(false);
+  const [activeTrackId, setActiveTrackId] = useState('duo');
   
   const location = useLocation();
   const dropdownRef = useRef(null);
   const langDropdownRef = useRef(null);
-  const audioCtxRef = useRef(null);
+  const audioDropdownRef = useRef(null);
+  const audioRef = useRef(null);
+
+  const audioTracks = [
+    { id: 'duo', label: '🪕 Harmoni Panting & Sungai', desc: 'Perpaduan petikan musik khas & gemercik air Siring', file: '/audio/panting_dan_sungai.wav' },
+    { id: 'panting', label: '🎶 Petikan Panting Banjar', desc: 'Melodi instrumen tradisional dawai khas Banua', file: '/audio/panting_banjar.wav' },
+    { id: 'sungai', label: '🛶 Gemercik Sungai Martapura', desc: 'Suasana alami aliran air & ombak kelotok', file: '/audio/sungai_martapura.wav' }
+  ];
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -30,9 +39,22 @@ export default function Navbar() {
       if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
         setOpenLangDropdown(false);
       }
+      if (audioDropdownRef.current && !audioDropdownRef.current.contains(event.target)) {
+        setOpenAudioDropdown(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Hentikan audio saat unmount
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
   }, []);
 
   // 🛡️ PERFORMANCE & ANIMATION: Global Scroll Reveal Animation Observer (GPU Accelerated)
@@ -64,60 +86,35 @@ export default function Navbar() {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
-  // Web Audio API Synthesizer untuk Suara Air Sungai Alami
+  // Putar atau Hentikan Audio Instrumen Banjar
+  const playSelectedTrack = (trackId) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+    const trackObj = audioTracks.find(t => t.id === trackId);
+    if (!trackObj) return;
+    
+    const audio = new Audio(trackObj.file);
+    audio.loop = true;
+    audio.volume = 0.45;
+    audio.play().then(() => {
+      setIsPlaying(true);
+      setActiveTrackId(trackId);
+    }).catch(err => {
+      console.log("Audio play error:", err);
+    });
+    audioRef.current = audio;
+  };
+
   const toggleSound = () => {
-    if (!isPlaying) {
-      try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        const ctx = new AudioContext();
-        audioCtxRef.current = ctx;
-
-        // Buat Pink/Brown Noise Buffer untuk suara gemercik air sungai
-        const bufferSize = ctx.sampleRate * 3;
-        const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-        const output = noiseBuffer.getChannelData(0);
-        let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
-        for (let i = 0; i < bufferSize; i++) {
-          const white = Math.random() * 2 - 1;
-          b0 = 0.99886 * b0 + white * 0.0555179;
-          b1 = 0.99332 * b1 + white * 0.0750759;
-          b2 = 0.96900 * b2 + white * 0.1538520;
-          b3 = 0.86650 * b3 + white * 0.3104856;
-          b4 = 0.55000 * b4 + white * 0.5329522;
-          b5 = -0.7616 * b5 - white * 0.0168980;
-          output[i] = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
-          output[i] *= 0.15; // Volume lembut
-          b6 = white * 0.115926;
-        }
-
-        const whiteNoise = ctx.createBufferSource();
-        whiteNoise.buffer = noiseBuffer;
-        whiteNoise.loop = true;
-
-        // Filter Lowpass agar bersuara lembut seperti aliran sungai
-        const filter = ctx.createBiquadFilter();
-        filter.type = 'lowpass';
-        filter.frequency.value = 450;
-
-        const gainNode = ctx.createGain();
-        gainNode.gain.value = 0.35;
-
-        whiteNoise.connect(filter);
-        filter.connect(gainNode);
-        gainNode.connect(ctx.destination);
-
-        whiteNoise.start(0);
-        setIsPlaying(true);
-      } catch (e) {
-        console.error("Web Audio API error:", e);
-        setIsPlaying(!isPlaying);
-      }
-    } else {
-      if (audioCtxRef.current) {
-        audioCtxRef.current.close();
-        audioCtxRef.current = null;
+    if (isPlaying) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
       }
       setIsPlaying(false);
+    } else {
+      playSelectedTrack(activeTrackId);
     }
   };
 
@@ -267,25 +264,84 @@ export default function Navbar() {
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
 
-            {/* Soundscape Icon Only with Equalizer */}
-            <button
-              onClick={toggleSound}
-              title="Simulasi Suara Air Sungai Alami"
-              className={`h-9 sm:h-10 px-3 sm:px-3.5 rounded-full flex items-center gap-1.5 transition-all border shadow-sm hover:scale-105 shrink-0 ${
-                isPlaying
-                  ? 'bg-[#00A896]/20 border-[#00A896] text-[#00A896] shadow-[0_0_15px_rgba(0,168,150,0.3)]'
-                  : 'bg-[var(--card-bg)] border-[var(--glass-border)] hover:border-[#00A896] text-[var(--text-muted)]'
-              }`}
-            >
-              <span className="text-base sm:text-lg leading-none">{isPlaying ? '🔊' : '🔇'}</span>
-              {isPlaying && (
-                <span className="flex items-end gap-0.5 h-3">
-                  <span className="w-0.5 h-2 bg-[#00A896] animate-pulse rounded-full" />
-                  <span className="w-0.5 h-3 bg-[#00A896] animate-pulse rounded-full delay-75" />
-                  <span className="w-0.5 h-1.5 bg-[#00A896] animate-pulse rounded-full delay-150" />
-                </span>
-              )}
-            </button>
+            {/* Soundscape Dropdown & Player */}
+            <div className="relative" ref={audioDropdownRef}>
+              <div className="flex items-center">
+                <button
+                  onClick={toggleSound}
+                  title="Putar / Jeda Suasana Audio Banjar"
+                  className={`h-9 sm:h-10 px-3 sm:px-3.5 rounded-l-full flex items-center gap-1.5 transition-all border shadow-sm hover:scale-105 shrink-0 ${
+                    isPlaying
+                      ? 'bg-[#00A896]/20 border-[#00A896] text-[#00A896] shadow-[0_0_15px_rgba(0,168,150,0.3)]'
+                      : 'bg-[var(--card-bg)] border-[var(--glass-border)] hover:border-[#00A896] text-[var(--text-muted)]'
+                  }`}
+                >
+                  <span className="text-base sm:text-lg leading-none">{isPlaying ? '🔊' : '🔇'}</span>
+                  {isPlaying && (
+                    <span className="flex items-end gap-0.5 h-3">
+                      <span className="w-0.5 h-2 bg-[#00A896] animate-pulse rounded-full" />
+                      <span className="w-0.5 h-3 bg-[#00A896] animate-pulse rounded-full delay-75" />
+                      <span className="w-0.5 h-1.5 bg-[#00A896] animate-pulse rounded-full delay-150" />
+                    </span>
+                  )}
+                </button>
+                <button
+                  onClick={() => setOpenAudioDropdown(!openAudioDropdown)}
+                  title="Pilih Suasana Musik Banjar"
+                  className={`h-9 sm:h-10 px-1.5 rounded-r-full border-y border-r transition-all flex items-center justify-center ${
+                    isPlaying
+                      ? 'bg-[#00A896]/20 border-[#00A896] text-[#00A896]'
+                      : 'bg-[var(--card-bg)] border-[var(--glass-border)] hover:border-[#00A896] text-[var(--text-muted)]'
+                  }`}
+                >
+                  <span className={`text-[9px] transition-transform duration-200 ${openAudioDropdown ? 'rotate-180' : ''}`}>▼</span>
+                </button>
+              </div>
+
+              <AnimatePresence>
+                {openAudioDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 top-full mt-2 w-64 p-3 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-2 z-50 text-left"
+                  >
+                    <div className="text-[10px] font-extrabold tracking-widest uppercase text-[#F4C038] px-1 border-b border-[var(--glass-border)] pb-1.5 flex justify-between items-center">
+                      <span>🎧 Suasana Musik Banjar</span>
+                      {isPlaying && <span className="text-[#00A896]">Playing</span>}
+                    </div>
+                    {audioTracks.map((track) => (
+                      <button
+                        key={track.id}
+                        onClick={() => {
+                          playSelectedTrack(track.id);
+                          setOpenAudioDropdown(false);
+                        }}
+                        className={`p-2 rounded-xl text-left transition-all flex flex-col gap-0.5 w-full ${activeTrackId === track.id && isPlaying ? 'bg-[#00A896]/15 border border-[#00A896]/40 text-[#00A896]' : 'hover:bg-[var(--glass-border)] text-[var(--text-main)]'}`}
+                      >
+                        <div className="text-xs font-bold font-heading flex items-center justify-between">
+                          <span>{track.label}</span>
+                          {activeTrackId === track.id && isPlaying && <span>✓</span>}
+                        </div>
+                        <div className="text-[10px] text-[var(--text-muted)] leading-tight">{track.desc}</div>
+                      </button>
+                    ))}
+                    {isPlaying && (
+                      <button
+                        onClick={() => {
+                          toggleSound();
+                          setOpenAudioDropdown(false);
+                        }}
+                        className="mt-1 py-1.5 px-3 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 text-center text-xs font-bold transition-all w-full border border-red-500/20"
+                      >
+                        🔇 Hentikan Audio
+                      </button>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* CTA Button */}
             <Link
