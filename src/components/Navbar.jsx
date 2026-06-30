@@ -130,8 +130,9 @@ export default function Navbar() {
         <header className="flex items-center justify-between w-full">
           
           {/* Logo - Klik ke Home */}
-          <Link to="/" className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity">
-            Banjarmasin<span className="text-[#F4C038]">.</span>
+          <Link to="/" className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
+            <img src="/logo.webp" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md" />
+            <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
           </Link>
 
           {/* Desktop Navigation - Tepat 5 Pilihan */}
