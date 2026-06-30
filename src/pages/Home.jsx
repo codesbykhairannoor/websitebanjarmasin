@@ -201,13 +201,13 @@ export default function Home() {
               <div
                 key={item.id}
                 onClick={() => setActiveSlide(i)}
-                className={`relative overflow-hidden transition-all duration-500 ease-out select-none ${
+                className={`relative overflow-hidden transition-[flex] duration-500 ease-out select-none transform-gpu ${
                   isActive
                     ? "flex-[10] lg:flex-[12] z-20 shadow-2xl cursor-default"
-                    : "flex-[0.8] lg:flex-[1] cursor-pointer group border-r border-white/15 last:border-0 transition-all duration-300"
+                    : "flex-[0.8] lg:flex-[1] cursor-pointer group border-r border-white/15 last:border-0"
                 }`}
               >
-                <img loading={i === 0 ? "eager" : "lazy"} fetchpriority={i === 0 ? "high" : "auto"} decoding="async" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${isActive ? "scale-105 brightness-100" : "brightness-75 group-hover:scale-100 group-hover:brightness-110 group-hover:shadow-[inset_0_0_40px_rgba(244,192,56,0.6)]"}`} />
+                <img loading={i === 0 ? "eager" : "lazy"} fetchpriority={i === 0 ? "high" : "auto"} decoding="async" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-[filter,box-shadow] duration-500 ease-out transform-gpu ${isActive ? "scale-105 brightness-100" : "brightness-75 group-hover:brightness-110 group-hover:shadow-[inset_0_0_40px_rgba(255,255,255,0.35)]"}`} />
                 {isActive ? (
                   <>
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 pointer-events-none" />
@@ -228,7 +228,7 @@ export default function Home() {
                 ) : (
                   <div className="absolute inset-0 flex flex-col justify-between items-center p-4 z-10 pointer-events-none bg-gradient-to-t from-black/90 via-black/20 to-black/60 group-hover:from-black/70 transition-all">
                     <div className="flex-1 flex items-center justify-center py-4 overflow-hidden">
-                      <span className="block font-heading font-extrabold text-white text-sm tracking-widest uppercase -rotate-90 whitespace-nowrap drop-shadow-lg opacity-70 group-hover:opacity-100 group-hover:text-[#F4C038] transition-all">{item.title}</span>
+                      <span className="block font-heading font-extrabold text-white text-sm tracking-widest uppercase -rotate-90 whitespace-nowrap drop-shadow-lg opacity-70 group-hover:opacity-100 transition-opacity">{item.title}</span>
                     </div>
                   </div>
                 )}
@@ -247,10 +247,10 @@ export default function Home() {
           {showcaseItems.map((item, idx) => {
             const isActive = activeSlide === idx;
             return (
-              <div key={item.id} className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${isActive ? "opacity-100 z-20" : "opacity-0 z-10"}`}>
-                <img loading={idx === 0 ? "eager" : "lazy"} fetchpriority={idx === 0 ? "high" : "auto"} decoding="async" src={item.mobileImg || item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-out ${isActive ? "scale-105" : "scale-100"}`} />
+              <div key={item.id} className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out transform-gpu ${isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 z-10 pointer-events-none"}`}>
+                <img loading={idx === 0 ? "eager" : "lazy"} fetchpriority={idx === 0 ? "high" : "auto"} decoding="async" src={item.mobileImg || item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover transform-gpu" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
-                <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-all duration-1000 delay-300 ${isActive ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
+                <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-[transform,opacity] duration-500 delay-150 ease-out transform-gpu ${isActive ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
                   <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
                   <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-tight leading-tight mb-2 drop-shadow-lg text-white">{item.title}</h1>
                   <p className="text-sm font-bold text-sasirangan mb-6 font-heading drop-shadow-md">{item.subtitle}</p>
