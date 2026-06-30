@@ -175,11 +175,15 @@ export default function InteractiveMap() {
       L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
-        maxZoom: 19
+        maxZoom: 19,
+        keepBuffer: 8,
+        updateWhenIdle: true,
+        updateInterval: 150
       }).addTo(map);
 
       L.control.zoom({ position: 'bottomright' }).addTo(map);
       mapInstanceRef.current = map;
+      setTimeout(() => { if (map) map.invalidateSize(); }, 200);
     }
 
     // Bersihkan marker lama

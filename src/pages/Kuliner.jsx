@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -7,6 +7,7 @@ import { pagesTranslations } from '../translations/pagesTranslations';
 
 export default function Kuliner() {
   const { language } = useLanguage();
+  const scrollRef = useRef(null);
 
   const tLocal = (key) => {
     return pagesTranslations[language]?.kuliner?.[key] || pagesTranslations['id']?.kuliner?.[key];
@@ -370,9 +371,25 @@ export default function Kuliner() {
                 {tLocal('section2Desc')}
               </p>
             </div>
+            <div className="flex items-center gap-3 self-start md:self-end">
+              <button
+                onClick={() => scrollRef.current?.scrollBy({ left: -340, behavior: 'smooth' })}
+                className="w-12 h-12 rounded-full bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#F4C038] hover:bg-[#F4C038] hover:text-[#091422] text-[var(--text-main)] flex items-center justify-center transition-all shadow-md text-lg font-bold"
+                aria-label="Scroll Left"
+              >
+                ←
+              </button>
+              <button
+                onClick={() => scrollRef.current?.scrollBy({ left: 340, behavior: 'smooth' })}
+                className="w-12 h-12 rounded-full bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#F4C038] hover:bg-[#F4C038] hover:text-[#091422] text-[var(--text-main)] flex items-center justify-center transition-all shadow-md text-lg font-bold"
+                aria-label="Scroll Right"
+              >
+                →
+              </button>
+            </div>
           </div>
 
-          <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory wadai-scroll hide-scrollbar px-2 sm:px-0">
+          <div ref={scrollRef} className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory wadai-scroll px-2 sm:px-0">
             {wadaiCollection.map((wadai, idx) => (
               <div key={idx} className="min-w-[260px] sm:min-w-[300px] md:min-w-[320px] h-[360px] sm:h-[400px] flex-shrink-0 snap-center relative rounded-[2rem] overflow-hidden group cursor-pointer shadow-lg border border-[var(--glass-border)]">
                 <img loading="lazy" decoding="async" src={wadai.img} alt={wadai.name} className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 transform-gpu" />

@@ -16,9 +16,8 @@ export default function Wisata() {
   const heroDestinationsMeta = [
     { id: "pasar-terapung", image: "/wisata/960px-Pasar_Terapung_Siring_Banj.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
     { id: "siring-martapura", image: "/wisata/960px-Menara_Pandang_Banjarmasin.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
-    { id: "patung-bekantan", image: "/wisata/960px-Monumen_Patung_Bekantan_Ba.webp", heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]" },
-    { id: "sabilal-muhtadin", image: "/wisata/960px-Masjid_Raya_Sabilal_Muhtad.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
-    { id: "museum-waja-sampai-kaputing", image: "/wisata/960px-Museum_Waja_Sampai_Kaputin.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
+    { id: "sabilal-muhtadin", image: "/wisata/960px-Masjid_Raya_Sabilal_Muhtad.webp", heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]" },
+    { id: "museum-waja-sampai-kaputing", image: "/wisata/960px-Museum_Waja_Sampai_Kaputin.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
     { id: "masjid-suriansyah", image: "/wisata/masjid sultan suriansyah.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
     { id: "rumah-adat-bubungan-tinggi", image: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
     { id: "taman-siring-martapura", image: "/wisata/960px-Taman_Siring_Banjarmasin.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
@@ -198,7 +197,7 @@ export default function Wisata() {
           {/* === MOBILE: 5-Slice Fan Layout (Vertical Text) === */}
           <div className="flex sm:hidden w-full items-end justify-center px-1 h-[480px]">
             {/* Outer Left */}
-            <div className="flex-1 h-[320px] rounded-xl overflow-hidden relative brightness-50 shadow-md transform translate-x-2 z-10 border border-[#F4C038]/10">
+            <div className="flex-1 h-[320px] rounded-xl overflow-hidden relative shadow-md transform translate-x-2 z-10 border border-[#F4C038]/10">
               <img loading="lazy" src={heroDestinations[0].image} alt={heroDestinations[0].title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-4">
                 <h3 className="text-[10px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
@@ -207,7 +206,7 @@ export default function Wisata() {
               </div>
             </div>
             {/* Middle Left */}
-            <div className="flex-[1.3] h-[380px] rounded-xl overflow-hidden relative brightness-75 shadow-lg transform translate-x-1 z-20 border border-[#F4C038]/20">
+            <div className="flex-[1.3] h-[380px] rounded-xl overflow-hidden relative shadow-lg transform translate-x-1 z-20 border border-[#F4C038]/20">
               <img loading="lazy" src={heroDestinations[1].image} alt={heroDestinations[1].title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-5">
                 <h3 className="text-[11px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
@@ -225,7 +224,7 @@ export default function Wisata() {
               </div>
             </div>
             {/* Middle Right */}
-            <div className="flex-[1.3] h-[380px] rounded-xl overflow-hidden relative brightness-75 shadow-lg transform -translate-x-1 z-20 border border-[#F4C038]/20">
+            <div className="flex-[1.3] h-[380px] rounded-xl overflow-hidden relative shadow-lg transform -translate-x-1 z-20 border border-[#F4C038]/20">
               <img loading="lazy" src={heroDestinations[3].image} alt={heroDestinations[3].title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-5">
                 <h3 className="text-[11px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
@@ -234,7 +233,7 @@ export default function Wisata() {
               </div>
             </div>
             {/* Outer Right */}
-            <div className="flex-1 h-[320px] rounded-xl overflow-hidden relative brightness-50 shadow-md transform -translate-x-2 z-10 border border-[#F4C038]/10">
+            <div className="flex-1 h-[320px] rounded-xl overflow-hidden relative shadow-md transform -translate-x-2 z-10 border border-[#F4C038]/10">
               <img loading="lazy" src={heroDestinations[4].image} alt={heroDestinations[4].title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-4">
                 <h3 className="text-[10px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
@@ -246,7 +245,7 @@ export default function Wisata() {
 
           {/* === DESKTOP sm+: Original fan layout === */}
           {/* Outer Left */}
-          <div className="w-[16vw] h-[250px] sm:h-[350px] md:h-[450px] z-10 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-50 shrink-0 shadow-lg hidden sm:block">
+          <div className="w-[16vw] h-[250px] sm:h-[350px] md:h-[450px] z-10 rounded-2xl md:rounded-3xl overflow-hidden relative shrink-0 shadow-lg hidden sm:block">
             <img loading="lazy" src={heroDestinations[0].image} alt={heroDestinations[0].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-4">
               <span className="hidden lg:inline-block text-[#F4C038] text-[9px] md:text-[10px] font-bold tracking-widest uppercase mb-1 drop-shadow-md">
@@ -259,7 +258,7 @@ export default function Wisata() {
           </div>
 
           {/* Middle Left */}
-          <div className="w-[21vw] h-[350px] sm:h-[450px] md:h-[550px] z-20 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-75 shrink-0 shadow-xl hidden sm:block">
+          <div className="w-[21vw] h-[350px] sm:h-[450px] md:h-[550px] z-20 rounded-2xl md:rounded-3xl overflow-hidden relative shrink-0 shadow-xl hidden sm:block">
             <img loading="lazy" src={heroDestinations[1].image} alt={heroDestinations[1].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-5">
               <span className="hidden lg:inline-block text-[#F4C038] text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 drop-shadow-md">
@@ -285,7 +284,7 @@ export default function Wisata() {
           </div>
 
           {/* Middle Right */}
-          <div className="w-[21vw] h-[350px] sm:h-[450px] md:h-[550px] z-20 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-75 shrink-0 shadow-xl hidden sm:block">
+          <div className="w-[21vw] h-[350px] sm:h-[450px] md:h-[550px] z-20 rounded-2xl md:rounded-3xl overflow-hidden relative shrink-0 shadow-xl hidden sm:block">
             <img loading="lazy" src={heroDestinations[3].image} alt={heroDestinations[3].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-5">
               <span className="hidden lg:inline-block text-[#F4C038] text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 drop-shadow-md">
@@ -298,7 +297,7 @@ export default function Wisata() {
           </div>
 
           {/* Outer Right */}
-          <div className="w-[16vw] h-[250px] sm:h-[350px] md:h-[450px] z-10 rounded-2xl md:rounded-3xl overflow-hidden relative brightness-50 shrink-0 shadow-lg hidden sm:block">
+          <div className="w-[16vw] h-[250px] sm:h-[350px] md:h-[450px] z-10 rounded-2xl md:rounded-3xl overflow-hidden relative shrink-0 shadow-lg hidden sm:block">
             <img loading="lazy" src={heroDestinations[4].image} alt={heroDestinations[4].title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/20 to-transparent flex flex-col justify-end items-center text-center p-4">
               <span className="hidden lg:inline-block text-[#F4C038] text-[9px] md:text-[10px] font-bold tracking-widest uppercase mb-1 drop-shadow-md">
@@ -382,8 +381,8 @@ export default function Wisata() {
                   />
                 </AnimatePresence>
               </div>
-              <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#050B14]/90 via-[#091422]/60 to-transparent pointer-events-none" />
-              <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#050B14]/95 via-black/20 to-black/30 pointer-events-none" />
+              <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#050B14]/80 via-[#091422]/35 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#050B14]/80 via-transparent to-transparent pointer-events-none" />
 
               {/* Constrained Content Wrapper centered vertically */}
               <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-between relative z-10 gap-8 lg:gap-12">
