@@ -69,6 +69,7 @@ export default function Wisata() {
   }));
 
   const [carouselItems, setCarouselItems] = useState(heroDestinations);
+  const [activeMobileWisataIdx, setActiveMobileWisataIdx] = useState(0);
 
   // Sync state when language changes
   useEffect(() => {
@@ -197,51 +198,78 @@ export default function Wisata() {
           ========================================================================= */}
       <section className="w-full relative flex justify-center items-end overflow-hidden pb-16 pt-4 px-2 sm:px-0">
 
-          {/* === MOBILE: 5-Slice Fan Layout (Vertical Text) === */}
-          <div className="flex sm:hidden w-full items-end justify-center px-1 h-[480px]">
-            {/* Outer Left */}
-            <div className="flex-1 h-[320px] rounded-xl overflow-hidden relative shadow-md transform translate-x-2 z-10 border border-[#F4C038]/10">
-              <img loading="lazy" src={heroDestinations[0].image} alt={heroDestinations[0].title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-4">
-                <h3 className="text-[10px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-                  {heroDestinations[0].title}
-                </h3>
-              </div>
-            </div>
-            {/* Middle Left */}
-            <div className="flex-[1.3] h-[380px] rounded-xl overflow-hidden relative shadow-lg transform translate-x-1 z-20 border border-[#F4C038]/20">
-              <img loading="lazy" src={heroDestinations[1].image} alt={heroDestinations[1].title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-5">
-                <h3 className="text-[11px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-                  {heroDestinations[1].title}
-                </h3>
-              </div>
-            </div>
-            {/* Center (Main) */}
-            <div className="flex-[1.7] h-[460px] rounded-2xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-[#F4C038]/40 z-30">
-              <img loading="lazy" src={heroDestinations[2].image} alt={heroDestinations[2].title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 via-black/10 to-transparent flex flex-col justify-end items-center pb-6">
-                <h3 className="text-[13px] font-black text-[#F4C038] font-heading leading-tight drop-shadow-lg text-center" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-                  {heroDestinations[2].title}
-                </h3>
-              </div>
-            </div>
-            {/* Middle Right */}
-            <div className="flex-[1.3] h-[380px] rounded-xl overflow-hidden relative shadow-lg transform -translate-x-1 z-20 border border-[#F4C038]/20">
-              <img loading="lazy" src={heroDestinations[3].image} alt={heroDestinations[3].title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-5">
-                <h3 className="text-[11px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-                  {heroDestinations[3].title}
-                </h3>
-              </div>
-            </div>
-            {/* Outer Right */}
-            <div className="flex-1 h-[320px] rounded-xl overflow-hidden relative shadow-md transform -translate-x-2 z-10 border border-[#F4C038]/10">
-              <img loading="lazy" src={heroDestinations[4].image} alt={heroDestinations[4].title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/90 to-transparent flex flex-col justify-end items-center pb-4">
-                <h3 className="text-[10px] font-black text-white font-heading leading-tight drop-shadow-lg" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-                  {heroDestinations[4].title}
-                </h3>
+          {/* === MOBILE & TABLET (< sm): Destination Spotlight Stage + Live Thumbnail Strip (Ide 1) === */}
+          <div className="flex sm:hidden flex-col gap-5 w-full px-2 pb-6 z-20">
+            {(() => {
+              const activeDest = heroDestinations[activeMobileWisataIdx] || heroDestinations[0];
+              return (
+                <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl animate-fade-in transition-all duration-500">
+                  {/* Panggung Foto Full Width Tanpa Potong */}
+                  <div className="w-full h-[280px] relative overflow-hidden bg-black/20">
+                    <img
+                      src={encodeURI(activeDest.image)}
+                      alt={activeDest.title}
+                      className="w-full h-full object-cover transition-transform duration-700"
+                    />
+                    <div className="absolute top-3 right-3 z-10">
+                      <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#F4C038] font-bold text-[10px] tracking-wider uppercase border border-[#F4C038]/30 shadow">
+                        {activeDest.badge || "Wisata Banjar"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Deskripsi & Judul Horizontal */}
+                  <div className="p-5 text-left bg-[var(--card-bg)] border-t border-[var(--glass-border)] relative z-10">
+                    <span className="text-[#33C3B3] font-bold text-[11px] uppercase tracking-widest block mb-1">
+                      {activeDest.tag || "Destinasi Ikonik"}
+                    </span>
+                    <h3 className="text-xl font-black font-heading text-[var(--text-main)] leading-tight mb-2">
+                      {activeDest.title}
+                    </h3>
+                    <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-3 line-clamp-3">
+                      {activeDest.desc || activeDest.location}
+                    </p>
+                    {activeDest.location && (
+                      <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[var(--text-main)] pt-2 border-t border-[var(--glass-border)]/50">
+                        <span>📍</span> <span>{activeDest.location}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* Live Thumbnail Selector Pills Bar */}
+            <div>
+              <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider mb-2.5 px-1 flex items-center justify-between">
+                <span>🎯 Pilih Destinasi Panggung ({activeMobileWisataIdx + 1}/{heroDestinations.length}):</span>
+              </p>
+              <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 scrollbar-thin scrollbar-thumb-[#F4C038]/40 scrollbar-track-transparent snap-x snap-mandatory">
+                {heroDestinations.map((dest, idx) => {
+                  const isActive = activeMobileWisataIdx === idx;
+                  return (
+                    <button
+                      key={dest.id || idx}
+                      onClick={() => setActiveMobileWisataIdx(idx)}
+                      className={`shrink-0 w-20 h-16 rounded-xl overflow-hidden relative transition-all duration-300 snap-start cursor-pointer border-2 ${
+                        isActive
+                          ? "border-[#F4C038] scale-105 shadow-md shadow-[#F4C038]/20"
+                          : "border-transparent opacity-60 hover:opacity-100 bg-black/40"
+                      }`}
+                    >
+                      <img
+                        src={encodeURI(dest.image)}
+                        alt={dest.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center p-1">
+                        <span className="text-[8px] font-bold text-white leading-none truncate w-full text-center">
+                          {dest.title}
+                        </span>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
