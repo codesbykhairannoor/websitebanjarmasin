@@ -198,11 +198,15 @@ export default function Wisata() {
           ========================================================================= */}
       <section className="w-full relative flex justify-center items-end overflow-hidden pb-16 pt-4 px-2 sm:px-0">
 
-          {/* === MOBILE & TABLET (< sm): Interactive Bento Discovery Grid (No Slide Duplication) === */}
+          {/* === MOBILE & TABLET (< sm): Interlocking Asymmetric Bento Grid (Zero Empty Space) === */}
           <div className="flex sm:hidden flex-col gap-3 w-full px-3 pb-6 z-20">
             <div className="grid grid-cols-2 gap-3 w-full">
               {heroDestinations.slice(0, 5).map((dest, idx) => {
-                const isWide = idx === 0 || idx === 4;
+                let gridClasses = "col-span-1 h-[168px]";
+                if (idx === 0) gridClasses = "col-span-2 h-[190px]";
+                else if (idx === 1) gridClasses = "col-span-1 row-span-2 h-[348px]";
+                else if (idx === 4) gridClasses = "col-span-2 h-[190px]";
+
                 return (
                   <div
                     key={dest.id || idx}
@@ -211,9 +215,7 @@ export default function Wisata() {
                       const el = document.getElementById("showcase-section");
                       if (el) el.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className={`relative rounded-2xl overflow-hidden shadow-lg border border-[var(--glass-border)] group cursor-pointer transition-all duration-300 active:scale-[0.98] ${
-                      isWide ? "col-span-2 h-[200px]" : "col-span-1 h-[165px]"
-                    }`}
+                    className={`relative rounded-2xl overflow-hidden shadow-lg border border-[var(--glass-border)] group cursor-pointer transition-all duration-300 active:scale-[0.98] ${gridClasses}`}
                   >
                     <img
                       src={encodeURI(dest.image)}
