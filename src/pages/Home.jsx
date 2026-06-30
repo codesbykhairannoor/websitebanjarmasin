@@ -25,9 +25,9 @@ export default function Home() {
   // === STATE FOR HERO SLIDES ===
   const showcaseImages = [
     { id: 0, shortTitle: "Sambutan", icon: "✨", btnLink: "#wisata", img: "/home/banjarmasinkota.webp" },
-    { id: 1, shortTitle: "Sungai", icon: "🛶", btnLink: "/wisata", img: "/hero_pasar_terapung.png" },
-    { id: 2, shortTitle: "Kuliner", icon: "🍜", btnLink: "/kuliner", img: "/hero_soto_banjar.png" },
-    { id: 3, shortTitle: "Budaya", icon: "🏛️", btnLink: "/sejarah", img: "/hero_kain_sasirangan.png" },
+    { id: 1, shortTitle: "Sungai", icon: "🛶", btnLink: "/wisata", img: "/home/hero_sungai_martapura.webp" },
+    { id: 2, shortTitle: "Kuliner", icon: "🍜", btnLink: "/kuliner", img: "/home/hero_soto_banjar.webp" },
+    { id: 3, shortTitle: "Budaya", icon: "🏛️", btnLink: "/sejarah", img: "/home/hero_kain_sasirangan.webp" },
     { id: 4, shortTitle: "Inovasi", icon: "🚀", btnLink: "/smart-city", img: "/profil kota/trans banjarbakula.webp" }
   ];
   const slides = t('home.hero.slides') || [];
@@ -63,10 +63,10 @@ export default function Home() {
   // === STATE FOR TASTE OF BANJAR ===
   const [activeTab, setActiveTab] = useState(1);
   const foodsImages = [
-    { id: 1, img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", price: "Rp 25.000" },
-    { id: 2, img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", price: "Rp 30.000" },
-    { id: 3, img: "/kuliner/Resep-Amparan-Tatak-Kue-Khas-Ban.webp", price: "Rp 15.000" },
-    { id: 4, img: "/kuliner/Bingka.webp", price: "Rp 45.000" },
+    { id: 1, img: "/kuliner/soto banjar.webp", price: "Rp 25.000" },
+    { id: 2, img: "/kuliner/ketupat kandangan.webp", price: "Rp 30.000" },
+    { id: 3, img: "/kuliner/Banana Amparan Tatak.webp", price: "Rp 15.000" },
+    { id: 4, img: "/kuliner/bingka.webp", price: "Rp 45.000" },
     { id: 5, img: "/kuliner/sambal acan.webp", price: "Rp 20.000" }
   ];
   const translatedFoods = t('home.kuliner.foods') || [];
@@ -463,7 +463,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <img 
-                src="/hero_pasar_terapung.png" 
+                src="/home/hero_pasar_terapung.webp" 
                 alt="Pasar Terapung Lok Baintan" 
                 loading="lazy"
                 className="w-full h-[450px] lg:h-full object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -486,7 +486,7 @@ export default function Home() {
         {/* 4. SMART CITY & EKOLOGI */}
         <section id="smartcity" className="py-16 md:py-24 relative overflow-hidden rounded-[40px] my-8 shadow-2xl border border-[var(--glass-border)] mx-4 md:mx-0">
           <div className="absolute inset-0 z-0">
-            <img src="/hero_menara_pandang.png" className="w-full h-full object-cover brightness-[0.7]" alt="Smart City Night" loading="lazy"/>
+            <img src="/profil kota/trans banjarbakula.webp" className="w-full h-full object-cover brightness-[0.7]" alt="Smart City Night" loading="lazy"/>
             <div className="absolute inset-0 bg-gradient-to-r from-[#091422]/95 via-[#091422]/70 to-[#33C3B3]/20"></div>
           </div>
           

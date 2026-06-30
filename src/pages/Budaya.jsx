@@ -18,8 +18,8 @@ export default function Budaya() {
     { id: 'naga', hex: '#00A896', image: '/budaya/naga-balimbur-salah-satu-motif-b.webp' },
     { id: 'kembang', hex: '#E63946', image: '/budaya/motif kembang kacang.webp' },
     { id: 'purun', hex: '#8D5B4C', image: '/budaya/anyaman-purun.webp' },
-    { id: 'haruan', hex: '#1E3A8A', image: '/budaya/motif_gigi_haruan.png' },
-    { id: 'sarigading', hex: '#D4AF37', image: '/budaya/kain_sarigading.png' }
+    { id: 'haruan', hex: '#1E3A8A', image: '/budaya/motif_gigi_haruan.webp' },
+    { id: 'sarigading', hex: '#D4AF37', image: '/budaya/kain_sarigading.webp' }
   ];
   const translatedSasirangan = tLocal('sasiranganData') || [];
   const sasiranganData = sasiranganImages.map((s, idx) => ({

@@ -12,7 +12,7 @@ export default function TasteOfBanjar() {
       aroma: "Harum Rempah Kapulaga, Kayu Manis & Cengkeh",
       desc: "Kaldu ayam kampung keemasan yang dimasak perlahan dengan rempah pilihan. Disajikan bersama suwiran daging ayam hangat, perkedel kentang lembut, dan ketupat pulen khas Banjar.",
       price: "Rp 25.000",
-      img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp"
+      img: "/kuliner/soto banjar.webp"
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export default function TasteOfBanjar() {
       aroma: "Gurih Santan Kental & Aroma Smokey Ikan Haruan",
       desc: "Ketupat pulen yang disiram kuah santan kaya bumbu kuning tradisional. Dipadukan dengan lauk ikan haruan (gabus) panggang asap yang memberikan cita rasa mendalam yang tiada duanya.",
       price: "Rp 30.000",
-      img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp"
+      img: "/kuliner/ketupat kandangan.webp"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function TasteOfBanjar() {
       aroma: "Perpaduan Manis Gurih Bumbu Habang Khas Banjar",
       desc: "Lontong segitiga berukuran jumbo dengan siraman bumbu habang (merah) yang pekat. Disertai lauk telur bebek dan ayam kampung yang meresap sempurna hingga ke serat daging.",
       price: "Rp 35.000",
-      img: "/kuliner/buras.webp"
+      img: "/kuliner/lontong orari.webp"
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ export default function TasteOfBanjar() {
       aroma: "Legit Lembut Aroma Santan Bakar & Kentang",
       desc: "Kue basah tradisional berbentuk kelopak bunga kembang bundar. Memiliki tekstur super lembut dan manis legit alami dari campuran kentang premium serta santan kelapa bakar.",
       price: "Rp 45.000",
-      img: "/kuliner/Bingka.webp"
+      img: "/kuliner/bingka.webp"
     }
   ];
 

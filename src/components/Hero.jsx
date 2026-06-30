@@ -34,7 +34,7 @@ const heroSlices = [
     id: 5,
     title: "Kuliner Khas",
     subtitle: "Soto Banjar & Bingka Surgawi",
-    img: "/kuliner/buras.webp",
+    img: "/kuliner/soto banjar.webp",
     color: "from-orange-900 via-red-800/40"
   }
 ];

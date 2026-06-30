@@ -13,21 +13,21 @@ export default function Kuliner() {
   };
 
   const galleryCardsMeta = [
-    { img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", id: "soto-banjar" },
-    { img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", id: "ketupat-kandangan" },
-    { img: "/kuliner/buras.webp", id: "lontong-orari" },
-    { img: "/kuliner/Bingka.webp", id: "bingka" },
-    { img: "/kuliner/Iwak_Pakasam_Basanga.webp", id: "iwak-pakasam" },
-    { img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp", id: "nasi-itik-gambut" }
+    { img: "/kuliner/soto banjar.webp", id: "soto-banjar" },
+    { img: "/kuliner/ketupat kandangan.webp", id: "ketupat-kandangan" },
+    { img: "/kuliner/lontong orari.webp", id: "lontong-orari" },
+    { img: "/kuliner/bingka.webp", id: "bingka" },
+    { img: "/kuliner/iwak pakasan.webp", id: "iwak-pakasam" },
+    { img: "/kuliner/nasi itik gambut.webp", id: "nasi-itik-gambut" }
   ];
 
   const mainDishesMeta = [
-    { id: "soto-banjar", icon: "🍲", img: "/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp", maps: "https://maps.google.com/?q=Soto+Bang+Amat+Banjarmasin" },
-    { id: "ketupat-kandangan", icon: "🥥", img: "/kuliner/1920px-Katupat_Kandangan_in_Kandangan.webp", maps: "https://maps.google.com/?q=Ketupat+Kandangan+Banjarmasin" },
-    { id: "nasi-kuning", icon: "🍛", img: "/kuliner/Nasi_Kuning_Banjar_001.webp", maps: "https://maps.google.com/?q=Nasi+Kuning+Cempaka+Banjarmasin" },
-    { id: "lontong-orari", icon: "🥣", img: "/kuliner/buras.webp", maps: "https://maps.google.com/?q=Lontong+Orari+Banjarmasin" },
-    { id: "gangan-asam", icon: "🐟", img: "/kuliner/Gangan_asam_kepala_ikan_di_Cempaka,_Banjarbaru.webp", maps: "https://maps.google.com/?q=Gangan+Asam+Banjarmasin" },
-    { id: "nasi-itik-gambut", icon: "🦆", img: "/kuliner/Nasi_Itik_Gambut_Tenda_Biru.webp", maps: "https://maps.google.com/?q=Nasi+Itik+Gambut" }
+    { id: "soto-banjar", icon: "🍲", img: "/kuliner/soto banjar.webp", maps: "https://maps.google.com/?q=Soto+Bang+Amat+Banjarmasin" },
+    { id: "ketupat-kandangan", icon: "🥥", img: "/kuliner/ketupat kandangan.webp", maps: "https://maps.google.com/?q=Ketupat+Kandangan+Banjarmasin" },
+    { id: "nasi-kuning", icon: "🍛", img: "/kuliner/nasi kuning bumbu hambang.webp", maps: "https://maps.google.com/?q=Nasi+Kuning+Cempaka+Banjarmasin" },
+    { id: "lontong-orari", icon: "🥣", img: "/kuliner/lontong orari.webp", maps: "https://maps.google.com/?q=Lontong+Orari+Banjarmasin" },
+    { id: "gangan-asam", icon: "🐟", img: "/kuliner/gangan asam.webp", maps: "https://maps.google.com/?q=Gangan+Asam+Banjarmasin" },
+    { id: "nasi-itik-gambut", icon: "🦆", img: "/kuliner/nasi itik gambut.webp", maps: "https://maps.google.com/?q=Nasi+Itik+Gambut" }
   ];
 
   const translatedMainDishes = tLocal('mainDishes') || [];
@@ -49,11 +49,11 @@ export default function Kuliner() {
   });
 
   const wadaiCollectionMeta = [
-    { img: "/kuliner/Bingka.webp" },
-    { img: "/kuliner/Resep-Amparan-Tatak-Kue-Khas-Ban.webp" },
-    { img: "/kuliner/358-bingka-barandam-khas-banjar.webp" },
-    { img: "/kuliner/klepon.webp" },
-    { img: "/kuliner/wadai-kararaban-khas-banjar-1756.webp" }
+    { img: "/kuliner/bingka.webp" },
+    { img: "/kuliner/Banana Amparan Tatak.webp" },
+    { img: "/kuliner/bingka barandam.webp" },
+    { img: "/kuliner/klepon martapura.webp" },
+    { img: "/kuliner/Buat_foto_jadi_super_hd_202606301039.webp" }
   ];
   const translatedWadai = tLocal('wadaiCollection') || [];
   const wadaiCollection = wadaiCollectionMeta.map((w, idx) => ({
@@ -62,9 +62,9 @@ export default function Kuliner() {
   }));
 
   const olehOlehMeta = [
-    { span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto", img: "/kuliner/IMG-20251017-WA0002.webp" },
-    { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/f6cd9fe9a37ece89ca3de6416a14031e.webp" },
-    { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/Iwak_Pakasam_Basanga.webp" },
+    { span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto", img: "/kuliner/kerupuk ampalang.webp" },
+    { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/mandai.webp" },
+    { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/iwak pakasan.webp" },
     { span: "col-span-1 md:col-span-3 row-span-1 h-[250px]", img: "/kuliner/sambal acan.webp" }
   ];
   const translatedOleh = tLocal('olehOleh') || [];
@@ -396,7 +396,7 @@ export default function Kuliner() {
         <section className="py-20 sm:py-24 border-t border-[var(--glass-border)]">
           <div className="relative w-full rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden h-[450px] sm:h-[500px] md:h-[600px] flex items-center shadow-lg border border-[var(--glass-border)]">
             <div className="absolute inset-0">
-              <img loading="lazy" decoding="async" src="/kuliner/Soto_banjar,_Pak_Ahmat,_Martapura,_South_Kalimantan,_2018-07-28_02.webp" alt="Dermaga Kuliner Banua Anyar" className="w-full h-full object-cover scale-105 transform-gpu" />
+              <img loading="lazy" decoding="async" src="/kuliner/soto banjar.webp" alt="Dermaga Kuliner Banua Anyar" className="w-full h-full object-cover scale-105 transform-gpu" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
             </div>
 

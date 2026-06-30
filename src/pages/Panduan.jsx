@@ -95,7 +95,7 @@ export default function Panduan() {
         location: "Jl. Lambung Mangkurat No. 48",
         desc: tLocal('hotels.victoria.desc'),
         tag: tLocal('hotels.victoria.tag'),
-        img: "/panduan/Victoria Hotel River View.webp",
+        img: "/panduan/victoria hotel.webp",
         mapsUrl: "https://maps.google.com/?q=Hotel+Victoria+Banjarmasin"
       }
     ],
