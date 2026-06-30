@@ -11,7 +11,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(false);
   const [openLangDropdown, setOpenLangDropdown] = useState(false);
   const [openAudioDropdown, setOpenAudioDropdown] = useState(false);
-  const [activeTrackId, setActiveTrackId] = useState('duo');
+  const [activeTrackId, setActiveTrackId] = useState('ampar');
   
   const location = useLocation();
   const dropdownRef = useRef(null);
@@ -20,9 +20,10 @@ export default function Navbar() {
   const audioRef = useRef(null);
 
   const audioTracks = [
-    { id: 'duo', label: t('navbar.trackDuoLabel'), desc: t('navbar.trackDuoDesc'), file: '/audio/panting_dan_sungai.wav' },
-    { id: 'panting', label: t('navbar.trackPantingLabel'), desc: t('navbar.trackPantingDesc'), file: '/audio/panting_banjar.wav' },
-    { id: 'sungai', label: t('navbar.trackSungaiLabel'), desc: t('navbar.trackSungaiDesc'), file: '/audio/sungai_martapura.wav' }
+    { id: 'ampar', label: '🍌 Ampar-Ampar Pisang', file: '/audio/ampar_ampar_pisang.mp3' },
+    { id: 'paris', label: '⛵ Paris Barantai', file: '/audio/paris_barantai.mp3' },
+    { id: 'ampat', label: '🎵 Ampat Si Ampat Lima', file: '/audio/ampat_si_ampat_lima.mp3' },
+    { id: 'rindu', label: '🪕 Rindu-Rindu (Musik Panting)', file: '/audio/rindu_rindu.mp3' }
   ];
 
   useEffect(() => {
@@ -318,13 +319,10 @@ export default function Navbar() {
                           playSelectedTrack(track.id);
                           setOpenAudioDropdown(false);
                         }}
-                        className={`p-2 rounded-xl text-left transition-all flex flex-col gap-0.5 w-full ${activeTrackId === track.id && isPlaying ? 'bg-[#00A896]/15 border border-[#00A896]/40 text-[#00A896]' : 'hover:bg-[var(--glass-border)] text-[var(--text-main)]'}`}
+                        className={`p-2.5 rounded-xl text-left transition-all flex items-center justify-between w-full font-heading text-xs font-bold ${activeTrackId === track.id && isPlaying ? 'bg-[#00A896]/15 border border-[#00A896]/40 text-[#00A896]' : 'hover:bg-[var(--glass-border)] text-[var(--text-main)]'}`}
                       >
-                        <div className="text-xs font-bold font-heading flex items-center justify-between">
-                          <span>{track.label}</span>
-                          {activeTrackId === track.id && isPlaying && <span>✓</span>}
-                        </div>
-                        <div className="text-[10px] text-[var(--text-muted)] leading-tight">{track.desc}</div>
+                        <span>{track.label}</span>
+                        {activeTrackId === track.id && isPlaying && <span>✓</span>}
                       </button>
                     ))}
                     {isPlaying && (
