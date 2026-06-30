@@ -68,8 +68,18 @@ const ScrollObserver = () => {
 
 export default function App() {
   const [isAppReady, setIsAppReady] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
+    // Cek apakah user sudah melihat splash screen di sesi browser ini
+    const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
+    
+    if (hasSeenSplash) {
+      // Jika sudah pernah buka (termasuk refresh), langsung hilangkan loading
+      setShowSplash(false);
+      setIsAppReady(true);
+    }
+
     // Daftar foto-foto utama yang PALING BERAT dan PALING AWAL dilihat user
     // Dengan preload ini, foto hero tidak akan "kedip putih" lagi saat halamannya dibuka
     const criticalImages = [
@@ -82,7 +92,7 @@ export default function App() {
     ];
 
     const preloadImage = (src) => {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const img = new Image();
         img.src = src;
         img.onload = resolve;
@@ -90,11 +100,16 @@ export default function App() {
       });
     };
 
-    // Eksekusi preload
+    // Eksekusi preload di background (tetap jalan meskipun splash tidak muncul)
     Promise.all(criticalImages.map(img => preloadImage(img)))
       .then(() => {
-        // Beri sedikit jeda ekstra agar animasi masuk (kelotok) sempat terlihat estetik (minimal 1 detik)
-        setTimeout(() => setIsAppReady(true), 1200);
+        if (!hasSeenSplash) {
+          // Beri sedikit jeda ekstra agar animasi masuk sempat terlihat estetik (minimal 1 detik)
+          setTimeout(() => {
+            setIsAppReady(true);
+            sessionStorage.setItem('hasSeenSplash', 'true'); // Simpan tanda bahwa sudah melihat splash
+          }, 1200);
+        }
       });
       
   }, []);
@@ -104,8 +119,8 @@ export default function App() {
       <LanguageProvider>
         <SEOMeta />
         
-        {/* INITIAL SPLASH SCREEN - HANYA MUNCUL 1X SAAT AWAL LOAD WEB */}
-        <SplashScreen isReady={isAppReady} />
+        {/* INITIAL SPLASH SCREEN - HANYA MUNCUL 1X SAAT AWAL LOAD WEB (Di sesi yang sama) */}
+        {showSplash && <SplashScreen isReady={isAppReady} />}
 
         {/* HIDE KONTEN SELAMA BELUM READY */}
         <div style={{ opacity: isAppReady ? 1 : 0, transition: 'opacity 0.5s ease-in' }}>

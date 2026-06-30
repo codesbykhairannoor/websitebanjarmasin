@@ -22,7 +22,7 @@ const SplashScreen = ({ isReady }) => {
       <div className="relative flex flex-col items-center justify-center">
         
         {/* Cinematic Shimmering Text */}
-        <h2 className="relative font-heading font-black text-3xl sm:text-5xl tracking-[0.4em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-white/20 via-white to-white/20 animate-[shimmer_2s_infinite] bg-[length:200%_auto]">
+        <h2 className="relative font-heading font-black text-3xl sm:text-5xl tracking-[0.4em] capitalize text-transparent bg-clip-text bg-gradient-to-r from-white/20 via-white to-white/20 animate-[shimmer_2s_infinite] bg-[length:200%_auto]">
           Banjarmasin
         </h2>
         
