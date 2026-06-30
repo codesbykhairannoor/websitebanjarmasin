@@ -207,7 +207,7 @@ export default function Home() {
                     : "flex-[0.8] lg:flex-[1] cursor-pointer group border-r border-white/15 last:border-0"
                 }`}
               >
-                <img loading={i === 0 ? "eager" : "lazy"} fetchpriority={i === 0 ? "high" : "auto"} decoding="async" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out transform-gpu ${isActive ? "scale-105 brightness-100" : "brightness-75 group-hover:brightness-110 group-hover:shadow-[inset_0_0_40px_rgba(255,255,255,0.35)]"}`} />
+                <img loading="eager" fetchpriority={i === 0 ? "high" : "auto"} decoding="async" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out transform-gpu ${isActive ? "scale-105 brightness-100" : "brightness-75 group-hover:brightness-110 group-hover:shadow-[inset_0_0_40px_rgba(255,255,255,0.35)]"}`} />
                 
                 {/* Active Slide Content (Always mounted, toggled smoothly via opacity) */}
                 <div className={`absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 transition-opacity duration-500 pointer-events-none ${isActive ? "opacity-100" : "opacity-0"}`} />

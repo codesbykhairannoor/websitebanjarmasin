@@ -367,25 +367,26 @@ export default function Wisata() {
           const thumbnails = carouselItems.slice(1);
           return (
             <>
-              {/* Full Viewport Background Image */}
-              <div className="absolute inset-0 z-0 transition-opacity duration-700">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={activeShowcase.image}
-                    initial={{ opacity: 0, scale: 1.02 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    src={activeShowcase.image}
-                    alt={activeShowcase.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                </AnimatePresence>
+              {/* Full Viewport Background Image (Stacked & Preloaded for zero network stutter and instant crossfade) */}
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                {heroDestinations.map((dest) => {
+                  const isActive = dest.id === activeShowcase.id;
+                  return (
+                    <img
+                      key={dest.id}
+                      src={dest.image}
+                      alt={dest.title}
+                      loading="eager"
+                      decoding="async"
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out transform-gpu ${
+                        isActive ? "opacity-100 scale-100 z-10" : "opacity-0 scale-105 z-0"
+                      }`}
+                    />
+                  );
+                })}
               </div>
-              <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#050B14]/80 via-[#091422]/35 to-transparent pointer-events-none" />
-              <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#050B14]/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#050B14]/85 via-[#091422]/50 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#050B14]/85 via-transparent to-transparent pointer-events-none" />
 
               {/* Constrained Content Wrapper centered vertically */}
               <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-between relative z-10 gap-8 lg:gap-12">
