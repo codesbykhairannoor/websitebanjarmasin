@@ -144,14 +144,22 @@ export default function SmartCity() {
                 className={`group bg-[var(--card-bg)] border-x border-t border-[var(--glass-border)] border-b-0 overflow-hidden shadow-2xl transition-all duration-500 flex flex-col relative rounded-t-2xl ${pillar.heightClass} ${pillar.transformClass}`}
               >
                 {/* Top Gradient Header */}
-                <div className={`pt-5 pb-1.5 px-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[170px] relative overflow-hidden ${pillar.alignClass}`}>
-                  <div className="absolute -right-2 -bottom-2 text-6xl opacity-20 pointer-events-none select-none">
+                <div className={`pt-5 pb-1.5 px-5 bg-gradient-to-br ${pillar.gradient} text-white flex flex-col justify-between shrink-0 h-[170px] relative overflow-hidden ${
+                  idx < 2 ? 'items-start text-left' : idx === 2 ? 'items-center text-center' : 'items-end text-right'
+                }`}>
+                  <div className={`absolute -bottom-2 text-6xl opacity-20 pointer-events-none select-none ${
+                    idx < 2 ? '-right-2' : idx === 2 ? 'left-1/2 -translate-x-1/2' : '-left-2'
+                  }`}>
                     {pillar.icon}
                   </div>
-                  <span className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow shrink-0">
+                  <span className={`w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow shrink-0 ${
+                    idx < 2 ? 'self-start' : idx === 2 ? 'self-center' : 'self-end'
+                  }`}>
                     {pillar.icon}
                   </span>
-                  <div className="w-full mt-0 flex flex-col items-start flex-1 justify-start">
+                  <div className={`w-full mt-0 flex flex-col flex-1 justify-start ${
+                    idx < 2 ? 'items-start text-left' : idx === 2 ? 'items-center text-center' : 'items-end text-right'
+                  }`}>
                     <h3 className="font-heading font-black text-lg leading-tight line-clamp-3 mt-0">
                       {transPillar.title || pillar.title}
                     </h3>
@@ -168,7 +176,9 @@ export default function SmartCity() {
                     alt={transPillar.title || pillar.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 transform-gpu"
+                    className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 transform-gpu ${
+                      idx < 2 ? 'object-left' : idx === 2 ? 'object-center' : 'object-right'
+                    }`}
                   />
                 </div>
               </div>
