@@ -20,9 +20,9 @@ export default function Navbar() {
   const audioRef = useRef(null);
 
   const audioTracks = [
-    { id: 'duo', label: '🪕 Harmoni Panting & Sungai', desc: 'Perpaduan petikan musik khas & gemercik air Siring', file: '/audio/panting_dan_sungai.wav' },
-    { id: 'panting', label: '🎶 Petikan Panting Banjar', desc: 'Melodi instrumen tradisional dawai khas Banua', file: '/audio/panting_banjar.wav' },
-    { id: 'sungai', label: '🛶 Gemercik Sungai Martapura', desc: 'Suasana alami aliran air & ombak kelotok', file: '/audio/sungai_martapura.wav' }
+    { id: 'duo', label: t('navbar.trackDuoLabel'), desc: t('navbar.trackDuoDesc'), file: '/audio/panting_dan_sungai.wav' },
+    { id: 'panting', label: t('navbar.trackPantingLabel'), desc: t('navbar.trackPantingDesc'), file: '/audio/panting_banjar.wav' },
+    { id: 'sungai', label: t('navbar.trackSungaiLabel'), desc: t('navbar.trackSungaiDesc'), file: '/audio/sungai_martapura.wav' }
   ];
 
   useEffect(() => {
@@ -308,7 +308,7 @@ export default function Navbar() {
                     className="absolute right-0 top-full mt-2 w-64 p-3 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-2 z-50 text-left"
                   >
                     <div className="text-[10px] font-extrabold tracking-widest uppercase text-[#F4C038] px-1 border-b border-[var(--glass-border)] pb-1.5 flex justify-between items-center">
-                      <span>🎧 Suasana Musik Banjar</span>
+                      <span>{t('navbar.audioMenuTitle')}</span>
                       {isPlaying && <span className="text-[#00A896]">Playing</span>}
                     </div>
                     {audioTracks.map((track) => (
@@ -335,7 +335,7 @@ export default function Navbar() {
                         }}
                         className="mt-1 py-1.5 px-3 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 text-center text-xs font-bold transition-all w-full border border-red-500/20"
                       >
-                        🔇 Hentikan Audio
+                        {t('navbar.stopAudio')}
                       </button>
                     )}
                   </motion.div>

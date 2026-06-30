@@ -17,7 +17,15 @@ export const en = {
     culture: "Culture & Arts",
     guide: "Guides & Routes",
     exploreCTA: "Explore City",
-    exploreCTA_mobile: "Explore City Now ➔"
+    exploreCTA_mobile: "Explore City Now ➔",
+    audioMenuTitle: "🎧 Banjar Music Soundscape",
+    stopAudio: "🔇 Stop Audio",
+    trackDuoLabel: "🪕 Panting & River Harmony",
+    trackDuoDesc: "Traditional plucked string melodies & Siring water ripples",
+    trackPantingLabel: "🎶 Banjar Panting Strings",
+    trackPantingDesc: "Authentic soothing traditional lute instrumental",
+    trackSungaiLabel: "🛶 Martapura River Ambience",
+    trackSungaiDesc: "Soothing natural flowing water & kelotok waves"
   },
   footer: {
     description: "Official Portal for Tourism & Culture Exploration of Lambung Mangkurat Land. Providing unlimited travel guides in the City of a Thousand Rivers.",
