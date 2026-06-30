@@ -15,7 +15,7 @@ const pillarsData = [
     icon: "🏛️",
     color: "#00A896",
     gradient: "from-[#00A896] to-[#028090]",
-    img: "/profil kota/kantor walikota.webp",
+    img: "/profil kota/kantor-walikota.webp",
     heightClass: "h-[300px] sm:h-[380px] md:h-[520px] lg:h-[600px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 20px, 100% 100%, 0 100%)" },
     alignClass: "text-center md:text-left items-center md:items-start",
@@ -212,9 +212,6 @@ export default function SmartCity() {
                     {activePillar.icon}
                   </div>
                   <div className="relative z-10 text-left">
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white font-black text-xs uppercase tracking-widest mb-2 shadow-sm">
-                      Pilar #{activeHeroIdx + 1}
-                    </span>
                     <h3 className="text-2xl sm:text-3xl font-black font-heading leading-tight">
                       {transPillar.title || activePillar.title}
                     </h3>

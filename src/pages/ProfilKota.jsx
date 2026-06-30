@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { pagesTranslations } from '../translations/pagesTranslations';
 
 const column1Images = [
-  "/profil kota/kantor walikota.webp",
+  "/profil kota/kantor-walikota.webp",
   "/profil kota/kawasan niaga.webp",
   "/profil kota/pelabuhan trisakti.webp",
   "/profil kota/trans banjarbakula.webp"
