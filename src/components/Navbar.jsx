@@ -20,10 +20,10 @@ export default function Navbar() {
   const audioRef = useRef(null);
 
   const audioTracks = [
-    { id: 'ampar', label: '🍌 Ampar-Ampar Pisang', file: '/audio/ampar_ampar_pisang.mp3' },
-    { id: 'paris', label: '⛵ Paris Barantai', file: '/audio/paris_barantai.mp3' },
-    { id: 'ampat', label: '🎵 Ampat Si Ampat Lima', file: '/audio/ampat_si_ampat_lima.mp3' },
-    { id: 'rindu', label: '🪕 Rindu-Rindu (Musik Panting)', file: '/audio/rindu_rindu.mp3' }
+    { id: 'ampar', label: t('navbar.trackAmpar'), file: '/audio/ampar_ampar_pisang.mp3' },
+    { id: 'paris', label: t('navbar.trackParis'), file: '/audio/paris_barantai.mp3' },
+    { id: 'ampat', label: t('navbar.trackAmpat'), file: '/audio/ampat_si_ampat_lima.mp3' },
+    { id: 'rindu', label: t('navbar.trackRindu'), file: '/audio/rindu_rindu.mp3' }
   ];
 
   useEffect(() => {

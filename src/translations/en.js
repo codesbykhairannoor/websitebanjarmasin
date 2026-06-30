@@ -20,12 +20,10 @@ export const en = {
     exploreCTA_mobile: "Explore City Now ➔",
     audioMenuTitle: "🎧 Banjar Music Soundscape",
     stopAudio: "🔇 Stop Audio",
-    trackDuoLabel: "🪕 Panting & River Harmony",
-    trackDuoDesc: "Traditional plucked string melodies & Siring water ripples",
-    trackPantingLabel: "🎶 Banjar Panting Strings",
-    trackPantingDesc: "Authentic soothing traditional lute instrumental",
-    trackSungaiLabel: "🛶 Martapura River Ambience",
-    trackSungaiDesc: "Soothing natural flowing water & kelotok waves"
+    trackAmpar: "🍌 Ampar-Ampar Pisang (Folk Song)",
+    trackParis: "⛵ Paris Barantai (Instrumental)",
+    trackAmpat: "🎵 Ampat Si Ampat Lima (Panting Lute)",
+    trackRindu: "🪕 Rindu-Rindu (Modern Panting)"
   },
   footer: {
     description: "Official Portal for Tourism & Culture Exploration of Lambung Mangkurat Land. Providing unlimited travel guides in the City of a Thousand Rivers.",

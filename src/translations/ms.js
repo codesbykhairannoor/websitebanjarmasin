@@ -20,12 +20,10 @@ export const ms = {
     exploreCTA_mobile: "Teroka Kota Sekarang ➔",
     audioMenuTitle: "🎧 Suasana Muzik Banjar",
     stopAudio: "🔇 Hentikan Audio",
-    trackDuoLabel: "🪕 Harmoni Panting & Sungai",
-    trackDuoDesc: "Gabungan petikan muzik khas & deruan air Siring",
-    trackPantingLabel: "🎶 Petikan Panting Banjar",
-    trackPantingDesc: "Melodi instrumen tradisional bertali khas Banua",
-    trackSungaiLabel: "🛶 Deruan Sungai Martapura",
-    trackSungaiDesc: "Suasana semula jadi aliran air & ombak kelotok"
+    trackAmpar: "🍌 Ampar-Ampar Pisang",
+    trackParis: "⛵ Paris Barantai",
+    trackAmpat: "🎵 Ampat Si Ampat Lima",
+    trackRindu: "🪕 Rindu-Rindu (Muzik Panting)"
   },
   footer: {
     description: "Portal Rasmi Penerokaan Pelancongan & Kebudayaan Bumi Lambung Mangkurat. Menyajikan panduan perjalanan tanpa batasan di Kota Seribu Sungai.",

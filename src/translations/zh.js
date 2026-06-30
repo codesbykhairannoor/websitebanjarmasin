@@ -20,12 +20,10 @@ export const zh = {
     exploreCTA_mobile: "立即探索城市 ➔",
     audioMenuTitle: "🎧 班加尔乐曲与环境音",
     stopAudio: "🔇 停止播放",
-    trackDuoLabel: "🪕 琴声与马打河波浪和鸣",
-    trackDuoDesc: "传统弹拨乐器旋律与西灵河水流动声水乳交融",
-    trackPantingLabel: "🎶 传统班加尔潘婷琴声",
-    trackPantingDesc: "南加里曼丹治愈系传统弦乐器纯音乐",
-    trackSungaiLabel: "🛶 马打河自然流水声",
-    trackSungaiDesc: "原生态的河水流淌与游船轻摆白噪音"
+    trackAmpar: "🍌 Ampar-Ampar Pisang (民谣纯音乐)",
+    trackParis: "⛵ Paris Barantai (传统潘婷合奏)",
+    trackAmpat: "🎵 Ampat Si Ampat Lima (潘婷琴声)",
+    trackRindu: "🪕 Rindu-Rindu (现代改编曲)"
   },
   footer: {
     description: "Lambung Mangkurat 土地旅游与文化探索官方门户。为您提供千河之城马辰的无限旅行指南。",
