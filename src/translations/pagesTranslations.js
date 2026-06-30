@@ -356,163 +356,163 @@ export const pagesTranslations = {
       ]
     },
     smartCity: {
-  "heroTag": "✦ BANJARMASIN BAIMAN KOTA PINTAR",
-  "heroTitle": "Transformasi",
-  "heroTitleSpan": "Digital & Inovasi",
-  "heroSubtitle": "Mengintegrasikan teknologi maklumat dalam tata kelola pemerintah, perkhidmatan awam satu pintu, serta pemuliharaan ekologi Seribu Sungai demi mewujudkan kota yang bersih dan selesa.",
-  "superappTag": "✦ SUPER APPS RASMI PEMKO",
-  "superappTitle": "Satu Akaun SSO untuk",
-  "superappTitleSpan": "Semua Perkhidmatan Warga",
-  "superappDesc": "Pemerintah Kota Banjarmasin membawakan Banjarmasin Pintar (Versi 3) sebagai pusat penyepaduan berpuluh-puluh aplikasi SKPD. Dengan teknologi Single Sign-On (SSO) berasaskan NIK-KTP, warga hanya perlu mendaftar sekali untuk menikmati kemudahan pengurusan dokumen, barisan kesihatan, serta pemantauan lalu lintas secara real-time.",
-  "superappCol1Title": "SSO NIK",
-  "superappCol1Sub": "Penyepaduan KTP Elektronik",
-  "superappCol2Title": "Versi 3.0",
-  "superappCol2Sub": "Super-App Generasi Terkini",
-  "superappDownload": "Muat Turun Banjarmasin Pintar di Google Play",
-  "simulasiTitle": "Simulasi Menu Super-App",
-  "simulasiSso": "Single Sign-On NIK",
-  "simulasiStatus": "Terhubung SKPD",
-  "simulasiTab1": "Parak Acil",
-  "simulasiTab2": "BaApik RS",
-  "simulasiTab3": "SALAM-RINDU",
-  "simulasiTab4": "SI-SINTAL",
-  "simulasiTab5": "e-PBB & Cukai",
-  "simulasiTab6": "E-Lapor 112",
-  "simulasiData": {
-    "parakAcil": {
-      "tag": "Disdukcapil Banjarmasin",
-      "title": "Parak Acil Online",
-      "desc": "Perkhidmatan Pendaftaran Penduduk dan Pencatatan Sipil Atas Jalur. Warga boleh memohon cetakan KTP-el, Kad Keluarga, Sijil Kelahiran, dan KIA terus dari telefon bimbit yang disepadukan dalam menu Super-App.",
-      "badge": "Perkhidmatan pentadbiran tanpa beratur ✓"
+      "heroTag": "✦ BANJARMASIN BAIMAN KOTA PINTAR",
+      "heroTitle": "Transformasi",
+      "heroTitleSpan": "Digital & Inovasi",
+      "heroSubtitle": "Mengintegrasikan teknologi informasi dalam tata kelola pemerintahan, pelayanan publik satu pintu, serta pelestarian ekologi Seribu Sungai demi mewujudkan kota yang bersih dan nyaman.",
+      "superappTag": "✦ SUPER APPS RESMI PEMKOT",
+      "superappTitle": "Satu Akun SSO untuk",
+      "superappTitleSpan": "Semua Layanan Warga",
+      "superappDesc": "Pemerintah Kota Banjarmasin menghadirkan Banjarmasin Pintar (Versi 3) sebagai pusat integrasi puluhan aplikasi SKPD. Dengan teknologi Single Sign-On (SSO) berbasis NIK-KTP, warga cukup mendaftar satu kali untuk menikmati kemudahan pengurusan dokumen, antrean kesehatan, hingga pemantauan lalu lintas secara real-time.",
+      "superappCol1Title": "SSO NIK",
+      "superappCol1Sub": "Integrasi KTP Elektronik",
+      "superappCol2Title": "Versi 3.0",
+      "superappCol2Sub": "Super-App Generasi Terbaru",
+      "superappDownload": "Unduh Banjarmasin Pintar di Google Play",
+      "simulasiTitle": "Simulasi Menu Super-App",
+      "simulasiSso": "Single Sign-On NIK",
+      "simulasiStatus": "Terhubung SKPD",
+      "simulasiTab1": "Parak Acil",
+      "simulasiTab2": "BaApik RS",
+      "simulasiTab3": "SALAM-RINDU",
+      "simulasiTab4": "SI-SINTAL",
+      "simulasiTab5": "e-PBB & Pajak",
+      "simulasiTab6": "E-Lapor 112",
+      "simulasiData": {
+        "parakAcil": {
+          "tag": "Disdukcapil Banjarmasin",
+          "title": "Parak Acil Online",
+          "desc": "Layanan Administrasi Kependudukan dan Pencatatan Sipil Secara Online. Warga dapat mengajukan cetak KTP-el, Kartu Keluarga, Akta Kelahiran, dan KIA langsung dari ponsel pintar yang terintegrasi dalam menu Super-App.",
+          "badge": "Pelayanan administrasi tanpa antre ✓"
+        },
+        "baApik": {
+          "tag": "Dinkes & RSUD Sultan Suriansyah",
+          "title": "Aplikasi BaApik",
+          "desc": "Banjarmasin Aplikasi Pasien Internal Kesehatan. Mempermudah pendaftaran berobat daring, cek jadwal dokter spesialis, serta pengambilan nomor antrean di seluruh Puskesmas dan RSUD Kota Banjarmasin secara akurat.",
+          "badge": "Kepastian nomor antrean secara real-time ✓"
+        },
+        "salamRindu": {
+          "tag": "DPMPTSP Kota Banjarmasin",
+          "title": "SALAM-RINDU Perizinan",
+          "desc": "Sistem aplikasi layanan perizinan berusaha dan non-berusaha non-OSS terintegrasi. Mempermudah pelaku usaha UMKM dan investor mengajukan izin reklame, izin praktik kesehatan, serta berbagai ketetapan daerah secara transparan.",
+          "badge": "Proses perizinan transparan & cepat ✓"
+        },
+        "siSintal": {
+          "tag": "Dinsos Kota Banjarmasin",
+          "title": "SI-SINTAL Cek Bansos",
+          "desc": "Layanan pengecekan Data Terpadu Kesejahteraan Sosial (DTKS) dan informasi penyaluran bantuan sosial (Bansos) bagi warga yang membutuhkan secara tepat sasaran.",
+          "badge": "Data kesejahteraan transparan ✓"
+        },
+        "epbb": {
+          "tag": "Barapekeda Kota Banjarmasin",
+          "title": "e-PBB & Pajak Daerah",
+          "desc": "Kemudahan pengecekan tagihan Pajak Bumi dan Bangunan (PBB-P2) serta pembayaran pajak daerah secara online melalui integrasi QRIS dan Virtual Account Bank Kalsel.",
+          "badge": "Transparan, Cepat, & Aman ✓"
+        },
+        "elapor": {
+          "tag": "Diskominfotik & BPBD",
+          "title": "E-Lapor & Darurat 112",
+          "desc": "Saluran pengaduan aspirasi masyarakat, pemantauan CCTV lalu lintas ATCS, serta panggilan darurat bebas pulsa 112 (kebakaran, ambulans, evakuasi) dengan pelacakan status penanganan langsung.",
+          "badge": "Respons Cepat Siaga 24 Jam ✓"
+        }
+      },
+      "section2Tag": "✦ TATA KELOLA & GAYA HIDUP PINTAR",
+      "section2Title": "Layanan Unggulan",
+      "section2TitleSpan": "Tanpa Ribet",
+      "section2Desc": "Dua pilar layanan utama yang memangkas birokrasi konvensional menjadi pelayanan cepat berbasis genggaman tangan.",
+      "section2Card1Title": "Parak Acil Online",
+      "section2Card1Desc": "Solusi pengurusan dokumen kependudukan dari rumah. Layanan mencakup penerbitan Akta Kelahiran, Akta Kematian, pembaruan Kartu Keluarga, hingga cetak ulang KTP Elektronik.",
+      "section2Card1Point1": "Tanpa antre di kantor kelurahan/dinas",
+      "section2Card1Point2": "Verifikasi dokumen digital cepat & sah",
+      "section2Card1Btn": "Buka Situs Resmi Parak Acil ➔",
+      "section2Card2Title": "Super-App Banjarmasin Pintar",
+      "section2Card2Desc": "Super-App resmi Pemkot Banjarmasin berbasis Single Sign-On (SSO) NIK KTP. Mengintegrasikan puluhan layanan publik daerah: Parak Acil, BaApik, SALAM-RINDU, SI-SINTAL, e-PBB, panggilan darurat 112 & CCTV ATCS.",
+      "section2Card2Point1": "SSO NIK KTP untuk seluruh layanan",
+      "section2Card2Point2": "Antrean RSUD/Puskesmas, Perizinan & Bansos",
+      "section2Card2Point3": "Unduh gratis di Google Play Store",
+      "section2Card2Btn": "Unduh Banjarmasin Pintar ➔",
+      "section3Tag": "✦ EKONOMI & PERIZINAN PINTAR",
+      "section3Title": "Inovasi",
+      "section3TitleSpan": "Si MANTAB & e-Limpas",
+      "section3Desc": "DPMPTSP Kota Banjarmasin menghadirkan inovasi Si MANTAB (Siap Mengantar Perizinan Tanpa Biaya), di mana dokumen izin usaha yang selesai diproses akan diantar langsung oleh kurier PT Pos Indonesia ke alamat rumah pemohon secara gratis!",
+      "section3Steps": [
+        {
+          "num": "01",
+          "title": "Daftar Izin Daring",
+          "desc": "Pelaku usaha mengajukan perizinan melalui sistem OSS RBA atau aplikasi perizinan DPMPTSP tanpa perlu keluar rumah."
+        },
+        {
+          "num": "02",
+          "title": "Verifikasi Digital",
+          "desc": "Tim DPMPTSP melakukan verifikasi berkas dan menerbitkan surat izin resmi secara elektronik dengan tanda tangan digital sah."
+        },
+        {
+          "num": "03",
+          "title": "Diantar Pos Gratis",
+          "desc": "Bekerja sama dengan PT Pos Indonesia, dokumen fisik izin usaha dikirim langsung ke alamat rumah pemohon tanpa dipungut biaya sepeser pun."
+        }
+      ],
+      "elimpasTag": "Ekonomi Pasar Pintar",
+      "elimpasTitle": "Sistem Retribusi e-Limpas",
+      "elimpasDesc": "Aplikasi resmi Layanan Informasi Pasar (e-Limpas) dari Diskominfotik untuk memantau harga komoditas pangan pokok secara transparan dan mendigitalisasi pemungutan retribusi pasar tradisional.",
+      "section4Tag": "✦ MOBILITAS & TRANSPORTASI PINTAR",
+      "section4Title": "Moda Transportasi",
+      "section4TitleSpan": "Modern",
+      "section4Desc": "Mengenal dua armada bus unggulan yang melayani mobilitas warga di dalam kota hingga aglomerasi antarwilayah.",
+      "section4Tab1": "Trans Banjarmasin (Bus Dalam Kota)",
+      "section4Tab2": "Trans Banjarbakula (BRT Tayo Hijau)",
+      "section4Data": {
+        "transBanjarmasin": {
+          "tag": "Dishub Kota Banjarmasin",
+          "title": "Bus Trans Banjarmasin",
+          "desc": "Layanan transportasi publik dalam kota milik Pemerintah Kota Banjarmasin yang berfungsi sebagai feeder pengumpan untuk menghubungkan pergerakan warga dari kawasan permukiman menuju halte koridor utama. Melayani rute Terminal KM 6, Pasar Antasari, Kayutangi, Teluk Tiram, hingga Alalak. Armada ber-AC dengan tarif terjangkau (Rp 2.000 pelajar & Rp 3.000 umum) berbasis pembayaran non-tunai.",
+          "point1": "Tarif Terjangkau Non-Tunai ✓",
+          "point2": "Feeder Dalam Kota ✓",
+          "badge": "Koridor Dalam Kota"
+        },
+        "transBanjarbakula": {
+          "tag": "Kemenhub Teman Bus & Pemprov Kalsel",
+          "title": "Bus Trans Banjarbakula",
+          "desc": "Dikenal akrab oleh warga sebagai \"Tayo Hijau\", sistem Bus Rapid Transit (BRT) Buy The Service ini beroperasi bak TransJakarta untuk menghubungkan koridor utama aglomerasi lintas daerah (Banjarmasin - Banjarbaru - Gambut - Bati-Bati). Dilengkapi CCTV, pembayaran non-tunai 100% (e-Money Mandiri, BRI, BNI, BCA), tarif terjangkau Rp 5.000 umum (Rp 2.000 pelajar/lansia), serta pelacakan posisi GPS real-time.",
+          "point1": "Standar Pelayanan BRT ✓",
+          "point2": "Aglomerasi Lintas Kota ✓",
+          "badge": "Koridor Siring & Pal 0"
+        }
+      },
+      "section5Tag": "✦ MASYARAKAT & LITERASI DIGITAL PINTAR",
+      "section5Title": "Teknologi Pintar untuk",
+      "section5TitleSpan": "Masyarakat Bermartabat",
+      "section5Desc": "Pemerintah Kota Banjarmasin memperluas akses internet publik gratis di taman kota dan balai kelurahan guna menciptakan ekosistem digital yang merata serta meningkatkan literasi digital seluruh lapisan warga.",
+      "section5Btn1": "Jelajahi Peta Wisata ➔",
+      "section5Btn2": "Kembali ke Profil Kota",
+      "pillars": [
+        {
+          "id": "governance",
+          "title": "Smart Governance",
+          "subtitle": "Pelayanan Publik Digital"
+        },
+        {
+          "id": "living",
+          "title": "Smart Living",
+          "subtitle": "Trans Banjarbakula & Kesehatan"
+        },
+        {
+          "id": "environment",
+          "title": "Smart Environment",
+          "subtitle": "Sungaiku Baiman & ATCS"
+        },
+        {
+          "id": "economy",
+          "title": "Smart Economy",
+          "subtitle": "e-Limpas & UMKM Digital"
+        },
+        {
+          "id": "society",
+          "title": "Smart Society",
+          "subtitle": "Literasi & Layanan Kesehatan"
+        }
+      ]
     },
-    "baApik": {
-      "tag": "Dinkes & RSUD Sultan Suriansyah",
-      "title": "Aplikasi BaApik",
-      "desc": "Banjarmasin Aplikasi Pesakit Dalaman Kesihatan. Memudahkan pendaftaran rawatan atas jalur, semakan jadual doktor, dan tempahan nombor giliran di semua Puskesmas dan RSUD Kota Banjarmasin secara jitu.",
-      "badge": "Kepastian nombor giliran secara real-time ✓"
-    },
-    "salamRindu": {
-      "tag": "DPMPTSP Kota Banjarmasin",
-      "title": "SALAM-RINDU Perlesenan",
-      "desc": "Sistem aplikasi perkhidmatan perlesenan perniagaan dan permohonan bukan OSS bersepadu. Memudahkan usahawan UMKM dan pelabur memohon lesen pengiklanan, lesen kesihatan, dan pelbagai ketetapan daerah secara telus.",
-      "badge": "Proses perlesenan telus & pantas ✓"
-    },
-    "siSintal": {
-      "tag": "Jabatan Kebajikan Masyarakat Banjarmasin",
-      "title": "SI-SINTAL Semak Bansos",
-      "desc": "Perkhidmatan semakan Data Terpadu Kesejahteraan Sosial (DTKS) dan maklumat pengagihan bantuan sosial (Bansos) untuk warga yang layak secara tepat sasaran.",
-      "badge": "Data kebajikan telus ✓"
-    },
-    "epbb": {
-      "tag": "Badan Pengurusan Kewangan & Pendapatan",
-      "title": "e-PBB & Cukai Daerah",
-      "desc": "Kemudahan semakan bil Cukai Bumi dan Bangunan (PBB-P2) serta pembayaran cukai daerah secara atas jalur melalui penyepaduan QRIS dan Virtual Account Bank Kalsel.",
-      "badge": "Telus, Cepat, & Selamat ✓"
-    },
-    "elapor": {
-      "tag": "Diskominfotik & BPBD",
-      "title": "E-Lapor & Darurat 112",
-      "desc": "Saluran aduan aspirasi masyarakat, pemantauan CCTV lalu lintas ATCS, dan panggilan darurat percuma 112 (kebakaran, ambulans, menyelamat) dengan penjejakan status langsung.",
-      "badge": "Tindak Balas Cepat 24 Jam ✓"
-    }
-  },
-  "section2Tag": "✦ TADBIR URUS & GAYA HIDUP PINTAR",
-  "section2Title": "Perkhidmatan Unggul",
-  "section2TitleSpan": "Tanpa Rumit",
-  "section2Desc": "Dua tonggak perkhidmatan utama yang memendekkan birokrasi konvensional menjadi perkhidmatan pantas berasaskan genggaman.",
-  "section2Card1Title": "Parak Acil Online",
-  "section2Card1Desc": "Penyelesaian pengurusan dokumen kependudukan dari rumah. Perkhidmatan termasuk pengeluaran Sijil Kelahiran, Sijil Kematian, kemas kini Kad Keluarga, sehingga cetakan semula KTP Elektronik.",
-  "section2Card1Point1": "Tanpa beratur di pejabat daerah",
-  "section2Card1Point2": "Pengesahan dokumen digital pantas",
-  "section2Card1Btn": "Buka Laman Web Rasmi Parak Acil ➔",
-  "section2Card2Title": "Super-App Banjarmasin Pintar",
-  "section2Card2Desc": "Super-App rasmi Pemko Banjarmasin berasaskan Single Sign-On (SSO) NIK KTP. Menyepadukan berpuluh-puluh perkhidmatan awam daerah: Parak Acil, BaApik, SALAM-RINDU, SI-SINTAL, e-PBB, panggilan darurat 112 & CCTV ATCS.",
-  "section2Card2Point1": "SSO NIK KTP untuk pelbagai perkhidmatan",
-  "section2Card2Point2": "Giliran RSUD/Puskesmas, Perlesenan & Bansos",
-  "section2Card2Point3": "Muat turun percuma di Google Play Store",
-  "section2Card2Btn": "Muat Turun Banjarmasin Pintar ➔",
-  "section3Tag": "✦ EKONOMI & PERLESENAN PINTAR",
-  "section3Title": "Inovasi",
-  "section3TitleSpan": "Si MANTAB & e-Limpas",
-  "section3Desc": "DPMPTSP Kota Banjarmasin membawakan inovasi Si MANTAB (Hantar Perlesenan Tanpa Bayar), di mana dokumen lesen perniagaan yang selesai diproses akan dihantar terus oleh kurier PT Pos Indonesia ke alamat rumah pemohon secara percuma!",
-  "section3Steps": [
-    {
-      "num": "01",
-      "title": "Daftar Lesen Atas Jalur",
-      "desc": "Pelaku perniagaan memohon lesen melalui sistem OSS RBA atau aplikasi perlesenan DPMPTSP tanpa perlu keluar rumah."
-    },
-    {
-      "num": "02",
-      "title": "Pengesahan Digital",
-      "desc": "Pasukan DPMPTSP membuat semakan dokumen dan mengeluarkan surat lesen rasmi secara elektronik dengan tandatangan digital sah."
-    },
-    {
-      "num": "03",
-      "title": "Dihantar Pos Percuma",
-      "desc": "Bekerjasama dengan PT Pos Indonesia, dokumen fizikal lesen perniagaan dihantar terus ke alamat rumah pemohon tanpa sebarang bayaran."
-    }
-  ],
-  "elimpasTag": "Ekonomi Pasar Pintar",
-  "elimpasTitle": "Sistem Retribusi e-Limpas",
-  "elimpasDesc": "Aplikasi rasmi Perkhidmatan Maklumat Pasar (e-Limpas) daripada Diskominfotik untuk memantau harga komoditi makanan asas secara telus dan mendigitalisasikan kutipan retribusi pasar tradisional.",
-  "section4Tag": "✦ MOBILITI & TRANSPORTASI PINTAR",
-  "section4Title": "Moda Pengangkutan",
-  "section4TitleSpan": "Moden",
-  "section4Desc": "Mengenali dua armada bas unggulan yang melayani mobiliti warga di dalam kota sehingga aglomerasi antara wilayah.",
-  "section4Tab1": "Trans Banjarmasin (Bas Dalam Kota)",
-  "section4Tab2": "Trans Banjarbakula (BRT Tayo Hijau)",
-  "section4Data": {
-    "transBanjarmasin": {
-      "tag": "Dishub Kota Banjarmasin",
-      "title": "Bas Trans Banjarmasin",
-      "desc": "Perkhidmatan pengangkutan awam dalam kota milik Pemerintah Kota Banjarmasin yang berfungsi sebagai feeder untuk menghubungkan pergerakan warga dari kawasan perumahan ke hentian koridor utama. Melayani laluan Terminal KM 6, Pasar Antasari, Kayutangi, Teluk Tiram, hingga Alalak. Armada berhawa dingin dengan tambang berpatutan (RM 0.60 pelajar & RM 1.00 umum) berasaskan pembayaran tanpa tunai.",
-      "point1": "Tambang Pelajar RM0.60 ✓",
-      "point2": "Feeder Dalam Kota ✓",
-      "badge": "Koridor Dalam Kota"
-    },
-    "transBanjarbakula": {
-      "tag": "Kemenhub Teman Bus & Pemprov Kalsel",
-      "title": "Bas Trans Banjarbakula",
-      "desc": "Dikenali warga sebagai \"Tayo Hijau\", sistem Bas Rapid Transit (BRT) Buy The Service ini beroperasi seperti TransJakarta (TJ) untuk menghubungkan koridor utama aglomerasi merentasi daerah (Banjarmasin - Banjarbaru - Gambut - Bati-Bati). Dilengkapi CCTV, pembayaran tanpa tunai 100% (e-Money Mandiri, BRI, BNI, BCA), tambang RM 1.50 umum (RM 0.60 pelajar/warga emas), serta penjejakan GPS masa nyata.",
-      "point1": "Pengangkutan BRT Standard ✓",
-      "point2": "Aglomerasi Merentas Kota ✓",
-      "badge": "Koridor Siring & Pal 0"
-    }
-  },
-  "section5Tag": "✦ MASYARAKAT & LITERASI DIGITAL PINTAR",
-  "section5Title": "Teknologi Pintar untuk",
-  "section5TitleSpan": "Masyarakat Bermartabat",
-  "section5Desc": "Pemerintah Kota Banjarmasin meluaskan akses internet awam percuma di taman kota dan dewan kelurahan demi mewujudkan ekosistem digital yang saksama dan meningkatkan literasi digital warga.",
-  "section5Btn1": "Teroka Peta Pelancongan ➔",
-  "section5Btn2": "Kembali ke Profil Kota",
-  "pillars": [
-    {
-      "id": "governance",
-      "title": "Smart Governance",
-      "subtitle": "Perkhidmatan Awam Digital"
-    },
-    {
-      "id": "living",
-      "title": "Smart Living",
-      "subtitle": "Trans Banjarbakula & Kesihatan"
-    },
-    {
-      "id": "environment",
-      "title": "Smart Environment",
-      "subtitle": "Sungaiku Baiman & ATCS"
-    },
-    {
-      "id": "economy",
-      "title": "Smart Economy",
-      "subtitle": "e-Limpas & UMKM Digital"
-    },
-    {
-      "id": "society",
-      "title": "Smart Society",
-      "subtitle": "Literasi & Perkhidmatan Kesihatan"
-    }
-  ]
-},
     panduan: {
 
       routeMap: {
