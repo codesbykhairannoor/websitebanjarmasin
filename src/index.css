@@ -44,6 +44,11 @@
   padding: 0;
 }
 
+/* Global fallback for images to prevent stark white flashing before they load */
+img {
+  background-color: var(--glass-river);
+}
+
 .app-container {
   @apply w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12;
 }
