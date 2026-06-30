@@ -513,33 +513,18 @@ export default function ProfilKota() {
           SECTION 3: ASYMMETRIC CITY DASHBOARD (GEO & DEMO)
           ========================================================= */}
       <section className="relative py-24 bg-[var(--bg-main)] border-t border-[var(--glass-border)] overflow-hidden">
-        {/* Background Overlay: Wali Kota Portrait & Authentic Sasirangan Geometric Motif */}
+        {/* Lightweight GPU-friendly ambient background glow */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-          {/* Sasirangan Geometric Pattern SVG */}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.07] dark:opacity-[0.14]" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="sasirangan-motif" width="80" height="80" patternUnits="userSpaceOnUse">
-                <path d="M40 0 L80 40 L40 80 L0 40 Z" fill="none" stroke="#F4C038" strokeWidth="1.5" />
-                <path d="M40 15 L65 40 L40 65 L15 40 Z" fill="none" stroke="#33C3B3" strokeWidth="1" />
-                <circle cx="40" cy="40" r="3.5" fill="#F4C038" />
-                <circle cx="0" cy="0" r="2.5" fill="#33C3B3" />
-                <circle cx="80" cy="0" r="2.5" fill="#33C3B3" />
-                <circle cx="0" cy="80" r="2.5" fill="#33C3B3" />
-                <circle cx="80" cy="80" r="2.5" fill="#33C3B3" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#sasirangan-motif)" />
-          </svg>
-
-          {/* Subtle Wali Kota Watermark on the right */}
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-[#33C3B3]/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
+          <div className="absolute bottom-0 right-10 w-[400px] h-[400px] bg-gradient-to-tl from-[#F4C038]/10 to-transparent rounded-full blur-3xl opacity-50 pointer-events-none" />
+          
+          {/* Subtle static watermark without blend modes */}
           <img 
             loading="lazy"
             src="/profil kota/Wali_Kota_Banjarmasin_Muhammad_Y-1.webp" 
             alt="Wali Kota Watermark" 
-            className="absolute right-0 bottom-0 w-full lg:w-1/2 h-full object-cover object-top opacity-10 dark:opacity-15 mix-blend-luminosity grayscale filter"
+            className="absolute right-0 bottom-0 w-full lg:w-1/3 h-auto max-h-full object-contain object-bottom opacity-5 dark:opacity-10 pointer-events-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-main)] via-transparent to-[var(--bg-main)]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-main)] via-transparent to-transparent" />
         </div>
         
         <div className="max-w-[1400px] mx-auto px-4 relative z-10">

@@ -28,7 +28,7 @@ const pillarsData = [
     icon: "🚌",
     color: "#E63946",
     gradient: "from-[#E63946] to-[#B81D24]",
-    img: "/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp",
+    img: "/profil kota/trans banjarbakula.webp",
     heightClass: "h-[270px] sm:h-[320px] md:h-[440px] lg:h-[510px]",
     clipStyle: { clipPath: "polygon(0 0, 100% 15px, 100% 100%, 0 100%)" },
     alignClass: "text-center md:text-left items-center md:items-start",
