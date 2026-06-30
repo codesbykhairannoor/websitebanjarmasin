@@ -175,10 +175,7 @@ export default function SmartCity() {
                     src={encodeURI(pillar.img)}
                     alt={transPillar.title || pillar.title}
                     loading="lazy"
-                    decoding="async"
-                    className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 transform-gpu ${
-                      idx < 2 ? 'object-left' : idx === 2 ? 'object-center' : 'object-right'
-                    }`}
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 transform-gpu"
                   />
                 </div>
               </div>

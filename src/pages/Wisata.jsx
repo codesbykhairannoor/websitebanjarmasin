@@ -198,74 +198,49 @@ export default function Wisata() {
           ========================================================================= */}
       <section className="w-full relative flex justify-center items-end overflow-hidden pb-16 pt-4 px-2 sm:px-0">
 
-          {/* === MOBILE & TABLET (< sm): Destination Spotlight Stage + Live Thumbnail Strip (Ide 1) === */}
-          <div className="flex sm:hidden flex-col gap-5 w-full px-2 pb-6 z-20">
-            {(() => {
-              const activeDest = heroDestinations[activeMobileWisataIdx] || heroDestinations[0];
-              return (
-                <div className="w-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl animate-fade-in transition-all duration-500">
-                  {/* Panggung Foto Full Width Tanpa Potong */}
-                  <div className="w-full h-[280px] relative overflow-hidden bg-black/20">
+          {/* === MOBILE & TABLET (< sm): Interactive Bento Discovery Grid (No Slide Duplication) === */}
+          <div className="flex sm:hidden flex-col gap-3 w-full px-3 pb-6 z-20">
+            <div className="grid grid-cols-2 gap-3 w-full">
+              {heroDestinations.slice(0, 5).map((dest, idx) => {
+                const isWide = idx === 0 || idx === 4;
+                return (
+                  <div
+                    key={dest.id || idx}
+                    onClick={() => {
+                      setCarouselItems([dest, ...heroDestinations.filter(d => d.id !== dest.id)]);
+                      const el = document.getElementById("showcase-section");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className={`relative rounded-2xl overflow-hidden shadow-lg border border-[var(--glass-border)] group cursor-pointer transition-all duration-300 active:scale-[0.98] ${
+                      isWide ? "col-span-2 h-[200px]" : "col-span-1 h-[165px]"
+                    }`}
+                  >
                     <img
-                      src={encodeURI(activeDest.image)}
-                      alt={activeDest.title}
-                      className="w-full h-full object-cover transition-transform duration-700"
+                      src={encodeURI(dest.image)}
+                      alt={dest.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute top-3 right-3 z-10">
-                      <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#F4C038] font-bold text-[10px] tracking-wider uppercase border border-[#F4C038]/30 shadow">
-                        {activeDest.badge || "Wisata Banjar"}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Deskripsi & Judul Horizontal */}
-                  <div className="p-5 text-left bg-[var(--card-bg)] border-t border-[var(--glass-border)] relative z-10">
-                    <span className="text-[#33C3B3] font-bold text-[11px] uppercase tracking-widest block mb-1">
-                      {activeDest.tag || "Destinasi Ikonik"}
-                    </span>
-                    <h3 className="text-xl font-black font-heading text-[var(--text-main)] leading-tight mb-2">
-                      {activeDest.title}
-                    </h3>
-                    <p className="text-xs text-[var(--text-muted)] leading-relaxed mb-3 line-clamp-3">
-                      {activeDest.desc || activeDest.location}
-                    </p>
-                    {activeDest.location && (
-                      <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[var(--text-main)] pt-2 border-t border-[var(--glass-border)]/50">
-                        <span>📍</span> <span>{activeDest.location}</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })()}
-
-            {/* Live Thumbnail Selector Pills Bar */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 scrollbar-thin scrollbar-thumb-[#F4C038]/40 scrollbar-track-transparent snap-x snap-mandatory">
-                {heroDestinations.map((dest, idx) => {
-                  const isActive = activeMobileWisataIdx === idx;
-                  return (
-                    <button
-                      key={dest.id || idx}
-                      onClick={() => setActiveMobileWisataIdx(idx)}
-                      className={`shrink-0 w-20 h-16 rounded-xl overflow-hidden relative transition-all duration-300 snap-start cursor-pointer border-2 ${
-                        isActive
-                          ? "border-[#F4C038] scale-105 shadow-md shadow-[#F4C038]/20"
-                          : "border-transparent opacity-60 hover:opacity-100 bg-black/40"
-                      }`}
-                    >
-                      <img
-                        src={encodeURI(dest.image)}
-                        alt={dest.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center p-1">
-                        <span className="text-[8px] font-bold text-white leading-none truncate w-full text-center">
-                          {dest.title}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050B14]/95 via-[#050B14]/25 to-transparent flex flex-col justify-end p-3.5" />
+                    
+                    {dest.badge && (
+                      <div className="absolute top-2.5 right-2.5 z-10">
+                        <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[#F4C038] font-bold text-[8px] tracking-wider uppercase border border-[#F4C038]/30">
+                          {dest.badge}
                         </span>
                       </div>
-                    </button>
-                  );
-                })}
+                    )}
+
+                    <div className="absolute bottom-3 left-3 right-3 z-10 text-left">
+                      <span className="text-[#33C3B3] font-bold text-[9px] uppercase tracking-widest block mb-0.5 line-clamp-1">
+                        {dest.tag || dest.location}
+                      </span>
+                      <h3 className="text-sm font-black font-heading text-white leading-tight drop-shadow line-clamp-1">
+                        {dest.title}
+                      </h3>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -384,7 +359,7 @@ export default function Wisata() {
       {/* =========================================================================
           SECTION 3: BACKDROP SHOWCASE - TRULY FULL WIDTH (Edge-to-Edge)
           ========================================================================= */}
-      <div className="w-full relative min-h-[650px] sm:min-h-[750px] lg:min-h-[800px] overflow-hidden flex items-center py-16 mt-12">
+      <div id="showcase-section" className="w-full relative min-h-[650px] sm:min-h-[750px] lg:min-h-[800px] overflow-hidden flex items-center py-16 mt-12">
         {(() => {
           const activeShowcase = carouselItems[0];
           const thumbnails = carouselItems.slice(1);
