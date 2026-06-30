@@ -35,15 +35,15 @@ export const zh = {
     copyright: "© 2026 马辰市政府及旅游协会。保留所有权利。"
   },
   assistant: {
-    welcome: "你好，朋友！我是阿集阿姨 AI（Acil AI） 🐵✨ 随时准备为您提供经典美食、运河巡游、快速公交（BRT）路线以及1526年历史的导览。请问有什么我可以帮您的吗？",
-    thinking: "阿集阿姨正在思考...",
-    rateLimit: "🛡️ 超级安全警报：系统检测到消息发送速度过快。为了服务器安全和防止垃圾信息，请稍等片刻，或者直接点击下方的微信/人工客服按钮。",
-    apiKeyWarning: "⚠️ 在.env文件中未检测到Gemini API Key。请添加 VITE_GEMINI_API_KEY 以便我能更智能地回答！在此期间，您可以点击下方的人工客服按钮，朋友。",
-    errorMessage: "非常抱歉朋友，我的AI连接目前遇到网络故障。您可以通过下方的 WhatsApp 按钮直接联系人工客服！🙏",
+    welcome: "你好，朋友！我是马辰智能旅游向导 🧭✨ 随时准备为您提供经典美食、运河巡游、快速公交（BRT）路线以及1526年历史的导览。请问有什么我可以帮您的吗？",
+    thinking: "助手正在查询信息...",
+    rateLimit: "🛡️ 安全系统：消息发送速度过快。请稍等片刻或联系下方的人工客服。",
+    apiKeyWarning: "⚠️ 未检测到 Gemini API Key。请通过下方的按钮联系人工客服。",
+    errorMessage: "非常抱歉朋友，智能助手网络遇到故障。您可以通过下方的 WhatsApp 按钮直接联系人工客服！🙏",
     waButton: "联系人工客服",
-    placeholder: "向阿集阿姨提问...",
-    title: "阿集阿姨 AI",
-    badge: "Gemini",
+    placeholder: "输入咨询旅游问题...",
+    title: "智能旅游向导",
+    badge: "AI Guide",
     status: "24小时在线",
     quickQuestions: [
       "去水上市场的BRT公交路线？",

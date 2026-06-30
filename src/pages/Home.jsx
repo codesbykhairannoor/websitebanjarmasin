@@ -266,9 +266,11 @@ export default function Home() {
             );
           })}
           {/* Navigation Dots Indicator */}
-          <div className="absolute bottom-8 left-0 w-full z-30 flex justify-center items-center gap-3">
+          <div className="absolute bottom-6 left-0 w-full z-30 flex justify-center items-center gap-1">
             {showcaseItems.map((_, i) => (
-              <button key={i} onClick={() => setActiveSlide(i)} className={`transition-all duration-500 rounded-full ${activeSlide === i ? "w-8 h-2 bg-[#F4C038]" : "w-2 h-2 bg-white/50 hover:bg-white/80"}`} aria-label={`Go to slide ${i + 1}`} />
+              <button key={i} onClick={() => setActiveSlide(i)} className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center focus:outline-none" aria-label={`Go to slide ${i + 1}`}>
+                <span className={`transition-all duration-500 rounded-full block ${activeSlide === i ? "w-8 h-2.5 bg-[#F4C038]" : "w-2.5 h-2.5 bg-white/50 hover:bg-white/80"}`} />
+              </button>
             ))}
           </div>
         </div>
@@ -521,21 +523,21 @@ export default function Home() {
               <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
                 <div className="w-14 h-14 bg-blue-500/30 rounded-full flex items-center justify-center text-2xl border border-blue-400/50 shrink-0 shadow-lg">📱</div>
                 <div>
-                  <h4 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.0.title')}</h4>
+                  <h3 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.0.title')}</h3>
                   <p className="text-gray-300 text-xs md:text-sm">{t('home.smartCity.cards.0.desc')}</p>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 translate-x-0 md:translate-x-8 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
                 <div className="w-14 h-14 bg-green-500/30 rounded-full flex items-center justify-center text-2xl border border-green-400/50 shrink-0 shadow-lg">🚦</div>
                 <div>
-                  <h4 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.1.title')}</h4>
+                  <h3 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.1.title')}</h3>
                   <p className="text-gray-300 text-xs md:text-sm">{t('home.smartCity.cards.1.desc')}</p>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-2xl rounded-[32px] p-5 md:p-6 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-5 hover:bg-white/20 hover:border-white/40 transition-all cursor-pointer">
                 <div className="w-14 h-14 bg-yellow-500/30 rounded-full flex items-center justify-center text-2xl border border-yellow-400/50 shrink-0 shadow-lg">🏛️</div>
                 <div>
-                  <h4 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.2.title')}</h4>
+                  <h3 className="text-white font-bold text-base md:text-lg">{t('home.smartCity.cards.2.title')}</h3>
                   <p className="text-gray-300 text-xs md:text-sm">{t('home.smartCity.cards.2.desc')}</p>
                 </div>
               </div>
@@ -604,7 +606,7 @@ export default function Home() {
               <div className="hidden md:flex items-center gap-4 bg-[var(--bg-main)]/50 backdrop-blur-xl border border-[var(--glass-border)] p-4 rounded-3xl w-max mb-8 shadow-sm">
                 <span className="text-3xl">🌤️</span>
                 <div>
-                  <h4 className="font-heading font-bold text-xs text-[var(--text-muted)] uppercase tracking-wider">Banjarmasin ({t('home.planner.timezone', 'WITA')})</h4>
+                  <div className="font-heading font-bold text-xs text-[var(--text-muted)] uppercase tracking-wider">Banjarmasin ({t('home.planner.timezone', 'WITA')})</div>
                   <p className="text-[var(--text-main)] font-black text-sm">31°C • {t('home.planner.weather', 'Tropis Cerah & Hangat')}</p>
                 </div>
               </div>
@@ -646,7 +648,7 @@ export default function Home() {
                   <span className="text-[var(--text-muted)] text-[10px] sm:text-xs font-mono break-all sm:break-normal text-right hidden sm:block">📍 {currentMap.coords}</span>
                 </div>
 
-                <h4 className="text-xl md:text-2xl font-black text-[var(--text-main)] font-heading mb-2 md:mb-3 leading-tight">{currentMap.title}</h4>
+                <h3 className="text-xl md:text-2xl font-black text-[var(--text-main)] font-heading mb-2 md:mb-3 leading-tight">{currentMap.title}</h3>
                 <p className="text-[var(--text-muted)] text-xs md:text-sm leading-relaxed italic mb-5 md:mb-6">"{currentMap.highlight}"</p>
 
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8 bg-[var(--card-bg)] p-4 md:p-5 rounded-2xl border border-[var(--glass-border)]">
