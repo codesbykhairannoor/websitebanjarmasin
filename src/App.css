@@ -159,6 +159,7 @@
 .wisata-reveal-right.in-view {
   opacity: 1;
   transform: translate(0, 0);
+  will-change: auto;
 }
 
 /* Delay bertahap untuk anak-elemen (stagger) */

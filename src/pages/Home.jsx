@@ -244,11 +244,11 @@ export default function Home() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {showcaseItems.map((item, i) => {
-            const isActive = activeSlide === i;
+          {showcaseItems.map((item, idx) => {
+            const isActive = activeSlide === idx;
             return (
               <div key={item.id} className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${isActive ? "opacity-100 z-20" : "opacity-0 z-10"}`}>
-                <img loading="lazy" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-out ${isActive ? "scale-110" : "scale-100"}`} />
+                <img loading={idx === 0 ? "eager" : "lazy"} fetchpriority={idx === 0 ? "high" : "auto"} decoding="async" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-out ${isActive ? "scale-110" : "scale-100"}`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
                 <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-all duration-1000 delay-300 ${isActive ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                   <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>

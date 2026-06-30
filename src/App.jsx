@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { HelmetProvider } from 'react-helmet-async';
 import SEOMeta from './components/SEOMeta';
@@ -25,67 +25,54 @@ const PageLoader = () => (
   </div>
 );
 
-export default function App() {
+// Lightweight Route-aware Scroll Observer (Zero CPU Overhead during scrolling)
+const ScrollObserver = () => {
+  const location = useLocation();
+
   React.useEffect(() => {
-    // Global Intersection Observer for smooth hardware-accelerated scroll animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
-            // Unobserve once animated to guarantee buttery smooth scrolling without CPU overhead
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.01, rootMargin: '0px 0px 50px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 80px 0px' }
     );
 
-    // Function to re-observe elements across all pages
-    const observeElements = () => {
+    const timer = setTimeout(() => {
       const elements = document.querySelectorAll(
-        '.bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right, [class*="rounded-3xl"]:not(button):not(a):not(input), [class*="rounded-[40px]"]:not(button):not(a), [class*="rounded-[36px]"]:not(button):not(a), [class*="rounded-[32px]"]:not(button):not(a), [class*="rounded-2xl"]:not(button):not(a):not(input), [class*="rounded-xl"]:not(button):not(a):not(input)'
+        '.bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right'
       );
       elements.forEach((el) => {
-        if (!el.classList.contains('scroll-animate') && 
-            !el.classList.contains('wisata-reveal') && 
-            !el.classList.contains('wisata-reveal-left') && 
-            !el.classList.contains('wisata-reveal-right') &&
-            !el.classList.contains('in-view')) {
+        if (!el.classList.contains('scroll-animate') && !el.classList.contains('in-view')) {
           el.classList.add('scroll-animate');
           observer.observe(el);
         } else if (!el.classList.contains('in-view')) {
           observer.observe(el);
         }
       });
-    };
-
-    // Observe initially
-    observeElements();
-
-    // Debounced Re-observe when DOM changes (e.g. route change or data loading)
-    let timeoutId = null;
-    const debouncedObserve = () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(observeElements, 150);
-    };
-
-    const mutationObserver = new MutationObserver(debouncedObserve);
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
+    }, 120);
 
     return () => {
-      if (timeoutId) clearTimeout(timeoutId);
+      clearTimeout(timer);
       observer.disconnect();
-      mutationObserver.disconnect();
     };
-  }, []);
+  }, [location.pathname]);
 
+  return null;
+};
+
+export default function App() {
   return (
     <HelmetProvider>
       <LanguageProvider>
         <SEOMeta />
         <BrowserRouter>
           <ScrollToTop />
+          <ScrollObserver />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import RouteAccessibilityMap from '../components/RouteAccessibilityMap';
+const RouteAccessibilityMap = lazy(() => import('../components/RouteAccessibilityMap'));
 import { useLanguage } from '../context/LanguageContext';
 import { pagesTranslations } from '../translations/pagesTranslations';
 
@@ -301,7 +301,9 @@ export default function Panduan() {
           SECTION 2 (#peta-rute): RADAR AKSESIBILITAS & PETA TERPADU
           ========================================================= */}
       <section id="peta-rute" className="py-20 max-w-[1240px] mx-auto px-4 sm:px-6 border-t border-[var(--glass-border)]">
-        <RouteAccessibilityMap />
+        <Suspense fallback={<div className="h-[500px] w-full rounded-3xl bg-[var(--card-bg)] border border-[var(--glass-border)] animate-pulse flex items-center justify-center text-[var(--text-muted)] font-bold">Memuat Peta Rute & Aksesibilitas...</div>}>
+          <RouteAccessibilityMap />
+        </Suspense>
       </section>
 
       {/* =========================================================

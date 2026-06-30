@@ -111,16 +111,13 @@ body {
 img {
   max-width: 100%;
   height: auto;
-  /* Hardware acceleration for images */
-  transform: translateZ(0);
-  will-change: transform;
+  content-visibility: auto;
 }
 
 /* Sections rendering optimization */
-.section-container, section {
-  /* content-visibility: auto; */
-  contain-intrinsic-size: auto 1000px;
-  will-change: opacity, transform;
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 
 /* Smooth scrolling hardware acceleration */
@@ -133,13 +130,14 @@ img {
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 .scroll-animate.in-view {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {

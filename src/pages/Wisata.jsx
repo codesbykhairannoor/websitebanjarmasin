@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import InteractiveMap from "../components/InteractiveMap";
+const InteractiveMap = lazy(() => import("../components/InteractiveMap"));
 import { useLanguage } from "../context/LanguageContext";
 import { pagesTranslations } from "../translations/pagesTranslations";
 
@@ -473,7 +473,9 @@ export default function Wisata() {
       </div>
 
       {/* Peta Interaktif Wisata Banjarmasin */}
-      <InteractiveMap />
+      <Suspense fallback={<div className="h-[500px] w-full max-w-[1240px] mx-auto rounded-3xl bg-[var(--card-bg)] border border-[var(--glass-border)] animate-pulse flex items-center justify-center text-[var(--text-muted)] font-bold">Memuat Peta Interaktif...</div>}>
+        <InteractiveMap />
+      </Suspense>
 
       <section className="py-20 max-w-[1240px] mx-auto px-4 border-t border-[var(--glass-border)]">
         <div className="text-center max-w-3xl mx-auto mb-16 wisata-reveal">
