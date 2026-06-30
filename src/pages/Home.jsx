@@ -36,14 +36,11 @@ export default function Home() {
     ...(slides[idx] || {})
   }));
 
-  // === AUTO-PLAY HERO SLIDER (HANYA UNTUK MOBILE) ===
+  // === AUTO-PLAY HERO SLIDER (ALL DEVICES) ===
   useEffect(() => {
     const timer = setInterval(() => {
-      // Hanya auto-play jika lebar layar < 768px (Mobile)
-      if (window.innerWidth < 768) {
-        setActiveSlide((prev) => (prev + 1) % showcaseItems.length);
-      }
-    }, 5000);
+      setActiveSlide((prev) => (prev + 1) % showcaseItems.length);
+    }, 6000);
     return () => clearInterval(timer);
   }, [showcaseItems.length]);
 
@@ -189,89 +186,120 @@ export default function Home() {
       <Navbar />
 
       {/* =========================================================
-          HERO SECTION (DISNEY+ SHOWCASE ACCORDION FULL-WIDTH)
+          HERO SECTION (UNIFIED CINEMATIC SMOOTH CAROUSEL / GULUNGAN MATANG)
           ========================================================= */}
-      <section className="relative w-full h-screen min-h-[600px] bg-[var(--bg-main)] pt-[56px] sm:pt-[60px] overflow-hidden flex flex-col border-b border-[var(--glass-border)]">
-        
-        {/* DESKTOP ACCORDION (Hidden on Mobile) */}
-        <div className="hidden md:flex w-full flex-1 gap-[1px] bg-white/10 relative z-10 overflow-hidden">
-          {showcaseItems.map((item, i) => {
-            const isActive = activeSlide === i;
-            return (
-              <div
-                key={item.id}
-                onClick={() => setActiveSlide(i)}
-                className={`relative overflow-hidden transition-[flex] duration-500 ease-out select-none transform-gpu ${
-                  isActive
-                    ? "flex-[10] lg:flex-[12] z-20 shadow-2xl cursor-default"
-                    : "flex-[0.8] lg:flex-[1] cursor-pointer group border-r border-white/15 last:border-0"
-                }`}
-              >
-                <img loading={i === 0 ? "eager" : "lazy"} fetchpriority={i === 0 ? "high" : "auto"} decoding="async" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-[filter,box-shadow] duration-500 ease-out transform-gpu ${isActive ? "scale-105 brightness-100" : "brightness-75 group-hover:brightness-110 group-hover:shadow-[inset_0_0_40px_rgba(255,255,255,0.35)]"}`} />
-                {isActive ? (
-                  <>
-                    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 pointer-events-none" />
-                    <div className="absolute inset-0 z-20 p-8 md:p-14 lg:p-16 flex flex-col justify-center max-w-3xl lg:max-w-4xl text-white overflow-hidden">
-                      <span className="text-[#F4C038] font-heading font-extrabold text-xs md:text-sm tracking-[0.2em] uppercase mb-2 block animate-fadeIn">{item.tag}</span>
-                      <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-3 drop-shadow-md animate-fadeIn text-white">{item.title}</h1>
-                      <p className="text-base md:text-xl font-bold text-sasirangan mb-6 font-heading animate-fadeIn">{item.subtitle}</p>
-                      <div className="flex flex-wrap items-center gap-4 animate-fadeIn">
-                        {item.btnLink.startsWith('#') ? (
-                          <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</a>
-                        ) : (
-                          <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</Link>
-                        )}
-                        <span className="text-sm font-bold text-gray-300 bg-white/10 backdrop-blur-md px-4 py-3 rounded-full border border-white/20">{item.price}</span>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <div className="absolute inset-0 flex flex-col justify-between items-center p-4 z-10 pointer-events-none bg-gradient-to-t from-black/90 via-black/20 to-black/60 group-hover:from-black/70 transition-all">
-                    <div className="flex-1 flex items-center justify-center py-4 overflow-hidden">
-                      <span className="block font-heading font-extrabold text-white text-sm tracking-widest uppercase -rotate-90 whitespace-nowrap drop-shadow-lg opacity-70 group-hover:opacity-100 transition-opacity">{item.title}</span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* MOBILE SLIDER (Hidden on Desktop) */}
-        <div 
-          className="md:hidden absolute inset-0 w-full h-full z-10 overflow-hidden"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
+      <section 
+        className="relative w-full h-screen min-h-[620px] bg-[var(--bg-main)] pt-[56px] sm:pt-[60px] overflow-hidden flex flex-col border-b border-[var(--glass-border)] select-none"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Fullscreen Slide Tracks */}
+        <div className="absolute inset-0 w-full h-full z-10 overflow-hidden">
           {showcaseItems.map((item, idx) => {
             const isActive = activeSlide === idx;
             return (
-              <div key={item.id} className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out transform-gpu ${isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 z-10 pointer-events-none"}`}>
-                <img loading={idx === 0 ? "eager" : "lazy"} fetchpriority={idx === 0 ? "high" : "auto"} decoding="async" src={item.mobileImg || item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover transform-gpu" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
-                <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-[transform,opacity] duration-500 delay-150 ease-out transform-gpu ${isActive ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
-                  <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
-                  <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-tight leading-tight mb-2 drop-shadow-lg text-white">{item.title}</h1>
-                  <p className="text-sm font-bold text-sasirangan mb-6 font-heading drop-shadow-md">{item.subtitle}</p>
-                  <div className="flex flex-wrap items-center gap-3">
-                    {item.btnLink.startsWith('#') ? (
-                      <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</a>
-                    ) : (
-                      <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
-                    )}
+              <div 
+                key={item.id} 
+                className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out transform-gpu ${isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 z-10 pointer-events-none"}`}
+              >
+                {/* Background Image with subtle cinematic zoom */}
+                <img 
+                  loading={idx === 0 ? "eager" : "lazy"} 
+                  fetchpriority={idx === 0 ? "high" : "auto"} 
+                  decoding="async" 
+                  src={window.innerWidth < 768 ? (item.mobileImg || item.img) : item.img} 
+                  alt={item.title} 
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] ease-linear transform-gpu ${isActive ? "scale-105" : "scale-100"}`} 
+                />
+                
+                {/* Dark Gradients for crystal clear readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-transparent w-full md:w-3/4 lg:w-2/3 z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 md:via-transparent to-transparent w-full z-10 pointer-events-none" />
+
+                {/* Pre-laid-out Fixed Text Container (Zero Reflow / Loncat) */}
+                <div className="absolute inset-0 z-20 flex flex-col justify-end md:justify-center pb-28 sm:pb-32 md:pb-12 px-6 sm:px-12 md:px-16 lg:px-24 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl text-white">
+                  <div className={`transition-all duration-700 delay-100 transform-gpu ${isActive ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+                    <span className="text-[#F4C038] font-heading font-extrabold text-xs sm:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-3 block drop-shadow-md">
+                      {item.tag}
+                    </span>
+                    <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-3 sm:mb-4 drop-shadow-lg text-white">
+                      {item.title}
+                    </h1>
+                    <p className="text-sm sm:text-lg md:text-xl font-bold text-sasirangan mb-6 sm:mb-8 font-heading drop-shadow-md max-w-2xl leading-relaxed">
+                      {item.subtitle}
+                    </p>
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                      {item.btnLink.startsWith('#') ? (
+                        <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-heading font-black text-xs sm:text-sm shadow-[0_0_25px_rgba(244,192,56,0.4)] transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+                          {item.btnText} ➔
+                        </a>
+                      ) : (
+                        <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-heading font-black text-xs sm:text-sm shadow-[0_0_25px_rgba(244,192,56,0.4)] transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+                          {item.btnText} ➔
+                        </Link>
+                      )}
+                      {item.price && (
+                        <span className="text-xs sm:text-sm font-bold text-gray-200 bg-white/10 backdrop-blur-md px-4 py-3 rounded-full border border-white/20">
+                          {item.price}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             );
           })}
-          {/* Navigation Dots Indicator */}
-          <div className="absolute bottom-6 left-0 w-full z-30 flex justify-center items-center gap-1">
+        </div>
+
+        {/* Interactive Slide Selector Dock (Gulungan Navigation Bar) */}
+        <div className="absolute bottom-4 sm:bottom-8 left-0 w-full z-30 px-4 sm:px-12 md:px-16 lg:px-24 flex justify-between items-center pointer-events-auto">
+          {/* Desktop Pills Navigation */}
+          <div className="hidden md:flex items-center gap-2 bg-black/40 backdrop-blur-xl p-1.5 rounded-full border border-white/15 shadow-2xl">
+            {showcaseItems.map((item, i) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveSlide(i)}
+                className={`px-5 py-2.5 rounded-full font-heading font-bold text-xs flex items-center gap-2 transition-all duration-300 ${activeSlide === i ? "bg-[#F4C038] text-[#091422] shadow-lg scale-105 font-black" : "text-gray-300 hover:text-white hover:bg-white/10"}`}
+              >
+                <span>{item.icon}</span>
+                <span>{item.shortTitle}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Dots Navigation */}
+          <div className="md:hidden w-full flex justify-center items-center gap-1">
             {showcaseItems.map((_, i) => (
-              <button key={i} onClick={() => setActiveSlide(i)} className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center focus:outline-none" aria-label={`Go to slide ${i + 1}`}>
+              <button 
+                key={i} 
+                onClick={() => setActiveSlide(i)} 
+                className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center focus:outline-none" 
+                aria-label={`Go to slide ${i + 1}`}
+              >
                 <span className={`transition-all duration-500 rounded-full block ${activeSlide === i ? "w-8 h-2.5 bg-[#F4C038]" : "w-2.5 h-2.5 bg-white/50 hover:bg-white/80"}`} />
               </button>
             ))}
+          </div>
+
+          {/* Slide Counter / Arrow Controls for Desktop */}
+          <div className="hidden md:flex items-center gap-3 bg-black/40 backdrop-blur-xl px-4 py-2 rounded-full border border-white/15 text-white text-xs font-mono font-bold">
+            <span>0{activeSlide + 1} / 0{showcaseItems.length}</span>
+            <div className="w-[1px] h-3 bg-white/20"></div>
+            <button 
+              onClick={() => setActiveSlide((prev) => (prev === 0 ? showcaseItems.length - 1 : prev - 1))}
+              className="hover:text-[#F4C038] transition-colors p-1"
+              aria-label="Previous Slide"
+            >
+              ◀
+            </button>
+            <button 
+              onClick={() => setActiveSlide((prev) => (prev + 1) % showcaseItems.length)}
+              className="hover:text-[#F4C038] transition-colors p-1"
+              aria-label="Next Slide"
+            >
+              ▶
+            </button>
           </div>
         </div>
       </section>
