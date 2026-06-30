@@ -44,7 +44,7 @@ const ScrollObserver = () => {
 
     const timer = setTimeout(() => {
       const elements = document.querySelectorAll(
-        '.bento-card, .section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right'
+        '.section-header, .wisata-reveal, .wisata-reveal-left, .wisata-reveal-right'
       );
       elements.forEach((el) => {
         if (!el.classList.contains('scroll-animate') && !el.classList.contains('in-view')) {
