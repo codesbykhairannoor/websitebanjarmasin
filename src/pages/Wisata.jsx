@@ -240,11 +240,7 @@ export default function Wisata() {
             })()}
 
             {/* Live Thumbnail Selector Pills Bar */}
-            <div>
-              <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider mb-2.5 px-1 flex items-center justify-between">
-                <span>🎯 Pilih Destinasi Panggung ({activeMobileWisataIdx + 1}/{heroDestinations.length}):</span>
-              </p>
-              <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 scrollbar-thin scrollbar-thumb-[#F4C038]/40 scrollbar-track-transparent snap-x snap-mandatory">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 scrollbar-thin scrollbar-thumb-[#F4C038]/40 scrollbar-track-transparent snap-x snap-mandatory">
                 {heroDestinations.map((dest, idx) => {
                   const isActive = activeMobileWisataIdx === idx;
                   return (
@@ -270,7 +266,6 @@ export default function Wisata() {
                     </button>
                   );
                 })}
-              </div>
             </div>
           </div>
 
