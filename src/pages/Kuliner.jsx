@@ -63,8 +63,8 @@ export default function Kuliner() {
   }));
 
   const olehOlehMeta = [
-    { span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto", img: "/kuliner/kerupuk ampalang.webp" },
-    { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/mandai.webp" },
+    { span: "col-span-1 md:col-span-2 row-span-2 h-[300px] md:h-auto", img: "/kuliner/mandai.webp" },
+    { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/kerupuk ampalang.webp" },
     { span: "col-span-1 row-span-1 h-[250px]", img: "/kuliner/iwak pakasan.webp" },
     { span: "col-span-1 md:col-span-3 row-span-1 h-[250px]", img: "/kuliner/sambal acan.webp" }
   ];

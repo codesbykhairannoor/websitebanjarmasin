@@ -254,7 +254,7 @@ export default function Wisata() {
               <span className="hidden lg:inline-block text-[#F4C038] text-[9px] md:text-[10px] font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[0].tag}
               </span>
-              <h3 className="text-sm md:text-lg font-black text-white font-heading leading-tight drop-shadow-lg">
+              <h3 className="text-xs sm:text-sm md:text-base font-black text-white font-heading leading-tight drop-shadow-lg">
                 {heroDestinations[0].title}
               </h3>
             </div>
@@ -267,7 +267,7 @@ export default function Wisata() {
               <span className="hidden lg:inline-block text-[#F4C038] text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[1].tag}
               </span>
-              <h3 className="text-base md:text-2xl font-black text-white font-heading leading-tight drop-shadow-lg">
+              <h3 className="text-sm sm:text-base md:text-xl font-black text-white font-heading leading-tight drop-shadow-lg">
                 {heroDestinations[1].title}
               </h3>
             </div>
@@ -280,7 +280,7 @@ export default function Wisata() {
               <span className="hidden lg:inline-block text-[#F4C038] text-xs md:text-sm font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[2].tag}
               </span>
-              <h3 className="text-3xl md:text-5xl font-black text-white font-heading leading-tight drop-shadow-lg">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white font-heading leading-tight drop-shadow-lg">
                 {heroDestinations[2].title}
               </h3>
             </div>
@@ -293,7 +293,7 @@ export default function Wisata() {
               <span className="hidden lg:inline-block text-[#F4C038] text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[3].tag}
               </span>
-              <h3 className="text-base md:text-2xl font-black text-white font-heading leading-tight drop-shadow-lg">
+              <h3 className="text-sm sm:text-base md:text-xl font-black text-white font-heading leading-tight drop-shadow-lg">
                 {heroDestinations[3].title}
               </h3>
             </div>
@@ -306,7 +306,7 @@ export default function Wisata() {
               <span className="hidden lg:inline-block text-[#F4C038] text-[9px] md:text-[10px] font-bold tracking-widest uppercase mb-1 drop-shadow-md">
                 {heroDestinations[4].tag}
               </span>
-              <h3 className="text-sm md:text-lg font-black text-white font-heading leading-tight drop-shadow-lg">
+              <h3 className="text-xs sm:text-sm md:text-base font-black text-white font-heading leading-tight drop-shadow-lg">
                 {heroDestinations[4].title}
               </h3>
             </div>
