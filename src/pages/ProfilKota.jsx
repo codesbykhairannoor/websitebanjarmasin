@@ -229,22 +229,40 @@ export default function ProfilKota() {
           {/* Mobile Overlay (For text readability) */}
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--martapura-night)] via-[var(--martapura-night)]/80 to-transparent z-20 pointer-events-none lg:hidden" />
 
-          {/* Column 1 (Staggered Top) */}
-          <div className="w-[140px] sm:w-[180px] lg:w-[280px] flex flex-col gap-4 pt-4 lg:pt-12 pointer-events-auto relative z-10">
-            {column1Images.map((img, i) => (
-              <div key={`c1-${i}`} className="w-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] h-[180px] sm:h-[240px] lg:h-[320px] cursor-pointer hover:border-[#F4C038] hover:scale-[1.02] transition-all duration-300">
-                <img src={img} className="w-full h-full object-cover" alt="Profil Banjarmasin" loading={i === 0 ? "eager" : "lazy"} />
-              </div>
-            ))}
+          {/* Column 1 (Scrolls Up) */}
+          <div className="w-[140px] sm:w-[180px] lg:w-[280px] marquee-col hover-pause pt-10 lg:pt-20 pointer-events-auto relative z-10">
+            <div className="marquee-content-up shrink-0">
+              {column1Images.map((img, i) => (
+                <div key={`c1-a-${i}`} className="w-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] h-[200px] sm:h-[260px] lg:h-[400px] cursor-pointer hover:border-[#F4C038] transition-colors">
+                  <img src={img} className="w-full h-full object-cover" alt="Profil Banjarmasin" loading={i === 0 ? "eager" : "lazy"} />
+                </div>
+              ))}
+            </div>
+            <div aria-hidden="true" className="marquee-content-up shrink-0">
+              {column1Images.map((img, i) => (
+                <div key={`c1-b-${i}`} className="w-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] h-[200px] sm:h-[260px] lg:h-[400px] cursor-pointer hover:border-[#F4C038] transition-colors">
+                  <img src={img} className="w-full h-full object-cover" alt="Profil Banjarmasin" loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Column 2 (Staggered Offset) */}
-          <div className="w-[140px] sm:w-[180px] lg:w-[280px] flex flex-col gap-4 -mt-8 lg:-mt-16 pointer-events-auto relative z-10">
-            {column2Images.map((img, i) => (
-              <div key={`c2-${i}`} className="w-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] h-[180px] sm:h-[240px] lg:h-[320px] cursor-pointer hover:border-[#33C3B3] hover:scale-[1.02] transition-all duration-300">
-                <img src={img} className="w-full h-full object-cover" alt="Profil Banjarmasin" loading="lazy" />
-              </div>
-            ))}
+          {/* Column 2 (Scrolls Down) */}
+          <div className="w-[140px] sm:w-[180px] lg:w-[280px] marquee-col hover-pause pointer-events-auto relative z-10">
+            <div className="marquee-content-down shrink-0">
+              {column2Images.map((img, i) => (
+                <div key={`c2-a-${i}`} className="w-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] h-[200px] sm:h-[260px] lg:h-[400px] cursor-pointer hover:border-[#33C3B3] transition-colors">
+                  <img src={img} className="w-full h-full object-cover" alt="Profil Banjarmasin" loading="lazy" />
+                </div>
+              ))}
+            </div>
+            <div aria-hidden="true" className="marquee-content-down shrink-0">
+              {column2Images.map((img, i) => (
+                <div key={`c2-b-${i}`} className="w-full rounded-3xl overflow-hidden shadow-2xl border border-[var(--glass-border)] h-[200px] sm:h-[260px] lg:h-[400px] cursor-pointer hover:border-[#33C3B3] transition-colors">
+                  <img src={img} className="w-full h-full object-cover" alt="Profil Banjarmasin" loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
