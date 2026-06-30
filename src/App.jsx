@@ -31,6 +31,13 @@ const ScrollObserver = () => {
   const location = useLocation();
 
   React.useEffect(() => {
+    // Track SPA route navigation with Google Analytics 4
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('config', 'G-B6DSED8QNG', {
+        page_path: location.pathname + location.search
+      });
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
