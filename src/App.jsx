@@ -67,21 +67,28 @@ const ScrollObserver = () => {
 };
 
 export default function App() {
-  const [isAppReady, setIsAppReady] = useState(false);
-  const [showSplash, setShowSplash] = useState(true);
+  const initialSeen = typeof window !== 'undefined' && sessionStorage.getItem('hasSeenSplash') === 'true';
+  const [isAppReady, setIsAppReady] = useState(initialSeen);
+  const [showSplash, setShowSplash] = useState(!initialSeen);
 
   useEffect(() => {
-    // Cek apakah user sudah melihat splash screen di sesi browser ini
-    const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
-    
-    if (hasSeenSplash) {
-      // Jika sudah pernah buka (termasuk refresh), langsung hilangkan loading
-      setShowSplash(false);
-      setIsAppReady(true);
+    // Preload semua bundle halaman di background agar saat pindah page antar menu langsung INSTAN 0 milidetik
+    const timer = setTimeout(() => {
+      import('./pages/Home');
+      import('./pages/Wisata');
+      import('./pages/Kuliner');
+      import('./pages/Budaya');
+      import('./pages/ProfilKota');
+      import('./pages/Sejarah');
+      import('./pages/SmartCity');
+      import('./pages/Panduan');
+    }, 1000);
+
+    if (initialSeen) {
+      return () => clearTimeout(timer);
     }
 
     // Daftar foto-foto utama yang PALING BERAT dan PALING AWAL dilihat user
-    // Dengan preload ini, foto hero tidak akan "kedip putih" lagi saat halamannya dibuka
     const criticalImages = [
       '/home/banjarmasinkota.webp',
       '/home/hero-mobile-menara-pandang.webp',
@@ -96,23 +103,21 @@ export default function App() {
         const img = new Image();
         img.src = src;
         img.onload = resolve;
-        img.onerror = resolve; // Tetap resolve meski gagal agar tidak nyangkut
+        img.onerror = resolve;
       });
     };
 
-    // Eksekusi preload di background (tetap jalan meskipun splash tidak muncul)
+    // Eksekusi preload di background
     Promise.all(criticalImages.map(img => preloadImage(img)))
       .then(() => {
-        if (!hasSeenSplash) {
-          // Beri sedikit jeda ekstra agar animasi masuk sempat terlihat estetik (minimal 1 detik)
-          setTimeout(() => {
-            setIsAppReady(true);
-            sessionStorage.setItem('hasSeenSplash', 'true'); // Simpan tanda bahwa sudah melihat splash
-          }, 1200);
-        }
+        setTimeout(() => {
+          setIsAppReady(true);
+          sessionStorage.setItem('hasSeenSplash', 'true');
+        }, 1200);
       });
-      
-  }, []);
+
+    return () => clearTimeout(timer);
+  }, [initialSeen]);
 
   return (
     <HelmetProvider>
@@ -123,7 +128,7 @@ export default function App() {
         {showSplash && <SplashScreen isReady={isAppReady} />}
 
         {/* HIDE KONTEN SELAMA BELUM READY */}
-        <div style={{ opacity: isAppReady ? 1 : 0, transition: 'opacity 0.5s ease-in' }}>
+        <div style={{ opacity: isAppReady ? 1 : 0, transition: showSplash ? 'opacity 0.5s ease-in' : 'none' }}>
           <BrowserRouter>
             <ScrollToTop />
             <ScrollObserver />
