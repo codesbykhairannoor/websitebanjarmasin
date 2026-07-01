@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 const RouteAccessibilityMap = lazy(() => import('../components/RouteAccessibilityMap'));
 import { useLanguage } from '../context/LanguageContext';
 import { pagesTranslations } from '../translations/pagesTranslations';
-import { itineraryData, checklistData } from '../translations/hackathonData';
+import { checklistData } from '../translations/hackathonData';
 
 export default function Panduan() {
   const { language } = useLanguage();
@@ -39,10 +39,13 @@ export default function Panduan() {
   const [activeHotelTab, setActiveHotelTab] = useState("Riverfront");
   const [copiedNumber, setCopiedNumber] = useState("");
   const [openFaq, setOpenFaq] = useState(null);
-  const [activeItineraryTab, setActiveItineraryTab] = useState(0);
+  const [checkedItems, setCheckedItems] = useState({});
 
-  const itinerary = itineraryData[language] || itineraryData['id'];
   const checklist = checklistData[language] || checklistData['id'];
+
+  const toggleCheck = (id) => {
+    setCheckedItems(prev => ({ ...prev, [id]: !prev[id] }));
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -242,95 +245,91 @@ export default function Panduan() {
       </section>
 
       {/* =========================================================
-          HACKATHON WINNER FEATURE: PWA OFFLINE TRAVEL CHECKLIST
+          HACKATHON WINNER FEATURE: RIVER DASHBOARD & TRAVEL KIT
           ========================================================= */}
       <section className="py-16 max-w-[1240px] mx-auto px-4 sm:px-6">
-        <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
-          {/* Background pattern */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#F4C038]/5 rounded-full blur-3xl -z-10" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-1 border-r border-[var(--glass-border)] pr-0 lg:pr-6 pb-6 lg:pb-0 border-b lg:border-b-0">
-              <span className="text-xs font-black uppercase tracking-widest text-[#00A896] font-heading block mb-2">Hackathon Feature</span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-3">{checklist.title}</h2>
-              <p className="text-sm text-[var(--text-muted)] font-body mb-6">{checklist.subtitle}</p>
-              
-              <div className="bg-[#00A896]/10 border border-[#00A896]/30 rounded-2xl p-4">
-                <h3 className="font-heading font-black text-[#00A896] mb-2 text-sm">{checklist.riverContext.title}</h3>
-                <p className="text-xs text-[var(--text-main)] leading-relaxed">{checklist.riverContext.desc}</p>
-              </div>
+          {/* Left Column: Interactive Travel Kit */}
+          <div className="lg:col-span-7 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#00A896]/5 rounded-full blur-3xl -z-10 group-hover:bg-[#00A896]/10 transition-colors duration-700" />
+            <div className="flex items-center gap-3 mb-2">
+              <span className="w-10 h-10 rounded-xl bg-[#00A896]/20 flex items-center justify-center text-xl shadow-inner border border-[#00A896]/30 animate-pulse">🎒</span>
+              <span className="text-xs font-black uppercase tracking-widest text-[#00A896] font-heading">Hackathon Feature</span>
             </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-main)] font-heading mb-2">{checklist.title}</h2>
+            <p className="text-sm text-[var(--text-muted)] font-body mb-8">{checklist.subtitle}</p>
             
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {checklist.items.map((item, idx) => (
-                <div key={idx} className="bg-[var(--bg-main)] border border-[var(--glass-border)] p-4 rounded-2xl flex items-start gap-4 hover:border-[#F4C038] transition-colors group">
-                  <span className="text-3xl p-2 bg-[var(--card-bg)] rounded-xl group-hover:scale-110 transition-transform">{item.icon}</span>
-                  <div>
-                    <h4 className="font-heading font-black text-[var(--text-main)] text-sm mb-1">{item.name}</h4>
-                    <p className="text-xs text-[var(--text-muted)] leading-relaxed">{item.desc}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {checklist.items.map((item) => {
+                const isChecked = checkedItems[item.id];
+                return (
+                  <div 
+                    key={item.id} 
+                    onClick={() => toggleCheck(item.id)}
+                    className={`cursor-pointer border p-4 rounded-2xl flex items-start gap-4 transition-all duration-300 transform hover:-translate-y-1 ${
+                      isChecked 
+                        ? "bg-[#00A896]/10 border-[#00A896]/50 shadow-[0_0_15px_rgba(0,168,150,0.2)]" 
+                        : "bg-[var(--bg-main)] border-[var(--glass-border)] hover:border-[#F4C038]/50"
+                    }`}
+                  >
+                    <div className="relative">
+                      <span className={`text-3xl p-2 rounded-xl block transition-transform duration-300 ${isChecked ? "scale-90 opacity-50 bg-transparent" : "scale-100 opacity-100 bg-[var(--card-bg)] shadow-md"}`}>
+                        {item.icon}
+                      </span>
+                      {isChecked && (
+                        <motion.div 
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="absolute inset-0 flex items-center justify-center text-2xl text-[#00A896] drop-shadow-md"
+                        >
+                          ✔️
+                        </motion.div>
+                      )}
+                    </div>
+                    <div>
+                      <h4 className={`font-heading font-black text-sm mb-1 transition-all ${isChecked ? "text-[#00A896] line-through opacity-70" : "text-[var(--text-main)]"}`}>
+                        {item.name}
+                      </h4>
+                      <p className={`text-[11px] leading-relaxed transition-all ${isChecked ? "text-[#00A896]/70" : "text-[var(--text-muted)]"}`}>
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* =========================================================
-          HACKATHON WINNER FEATURE: INTERACTIVE CURATED ITINERARY
-          ========================================================= */}
-      <section className="py-16 max-w-[1240px] mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-10 animate-fadeIn">
-          <span className="text-xs font-black uppercase tracking-widest text-[#F4C038] font-heading block mb-2">
-            Eksplorasi Efektif
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-main)] font-heading mb-3">
-            {itinerary.title}
-          </h2>
-          <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body">
-            {itinerary.subtitle}
-          </p>
-        </div>
-
-        {/* Tab Selection */}
-        <div className="flex items-center justify-center gap-3 mb-10 overflow-x-auto pb-4 hide-scrollbar">
-          {itinerary.tabs.map((tab, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveItineraryTab(idx)}
-              className={`px-6 py-3 rounded-2xl font-heading font-black text-xs sm:text-sm transition-all border whitespace-nowrap flex-shrink-0 ${
-                activeItineraryTab === idx
-                  ? "bg-[#00A896] text-white border-[#00A896] shadow-[0_5px_15px_rgba(0,168,150,0.4)] scale-105"
-                  : "bg-[var(--card-bg)] text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[#F4C038]"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-
-        {/* Timeline Content */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative border-l-2 border-[var(--glass-border)] ml-4 sm:ml-6 md:ml-1/2">
-            {(activeItineraryTab === 0 ? itinerary.day1 : itinerary.day2).map((item, idx) => (
-              <div key={idx} className="mb-10 relative pl-8 sm:pl-10">
-                {/* Timeline Dot */}
-                <div className="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#091422] border-4 border-[#F4C038] shadow-[0_0_10px_rgba(244,192,56,0.6)] z-10" />
-                
-                <div className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-2xl p-5 sm:p-6 shadow-lg hover:border-[#00A896] transition-colors group relative overflow-hidden">
-                  <div className="absolute -right-4 -top-4 w-20 h-20 bg-[#00A896]/10 rounded-full blur-xl group-hover:bg-[#00A896]/20 transition-colors" />
-                  <span className="inline-block px-3 py-1 bg-[#00A896]/20 text-[#00A896] text-[10px] font-black rounded-lg mb-2 font-mono border border-[#00A896]/30">
-                    🕒 {item.time}
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-black text-[var(--text-main)] font-heading mb-2">
-                    {item.activity}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-                    {item.desc}
-                  </p>
+          {/* Right Column: River Tide Dashboard */}
+          <div className="lg:col-span-5 flex flex-col justify-center h-full">
+            
+            {/* River Tide Dashboard Widget */}
+            <div className="bg-gradient-to-br from-[#091422] to-[#121E28] border border-[#00A896]/30 rounded-3xl p-6 sm:p-8 shadow-[0_15px_40px_rgba(0,168,150,0.15)] relative overflow-hidden h-full flex flex-col justify-center">
+              <div className="absolute inset-0 bg-[url('/wave-pattern.svg')] opacity-5 mix-blend-overlay animate-pulse" />
+              <div className="flex justify-between items-start relative z-10 mb-6">
+                <div>
+                  <h3 className="font-heading font-black text-white mb-1">{checklist.riverContext.title}</h3>
+                  <p className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">Live Estimation</p>
+                </div>
+                <span className="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399] animate-ping" />
+              </div>
+              
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-4 backdrop-blur-sm">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Kondisi Air</span>
+                  <span className="text-xs font-black text-[#F4C038]">{checklist.riverContext.time}</span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-black text-emerald-400 font-heading drop-shadow-md">
+                  {checklist.riverContext.status}
                 </div>
               </div>
-            ))}
+              
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-body relative z-10 mt-2">
+                {checklist.riverContext.desc}
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
