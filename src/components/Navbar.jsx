@@ -215,8 +215,8 @@ export default function Navbar() {
           {/* Right Action Icons */}
           <div className="flex items-center gap-2 sm:gap-3">
             
-            {/* Language Selector Dropdown */}
-            <div className="relative" ref={langDropdownRef}>
+            {/* Language Selector Dropdown (Hidden on mobile top bar, available in mobile menu) */}
+            <div className="relative hidden sm:block" ref={langDropdownRef}>
               <button
                 onClick={() => setOpenLangDropdown(!openLangDropdown)}
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#33C3B3] text-lg transition-all shadow-sm hover:scale-105 shrink-0"
@@ -256,11 +256,11 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Theme Toggle Icon Only */}
+            {/* Theme Toggle Icon Only (Hidden on mobile top bar, available in mobile menu) */}
             <button
               onClick={toggleTheme}
               title="Ubah Tema Gelap / Terang"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#F4C038] text-base sm:text-lg transition-all shadow-sm hover:scale-105 shrink-0"
+              className="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 rounded-full items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#F4C038] text-base sm:text-lg transition-all shadow-sm hover:scale-105 shrink-0"
             >
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
@@ -369,8 +369,75 @@ export default function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
-              className="lg:hidden overflow-hidden mt-3 pt-3 border-t border-[var(--glass-border)] flex flex-col gap-2"
+              className="lg:hidden overflow-hidden mt-3 pt-3 border-t border-[var(--glass-border)] flex flex-col gap-2.5"
             >
+              {/* Mobile Quick Settings Box (Language, Theme, Audio) */}
+              <div className="p-3.5 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] flex flex-col gap-3 mb-1 shadow-sm">
+                {/* Language Row */}
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">
+                    🌐 Bahasa
+                  </span>
+                  <div className="grid grid-cols-4 gap-1 w-full max-w-[210px]">
+                    {[
+                      { code: 'id', label: '🇮🇩 ID' },
+                      { code: 'en', label: '🇬🇧 EN' },
+                      { code: 'ms', label: '🇲🇾 MS' },
+                      { code: 'zh', label: '🇨🇳 ZH' }
+                    ].map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => setLanguage(lang.code)}
+                        className={`py-1.5 rounded-lg text-center text-xs font-bold transition-all ${
+                          language === lang.code
+                            ? 'bg-[#00A896] text-white shadow-sm'
+                            : 'bg-[var(--glass-border)] text-[var(--text-main)] hover:bg-amber-400/20'
+                        }`}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Theme Toggle Row */}
+                <div className="flex items-center justify-between gap-2 pt-2 border-t border-[var(--glass-border)]">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">
+                    🎨 Mode Tema
+                  </span>
+                  <button
+                    onClick={toggleTheme}
+                    className="px-3 py-1.5 rounded-xl bg-[var(--glass-border)] hover:bg-[#F4C038]/20 text-[var(--text-main)] text-xs font-bold flex items-center gap-1.5 transition-all"
+                  >
+                    {theme === 'dark' ? '☀️ Terang (Light)' : '🌙 Gelap (Dark)'}
+                  </button>
+                </div>
+
+                {/* Audio Track Selector Row */}
+                <div className="flex flex-col gap-1.5 pt-2 border-t border-[var(--glass-border)]">
+                  <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">
+                    <span>{t('navbar.audioMenuTitle')}</span>
+                    {isPlaying && <span className="text-[#00A896] animate-pulse">Playing</span>}
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-0.5">
+                    {audioTracks.map((track) => (
+                      <button
+                        key={track.id}
+                        onClick={() => playSelectedTrack(track.id)}
+                        className={`p-2.5 rounded-xl text-left text-xs font-bold font-heading transition-all flex items-center justify-between ${
+                          activeTrackId === track.id && isPlaying
+                            ? 'bg-[#00A896]/20 border border-[#00A896] text-[#00A896]'
+                            : 'bg-[var(--glass-border)] text-[var(--text-main)]'
+                        }`}
+                      >
+                        <span className="truncate">{track.label}</span>
+                        {activeTrackId === track.id && isPlaying && <span className="shrink-0 ml-1">✓</span>}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
               <div className="pl-4 py-1 text-[10px] font-black uppercase tracking-widest text-[#00A896]">{t('navbar.aboutCity')}</div>
               <div className="grid grid-cols-3 gap-2 px-2 mb-1">
                 <Link to="/profil" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🏛️ {t('navbar.profile').split(' ')[0]}</Link>
