@@ -74,6 +74,9 @@ export const pagesTranslations = {
         bukaRute: "Buka Rute ➔",
         categories: ["Semua", "Landmark", "Wisata Bahari", "Ikon Kota", "Wisata Sejarah", "Gastronomi", "Wisata Alam"],
         locations: [
+          { title: "Taman Satwa Jahri Saleh", category: "Wisata Alam", desc: "Ruang terbuka hijau dan kebun binatang mini yang menjadi pusat konservasi satwa lokal dan rekreasi keluarga." },
+          { title: "Duta Mall Banjarmasin", category: "Landmark", desc: "Pusat perbelanjaan terbesar dan termegah di Kalimantan Selatan, pusat gaya hidup dan hiburan modern kota." },
+
           { title: "Menara Pandang & Siring Martapura", category: "Landmark", desc: "Landmark ikonik di pusat kota dengan pemandangan 360 derajat Sungai Martapura dan aktivitas dermaga kelotok." },
           { title: "Pasar Terapung Lok Baintan", category: "Wisata Bahari", desc: "Pasar atas air tradisional sejak abad ke-16. Rasakan sensasi jual beli menggunakan perahu jukung di waktu subuh." },
           { title: "Patung Maskot Bekantan", category: "Ikon Kota", desc: "Patung perunggu raksasa satwa endemik Borneo yang menyemburkan air langsung ke arah Sungai Martapura." },
@@ -108,6 +111,10 @@ export const pagesTranslations = {
         { label: "Heritage 1526", desc: "Jejak sejarah kerajaan Islam tertua Kalimantan di setiap sudut kota" }
       ],
       heroDestinations: [
+        { id: "taman-jahri-saleh", title: "Taman Satwa Jahri Saleh", tag: "Edukasi - Sungai Jingah", location: "Sungai Jingah", badge: "Taman Satwa", desc: "Ruang terbuka hijau dan kebun binatang mini yang menjadi pusat konservasi satwa lokal dan rekreasi keluarga." },
+        { id: "pulau-kembang", title: "Pulau Kembang", tag: "Konservasi - Barito", location: "Sungai Barito", badge: "Habitat Satwa", desc: "Pulau delta di tengah Sungai Barito yang menjadi habitat ribuan kera ekor panjang dan situs konservasi alam." },
+        { id: "duta-mall", title: "Duta Mall Banjarmasin", tag: "Modern - Pusat Kota", location: "Jl. A. Yani Km 2", badge: "Pusat Belanja", desc: "Pusat perbelanjaan terbesar dan termegah di Kalimantan Selatan, pusat gaya hidup dan hiburan modern kota." },
+
         { id: "pasar-terapung", title: "Pasar Terapung", tag: "Subuh - Lok Baintan", location: "Lok Baintan, Kuin", badge: "Warisan Dunia", desc: "Pasar tradisional di atas perahu kelotok tempat para Acil bertransaksi sayur, buah, dan kuliner khas Banjar sejak fajar menyingsing." },
         { id: "siring-martapura", title: "Menara Pandang", tag: "24 Jam - Siring", location: "Menara Pandang, Siring", badge: "Landmark Kota", desc: "Kawasan terbuka hijau di tepian Sungai Martapura yang menjadi titik kumpul warga dan pusat susur sungai kelotok." },
         { id: "patung-bekantan", title: "Patung Bekantan", tag: "Ikon - Martapura", location: "Siring Sungai Martapura", badge: "Maskot Borneo", desc: "Monumen megah maskot satwa endemik Kalimantan Selatan yang menyemburkan air langsung ke arah Sungai Martapura." },
@@ -721,6 +728,10 @@ export const pagesTranslations = {
         { label: "Heritage 1526", desc: "Historical footprints of the oldest Islamic kingdom in Borneo at every corner of the city" }
       ],
       heroDestinations: [
+        { id: "taman-jahri-saleh", title: "Jahri Saleh Animal Park", tag: "Education - Sungai Jingah", location: "Sungai Jingah", badge: "Animal Park", desc: "Green open space and mini zoo that serves as a local animal conservation center and family recreation area." },
+        { id: "pulau-kembang", title: "Kembang Island", tag: "Conservation - Barito", location: "Barito River", badge: "Animal Habitat", desc: "A delta island in the middle of the Barito River which is the habitat of thousands of long-tailed macaques and a nature conservation site." },
+        { id: "duta-mall", title: "Duta Mall Banjarmasin", tag: "Modern - City Center", location: "Jl. A. Yani Km 2", badge: "Shopping Center", desc: "The largest and grandest shopping center in South Kalimantan, the city's modern lifestyle and entertainment hub." },
+
         { id: "pasar-terapung", title: "Floating Market", tag: "Dawn - Lok Baintan", location: "Lok Baintan, Kuin", badge: "World Heritage", desc: "A traditional market on kelotok boats where local vendors sell vegetables, fruits, and typical Banjar culinary treats starting at fajar dawn." },
         { id: "siring-martapura", title: "Menara Pandang", tag: "24 Hours - Siring", location: "Menara Pandang, Siring", badge: "City Landmark", desc: "A green open space along the Martapura River serving as a local community hub and center for kelotok boat cruises." },
         { id: "patung-bekantan", title: "Bekantan Statue", tag: "Icon - Martapura", location: "Siring Martapura River", badge: "Borneo Mascot", desc: "A majestic monument of the proboscis monkey mascot, South Kalimantan's endemic species, spraying water directly into the Martapura River." },
@@ -1299,6 +1310,9 @@ export const pagesTranslations = {
         bukaRute: "Open Route ➔",
         categories: ["All", "Landmark", "Maritime Tourism", "City Icon", "Historical Tourism", "Gastronomy", "Nature Tourism"],
         locations: [
+          { title: "Jahri Saleh Animal Park", category: "Nature Tourism", desc: "Green open space and mini zoo that serves as a local animal conservation center and family recreation area." },
+          { title: "Duta Mall Banjarmasin", category: "Landmark", desc: "The largest and grandest shopping center in South Kalimantan, the city's modern lifestyle and entertainment hub." },
+
           { title: "Menara Pandang & Siring Martapura", category: "Landmark", desc: "An iconic landmark in the city center with a 360-degree view of the Martapura River and kelotok dock activities." },
           { title: "Lok Baintan Floating Market", category: "Maritime Tourism", desc: "A traditional floating market active since the 16th century. Experience buying and selling on jukung boats at dawn." },
           { title: "Bekantan Mascot Statue", category: "City Icon", desc: "A giant bronze statue of Borneo's endemic primate, spraying water directly into the Martapura River." },
@@ -1944,6 +1958,9 @@ export const pagesTranslations = {
         bukaRute: "Buka Laluan ➔",
         categories: ["Semua", "Mercu Tanda", "Pelancongan Bahari", "Ikon Bandar", "Pelancongan Sejarah", "Gastronomi", "Pelancongan Alam"],
         locations: [
+          { title: "Taman Haiwan Jahri Saleh", category: "Pelancongan Alam", desc: "Ruang lapang hijau dan zoo mini yang menjadi pusat pemuliharaan haiwan tempatan dan rekreasi keluarga." },
+          { title: "Duta Mall Banjarmasin", category: "Mercu Tanda", desc: "Pusat membeli-belah terbesar dan terhebat di Kalimantan Selatan, pusat gaya hidup dan hiburan moden bandar." },
+
           { title: "Menara Pandang & Siring Martapura", category: "Mercu Tanda", desc: "Mercu tanda ikonik di pusat bandar dengan pemandangan 360 darjah Sungai Martapura dan aktiviti dermaga kelotok." },
           { title: "Pasar Terapung Lok Baintan", category: "Pelancongan Bahari", desc: "Pasar atas air tradisional sejak abad ke-16. Rasai sensasi jual beli menggunakan perahu jukung di waktu subuh." },
           { title: "Patung Maskot Bekantan", category: "Ikon Bandar", desc: "Patung gangsa gergasi primat endemik Borneo yang menyemburkan air langsung ke arah Sungai Martapura." },
@@ -1978,6 +1995,10 @@ export const pagesTranslations = {
         { label: "Heritage 1526", desc: "Jejak sejarah kerajaan Islam tertua Kalimantan di setiap sudut kota" }
       ],
       heroDestinations: [
+        { id: "taman-jahri-saleh", title: "Taman Haiwan Jahri Saleh", tag: "Pendidikan - Sungai Jingah", location: "Sungai Jingah", badge: "Taman Haiwan", desc: "Ruang lapang hijau dan zoo mini yang menjadi pusat pemuliharaan haiwan tempatan dan rekreasi keluarga." },
+        { id: "pulau-kembang", title: "Pulau Kembang", tag: "Pemuliharaan - Barito", location: "Sungai Barito", badge: "Habitat Haiwan", desc: "Pulau delta di tengah Sungai Barito yang menjadi habitat ribuan kera ekor panjang dan tapak pemuliharaan alam." },
+        { id: "duta-mall", title: "Duta Mall Banjarmasin", tag: "Moden - Pusat Bandar", location: "Jl. A. Yani Km 2", badge: "Pusat Membeli-belah", desc: "Pusat membeli-belah terbesar dan terhebat di Kalimantan Selatan, pusat gaya hidup dan hiburan moden bandar." },
+
         { id: "pasar-terapung", title: "Pasar Terapung", tag: "Subuh - Lok Baintan", location: "Lok Baintan, Kuin", badge: "Warisan Dunia", desc: "Pasar tradisional di atas perahu kelotok tempat para Acil bertransaksi hasil bumi saat matahari terbit." },
         { id: "siring-martapura", title: "Menara Pandang", tag: "24 Jam - Siring", location: "Menara Pandang, Siring", badge: "Landmark Kota", desc: "Kawasan terbuka hijau di tebing Sungai Martapura yang menjadi pusat susur sungai kelotok." },
         { id: "patung-bekantan", title: "Patung Bekantan", tag: "Ikon - Martapura", location: "Siring Sungai Martapura", badge: "Maskot Borneo", desc: "Monumen megah maskot haiwan endemik Kalimantan Selatan yang menyembur air terus ke Sungai Martapura." },
@@ -2587,6 +2608,9 @@ export const pagesTranslations = {
         bukaRute: "打开路线 ➔",
         categories: ["全部", "地标", "海洋旅游", "城市标志", "历史", "美食", "自然"],
         locations: [
+          { title: "Jahri Saleh 动物园", category: "自然旅游", desc: "绿色开放空间和迷你动物园，作为当地动物保护中心和家庭休闲区。" },
+          { title: "Duta Mall Banjarmasin", category: "地标", desc: "南加里曼丹最大最宏伟的购物中心，城市的现代生活方式和娱乐中心。" },
+
           { title: "观景塔 & 马塔普拉河滨", category: "地标", desc: "市中心的标志性建筑，可360度全景俯瞰马塔普拉河及传统游船码头的活动。" },
           { title: "Lok Baintan 水上市场", category: "海洋旅游", desc: "自16世纪活跃至今的传统水上市场。体验黎明时分在小木船上进行以物易物的乐趣。" },
           { title: "长鼻猴吉祥物雕像", category: "城市标志", desc: "婆罗洲特有动物的巨型青铜雕像，直接向马塔普拉河喷水。" },
@@ -2621,6 +2645,10 @@ export const pagesTranslations = {
         { label: "1526年遗产", desc: "城市每个角落都烙印着婆罗洲最古老伊斯兰王国的深厚历史足迹" }
       ],
       heroDestinations: [
+        { id: "taman-jahri-saleh", title: "Jahri Saleh 动物园", tag: "教育 - Sungai Jingah", location: "Sungai Jingah", badge: "动物园", desc: "绿色开放空间和迷你动物园，作为当地动物保护中心和家庭休闲区。" },
+        { id: "pulau-kembang", title: "Kembang 岛", tag: "保护 - Barito", location: "Barito 河", badge: "动物栖息地", desc: "位于 Barito 河中部的三角洲岛屿，是成千上万只长尾猕猴的栖息地和自然保护区。" },
+        { id: "duta-mall", title: "Duta Mall Banjarmasin", tag: "现代 - 市中心", location: "Jl. A. Yani Km 2", badge: "购物中心", desc: "南加里曼丹最大最宏伟的购物中心，城市的现代生活方式和娱乐中心。" },
+
         { id: "pasar-terapung", title: "洛拜坦水上市场", tag: "拂晓 - 洛拜坦", location: "库因与洛拜坦河段", badge: "世界非遗文化", desc: "晨光初照时分，商贩们划着传统木船在河面上进行交易，售卖新鲜果蔬与地道班加尔特色小吃。" },
         { id: "siring-martapura", title: "马尔塔普拉河畔观光塔", tag: "24小时 - Siring", location: "Siring 河滨观景台", badge: "城市地标", desc: "坐落于马尔塔普拉河畔的绿色休闲广场，是市民休闲娱乐的聚集地，也是搭乘观光木船的起始中心。" },
         { id: "patung-bekantan", title: "长鼻猴雕塑广场", tag: "标志性景点 - 马尔塔普拉", location: "Siring 河滨公园", badge: "婆罗洲吉祥物", desc: "一座宏伟的南加里曼丹特有物种——长鼻猴雕塑，口中向马尔塔普拉河面喷洒着水柱，极具震撼力。" },

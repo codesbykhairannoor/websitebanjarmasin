@@ -107,6 +107,39 @@ const routeLocations = [
     info: "Gastronomi Soto Banjar",
     mapsUrl: "https://maps.google.com/?q=Soto+Bang+Amat+Banjarmasin"
   },
+  {
+    id: 155,
+    title: "Taman Satwa Jahri Saleh",
+    category: "🏝️ Destinasi Wisata",
+    coords: [-3.2982, 114.6025],
+    emoji: "🐒",
+    color: "#33C3B3",
+    desc: "Ruang terbuka hijau dan kebun binatang mini yang menjadi pusat konservasi satwa lokal dan rekreasi keluarga.",
+    info: "Konservasi & Edukasi",
+    mapsUrl: "https://maps.google.com/?q=Taman+Satwa+Jahri+Saleh"
+  },
+  {
+    id: 156,
+    title: "Konservasi Pulau Kembang",
+    category: "🏝️ Destinasi Wisata",
+    coords: [-3.3015, 114.5451],
+    emoji: "🏝️",
+    color: "#00A896",
+    desc: "Pulau delta di tengah Sungai Barito yang menjadi habitat ribuan kera ekor panjang dan situs konservasi alam.",
+    info: "Habitat Satwa Liar",
+    mapsUrl: "https://maps.google.com/?q=Pulau+Kembang+Banjarmasin"
+  },
+  {
+    id: 157,
+    title: "Duta Mall Banjarmasin",
+    category: "🛍️ Pusat Belanja",
+    coords: [-3.3220, 114.6021],
+    emoji: "🛍️",
+    color: "#F4C038",
+    desc: "Pusat perbelanjaan terbesar dan termegah di Kalimantan Selatan, pusat gaya hidup dan hiburan modern kota.",
+    info: "Pusat Gaya Hidup Modern",
+    mapsUrl: "https://maps.google.com/?q=Duta+Mall+Banjarmasin"
+  },
 
   // 🛶 Dermaga Sungai
   {
@@ -253,14 +286,14 @@ export default function RouteAccessibilityMap() {
   const [activeLoc, setActiveLoc] = useState(translatedLocations[0]);
   const [selectedCategory, setSelectedCategory] = useState("Semua");
 
-  const categories = tMap('categories') || ["Semua", "🚌 Rute BRT", "🏝️ Destinasi Wisata", "🛶 Dermaga Sungai", "🏨 Hotel Pilihan", "🚨 Posko Darurat"];
+  const categories = tMap('categories') || ["Semua", "🚌 Rute BRT", "🏝️ Destinasi Wisata", "🛍️ Pusat Belanja", "🛶 Dermaga Sungai", "🏨 Hotel Pilihan", "🚨 Posko Darurat"];
   const selectedCategoryIndex = categories.indexOf(selectedCategory) !== -1 ? categories.indexOf(selectedCategory) : 0;
 
   const filteredLocations = selectedCategoryIndex === 0
     ? translatedLocations
     : translatedLocations.filter((loc) => {
         const originalCategory = routeLocations[translatedLocations.findIndex(tl => tl.id === loc.id)].category;
-        const originalSelectedCat = ["Semua", "🚌 Rute BRT", "🏝️ Destinasi Wisata", "🛶 Dermaga Sungai", "🏨 Hotel Pilihan", "🚨 Posko Darurat"][selectedCategoryIndex];
+        const originalSelectedCat = ["Semua", "🚌 Rute BRT", "🏝️ Destinasi Wisata", "🛍️ Pusat Belanja", "🛶 Dermaga Sungai", "🏨 Hotel Pilihan", "🚨 Posko Darurat"][selectedCategoryIndex];
         return originalCategory === originalSelectedCat;
       });
 

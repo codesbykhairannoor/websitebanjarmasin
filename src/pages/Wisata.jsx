@@ -21,7 +21,10 @@ export default function Wisata() {
     { id: "masjid-suriansyah", image: "/wisata/masjid sultan suriansyah.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
     { id: "rumah-adat-bubungan-tinggi", image: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
     { id: "taman-siring-martapura", image: "/wisata/960px-Taman_Siring_Banjarmasin.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
-    { id: "tugu-nol-kilometer", image: "/wisata/menara tugu pal 0.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" }
+    { id: "tugu-nol-kilometer", image: "/wisata/menara tugu pal 0.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
+    { id: "taman-jahri-saleh", image: "/wisata/taman satwa.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
+    { id: "pulau-kembang", image: "/wisata/pulau kambang.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
+    { id: "duta-mall", image: "/wisata/dutamall.webp", heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]" }
   ];
 
   const translatedDestinations = tLocal('heroDestinations') || [];
