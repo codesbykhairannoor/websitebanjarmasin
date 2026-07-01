@@ -514,7 +514,6 @@ export const pagesTranslations = {
       ]
     },
     panduan: {
-
       routeMap: {
         tag: "✦ NAVIGASI & AKSESIBILITAS TERPADU",
         title: "Peta Rute",
@@ -545,159 +544,95 @@ export const pagesTranslations = {
           { title: "Posko Tourist Information Center (TIC)", category: "🚨 Posko Darurat", desc: "Pusat pelayanan informasi wisata resmi Pemkot Banjarmasin di Siring Menara Pandang. Siaga membantu panduan rute wisatawan.", info: "Pusat Bantuan Wisatawan" }
         ]
       },
-
-      "hotels": {
-    "swiss": {
-      "price": "Bermula Rp 650.000 / malam",
-      "tag": "Jeti Peribadi",
-      "desc": "Satu-satunya hotel bintang empat di Banjarmasin dengan akses jeti kelotok peribadi dan teres restoran terbuka yang menghadap terus ke aktiviti Sungai Martapura."
+      hotels: {
+        swiss: { price: "Mulai Rp 650.000 / malam", tag: "Dermaga Pribadi", desc: "Satu-satunya hotel bintang empat di Banjarmasin dengan akses dermaga kelotok pribadi dan teras restoran terbuka yang menghadap langsung ke aktivitas Sungai Martapura." },
+        summer: { price: "Mulai Rp 320.000 / malam", tag: "Boutique Rooftop", desc: "Penginapan butik berdesain kayu estetik. Memiliki kafe rooftop yang menjadi spot favorit pelancong muda untuk bersantai menikmati sunset sungai." },
+        fave: { price: "Mulai Rp 380.000 / malam", tag: "1 Mnt ke Siring", desc: "Lokasi terbaik untuk pejalan kaki! Tepat di seberang Menara Pandang dan Siring Tendean. Keluar lobi langsung ke pusat wisata sungai dan kuliner." },
+        victoria: { price: "Mulai Rp 350.000 / malam", tag: "Pusat Kota", desc: "Berada di pusat kota dengan pemandangan muara sungai yang tenang serta akses mudah ke pusat kuliner malam." },
+        rattan: { price: "Mulai Rp 700.000 / malam", tag: "Resort & Bisnis", desc: "Suansa resort tropis dengan kolam renang luas ala Bali. Sangat dekat dengan akses jalan protokol menuju Bandara Syamsudin Noor." },
+        galaxy: { price: "Mulai Rp 680.000 / malam", tag: "Kuliner Premium", desc: "Pusat kuliner Chinese & Western eksklusif di dalam hotel, terletak di lokasi strategis pusat perdagangan dan mal kota." }
+      },
+      heroTag: "✦ PANDUAN SURVIVAL RESMI 2026",
+      heroTitle: "Panduan & Rute",
+      heroTitleSpan: "Wisatawan",
+      heroSubtitle: "Satu halaman komprehensif! Pelajari rute bus BRT bandara, kurasi hotel tepi sungai, etika budaya kelotok, hingga jalur darurat 24 jam.",
+      navAkses: "Akses & BRT",
+      navPeta: "Peta Rute",
+      navHotel: "Hotel Pilihan",
+      navEtika: "Etika Budaya",
+      navSos: "SOS 112",
+      navFaq: "FAQ",
+      bookTag: "EDISI RESMI 2026",
+      bookTitle: "Banjarmasin Saku",
+      bookDesc: "Panduan Eksplorasi & Navigasi Seribu Sungai",
+      bookDist: "27 km Bandara",
+      section1Tag: "✦ PETA JALAN KEDATANGAN & TRANSIT",
+      section1Title: "Alur Kedatangan &",
+      section1TitleSpan: "Transit Kota",
+      section1Desc: "Simulasi langkah demi langkah yang saling menghubungkan pendaratan bandara dengan pelayaran perahu kelotok.",
+      steps: [
+        { num: "1", tag: "Kedatangan Udara", title: "Bandara Syamsudin Noor", desc: "Terletak di Banjarbaru (27 km dari pusat kota). Waktu perjalanan normal ke Banjarmasin sekitar 45 - 60 menit.", price: "🚕 ± Rp 150k" },
+        { num: "2", tag: "Pilihan Hemat Backpacker", title: "Bus BRT Banjarbakula", desc: "Naik bus BRT dari halte bandara ke Terminal Gambut Barakat (Km 17). Bayar cashless via QRIS / e-Money.", price: "🎟️ Rp 5.000" },
+        { num: "3", tag: "Transit Pusat Kota", title: "Menuju Siring Tendean", desc: "Dari Km 17, sambung bus koridor pusat kota dan turun di halte Siring Menara Pandang atau Pasar Sudimampir.", price: "📍 Siring Km 0" },
+        { num: "4", tag: "Eksplorasi Perairan", title: "Sewa Kelotok Wisata", desc: "Dermaga Siring melayani susur sungai reguler. Untuk sewa perahu ke Pasar Terapung Lok Baintan subuh memuat hingga 15 orang.", price: "🚤 ± Rp 400k" }
+      ],
+      section2Tag: "✦ PILIHAN AKOMODASI",
+      section2Title: "Kurasi",
+      section2TitleSpan: "Penginapan Pilihan",
+      section2Desc: "Pilih kategori penginapan sesuai dengan preferensi Anda: dari pemandangan sungai langsung hingga akses berjalan kaki ke landmark.",
+      hotelTab1: "🌅 Riverfront View",
+      hotelTab2: "🚶‍♂️ Jalan Kaki ke Siring",
+      hotelTab3: "🏢 Resort & Bisnis",
+      hotelBtn: "Buka Lokasi di Google Maps ➔",
+      section3Tag: "✦ ETIKA BUDAYA LOKAL",
+      section3Title: "Aturan Main",
+      section3TitleSpan: "Seribu Sungai",
+      section3Desc: "Hormati alam dan adat setempat agar liburan Anda selalu disambut dengan senyum ramah oleh warga lokal Banjar.",
+      dosTitle: "DO'S (Sangat Dianjurkan)",
+      dosFooter: "💡 Nilai tambah untuk kesopanan dan tata krama",
+      dosList: [
+        "Wajib memakai jaket pelampung (life jacket) selama berada di atas perahu kelotok demi keselamatan.",
+        "Sapa pedagang wanita dengan panggilan sopan 'Acil' (Bibi) atau pedagang pria dengan 'Paman' (Paman) disertai senyuman ramah.",
+        "Berpakaian sopan dan tertutup saat mengunjungi rumah ibadah atau situs bersejarah saat memasuki kawasan Masjid Sultan Suriansyah atau makam bersejarah.",
+        "Menawar harga di Pasar Terapung dengan nada yang lembut dan wajar sebagai bagian dari interaksi budaya."
+      ],
+      dontsTitle: "DON'TS (Pantangan Keras)",
+      dontsFooter: "⚠️ Pelanggaran etika berdampak pada kenyamanan bersama",
+      dontsList: [
+        "DILARANG membuang sampah ke dalam sungai! Sungai adalah urat nadi kehidupan dan martabat warga Banjarmasin.",
+        "Jangan berdiri secara tiba-tiba, melompat, atau menggoyangkan kelotok saat berpapasan dengan perahu besar.",
+        "Hindari mengeluarkan kata-kata kasar atau menghina tradisi setempat saat berada di area publik.",
+        "Jangan memotret warga lokal dari jarak dekat tanpa izin, terutama saat aktivitas pribadi di sungai."
+      ],
+      section4Tag: "🚨 LAYANAN DARURAT 24 JAM",
+      section4Title: "Pusat Bantuan",
+      section4TitleSpan: "Siaga 24 Jam",
+      section4Desc: "Banjarmasin adalah kota yang ramah dan aman. Tekan tombol salin di bawah saat Anda membutuhkan bantuan darurat dari petugas terkait.",
+      hotline1Title: "112",
+      hotline1Sub: "Call Center Bebas Pulsa",
+      hotline1Desc: "Layanan gawat darurat terpadu Kota Banjarmasin untuk medis, kebakaran, dan penyelamatan. Respons cepat 24 jam.",
+      hotline1Btn: "Salin Nomor 112",
+      hotline2Title: "110",
+      hotline2Sub: "Polairud / Polisi Pariwisata",
+      hotline2Desc: "Keamanan kawasan wisata perairan sungai dan darat. Hubungi untuk bantuan kepolisian atau pelaporan gangguan keamanan.",
+      hotline2Btn: "Salin Nomor 110",
+      hotline3Title: "(0511) 3252180",
+      hotline3Sub: "RSUD Ulin Banjarmasin",
+      hotline3Desc: "Rumah sakit rujukan tingkat provinsi terlengkap di pusat kota dengan IGD modern 24 jam.",
+      hotline3Btn: "Salin Nomor RSUD",
+      copied: "Disalin!",
+      section5Tag: "✦ BUTUH BANTUAN?",
+      section5Title: "Pertanyaan",
+      section5TitleSpan: "Umum (FAQ)",
+      section5Desc: "Dapatkan jawaban cepat untuk pertanyaan yang paling sering diajukan oleh wisatawan sebelum mengunjungi Banjarmasin.",
+      faqs: [
+        { question: "Kapan waktu terbaik mengunjungi Pasar Terapung Lok Baintan?", answer: "Waktu terbaik adalah pagi hari pukul 05.30 - 07.30 WITA saat matahari terbit ketika aktivitas jual beli di atas perahu jukung tradisional berada di puncak keramaian." },
+        { question: "Apakah pembayaran bus BRT dan kelotok bisa menggunakan cashless?", answer: "Bus BRT Trans Banjarbakula mendukung 100% cashless (QRIS & e-Money dengan tarif flat Rp 5.000). Untuk kelotok wisata di Siring sudah mulai menerima QRIS, namun disarankan membawa uang tunai secukupnya untuk sewa perahu atau belanja di pasar terapung." },
+        { question: "Bagaimana cara ke pusat kota dari Bandara Syamsudin Noor jika tiba malam hari?", answer: "Bus BRT beroperasi dari bandara hingga pukul 19.00 WITA. Jika Anda tiba setelah waktu tersebut, Anda bisa menggunakan taksi bandara resmi atau taksi online dengan tarif sekitar Rp 120.000 - Rp 150.000 ke pusat kota Banjarmasin." },
+        { question: "Apakah aman menyusuri sungai saat musim hujan?", answer: "Sangat aman karena motoris perahu kelotok wisata resmi sudah berpengalaman dan semua penumpang diwajibkan memakai life jacket. Namun hindari pelayaran saat cuaca ekstrem atau angin kencang." },
+        { question: "Apa etika berpakaian saat mengunjungi tempat bersejarah?", answer: "Sangat disarankan memakai pakaian yang sopan dan tertutup (menutupi bahu dan lutut) saat memasuki kawasan Masjid Sultan Suriansyah atau makam bersejarah sebagai tanda penghormatan terhadap adat setempat." }
+      ]
     },
-    "summer": {
-      "price": "Bermula Rp 320.000 / malam",
-      "tag": "Boutique Rooftop",
-      "desc": "Penginapan butik berdesain kayu estetik. Mempunyai kafe rooftop yang menjadi spot kegemaran pengembara muda untuk bersenang menikmati sunset sungai."
-    },
-    "fave": {
-      "price": "Bermula Rp 380.000 / malam",
-      "tag": "1 Mnt ke Siring",
-      "desc": "Lokasi terbaik untuk pejalan kaki! Tepat di seberang Menara Pandang dan Siring Tendean. Keluar lobi terus ke pusat pelancongan sungai dan makanan."
-    },
-    "victoria": {
-      "price": "Bermula Rp 350.000 / malam",
-      "tag": "Pusat Kota",
-      "desc": "Berada di pusat pentadbiran kota dengan pemandangan muara sungai yang tenang serta akses mudah ke pusat kuliner malam."
-    },
-    "rattan": {
-      "price": "Bermula Rp 700.000 / malam",
-      "tag": "Resort & Bisnes",
-      "desc": "Suasana resort tropika dengan kolam renang luas ala Bali. Sangat dekat dengan akses jalan protokol menuju Bandara Syamsudin Noor."
-    },
-    "galaxy": {
-      "price": "Bermula Rp 680.000 / malam",
-      "tag": "Kuliner Premium",
-      "desc": "Pusat kuliner Chinese & Western eksklusif di dalam hotel, terletak di lokasi strategik pusat perdagangan dan pusat membeli-belah kota."
-    }
-  },
-  "heroTag": "✦ PANDUAN KELANGSUNGAN RASMI 2026",
-  "heroTitle": "Panduan & Rute",
-  "heroTitleSpan": "Pelancong",
-  "heroSubtitle": "Satu halaman komprehensif tanpa pengulangan maklumat! Pelajari laluan bas BRT lapangan terbang, kurasi hotel tepi sungai, etika budaya kelotok, sehingga jalur darurat 24 jam.",
-  "navAkses": "Akses & BRT",
-  "navPeta": "Peta Rute",
-  "navHotel": "Hotel Pilihan",
-  "navEtika": "Etika Budaya",
-  "navSos": "SOS 112",
-  "navFaq": "FAQ",
-  "bookTag": "EDISI RESMI 2026",
-  "bookTitle": "Banjarmasin Saku",
-  "bookDesc": "Panduan Eksplorasi & Kelangsungan Seribu Sungai",
-  "bookDist": "27 km Bandara",
-  "section1Tag": "✦ PETA JALAN KETIBAAN & TRANSIT",
-  "section1Title": "Aliran Kedatangan &",
-  "section1TitleSpan": "Transit Kota",
-  "section1Desc": "Simulasi langkah demi langkah yang saling menghubungkan pendaratan lapangan terbang dengan pelayaran jukung kelotok.",
-  "steps": [
-    {
-      "num": "1",
-      "tag": "Kedatangan Udara",
-      "title": "Bandara Syamsudin Noor",
-      "desc": "Terletak di Banjarbaru (27 km dari pusat kota). Waktu perjalanan biasa ke Banjarmasin sekitar 45 - 60 menit.",
-      "price": "🚕 ± Rp 150k"
-    },
-    {
-      "num": "2",
-      "tag": "Pilihan Jimat Backpacker",
-      "title": "Bas BRT Banjarbakula",
-      "desc": "Naik bas BRT dari hentian lapangan terbang ke Terminal Gambut Barakat (Km 17). Bayar secara cashless via QRIS / e-Money.",
-      "price": "🎟️ Rp 5.000"
-    },
-    {
-      "num": "3",
-      "tag": "Transit Pusat Kota",
-      "title": "Menuju Siring Tendean",
-      "desc": "Dari Km 17, sambung bas koridor pusat kota dan turun di hentian Siring Menara Pandang atau Pasar Sudimampir.",
-      "price": "📍 Siring Km 0"
-    },
-    {
-      "num": "4",
-      "tag": "Eksplorasi Perairan",
-      "title": "Sewa Bot Kelotok Wisata",
-      "desc": "Jeti Siring melayani pelayaran sungai biasa. Untuk sewaan perahu ke Pasar Terapung Lok Baintan subuh memuatkan hingga 15 orang.",
-      "price": "🚤 ± Rp 400k"
-    }
-  ],
-  "section2Tag": "✦ WHERE TO STAY IN BANJARMASIN",
-  "section2Title": "Kurasi",
-  "section2TitleSpan": "Penginapan Pilihan",
-  "section2Desc": "Pilih kategori penginapan mengikut kesesuaian percutian anda: dari pemandangan sungai langsung hingga akses berjalan kaki ke landmark.",
-  "hotelTab1": "🌅 Riverfront View",
-  "hotelTab2": "🚶‍♂️ Jalan Kaki ke Siring",
-  "hotelTab3": "🏢 Resort & Perniagaan",
-  "hotelBtn": "Buka Lokasi di Google Maps ➔",
-  "section3Tag": "✦ CULTURAL ETIQUETTE",
-  "section3Title": "Aturan Main",
-  "section3TitleSpan": "Seribu Sungai",
-  "section3Desc": "Hormati alam dan adat resam tempatan agar percutian anda sentiasa disambut dengan senyuman mesra oleh warga tempatan Banjar.",
-  "dosTitle": "DO'S (Sangat Digalakkan)",
-  "dosFooter": "💡 Nilai tambah untuk kesopanan dan tata kelakuan",
-  "dosList": [
-    "Wajib memakai jaket keselamatan (life jacket) sepanjang berada di atas perahu kelotok demi keselamatan.",
-    "Sapa peniaga wanita dengan panggilan sopan \"Acil\" (Makcik) atau peniaga lelaki dengan \"Paman\" (Pakcik) berserta senyuman ramah.",
-    "Berpakaian sopan dan tertutup semasa melawat rumah ibadat atau tapak bersejarah apabila memasuki kawasan Masjid Sultan Suriansyah atau makam bersejarah.",
-    "Menawar harga di Pasar Terapung dengan nada yang lembut dan wajar sebagai sebahagian daripada interaksi budaya."
-  ],
-  "dontsTitle": "DON'TS (Pantangan Keras)",
-  "dontsFooter": "⚠️ Pelanggaran etika memberi kesan kepada keselesaan bersama",
-  "dontsList": [
-    "DILARANG membuang sampah ke dalam sungai! Sungai ialah urat nadi kehidupan dan maruah warga Banjarmasin.",
-    "Jangan berdiri secara mengejut, melompat, atau menggoyangkan kelotok semasa bertembung dengan perahu besar.",
-    "Elakkan daripada mengeluarkan kata-kata kesat atau menghina tradisi tempatan apabila berada di kawasan awam.",
-    "Jangan mengambil foto warga tempatan dari jarak dekat tanpa keizinan, terutamanya semasa aktiviti peribadi di sungai."
-  ],
-  "section4Tag": "🚨 TALIAN DARURAT PELANCONG 24 JAM",
-  "section4Title": "Perkhidmatan Bantuan",
-  "section4TitleSpan": "Bersiap Sedia 24 Jam",
-  "section4Desc": "Tekan butang salin di bawah apabila berada dalam darurat. Semua perkhidmatan disepadukan dengan petugas bersiap sedia Pemerintah Kota Banjarmasin.",
-  "hotline1Title": "112",
-  "hotline1Sub": "Pusat Panggilan Kota",
-  "hotline1Desc": "Perkhidmatan bersepadu bebas tol 24 jam untuk ambulans perubatan darurat, bomba, dan penyelamatan.",
-  "hotline1Btn": "Salin Nombor 112",
-  "hotline2Title": "110",
-  "hotline2Sub": "Polis Marin & Keselamatan",
-  "hotline2Desc": "Unit polis khas untuk kawalan keselamatan perairan Sungai Martapura & Barito. Sedia membantu perahu pelancongan.",
-  "hotline2Btn": "Salin Nombor 110",
-  "hotline3Title": "(0511) 3252180",
-  "hotline3Sub": "RSUD Ulin Banjarmasin",
-  "hotline3Desc": "Hospital rujukan peringkat negeri terlengkap di pusat kota (Jl. A. Yani Km 2.5) dengan IGD moden 24 jam.",
-  "hotline3Btn": "Salin Nombor RSUD",
-  "copied": "Tersalin!",
-  "section5Tag": "✦ NEED HELP? WE GOT YOU COVERED",
-  "section5Title": "Soalan",
-  "section5TitleSpan": "Lazim (FAQ)",
-  "section5Desc": "Dapatkan jawapan pantas bagi soalan yang paling kerap ditanya oleh pelancong sebelum melawat Banjarmasin.",
-  "faqs": [
-    {
-      "question": "Bilakah waktu terbaik untuk melawat Pasar Terapung Lok Baintan?",
-      "answer": "Waktu terbaik adalah awal pagi jam 05.30 - 07.30 WITA semasa matahari terbit apabila aktiviti jual beli di atas perahu jukung tradisional berada di kemuncak kesibukan."
-    },
-    {
-      "question": "Adakah pembayaran bagi bas BRT dan kelotok boleh dilakukan secara cashless?",
-      "answer": "Bas BRT Trans Banjarbakula menyokong 100% cashless (QRIS & e-Money dengan tambang flat Rp 5.000). Bagi kelotok pelancongan biasa di Siring sudah mula menerima QRIS, namun dinasihatkan membawa tunai yang cukup untuk sewaan perahu atau membeli-belah di pasar terapung."
-    },
-    {
-      "question": "Bagaimanakah cara ke pusat kota dari Bandara Syamsudin Noor sekiranya tiba pada waktu malam?",
-      "answer": "Bas BRT beroperasi dari lapangan terbang sehingga jam 19.00 WITA. Jika anda tiba selepas waktu itu, anda boleh menggunakan teksi rasmi lapangan terbang atau teksi e-hailing dengan tambang sekitar Rp 120.000 - Rp 150.000 ke pusat kota Banjarmasin."
-    },
-    {
-      "question": "Adakah selamat menyusuri sungai semasa musim hujan?",
-      "answer": "Sangat selamat kerana pengemudi perahu kelotok pelancongan berdaftar berpengalaman dan semua penumpang diwajibkan memakai jaket keselamatan. Namun elakkan pelayaran semasa cuaca ekstrem atau ribut angin kencang."
-    },
-    {
-      "question": "Apakah etika pakaian semasa melawat rumah ibadat atau tapak bersejarah?",
-      "answer": "Amat digalakkan memakai pakaian yang sopan dan tertutup (menutupi bahu dan lutut) apabila memasuki kawasan Masjid Sultan Suriansyah atau makam bersejarah sebagai tanda menghormati adat resam tempatan Banjar."
-    }
-  ]
-}
   },
   en: {
     budaya: {

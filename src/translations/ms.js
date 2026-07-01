@@ -28,6 +28,11 @@ export const ms = {
     themeDark: "🌙 Gelap",
     playAudio: "Mainkan",
     pauseAudio: "Jeda"
+,
+    tooltipTheme: "Tukar Tema",
+    tooltipLang: "Pilih Bahasa",
+    tooltipAudio: "Main / Jeda Audio",
+    tooltipAudioMenu: "Pilih Suasana Muzik Banjar"
   },
   footer: {
     description: "Portal Rasmi Penerokaan Pelancongan & Kebudayaan Bumi Lambung Mangkurat. Menyajikan panduan perjalanan tanpa batasan di Kota Seribu Sungai.",

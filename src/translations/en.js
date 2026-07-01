@@ -28,6 +28,11 @@ export const en = {
     themeDark: "🌙 Dark",
     playAudio: "Play",
     pauseAudio: "Pause"
+,
+    tooltipTheme: "Toggle Theme",
+    tooltipLang: "Select Language",
+    tooltipAudio: "Play / Pause Audio",
+    tooltipAudioMenu: "Select Audio Soundscape"
   },
   footer: {
     description: "Official Portal for Tourism & Culture Exploration of Lambung Mangkurat Land. Providing unlimited travel guides in the City of a Thousand Rivers.",

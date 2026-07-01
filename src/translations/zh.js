@@ -28,6 +28,11 @@ export const zh = {
     themeDark: "🌙 暗黑",
     playAudio: "播放",
     pauseAudio: "暂停"
+,
+    tooltipTheme: "切换主题",
+    tooltipLang: "选择语言",
+    tooltipAudio: "播放 / 暂停音频",
+    tooltipAudioMenu: "选择班贾尔音乐氛围"
   },
   footer: {
     description: "Lambung Mangkurat 土地旅游与文化探索官方门户。为您提供千河之城马辰的无限旅行指南。",

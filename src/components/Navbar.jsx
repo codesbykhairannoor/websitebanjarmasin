@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 // Global Audio Singleton agar musik TIDAK MATI saat ganti bahasa / navigasi antar halaman
-const globalAudio = {
+window.__globalAudio = window.__globalAudio || {
   instance: null,
   isPlaying: false,
   activeTrackId: 'ampar',
@@ -12,18 +12,18 @@ const globalAudio = {
 };
 
 function notifyAudioListeners() {
-  globalAudio.listeners.forEach(fn => fn({ isPlaying: globalAudio.isPlaying, activeTrackId: globalAudio.activeTrackId }));
+  window.__globalAudio.listeners.forEach(fn => fn({ isPlaying: window.__globalAudio.isPlaying, activeTrackId: window.__globalAudio.activeTrackId }));
 }
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
-  const [isPlaying, setIsPlaying] = useState(() => globalAudio.isPlaying);
+  const [isPlaying, setIsPlaying] = useState(() => window.__globalAudio.isPlaying);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
   const [openLangDropdown, setOpenLangDropdown] = useState(false);
   const [openAudioDropdown, setOpenAudioDropdown] = useState(false);
-  const [activeTrackId, setActiveTrackId] = useState(() => globalAudio.activeTrackId);
+  const [activeTrackId, setActiveTrackId] = useState(() => window.__globalAudio.activeTrackId);
   
   const location = useLocation();
   const dropdownRef = useRef(null);
@@ -48,11 +48,11 @@ export default function Navbar() {
       setIsPlaying(state.isPlaying);
       setActiveTrackId(state.activeTrackId);
     };
-    globalAudio.listeners.add(listener);
-    setIsPlaying(globalAudio.isPlaying);
-    setActiveTrackId(globalAudio.activeTrackId);
+    window.__globalAudio.listeners.add(listener);
+    setIsPlaying(window.__globalAudio.isPlaying);
+    setActiveTrackId(window.__globalAudio.activeTrackId);
     return () => {
-      globalAudio.listeners.delete(listener);
+      window.__globalAudio.listeners.delete(listener);
     };
   }, []);
 
@@ -104,8 +104,8 @@ export default function Navbar() {
 
   // Putar atau Hentikan Audio Instrumen Banjar (Secara Global)
   const playSelectedTrack = (trackId) => {
-    if (globalAudio.instance) {
-      globalAudio.instance.pause();
+    if (window.__globalAudio.instance) {
+      window.__globalAudio.instance.pause();
     }
     const trackObj = audioTracks.find(t => t.id === trackId);
     if (!trackObj) return;
@@ -114,28 +114,28 @@ export default function Navbar() {
     audio.loop = true;
     audio.volume = 0.45;
     audio.play().then(() => {
-      globalAudio.isPlaying = true;
-      globalAudio.activeTrackId = trackId;
+      window.__globalAudio.isPlaying = true;
+      window.__globalAudio.activeTrackId = trackId;
       notifyAudioListeners();
     }).catch(err => {
       console.log("Audio play error:", err);
     });
-    globalAudio.instance = audio;
-    globalAudio.isPlaying = true;
-    globalAudio.activeTrackId = trackId;
+    window.__globalAudio.instance = audio;
+    window.__globalAudio.isPlaying = true;
+    window.__globalAudio.activeTrackId = trackId;
     notifyAudioListeners();
   };
 
   const toggleSound = () => {
-    if (globalAudio.isPlaying) {
-      if (globalAudio.instance) {
-        globalAudio.instance.pause();
-        globalAudio.instance = null;
+    if (window.__globalAudio.isPlaying) {
+      if (window.__globalAudio.instance) {
+        window.__globalAudio.instance.pause();
+        window.__globalAudio.instance = null;
       }
-      globalAudio.isPlaying = false;
+      window.__globalAudio.isPlaying = false;
       notifyAudioListeners();
     } else {
-      playSelectedTrack(globalAudio.activeTrackId);
+      playSelectedTrack(window.__globalAudio.activeTrackId);
     }
   };
 
@@ -149,7 +149,7 @@ export default function Navbar() {
           
           {/* Logo - Klik ke Home */}
           <Link to="/" className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
-            <img src="/logotransparan.png" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md" />
+            <img src="/logotransparan.png" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md bg-transparent" style={{ backgroundColor: "transparent" }} />
             <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
           </Link>
 
@@ -240,7 +240,7 @@ export default function Navbar() {
               <button
                 onClick={() => setOpenLangDropdown(!openLangDropdown)}
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#33C3B3] text-lg transition-all shadow-sm hover:scale-105 shrink-0"
-                title="Select Language / Pilih Bahasa"
+                title={t('navbar.tooltipLang')}
               >
                 {language === 'id' ? '🇮🇩' : language === 'en' ? '🇬🇧' : language === 'ms' ? '🇲🇾' : '🇨🇳'}
               </button>
@@ -279,7 +279,7 @@ export default function Navbar() {
             {/* Theme Toggle Icon Only (Hidden on mobile top bar, available in mobile menu) */}
             <button
               onClick={toggleTheme}
-              title="Ubah Tema Gelap / Terang"
+              title={t('navbar.tooltipTheme')}
               className="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 rounded-full items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#F4C038] text-base sm:text-lg transition-all shadow-sm hover:scale-105 shrink-0"
             >
               {theme === 'dark' ? '☀️' : '🌙'}
@@ -290,7 +290,7 @@ export default function Navbar() {
               <div className="flex items-center">
                 <button
                   onClick={toggleSound}
-                  title="Putar / Jeda Suasana Audio Banjar"
+                  title={t('navbar.tooltipAudio')}
                   className={`h-9 sm:h-10 px-3 sm:px-3.5 rounded-l-full flex items-center gap-1.5 transition-all border shadow-sm hover:scale-105 shrink-0 ${
                     isPlaying
                       ? 'bg-[#00A896]/20 border-[#00A896] text-[#00A896] shadow-[0_0_15px_rgba(0,168,150,0.3)]'
@@ -308,7 +308,7 @@ export default function Navbar() {
                 </button>
                 <button
                   onClick={() => setOpenAudioDropdown(!openAudioDropdown)}
-                  title="Pilih Suasana Musik Banjar"
+                  title={t('navbar.tooltipAudioMenu')}
                   className={`h-9 sm:h-10 px-1.5 rounded-r-full border-y border-r transition-all flex items-center justify-center ${
                     isPlaying
                       ? 'bg-[#00A896]/20 border-[#00A896] text-[#00A896]'

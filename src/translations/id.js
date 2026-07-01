@@ -28,6 +28,11 @@ export const id = {
     themeDark: "🌙 Gelap",
     playAudio: "Putar",
     pauseAudio: "Jeda"
+,
+    tooltipTheme: "Ubah Tema",
+    tooltipLang: "Pilih Bahasa",
+    tooltipAudio: "Putar / Jeda Audio",
+    tooltipAudioMenu: "Pilih Suasana Musik Banjar"
   },
   footer: {
     description: "Portal Resmi Eksplorasi Pariwisata & Budaya Bumi Lambung Mangkurat. Menyajikan panduan perjalanan tanpa batas di Kota Seribu Sungai.",
@@ -212,7 +217,24 @@ export const id = {
           title: "BRT Trans Banjarbakula",
           desc: "Bus AC nyaman beroperasi menembus bandara hingga titik Nol Kilometer kota."
         }
-      ]
+      ],
+      section4Tag: "✦ LAYANAN DARURAT & BANTUAN",
+      section4Title: "Pusat Bantuan",
+      section4TitleSpan: "Siaga 24 Jam",
+      section4Desc: "Banjarmasin merupakan kota yang aman dan ramah wisatawan. Namun, simpan nomor-nomor penting ini untuk keadaan darurat selama kunjungan Anda.",
+      hotline1Title: "Call Center 112",
+      hotline1Sub: "Bebas Pulsa",
+      hotline1Desc: "Layanan gawat darurat terpadu Kota Banjarmasin untuk medis, kebakaran, dan penyelamatan. Respons cepat 24 jam.",
+      hotline1Btn: "Salin Nomor 112",
+      hotline2Title: "Polisi Pariwisata",
+      hotline2Sub: "Polairud / 110",
+      hotline2Desc: "Keamanan kawasan wisata sungai & darat. Hubungi untuk bantuan kepolisian atau pelaporan gangguan keamanan.",
+      hotline2Btn: "Salin Nomor 110",
+      hotline3Title: "RSUD Ulin",
+      hotline3Sub: "Rumah Sakit Rujukan Utama",
+      hotline3Desc: "Fasilitas medis terlengkap di Kalimantan Selatan dengan layanan IGD 24 jam dan tenaga medis spesialis.",
+      hotline3Btn: "Salin Nomor RSUD",
+      copied: "Disalin!"
     },
     planner: {
       tag: "✦ NAVIGASI PERJALANAN",
