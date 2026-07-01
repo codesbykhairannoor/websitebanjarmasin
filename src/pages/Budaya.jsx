@@ -508,8 +508,8 @@ export default function Budaya() {
             })}
 
             <div className="absolute bottom-4 left-4 bg-[#091422]/95 px-4 py-2 rounded-2xl border border-white/10">
-              <span className="text-[10px] font-black text-[#F4C038] uppercase tracking-wider block">🏰 ISTANA KESULTANAN</span>
-              <span className="text-xs font-bold text-white">Rumah Adat Bubungan Tinggi Kayu Ulin</span>
+              <span className="text-[10px] font-black text-[#F4C038] uppercase tracking-wider block">{tLocal('istanaTitle')}</span>
+              <span className="text-xs font-bold text-white">{tLocal('istanaSubtitle')}</span>
             </div>
           </div>
 
