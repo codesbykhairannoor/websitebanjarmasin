@@ -140,6 +140,39 @@ const routeLocations = [
     info: "Pusat Gaya Hidup Modern",
     mapsUrl: "https://maps.google.com/?q=Duta+Mall+Banjarmasin"
   },
+  {
+    id: 158,
+    title: "Masjid Raya Sabilal Muhtadin",
+    category: "🏝️ Destinasi Wisata",
+    coords: [-3.3183, 114.5912],
+    emoji: "🕌",
+    color: "#33C3B3",
+    desc: "Masjid raya kebanggaan warga Kalimantan Selatan dengan arsitektur megah dan kubah tembaga yang khas.",
+    info: "Ikon Religi Kalsel",
+    mapsUrl: "https://maps.google.com/?q=Masjid+Raya+Sabilal+Muhtadin"
+  },
+  {
+    id: 159,
+    title: "Museum Wasaka & Rumah Adat Bubungan Tinggi",
+    category: "🏝️ Destinasi Wisata",
+    coords: [-3.3039, 114.6086],
+    emoji: "🏛️",
+    color: "#E63946",
+    desc: "Museum perjuangan rakyat Kalimantan Selatan yang berlokasi di rumah adat Banjar bergaya Bubungan Tinggi.",
+    info: "Sejarah & Edukasi",
+    mapsUrl: "https://maps.google.com/?q=Museum+Wasaka+Banjarmasin"
+  },
+  {
+    id: 160,
+    title: "Tugu Nol Kilometer & Taman Siring 0 Km",
+    category: "🏝️ Destinasi Wisata",
+    coords: [-3.3195, 114.5905],
+    emoji: "📍",
+    color: "#F4C038",
+    desc: "Monumen penanda titik nol kilometer acuan jarak Kota Banjarmasin dan kawasan pedestrian pesisir sungai.",
+    info: "Titik Nol Kota",
+    mapsUrl: "https://maps.google.com/?q=Tugu+Nol+Kilometer+Banjarmasin"
+  },
 
   // 🛶 Dermaga Sungai
   {
