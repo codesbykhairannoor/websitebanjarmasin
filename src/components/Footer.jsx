@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Col 1: Brand & Mascot Story (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="inline-flex items-center gap-2 sm:gap-2.5 font-heading text-2xl sm:text-3xl font-black tracking-tight">
-              <img src="/logo.svg" alt="Logo Banjarmasin" className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-md" />
+              <img src="/logotransparan.png" alt="Logo Banjarmasin" className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-md" />
               <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
             </Link>
             <p className="text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed max-w-sm">
