@@ -149,7 +149,7 @@ export default function Navbar() {
           
           {/* Logo - Klik ke Home */}
           <Link to="/" className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
-            <img src="/logo.webp" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md" />
+            <img src="/logo.svg" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md" />
             <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
           </Link>
 
@@ -419,7 +419,7 @@ export default function Navbar() {
                     onClick={toggleTheme}
                     className="h-7 px-2.5 rounded-lg bg-[var(--glass-border)] text-[var(--text-main)] text-[11px] font-bold flex items-center gap-1 shrink-0"
                   >
-                    {theme === 'dark' ? '☀️ Terang' : '🌙 Gelap'}
+                    {theme === 'dark' ? t('navbar.themeLight') : t('navbar.themeDark')}
                   </button>
                 </div>
 
@@ -432,7 +432,7 @@ export default function Navbar() {
                     }`}
                   >
                     <span>{isPlaying ? '🔊' : '🔇'}</span>
-                    <span>{isPlaying ? 'Putar' : 'Musik Banjar'}</span>
+                    <span>{isPlaying ? t('navbar.pauseAudio') : t('navbar.playAudio')}</span>
                   </button>
 
                   <select

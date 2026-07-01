@@ -23,7 +23,11 @@ export const zh = {
     trackAmpar: "🍌 Ampar-Ampar Pisang (民谣纯音乐)",
     trackParis: "⛵ Paris Barantai (传统潘婷合奏)",
     trackAmpat: "🎵 Ampat Si Ampat Lima (潘婷琴声)",
-    trackRindu: "🪕 Rindu-Rindu (现代改编曲)"
+    trackRindu: "🪕 Rindu-Rindu (现代改编曲)",
+    themeLight: "☀️ 明亮",
+    themeDark: "🌙 暗黑",
+    playAudio: "播放",
+    pauseAudio: "暂停"
   },
   footer: {
     description: "Lambung Mangkurat 土地旅游与文化探索官方门户。为您提供千河之城马辰的无限旅行指南。",

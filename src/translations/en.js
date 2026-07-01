@@ -23,7 +23,11 @@ export const en = {
     trackAmpar: "🍌 Ampar-Ampar Pisang (Folk Song)",
     trackParis: "⛵ Paris Barantai (Instrumental)",
     trackAmpat: "🎵 Ampat Si Ampat Lima (Panting Lute)",
-    trackRindu: "🪕 Rindu-Rindu (Modern Panting)"
+    trackRindu: "🪕 Rindu-Rindu (Modern Panting)",
+    themeLight: "☀️ Light",
+    themeDark: "🌙 Dark",
+    playAudio: "Play",
+    pauseAudio: "Pause"
   },
   footer: {
     description: "Official Portal for Tourism & Culture Exploration of Lambung Mangkurat Land. Providing unlimited travel guides in the City of a Thousand Rivers.",

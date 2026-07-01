@@ -23,7 +23,11 @@ export const id = {
     trackAmpar: "🍌 Ampar-Ampar Pisang",
     trackParis: "⛵ Paris Barantai",
     trackAmpat: "🎵 Ampat Si Ampat Lima",
-    trackRindu: "🪕 Rindu-Rindu (Musik Panting)"
+    trackRindu: "🪕 Rindu-Rindu (Musik Panting)",
+    themeLight: "☀️ Terang",
+    themeDark: "🌙 Gelap",
+    playAudio: "Putar",
+    pauseAudio: "Jeda"
   },
   footer: {
     description: "Portal Resmi Eksplorasi Pariwisata & Budaya Bumi Lambung Mangkurat. Menyajikan panduan perjalanan tanpa batas di Kota Seribu Sungai.",
