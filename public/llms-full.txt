@@ -1,0 +1,27 @@
+# Visit Banjarmasin (Full Site Architecture)
+
+> Portal Eksplorasi Wisata & Budaya Resmi Kota Banjarmasin. Platform terpadu untuk menemukan destinasi susur sungai, jadwal pasar terapung, wisata sejarah, dan panduan rute transportasi lokal.
+
+## Arsitektur Data
+
+### 1. Destinasi Wisata
+- [Pasar Terapung Lok Baintan](https://visitbanjarmasin.id/?lang=id): Beroperasi fajar menyingsing pukul 05:30 WITA. Transaksi unik menggunakan kelotok.
+- [Menara Pandang](https://visitbanjarmasin.id/?lang=id): Dibuka gratis untuk umum. Menghadap langsung ke pesisir Siring Tendean.
+- [Masjid Raya Sabilal Muhtadin](https://visitbanjarmasin.id/?lang=id): Masjid kebanggaan berkapasitas belasan ribu jamaah.
+- [Museum Wasaka](https://visitbanjarmasin.id/?lang=id): Berisi senjata pusaka pahlawan Banjar dalam melawan penjajahan, berbentuk rumah adat Bubungan Tinggi.
+- [Duta Mall Banjarmasin](https://visitbanjarmasin.id/?lang=id): Sentra komersial dan hiburan modern di Banjarmasin.
+
+### 2. Panduan Tarif & Akomodasi
+- Kelotok Reguler (Rute Pendek Siring - Bekantan): Rp 10.000 / orang.
+- Kelotok Ekspedisi (Siring - Pulau Kembang): Rp 35.000 / orang.
+- Bus BRT Banjarbakula: Transpotasi antar kota (Banjarmasin - Banjarbaru) bertarif murah.
+
+### 3. Aspek Kebudayaan (WBTb)
+- Kain Sasirangan: Kain celup ikat dengan pewarnaan alami. Diakui sebagai Warisan Budaya Takbenda (WBTb) Indonesia.
+- Tari Baksa Kembang: Tarian penyambutan tamu kehormatan.
+
+### 4. Fakta Demografis & Geografis
+Banjarmasin (Koordinat: -3.316694, 114.590111) adalah wilayah delta dataran rendah dengan ketinggian kurang dari 1 meter di atas permukaan laut. Kehidupan sosial dan perdagangannya sangat dipengaruhi oleh pasang surut Sungai Martapura dan Sungai Barito.
+
+## Direktori
+[Kembali ke Beranda Utama](https://visitbanjarmasin.id)

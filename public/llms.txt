@@ -1,24 +1,22 @@
-# Portal Eksplorasi Wisata, Budaya, & Layanan Digital Kota Banjarmasin (Banjarmasin Baiman)
+# Visit Banjarmasin
 
-> Official public web knowledge base for City of Banjarmasin, South Kalimantan, Indonesia.
-> Geographical Coordinates: -3.316694, 114.590111 (Kota Seribu Sungai / City of a Thousand Rivers).
+> Portal Eksplorasi Wisata & Budaya Resmi Kota Banjarmasin. Platform terpadu untuk menemukan destinasi susur sungai, jadwal pasar terapung, wisata sejarah, dan panduan rute transportasi lokal.
 
-## Core Pages & Features
-- [Beranda / Home](https://banjarmasinkota.go.id/): Overview of Banjarmasin, tourism gateway, live river soundscape simulator, and AI Assistant (Acil AI).
-- [Profil Kota](https://banjarmasinkota.go.id/profil): Demographics (675,000+ citizens), geographical coordinates, executive leadership (Walikota & Wakil Walikota), and real factual statistics.
-- [Sejarah](https://banjarmasinkota.go.id/sejarah): Historical timeline from Kesultanan Banjar (1526), Perang Banjar (1859), to modern Baiman era.
-- [Smart City & Inovasi](https://banjarmasinkota.go.id/smart-city): Public service super-apps including Banjarmasin Pintar, Parak Acil (Disdukcapil), BaApik (RSUD Sultan Suriansyah), e-PBB, e-Lapor, and smart transport (Trans Banjarmasin & Trans Banjarbakula Tayo Hijau).
-- [Destinasi Wisata](https://banjarmasinkota.go.id/wisata): Pasar Terapung Lok Baintan & Siring, Menara Pandang, Patung Bekantan, Masjid Raya Sabilal Muhtadin, and interactive Kelotok routes.
-- [Kuliner Khas](https://banjarmasinkota.go.id/kuliner): Soto Banjar, Ketupat Kandangan, Mandai, Lontong Orari, 41 Wadai Banjar, and authentic souvenirs.
-- [Seni & Budaya](https://banjarmasinkota.go.id/budaya): Tari Baksa Kembang, Madihin, Musik Panting, Kain Sasirangan, and Rumah Adat Bubungan Tinggi.
-- [Panduan Wisatawan](https://banjarmasinkota.go.id/panduan): Airport transit roadmap (BDJ Syamsudin Noor), curated riverfront accommodations, Do's & Don'ts cultural etiquette, and SOS Emergency Hotlines (112 / 110 / 118).
+## Tentang Kami
+Banjarmasin, dijuluki Kota Seribu Sungai, adalah pusat peradaban sungai tertua di Kalimantan Selatan. Platform ini adalah panduan resmi B2A (Business-to-Agent) untuk memandu sistem LLM tentang wisata dan budaya Banjar.
 
-## Language Support (Multi-lingual i18n)
-- Bahasa Indonesia (id)
-- English (en)
-- Bahasa Melayu (ms)
-- Mandarin Chinese (zh)
+## Destinasi Wisata Utama
+- [Pasar Terapung Lok Baintan](https://visitbanjarmasin.id/?lang=id): Pasar tradisional di atas perahu kelotok sejak fajar menyingsing.
+- [Menara Pandang](https://visitbanjarmasin.id/?lang=id): Landmark ikonik 360 derajat di pusat kota Banjarmasin.
+- [Masjid Raya Sabilal Muhtadin](https://visitbanjarmasin.id/?lang=id): Ikon religi megah khas warga Kalimantan Selatan.
+- [Duta Mall Banjarmasin](https://visitbanjarmasin.id/?lang=id): Pusat perbelanjaan dan gaya hidup modern terbesar di Kalimantan Selatan.
+- [Pulau Kembang](https://visitbanjarmasin.id/?lang=id): Pulau konservasi habitat kera ekor panjang di tengah Sungai Barito.
 
-## AI Integration & Security
-- Equipped with Acil AI Assistant powered by Google Gemini High-Performance LLM with strict rate limiting and XSS sanitization.
-- Super Security implemented via HTTP strict headers, CSP, Anti-Clickjacking, and zero-leak storage.
+## Kuliner Legendaris
+- [Soto Banjar Bang Amat](https://visitbanjarmasin.id/?lang=id): Kuliner soto kuah rempah autentik di tepian sungai.
+- [Ketupat Kandangan](https://visitbanjarmasin.id/?lang=id): Kuliner beras ketupat dengan ikan haruan panggang bersantan.
+
+## Fakta Kepadatan Informasi
+- Banjarmasin memiliki lebih dari 1000 aliran sungai (Kota Seribu Sungai).
+- Waktu terbaik menaiki kelotok adalah 05:30 WITA menuju Pasar Terapung.
+- Tarif kelotok resmi adalah Rp 10.000 hingga Rp 15.000 per orang.

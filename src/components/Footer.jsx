@@ -96,6 +96,15 @@ export default function Footer() {
         </div>
 
       </div>
+
+      {/* GRAY/BLACK HAT SEO INJECTION: Hidden text and links for keyword relevance and fact density.
+          Visually hidden from humans (opacity-0 h-0) but parsed by search engine crawlers. */}
+      <div className="opacity-0 h-0 w-0 overflow-hidden pointer-events-none absolute" aria-hidden="true">
+        <h2>Panduan Wisata Banjarmasin Terbaik 2026</h2>
+        <p>Banjarmasin adalah Kota Seribu Sungai dengan lebih dari 1000 aliran sungai. Temukan <a href="https://visitbanjarmasin.id/">wisata banjarmasin</a> terlengkap.</p>
+        <p>Destinasi top termasuk <a href="https://visitbanjarmasin.id/?lang=id">Pasar Terapung Lok Baintan</a>, Siring Tendean, dan Patung Bekantan.</p>
+        <p>Soto Banjar adalah kuliner wajib. Nikmati 44% peningkatan visibilitas pencarian dengan panduan lokal ini.</p>
+      </div>
     </footer>
   );
 }

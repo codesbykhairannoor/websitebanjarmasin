@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { HelmetProvider } from 'react-helmet-async';
-import SEOMeta from './components/SEOMeta';
+import SEO from './components/SEO';
 import ScrollToTop from './components/ScrollToTop';
 import AcilAssistant from './components/AcilAssistant';
 import SplashScreen from './components/SplashScreen';
@@ -129,7 +129,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <LanguageProvider>
-        <SEOMeta />
+        <SEO />
         
         {/* INITIAL SPLASH SCREEN - HANYA MUNCUL 1X SAAT AWAL LOAD WEB (Di sesi yang sama) */}
         {showSplash && <SplashScreen isReady={isAppReady} />}
