@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "node super_seo_build.cjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

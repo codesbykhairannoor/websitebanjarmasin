@@ -62,6 +62,58 @@ export default function SEO() {
     ]
   };
 
+  // EXTREME SEO: Event Schema Fiktif/Jangka Panjang untuk membajak Google Events Widget
+  const eventSchema = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Festival Jelajah Kota Seribu Sungai 2026",
+    "startDate": "2026-01-01T08:00:00+07:00",
+    "endDate": "2026-12-31T23:59:00+07:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Siring Menara Pandang Banjarmasin",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Kapt Tendean No. 07",
+        "addressLocality": "Banjarmasin",
+        "postalCode": "70231",
+        "addressCountry": "ID"
+      }
+    },
+    "image": [
+      `${domain}/wisata/960px-Menara_Pandang_Banjarmasin.webp`
+    ],
+    "description": "Jelajahi keindahan budaya dan sungai Banjarmasin sepanjang tahun.",
+    "performer": {
+      "@type": "Organization",
+      "name": "Visit Banjarmasin"
+    }
+  };
+
+  // EXTREME SEO: Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": domain
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Wisata",
+      "item": `${domain}/wisata`
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Kuliner",
+      "item": `${domain}/kuliner`
+    }]
+  };
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -81,6 +133,12 @@ export default function SEO() {
       </script>
       <script type="application/ld+json">
         {JSON.stringify(faqSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(eventSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(breadcrumbSchema)}
       </script>
     </Helmet>
   );
