@@ -26,6 +26,45 @@ const PageLoader = () => (
   </div>
 );
 
+// Error Boundary to catch ChunkLoadErrors (404 on old JS files after new deploy)
+class ChunkLoadErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("Chunk load error caught by boundary:", error, errorInfo);
+    // If it's a dynamic import error, force reload the page to get new index.html
+    const isChunkError = error?.message && /loading dynamically imported module|Importing a module script failed/i.test(error.message);
+    const hasReloaded = sessionStorage.getItem('chunk_reloaded');
+    
+    if (isChunkError && !hasReloaded) {
+      sessionStorage.setItem('chunk_reloaded', 'true');
+      window.location.reload(true);
+    }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '2rem', textAlign: 'center', color: '#fff', backgroundColor: 'var(--martapura-night)', height: '100vh' }}>
+          <h2>Memuat versi terbaru...</h2>
+          <p>Jika halaman tidak termuat otomatis, silakan muat ulang (refresh) halaman ini.</p>
+          <button onClick={() => window.location.reload(true)} style={{ padding: '10px 20px', marginTop: '20px', cursor: 'pointer', background: 'var(--sasirangan-gold)', border: 'none', borderRadius: '5px' }}>
+            Muat Ulang
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 // Lightweight Route-aware Scroll Observer (Zero CPU Overhead during scrolling)
 const ScrollObserver = () => {
   const location = useLocation();
@@ -139,18 +178,20 @@ export default function App() {
           <BrowserRouter>
             <ScrollToTop />
             <ScrollObserver />
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/wisata" element={<Wisata />} />
-                <Route path="/kuliner" element={<Kuliner />} />
-                <Route path="/budaya" element={<Budaya />} />
-                <Route path="/profil" element={<ProfilKota />} />
-                <Route path="/sejarah" element={<Sejarah />} />
-                <Route path="/smart-city" element={<SmartCity />} />
-                <Route path="/panduan" element={<Panduan />} />
-              </Routes>
-            </Suspense>
+            <ChunkLoadErrorBoundary>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/wisata" element={<Wisata />} />
+                  <Route path="/kuliner" element={<Kuliner />} />
+                  <Route path="/budaya" element={<Budaya />} />
+                  <Route path="/profil" element={<ProfilKota />} />
+                  <Route path="/sejarah" element={<Sejarah />} />
+                  <Route path="/smart-city" element={<SmartCity />} />
+                  <Route path="/panduan" element={<Panduan />} />
+                </Routes>
+              </Suspense>
+            </ChunkLoadErrorBoundary>
             <AcilAssistant />
           </BrowserRouter>
         </div>
