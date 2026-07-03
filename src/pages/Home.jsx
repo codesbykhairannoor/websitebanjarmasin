@@ -361,12 +361,12 @@ export default function Home() {
               <button 
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex flex-col md:flex-row items-center gap-2 md:gap-2.5 shrink-0 snap-center group w-20 md:w-auto md:px-4 md:py-2 md:rounded-full transition-all md:border ${activeTab === item.id ? 'md:bg-[#33C3B3] md:border-[#33C3B3] md:shadow-[#33C3B3]/30 md:shadow-lg' : 'md:bg-transparent md:border-[var(--glass-border)] hover:md:bg-[var(--glass-border)]'}`}
+                className={`flex flex-col md:flex-row items-center gap-2 md:gap-2.5 shrink-0 snap-center group w-20 md:w-auto md:px-4 md:py-2 md:rounded-full transition-all md:border ${activeTab === item.id ? 'md:bg-[#00665c] md:border-[#00665c] md:shadow-[#00665c]/30 md:shadow-lg' : 'md:bg-transparent md:border-[var(--glass-border)] hover:md:bg-[var(--glass-border)]'}`}
               >
-                <div className={`relative w-16 h-16 md:w-8 md:h-8 overflow-hidden rounded-full transition-all duration-300 md:border-2 ${activeTab === item.id ? 'border-4 border-[#33C3B3] md:border-white scale-110 md:scale-100 shadow-lg shadow-[#33C3B3]/30 md:shadow-none' : 'border-4 border-transparent md:border-transparent group-hover:scale-105'}`}>
+                <div className={`relative w-16 h-16 md:w-8 md:h-8 overflow-hidden rounded-full transition-all duration-300 md:border-2 ${activeTab === item.id ? 'border-4 border-[#00665c] md:border-white scale-110 md:scale-100 shadow-lg shadow-[#00665c]/30 md:shadow-none' : 'border-4 border-transparent md:border-transparent group-hover:scale-105'}`}>
                   <img src={item.img} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
                 </div>
-                <span className={`font-bold text-xs md:text-sm transition-colors text-center leading-tight ${activeTab === item.id ? 'text-[#33C3B3] md:text-white' : 'text-[var(--text-muted)] md:text-[var(--text-main)] group-hover:text-[var(--text-main)]'}`}>
+                <span className={`font-bold text-xs md:text-sm transition-colors text-center leading-tight ${activeTab === item.id ? 'text-[#00665c] md:text-white' : 'text-[var(--text-muted)] md:text-[var(--text-main)] group-hover:text-[var(--text-main)]'}`}>
                   {item.tabTitle}
                 </span>
               </button>

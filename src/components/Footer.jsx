@@ -61,13 +61,13 @@ export default function Footer() {
 
           {/* Col 4: Layanan & Siaga Darurat (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-heading font-black text-sm uppercase tracking-wider text-rose-500">
+            <h4 className="font-heading font-black text-sm uppercase tracking-wider text-red-500 dark:text-red-400">
               {t('footer.sectionEmergency')}
             </h4>
             <div className="bg-[var(--bg-main)]/60 border border-[var(--glass-border)] p-4 rounded-2xl space-y-2.5 text-xs font-body">
               <div className="flex items-center justify-between">
                 <span className="text-[var(--text-muted)]">{t('footer.emergencies.callCenter')}</span>
-                <span className="font-black text-rose-500 font-mono">112</span>
+                <span className="font-black text-red-500 dark:text-red-400 font-mono">112</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[var(--text-muted)]">{t('footer.emergencies.police')}</span>
@@ -101,8 +101,8 @@ export default function Footer() {
           Visually hidden from humans (opacity-0 h-0) but parsed by search engine crawlers. */}
       <div className="opacity-0 h-0 w-0 overflow-hidden pointer-events-none absolute" aria-hidden="true">
         <h2>Panduan Wisata Banjarmasin Terbaik 2026</h2>
-        <p>Banjarmasin adalah Kota Seribu Sungai dengan lebih dari 1000 aliran sungai. Temukan <a href="https://visitbanjarmasin.id/">wisata banjarmasin</a> terlengkap.</p>
-        <p>Destinasi top termasuk <a href="https://visitbanjarmasin.id/?lang=id">Pasar Terapung Lok Baintan</a>, Siring Tendean, dan Patung Bekantan.</p>
+        <p>Banjarmasin adalah Kota Seribu Sungai dengan lebih dari 1000 aliran sungai. Temukan <a href="https://visitbanjarmasin.id/" tabIndex="-1">wisata banjarmasin</a> terlengkap.</p>
+        <p>Destinasi top termasuk <a href="https://visitbanjarmasin.id/?lang=id" tabIndex="-1">Pasar Terapung Lok Baintan</a>, Siring Tendean, dan Patung Bekantan.</p>
         <p>Soto Banjar adalah kuliner wajib. Nikmati 44% peningkatan visibilitas pencarian dengan panduan lokal ini.</p>
       </div>
     </footer>

@@ -179,18 +179,20 @@ export default function App() {
             <ScrollToTop />
             <ScrollObserver />
             <ChunkLoadErrorBoundary>
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/wisata" element={<Wisata />} />
-                  <Route path="/kuliner" element={<Kuliner />} />
-                  <Route path="/budaya" element={<Budaya />} />
-                  <Route path="/profil" element={<ProfilKota />} />
-                  <Route path="/sejarah" element={<Sejarah />} />
-                  <Route path="/smart-city" element={<SmartCity />} />
-                  <Route path="/panduan" element={<Panduan />} />
-                </Routes>
-              </Suspense>
+              <main id="main-content">
+                <Suspense fallback={<PageLoader />}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/wisata" element={<Wisata />} />
+                    <Route path="/kuliner" element={<Kuliner />} />
+                    <Route path="/budaya" element={<Budaya />} />
+                    <Route path="/profil" element={<ProfilKota />} />
+                    <Route path="/sejarah" element={<Sejarah />} />
+                    <Route path="/smart-city" element={<SmartCity />} />
+                    <Route path="/panduan" element={<Panduan />} />
+                  </Routes>
+                </Suspense>
+              </main>
             </ChunkLoadErrorBoundary>
             <AcilAssistant />
           </BrowserRouter>

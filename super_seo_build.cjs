@@ -51,7 +51,7 @@ async function buildSeoBomb() {
       <div style="display:none;" aria-hidden="true">
         <h2>Data Eksplorasi Lengkap Banjarmasin</h2>
         <p>${rawTranslations.substring(0, 50000)}...</p> 
-        <a href="/sitemap.xml">Peta Situs Lengkap</a>
+        <a href="/sitemap.xml" tabindex="-1">Peta Situs Lengkap</a>
       </div>
     </noscript>
     <div style="opacity:0; width:0; height:0; position:absolute; z-index:-9999; pointer-events:none; overflow:hidden;" aria-hidden="true">

@@ -291,7 +291,7 @@ export default function Navbar() {
                 <button
                   onClick={toggleSound}
                   title={t('navbar.tooltipAudio')}
-                  className={`h-9 sm:h-10 px-3 sm:px-3.5 rounded-l-full flex items-center gap-1.5 transition-all border shadow-sm hover:scale-105 shrink-0 ${
+                  className={`min-h-[48px] px-4 rounded-l-full flex items-center gap-2 transition-all border shadow-sm hover:scale-105 shrink-0 ${
                     isPlaying
                       ? 'bg-[#00A896]/20 border-[#00A896] text-[#00A896] shadow-[0_0_15px_rgba(0,168,150,0.3)]'
                       : 'bg-[var(--card-bg)] border-[var(--glass-border)] hover:border-[#00A896] text-[var(--text-muted)]'
@@ -309,7 +309,7 @@ export default function Navbar() {
                 <button
                   onClick={() => setOpenAudioDropdown(!openAudioDropdown)}
                   title={t('navbar.tooltipAudioMenu')}
-                  className={`h-9 sm:h-10 px-1.5 rounded-r-full border-y border-r transition-all flex items-center justify-center ${
+                  className={`min-h-[48px] px-3 rounded-r-full border-y border-r transition-all flex items-center justify-center ${
                     isPlaying
                       ? 'bg-[#00A896]/20 border-[#00A896] text-[#00A896]'
                       : 'bg-[var(--card-bg)] border-[var(--glass-border)] hover:border-[#00A896] text-[var(--text-muted)]'
