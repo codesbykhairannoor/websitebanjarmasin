@@ -186,6 +186,12 @@ export default function Home() {
     ...(translatedPanduanCards[idx] || {})
   }));
 
+  // === LAZY LOAD MOBILE SLIDER IMAGES ===
+  const [mountedSlides, setMountedSlides] = useState(new Set([0]));
+  useEffect(() => {
+    setMountedSlides(prev => new Set(prev).add(activeSlide));
+  }, [activeSlide]);
+
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
@@ -196,34 +202,32 @@ export default function Home() {
       <section className="relative w-full h-screen min-h-[600px] bg-[var(--bg-main)] pt-[56px] sm:pt-[60px] overflow-hidden flex flex-col border-b border-[var(--glass-border)]">
         
         {/* DESKTOP ACCORDION (Hidden on Mobile) */}
-        <div className="hidden md:flex w-full flex-1 gap-[1px] bg-white/10 relative z-10 overflow-hidden">
-          {showcaseItems.map((item, i) => {
-            const isActive = activeSlide === i;
+        <div className="hidden md:flex w-full h-full">
+          {showcaseItems.map((item, idx) => {
+            const isActive = activeSlide === idx;
             return (
-              <div
+              <div 
                 key={item.id}
-                onClick={() => setActiveSlide(i)}
-                className={`relative overflow-hidden transition-[flex] duration-700 ease-in-out select-none transform-gpu ${
-                  isActive
-                    ? "flex-[10] lg:flex-[12] z-20 shadow-2xl cursor-default"
-                    : "flex-[0.8] lg:flex-[1] cursor-pointer group border-r border-white/15 last:border-0"
-                }`}
+                className={`relative h-full transition-all duration-700 ease-in-out cursor-pointer overflow-hidden group ${isActive ? "w-[60%] flex-shrink-0" : "w-[10%] flex-shrink-0"}`}
+                onClick={() => setActiveSlide(idx)}
               >
-                <img loading="eager" fetchpriority={i === 0 ? "high" : "auto"} decoding="async" src={item.img} alt={item.title} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out transform-gpu ${isActive ? "scale-105 brightness-100" : "brightness-75 group-hover:brightness-110 group-hover:shadow-[inset_0_0_40px_rgba(255,255,255,0.35)]"}`} />
-                
-                {/* Active Slide Content (Always mounted, toggled smoothly via opacity) */}
-                <div className={`absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 transition-opacity duration-500 pointer-events-none ${isActive ? "opacity-100" : "opacity-0"}`} />
-                <div className={`absolute inset-0 z-20 p-8 md:p-14 lg:p-16 flex flex-col justify-center max-w-3xl lg:max-w-4xl text-white overflow-hidden transition-all duration-500 transform-gpu ${isActive ? "opacity-100 translate-y-0 delay-150 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"}`}>
-                  <span className="text-[#F4C038] font-heading font-extrabold text-xs md:text-sm tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
-                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-3 drop-shadow-md text-white">{item.title}</h1>
-                  <p className="text-base md:text-xl font-bold text-sasirangan mb-6 font-heading">{item.subtitle}</p>
-                  <div className="flex flex-wrap items-center gap-4">
+                {/* Background Image Container */}
+                <div className="absolute inset-0 w-full h-full">
+                  <img src={item.img} alt={item.title} className={`w-full h-full object-cover transition-transform duration-1000 ${isActive ? "scale-100" : "scale-110 opacity-70 group-hover:scale-100 group-hover:opacity-100"}`} />
+                  <div className={`absolute inset-0 transition-opacity duration-700 ${isActive ? "bg-gradient-to-t from-black/90 via-black/40 to-transparent" : "bg-black/50 group-hover:bg-black/30"}`} />
+                </div>
+
+                {/* Active Slide Content */}
+                <div className={`absolute inset-0 flex flex-col justify-end p-10 z-20 pointer-events-none transition-[opacity,transform] duration-700 delay-100 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                  <span className="text-[#F4C038] font-heading font-black text-sm tracking-[0.25em] uppercase mb-4 drop-shadow-md">{item.tag}</span>
+                  <h1 className="text-5xl lg:text-6xl font-heading font-black tracking-tight leading-none mb-4 drop-shadow-xl text-white">{item.title}</h1>
+                  <p className="text-xl font-bold text-sasirangan mb-8 font-heading drop-shadow-lg">{item.subtitle}</p>
+                  <div className="flex items-center gap-4 pointer-events-auto">
                     {item.btnLink.startsWith('#') ? (
-                      <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</a>
+                      <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></a>
                     ) : (
-                      <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-3.5 rounded-full font-heading font-black text-sm shadow-xl transition-all hover:brightness-110 flex items-center gap-2 border border-white/20">{item.btnText} ➔</Link>
+                      <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
                     )}
-                    <span className="text-sm font-bold text-gray-300 bg-white/10 backdrop-blur-md px-4 py-3 rounded-full border border-white/20">{item.price}</span>
                   </div>
                 </div>
 
@@ -249,7 +253,9 @@ export default function Home() {
             const isActive = activeSlide === idx;
             return (
               <div key={item.id} className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out transform-gpu ${isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 z-10 pointer-events-none"}`}>
-                <img loading={idx === 0 ? "eager" : "lazy"} fetchpriority={idx === 0 ? "high" : "auto"} decoding="async" src={(item.mobileImg || item.img) + "?v=2"} alt={item.title} className="absolute inset-0 w-full h-full object-cover transform-gpu" />
+                {mountedSlides.has(idx) && (
+                  <img loading={idx === 0 ? "eager" : "lazy"} fetchpriority={idx === 0 ? "high" : "auto"} decoding="async" src={item.mobileImg || item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover transform-gpu" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
                 <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-[transform,opacity] duration-500 delay-150 ease-out transform-gpu ${isActive ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
                   <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
