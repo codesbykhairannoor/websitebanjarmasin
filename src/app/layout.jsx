@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import "../App.css";
 import Providers from "../components/Providers";
 
 export const metadata = {
@@ -64,7 +65,7 @@ export default function RootLayout({ children }) {
         
         {/* Google Fonts */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Space+Grotesk:wght@400..700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
 
