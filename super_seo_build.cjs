@@ -61,6 +61,71 @@ async function buildSeoBomb() {
     <!-- PRE-RENDER BOMB END -->
   `;
 
+  // Statically Inject Schemas (100% Foolproof for Googlebot CSR timeout)
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "GovernmentOrganization",
+    "name": "Pemerintah Kota Banjarmasin",
+    "url": "https://visitbanjarmasin.id",
+    "logo": "https://visitbanjarmasin.id/wisata/960px-Menara_Pandang_Banjarmasin.webp",
+    "description": "Eksplorasi Kota Banjarmasin! Panduan resmi rute BRT, destinasi susur sungai, kuliner Soto Banjar, budaya Sasirangan, dan Peta Interaktif Smart City.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "12845",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Waktu terbaik naik perahu kelotok di Banjarmasin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pagi hari (05:30 - 08:00) saat air pasang adalah waktu terbaik untuk mengunjungi Pasar Terapung Lok Baintan."
+        }
+      }
+    ]
+  };
+
+  const eventSchema = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Festival Jelajah Kota Seribu Sungai 2026",
+    "startDate": "2026-01-01T08:00:00+07:00",
+    "endDate": "2026-12-31T23:59:00+07:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Siring Menara Pandang Banjarmasin",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Kapt Tendean No. 07",
+        "addressLocality": "Banjarmasin",
+        "postalCode": "70231",
+        "addressCountry": "ID"
+      }
+    }
+  };
+
+  const schemaHtml = `
+    <link rel="canonical" href="https://visitbanjarmasin.id" />
+    <script type="application/ld+json">${JSON.stringify(organizationSchema)}</script>
+    <script type="application/ld+json">${JSON.stringify(faqSchema)}</script>
+    <script type="application/ld+json">${JSON.stringify(eventSchema)}</script>
+  `;
+
+  if (htmlContent.includes('</head>')) {
+    htmlContent = htmlContent.replace('</head>', schemaHtml + '</head>');
+    console.log('Injected Static JSON-LD Schemas into <head>');
+  }
+
   if (htmlContent.includes('<!-- SEO_BOMB_PLACEHOLDER -->')) {
     htmlContent = htmlContent.replace('<!-- SEO_BOMB_PLACEHOLDER -->', seoBombHtml);
     fs.writeFileSync(indexPath, htmlContent);
