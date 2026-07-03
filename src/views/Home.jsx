@@ -210,7 +210,7 @@ export default function Home() {
             return (
               <div 
                 key={item.id}
-                className={`relative h-full transition-all duration-700 ease-in-out cursor-pointer overflow-hidden group ${isActive ? "w-[60%] flex-shrink-0" : "w-[10%] flex-shrink-0"}`}
+                className={`relative h-full transition-all duration-700 ease-in-out cursor-pointer overflow-hidden group ${isActive ? "w-[72%] flex-shrink-0" : "w-[7%] flex-shrink-0"}`}
                 onClick={() => setActiveSlide(idx)}
               >
                 {/* Background Image Container */}
@@ -226,9 +226,9 @@ export default function Home() {
                   <p className="text-xl font-bold text-sasirangan mb-8 font-heading drop-shadow-lg">{item.subtitle}</p>
                   <div className="flex items-center gap-4 pointer-events-auto">
                     {item.btnLink.startsWith('#') ? (
-                      <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></a>
+                      <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-2">{item.btnText}</a>
                     ) : (
-                      <Link href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
+                      <Link href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-2">{item.btnText}</Link>
                     )}
                   </div>
                 </div>
@@ -236,7 +236,10 @@ export default function Home() {
                 {/* Inactive Slide Vertical Title (Always mounted, toggled smoothly via opacity) */}
                 <div className={`absolute inset-0 flex flex-col justify-between items-center p-4 z-10 pointer-events-none bg-gradient-to-t from-black/90 via-black/20 to-black/60 group-hover:from-black/70 transition-opacity duration-500 ${isActive ? "opacity-0" : "opacity-100 delay-100"}`}>
                   <div className="flex-1 flex items-center justify-center py-4 overflow-hidden">
-                    <span className="block font-heading font-extrabold text-white text-sm tracking-widest uppercase -rotate-90 whitespace-nowrap drop-shadow-lg opacity-70 group-hover:opacity-100 transition-opacity">{item.title}</span>
+                    <span className="font-heading font-extrabold text-white text-sm sm:text-base tracking-widest uppercase -rotate-90 whitespace-nowrap drop-shadow-lg opacity-80 group-hover:opacity-100 transition-opacity flex items-center gap-2">
+                      <span>{item.icon}</span>
+                      <span>{item.shortTitle}</span>
+                    </span>
                   </div>
                 </div>
               </div>
