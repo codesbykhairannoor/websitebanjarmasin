@@ -1,10 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
+import { useLocation } from 'react-router-dom';
 
 export default function SEO() {
   const { language } = useLanguage();
+  const location = useLocation();
   const domain = "https://visitbanjarmasin.id";
+  const canonicalUrl = `${domain}${location.pathname === '/' ? '' : location.pathname}`;
 
   const titles = {
     id: "Visit Banjarmasin | Portal Eksplorasi Wisata & Budaya",
@@ -124,6 +127,7 @@ export default function SEO() {
       <link rel="alternate" hrefLang="ms" href={`${domain}/?lang=ms`} />
       <link rel="alternate" hrefLang="zh" href={`${domain}/?lang=zh`} />
       <link rel="alternate" hrefLang="x-default" href={domain} />
+      <link rel="canonical" href={canonicalUrl} />
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
