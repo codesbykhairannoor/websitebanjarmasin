@@ -26,7 +26,7 @@ export default function Home() {
   };
   // === STATE FOR HERO SLIDES ===
   const showcaseImages = [
-    { id: 0, shortTitle: "Sambutan", icon: "✨", btnLink: "#wisata", img: "/home/banjarmasinkota.webp", mobileImg: "/home/banjarmasinkota1.webp" },
+    { id: 0, shortTitle: "Sambutan", icon: "✨", btnLink: "#wisata", img: "/home/banjarmasinkota.webp", mobileImg: "/home/hero-mobile-menara-pandang.webp" },
     { id: 1, shortTitle: "Sungai", icon: "🛶", btnLink: "/wisata", img: "/home/hero_pasar_terapung.webp", mobileImg: "/home/hero-mobile-pasar-terapung.webp" },
     { id: 2, shortTitle: "Kuliner", icon: "🍜", btnLink: "/kuliner", img: "/home/hero_soto_banjar.webp", mobileImg: "/home/hero-soto-banjar-mobile.webp" },
     { id: 3, shortTitle: "Budaya", icon: "🏛️", btnLink: "/sejarah", img: "/home/hero_kain_sasirangan.webp", mobileImg: "/home/hero-sasirangan-mobile.webp" },
