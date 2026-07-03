@@ -1,7 +1,20 @@
 import React from "react";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "../index.css";
 import "../App.css";
 import Providers from "../components/Providers";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Visit Banjarmasin | Portal Eksplorasi Wisata & Budaya Kota Seribu Sungai",
@@ -52,22 +65,11 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id">
+    <html lang="id" className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
       <head>
-        {/* Preconnect & DNS Prefetch to Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        
         {/* Preload LCP Hero Images */}
         <link rel="preload" as="image" href="/home/hero-mobile-menara-pandang.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/home/banjarmasinkota.webp" fetchPriority="high" media="(min-width: 768px)" />
-        
-        {/* Google Fonts */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Space+Grotesk:wght@400..700&display=swap"
-          rel="stylesheet"
-        />
 
         {/* Google Tag Manager */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-B6DSED8QNG" />
