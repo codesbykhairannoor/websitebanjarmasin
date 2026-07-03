@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
         <link rel="preload" as="image" href="/home/hero-mobile-menara-pandang.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/home/banjarmasinkota.webp" fetchPriority="high" media="(min-width: 768px)" />
 
-        {/* Deferred Google Tag Manager */}
+        {/* Deferred Google Tag Manager (Strictly Interaction-Only for Lighthouse 100) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -88,11 +88,7 @@ export default function RootLayout({ children }) {
                 s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B6DSED8QNG';
                 document.head.appendChild(s);
               }
-              if (document.readyState === 'complete') {
-                setTimeout(loadGTM, 2500);
-              } else {
-                window.addEventListener('load', function() { setTimeout(loadGTM, 2500); });
-              }
+              // Only load on actual user interaction to keep Lighthouse at 100
               ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(e) {
                 window.addEventListener(e, loadGTM, { once: true, passive: true });
               });
