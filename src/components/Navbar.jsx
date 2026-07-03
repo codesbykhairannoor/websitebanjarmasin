@@ -1,31 +1,52 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '../context/LanguageContext';
 
 // Global Audio Singleton agar musik TIDAK MATI saat ganti bahasa / navigasi antar halaman
-window.__globalAudio = window.__globalAudio || {
-  instance: null,
-  isPlaying: false,
-  activeTrackId: 'ampar',
-  listeners: new Set()
-};
+// Global Audio Singleton agar musik TIDAK MATI saat ganti bahasa / navigasi antar halaman
+if (typeof window !== 'undefined') {
+  window.__globalAudio = window.__globalAudio || {
+    instance: null,
+    isPlaying: false,
+    activeTrackId: 'ampar',
+    listeners: new Set()
+  };
+}
+
+function getGlobalAudio() {
+  if (typeof window === 'undefined') {
+    return { instance: null, isPlaying: false, activeTrackId: 'ampar', listeners: new Set() };
+  }
+  window.__globalAudio = window.__globalAudio || {
+    instance: null,
+    isPlaying: false,
+    activeTrackId: 'ampar',
+    listeners: new Set()
+  };
+  return window.__globalAudio;
+}
 
 function notifyAudioListeners() {
-  window.__globalAudio.listeners.forEach(fn => fn({ isPlaying: window.__globalAudio.isPlaying, activeTrackId: window.__globalAudio.activeTrackId }));
+  const ga = getGlobalAudio();
+  ga.listeners.forEach(fn => fn({ isPlaying: ga.isPlaying, activeTrackId: ga.activeTrackId }));
 }
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
-  const [isPlaying, setIsPlaying] = useState(() => window.__globalAudio.isPlaying);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+  const [isPlaying, setIsPlaying] = useState(() => getGlobalAudio().isPlaying);
+  const [theme, setTheme] = useState(() => typeof window !== 'undefined' ? (localStorage.getItem('theme') || 'dark') : 'dark');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
   const [openLangDropdown, setOpenLangDropdown] = useState(false);
   const [openAudioDropdown, setOpenAudioDropdown] = useState(false);
-  const [activeTrackId, setActiveTrackId] = useState(() => window.__globalAudio.activeTrackId);
+  const [activeTrackId, setActiveTrackId] = useState(() => getGlobalAudio().activeTrackId);
   
-  const location = useLocation();
+  const pathname = usePathname();
+  const location = { pathname };
   const dropdownRef = useRef(null);
   const langDropdownRef = useRef(null);
   const audioDropdownRef = useRef(null);
@@ -148,7 +169,7 @@ export default function Navbar() {
         <header className="flex items-center justify-between w-full">
           
           {/* Logo - Klik ke Home */}
-          <Link to="/" className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
+          <Link href="/" className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
             <img src="/favicon.svg" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md bg-transparent" style={{ backgroundColor: "transparent" }} />
             <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
           </Link>
@@ -178,21 +199,21 @@ export default function Navbar() {
                     className="absolute top-full left-0 mt-3 w-56 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
                   >
                     <Link
-                      to="/profil"
+                      href="/profil"
                       onClick={() => setOpenDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/profil' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">🏛️</span> {t('navbar.profile')}
                     </Link>
                     <Link
-                      to="/sejarah"
+                      href="/sejarah"
                       onClick={() => setOpenDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/sejarah' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">📜</span> {t('navbar.history')}
                     </Link>
                     <Link
-                      to="/smart-city"
+                      href="/smart-city"
                       onClick={() => setOpenDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/smart-city' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
@@ -204,28 +225,28 @@ export default function Navbar() {
             </div>
 
             <Link
-              to="/wisata"
+              href="/wisata"
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/wisata' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.tourism')}
             </Link>
 
             <Link
-              to="/kuliner"
+              href="/kuliner"
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/kuliner' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.culinary')}
             </Link>
 
             <Link
-              to="/budaya"
+              href="/budaya"
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/budaya' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.culture')}
             </Link>
 
             <Link
-              to="/panduan"
+              href="/panduan"
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/panduan' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.guide')}
@@ -363,7 +384,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <Link
-              to="/panduan"
+              href="/panduan"
               className="hidden sm:flex items-center gap-1 px-3 sm:px-4 py-2 rounded-full bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-heading font-black text-xs transition-all shadow-[0_4px_15px_rgba(244,192,56,0.3)] hover:scale-105 shrink-0 max-w-[120px] sm:max-w-[150px] overflow-hidden"
             >
               <span className="truncate">{t('navbar.exploreCTA')}</span>
@@ -427,12 +448,9 @@ export default function Navbar() {
                 <div className="flex items-center gap-1.5 pt-1.5 border-t border-[var(--glass-border)]">
                   <button
                     onClick={toggleSound}
-                    className={`h-7 px-2.5 rounded-lg text-[11px] font-bold flex items-center gap-1.5 shrink-0 transition-all ${
-                      isPlaying ? 'bg-[#00A896]/20 border border-[#00A896] text-[#00A896]' : 'bg-[var(--glass-border)] text-[var(--text-muted)]'
-                    }`}
+                    className={`w-7 h-7 rounded-lg flex items-center justify-center text-sm shrink-0 transition-all ${isPlaying ? 'bg-[#00A896] text-white shadow-sm' : 'bg-[var(--glass-border)] text-[var(--text-muted)]'}`}
                   >
-                    <span>{isPlaying ? '🔊' : '🔇'}</span>
-                    <span>{isPlaying ? t('navbar.pauseAudio') : t('navbar.playAudio')}</span>
+                    {isPlaying ? '🔊' : '🔇'}
                   </button>
 
                   <select
@@ -451,16 +469,16 @@ export default function Navbar() {
 
               <div className="pl-4 py-1 text-[10px] font-black uppercase tracking-widest text-[#00A896]">{t('navbar.aboutCity')}</div>
               <div className="grid grid-cols-3 gap-2 px-2 mb-1">
-                <Link to="/profil" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🏛️ {t('navbar.profile').split(' ')[0]}</Link>
-                <Link to="/sejarah" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">📜 {t('navbar.history').split(' ')[0]}</Link>
-                <Link to="/smart-city" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">⚡ {t('navbar.innovation').split(' ')[0]}</Link>
+                <Link href="/profil" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🏛️ {t('navbar.profile').split(' ')[0]}</Link>
+                <Link href="/sejarah" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">📜 {t('navbar.history').split(' ')[0]}</Link>
+                <Link href="/smart-city" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">⚡ {t('navbar.innovation').split(' ')[0]}</Link>
               </div>
 
-              <Link to="/wisata" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🏖️ {t('navbar.tourism')}</Link>
-              <Link to="/kuliner" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🍲 {t('navbar.culinary')}</Link>
-              <Link to="/budaya" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🎭 {t('navbar.culture')}</Link>
-              <Link to="/panduan" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
-              <Link to="/panduan" onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
+              <Link href="/wisata" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🏖️ {t('navbar.tourism')}</Link>
+              <Link href="/kuliner" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🍲 {t('navbar.culinary')}</Link>
+              <Link href="/budaya" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🎭 {t('navbar.culture')}</Link>
+              <Link href="/panduan" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
+              <Link href="/panduan" onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
             </motion.div>
           )}
         </AnimatePresence>

@@ -1,8 +1,11 @@
-import React, { useState, useEffect, Suspense, lazy } from "react";
+"use client";
+
+import React, { useState, useEffect, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-const InteractiveMap = lazy(() => import("../components/InteractiveMap"));
+import dynamic from "next/dynamic";
+const InteractiveMap = dynamic(() => import("../components/InteractiveMap"), { ssr: false });
 import { useLanguage } from "../context/LanguageContext";
 import { pagesTranslations } from "../translations/pagesTranslations";
 

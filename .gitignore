@@ -27,3 +27,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Next.js build output
+.next/
+out/
+build/
+
+# PWA generated service workers
+public/sw.js
+public/workbox-*.js
+public/fallback-*.js
+public/sw.js.map
+public/workbox-*.js.map

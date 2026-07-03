@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoogleGenAI } from '@google/genai';
@@ -63,7 +65,7 @@ export default function AcilAssistant() {
     if (!customPrompt) setInput('');
     setIsLoading(true);
 
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || (typeof process !== 'undefined' && process.env ? process.env.VITE_GEMINI_API_KEY : undefined) || (typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_GEMINI_API_KEY : undefined);
     if (!apiKey || apiKey === 'your_gemini_api_key_here') {
       setTimeout(() => {
         setMessages((prev) => [

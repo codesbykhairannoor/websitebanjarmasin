@@ -1,8 +1,10 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Home() {
@@ -226,7 +228,7 @@ export default function Home() {
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></a>
                     ) : (
-                      <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
+                      <Link href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
                     )}
                   </div>
                 </div>
@@ -265,7 +267,7 @@ export default function Home() {
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</a>
                     ) : (
-                      <Link to={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
+                      <Link href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
                     )}
                   </div>
                 </div>
@@ -326,7 +328,7 @@ export default function Home() {
                   </div>
                   <div className="bento-bottom">
                     <h3 className="bento-title">{s.title}</h3>
-                    <Link to="/wisata" className="btn-bento-action">{t('common.exploreNow')}</Link>
+                    <Link href="/wisata" className="btn-bento-action">{t('common.exploreNow')}</Link>
                   </div>
                 </div>
               </motion.div>
@@ -340,7 +342,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link to="/wisata" className="btn-gateway inline-block">{t('home.wisata.btnText')}</Link>
+            <Link href="/wisata" className="btn-gateway inline-block">{t('home.wisata.btnText')}</Link>
           </motion.div>
         </section>
 
@@ -420,7 +422,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link to="/kuliner" className="btn-gateway inline-block">{t('home.kuliner.btnText')}</Link>
+            <Link href="/kuliner" className="btn-gateway inline-block">{t('home.kuliner.btnText')}</Link>
           </motion.div>
         </section>
 
@@ -461,7 +463,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <Link to="/budaya" className="btn-gateway inline-block">{t('home.budaya.btnText')}</Link>
+              <Link href="/budaya" className="btn-gateway inline-block">{t('home.budaya.btnText')}</Link>
             </motion.div>
 
             <motion.div 
@@ -515,7 +517,7 @@ export default function Home() {
               <p className="text-gray-200 text-sm md:text-base lg:text-lg mb-8 leading-relaxed max-w-lg">
                 {t('home.smartCity.desc')}
               </p>
-              <Link to="/smart-city" className="bg-gradient-to-r from-[#33C3B3] to-[#00A896] hover:brightness-110 text-white px-8 py-4 rounded-full font-bold shadow-xl transition-all hover:-translate-y-1 inline-block">
+              <Link href="/smart-city" className="bg-gradient-to-r from-[#33C3B3] to-[#00A896] hover:brightness-110 text-white px-8 py-4 rounded-full font-bold shadow-xl transition-all hover:-translate-y-1 inline-block">
                 {t('home.smartCity.btnText')}
               </Link>
             </motion.div>
@@ -589,7 +591,7 @@ export default function Home() {
                 <div className="p-6 md:p-8 flex-1 flex flex-col">
                   <h3 className="font-heading font-black text-xl md:text-2xl text-[var(--text-main)] mb-3">{item.title}</h3>
                   <p className="text-sm md:text-base text-[var(--text-muted)] leading-relaxed mb-6 flex-1">{item.desc}</p>
-                  <Link to="/panduan" className="text-[#33C3B3] font-bold text-sm md:text-base hover:text-[#2AA698] flex items-center gap-2 group-hover:gap-4 transition-all">
+                  <Link href="/panduan" className="text-[#33C3B3] font-bold text-sm md:text-base hover:text-[#2AA698] flex items-center gap-2 group-hover:gap-4 transition-all">
                     {t('home.panduan.readDetails', 'Baca Detail Panduan')} <span>➔</span>
                   </Link>
                 </div>
@@ -598,7 +600,7 @@ export default function Home() {
           </div>
           
           <div className="text-center mt-6">
-            <Link to="/panduan" className="btn-gateway inline-block">{t('home.panduan.btnText')}</Link>
+            <Link href="/panduan" className="btn-gateway inline-block">{t('home.panduan.btnText')}</Link>
           </div>
         </section>
 

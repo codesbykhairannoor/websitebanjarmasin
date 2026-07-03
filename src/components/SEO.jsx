@@ -1,13 +1,15 @@
+"use client";
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 
 export default function SEO() {
   const { language } = useLanguage();
-  const location = useLocation();
+  const pathname = usePathname();
   const domain = typeof window !== 'undefined' ? window.location.origin : "https://visitbanjarmasin.id";
-  const canonicalUrl = `${domain}${location.pathname === '/' ? '' : location.pathname}`;
+  const canonicalUrl = `${domain}${pathname === '/' ? '' : pathname}`;
 
   const titles = {
     id: "Visit Banjarmasin | Portal Eksplorasi Wisata & Budaya",

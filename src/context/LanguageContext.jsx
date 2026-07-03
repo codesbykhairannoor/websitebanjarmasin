@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { translations } from '../translations';
 import { pagesTranslations } from '../translations/pagesTranslations';
@@ -6,6 +8,7 @@ const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
   const [language, setLangState] = useState(() => {
+    if (typeof window === 'undefined') return 'id';
     try {
       return localStorage.getItem('lang') || 'id';
     } catch (e) {

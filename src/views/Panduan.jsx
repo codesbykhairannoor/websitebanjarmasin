@@ -1,8 +1,11 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+"use client";
+
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-const RouteAccessibilityMap = lazy(() => import('../components/RouteAccessibilityMap'));
+import dynamic from 'next/dynamic';
+const RouteAccessibilityMap = dynamic(() => import('../components/RouteAccessibilityMap'), { ssr: false });
 import { useLanguage } from '../context/LanguageContext';
 import { pagesTranslations } from '../translations/pagesTranslations';
 import { checklistData } from '../translations/hackathonData';
