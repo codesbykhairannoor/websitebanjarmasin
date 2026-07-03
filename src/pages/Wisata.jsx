@@ -14,10 +14,10 @@ export default function Wisata() {
   };
 
   const heroDestinationsMeta = [
-    { id: "pasar-terapung", image: "/wisata/mobile-pasar terapung hero.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
-    { id: "siring-martapura", image: "/wisata/mobile-960px-Menara_Pandang_Banjarmasin.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
-    { id: "sabilal-muhtadin", image: "/wisata/mobile-960px-Masjid_Raya_Sabilal_Muhtad.webp", heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]" },
-    { id: "museum-waja-sampai-kaputing", image: "/wisata/mobile-960px-Museum_Waja_Sampai_Kaputin.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
+    { id: "pasar-terapung", image: "/wisata/pasar terapung hero.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
+    { id: "siring-martapura", image: "/wisata/960px-Menara_Pandang_Banjarmasin.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
+    { id: "sabilal-muhtadin", image: "/wisata/960px-Masjid_Raya_Sabilal_Muhtad.webp", heightClass: "h-[460px] lg:h-[540px] w-[170px] lg:w-[210px] shadow-[0_0_40px_rgba(244,192,56,0.25)]" },
+    { id: "museum-waja-sampai-kaputing", image: "/wisata/960px-Museum_Waja_Sampai_Kaputin.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
     { id: "masjid-suriansyah", image: "/wisata/masjid sultan suriansyah.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
     { id: "rumah-adat-bubungan-tinggi", image: "/wisata/960px-Rumah_Adat_Bubungan_Tinggi.webp", heightClass: "h-[380px] lg:h-[460px] w-[150px] lg:w-[185px]" },
     { id: "taman-siring-martapura", image: "/wisata/960px-Taman_Siring_Banjarmasin.webp", heightClass: "h-[300px] lg:h-[360px] w-[130px] lg:w-[160px]" },
