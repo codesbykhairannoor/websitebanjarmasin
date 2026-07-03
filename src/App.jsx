@@ -168,7 +168,6 @@ export default function App() {
   return (
     <HelmetProvider>
       <LanguageProvider>
-        <SEO />
         
         {/* INITIAL SPLASH SCREEN - HANYA MUNCUL 1X SAAT AWAL LOAD WEB (Di sesi yang sama) */}
         {showSplash && <SplashScreen isReady={isAppReady} />}
@@ -176,6 +175,7 @@ export default function App() {
         {/* HIDE KONTEN SELAMA BELUM READY */}
         <div style={{ opacity: isAppReady ? 1 : 0, transition: showSplash ? 'opacity 0.5s ease-in' : 'none' }}>
           <BrowserRouter>
+            <SEO />
             <ScrollToTop />
             <ScrollObserver />
             <ChunkLoadErrorBoundary>
