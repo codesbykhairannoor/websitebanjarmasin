@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 export default function SEO() {
   const { language } = useLanguage();
   const location = useLocation();
-  const domain = "https://visitbanjarmasin.id";
+  const domain = typeof window !== 'undefined' ? window.location.origin : "https://visitbanjarmasin.id";
   const canonicalUrl = `${domain}${location.pathname === '/' ? '' : location.pathname}`;
 
   const titles = {

@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'inline',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg', 'logotransparan.png'],
       manifest: {
         name: 'Banjarmasin Saku',

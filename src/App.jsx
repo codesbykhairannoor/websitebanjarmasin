@@ -134,35 +134,16 @@ export default function App() {
       return () => clearTimeout(timer);
     }
 
-    // Daftar foto-foto utama yang PALING BERAT dan PALING AWAL dilihat user
-    const criticalImages = [
-      '/home/banjarmasinkota.webp',
-      '/home/hero-mobile-menara-pandang.webp',
-      '/home/hero_pasar_terapung.webp',
-      '/home/hero-mobile-pasar-terapung.webp',
-      '/profil kota/hero.webp',
-      '/wisata/960px-Pasar_Terapung_Siring_Banj.webp'
-    ];
+    // Hanya beri jeda singkat untuk splash screen tanpa memblokir dengan preload gambar raksasa
+    const splashTimer = setTimeout(() => {
+      setIsAppReady(true);
+      sessionStorage.setItem('hasSeenSplash', 'true');
+    }, 1500);
 
-    const preloadImage = (src) => {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = resolve;
-        img.onerror = resolve;
-      });
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(splashTimer);
     };
-
-    // Eksekusi preload di background
-    Promise.all(criticalImages.map(img => preloadImage(img)))
-      .then(() => {
-        setTimeout(() => {
-          setIsAppReady(true);
-          sessionStorage.setItem('hasSeenSplash', 'true');
-        }, 1200);
-      });
-
-    return () => clearTimeout(timer);
   }, [initialSeen]);
 
   return (
