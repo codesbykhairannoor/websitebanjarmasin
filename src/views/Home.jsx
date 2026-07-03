@@ -217,6 +217,7 @@ export default function Home() {
                 <div className="absolute inset-0 w-full h-full">
                   <img src={item.img} alt={item.title} className={`w-full h-full object-cover transition-transform duration-1000 ${isActive ? "scale-100" : "scale-110 opacity-70 group-hover:scale-100 group-hover:opacity-100"}`} />
                   <div className={`absolute inset-0 transition-opacity duration-700 ${isActive ? "bg-gradient-to-t from-black/90 via-black/40 to-transparent" : "bg-black/50 group-hover:bg-black/30"}`} />
+                  {isActive && <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 pointer-events-none" />}
                 </div>
 
                 {/* Active Slide Content */}
@@ -224,11 +225,14 @@ export default function Home() {
                   <span className="text-[#F4C038] font-heading font-black text-sm tracking-[0.25em] uppercase mb-4 drop-shadow-md">{item.tag}</span>
                   <h1 className="text-5xl lg:text-6xl font-heading font-black tracking-tight leading-none mb-4 drop-shadow-xl text-white">{item.title}</h1>
                   <p className="text-xl font-bold text-sasirangan mb-8 font-heading drop-shadow-lg">{item.subtitle}</p>
-                  <div className="flex items-center gap-4 pointer-events-auto">
+                  <div className="flex flex-wrap items-center gap-4 pointer-events-auto">
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></a>
                     ) : (
                       <Link href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
+                    )}
+                    {item.price && (
+                      <span className="text-sm font-bold text-gray-200 bg-white/10 backdrop-blur-md px-6 py-4 rounded-full border border-white/20 shadow-lg">{item.price}</span>
                     )}
                   </div>
                 </div>
