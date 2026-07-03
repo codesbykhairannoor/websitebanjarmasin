@@ -144,7 +144,7 @@ export default function Home() {
       "alternateName": "Banjarmasin City of a Thousand Rivers",
       "description": descriptions[language] || descriptions.id,
       "url": window.location.origin,
-      "logo": window.location.origin + "/logotransparan.png",
+      "logo": window.location.origin + "/logo-banjarmasin.webp",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": "-3.316694",

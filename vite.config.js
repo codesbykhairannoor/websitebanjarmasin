@@ -9,7 +9,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'inline',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg', 'logotransparan.png'],
+      includeAssets: ['favicon.ico', 'favicon.svg'],
       manifest: {
         name: 'Banjarmasin Saku',
         short_name: 'Banjarmasin',
@@ -19,13 +19,13 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: '/logotransparan.png',
-            sizes: '192x192',
-            type: 'image/png'
+            src: '/favicon.svg',
+            sizes: 'any',
+            type: 'image/svg+xml'
           },
           {
-            src: '/logotransparan.png',
-            sizes: '512x512',
+            src: '/favicon.png',
+            sizes: '192x192',
             type: 'image/png'
           }
         ]
