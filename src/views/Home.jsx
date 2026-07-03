@@ -210,7 +210,7 @@ export default function Home() {
             return (
               <div 
                 key={item.id}
-                className={`relative h-full transition-all duration-700 ease-in-out cursor-pointer overflow-hidden group ${isActive ? "w-[60%] flex-shrink-0" : "w-[10%] flex-shrink-0"}`}
+                className={`relative h-full transition-[flex] duration-700 ease-in-out cursor-pointer overflow-hidden group ${isActive ? "flex-[10] lg:flex-[12]" : "flex-[0.85] lg:flex-[1]"}`}
                 onClick={() => setActiveSlide(idx)}
               >
                 {/* Background Image Container */}
@@ -220,11 +220,11 @@ export default function Home() {
                   {isActive && <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent w-3/4 lg:w-2/3 z-10 pointer-events-none" />}
                 </div>
 
-                {/* Active Slide Content */}
-                <div className={`absolute inset-0 flex flex-col justify-end p-10 z-20 pointer-events-none transition-[opacity,transform] duration-700 delay-100 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                {/* Active Slide Content (Centered vertically) */}
+                <div className={`absolute inset-0 flex flex-col justify-center p-8 md:p-14 lg:p-16 z-20 pointer-events-none transition-[opacity,transform] duration-700 delay-100 max-w-3xl lg:max-w-4xl ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
                   <span className="text-[#F4C038] font-heading font-black text-sm tracking-[0.25em] uppercase mb-4 drop-shadow-md">{item.tag}</span>
-                  <h1 className="text-5xl lg:text-6xl font-heading font-black tracking-tight leading-none mb-4 drop-shadow-xl text-white">{item.title}</h1>
-                  <p className="text-xl font-bold text-sasirangan mb-8 font-heading drop-shadow-lg">{item.subtitle}</p>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-4 drop-shadow-xl text-white">{item.title}</h1>
+                  <p className="text-lg md:text-xl font-bold text-sasirangan mb-8 font-heading drop-shadow-lg">{item.subtitle}</p>
                   <div className="flex flex-wrap items-center gap-4 pointer-events-auto">
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></a>
