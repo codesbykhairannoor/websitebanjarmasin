@@ -366,7 +366,7 @@ export default function Home() {
                 <div className={`relative w-16 h-16 md:w-8 md:h-8 overflow-hidden rounded-full transition-all duration-300 md:border-2 ${activeTab === item.id ? 'border-4 border-[#00665c] md:border-white scale-110 md:scale-100 shadow-lg shadow-[#00665c]/30 md:shadow-none' : 'border-4 border-transparent md:border-transparent group-hover:scale-105'}`}>
                   <img src={item.img} alt={item.name} loading="lazy" className="w-full h-full object-cover" />
                 </div>
-                <span className={`font-bold text-xs md:text-sm transition-colors text-center leading-tight ${activeTab === item.id ? 'text-[#00665c] md:text-white' : 'text-[var(--text-main)]'}`}>
+                <span className={`font-bold text-xs md:text-sm transition-colors text-center leading-tight ${activeTab === item.id ? 'text-[var(--text-main)] md:text-white' : 'text-[var(--text-main)] opacity-70 hover:opacity-100'}`}>
                   {item.tabTitle}
                 </span>
               </button>
