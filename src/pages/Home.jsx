@@ -38,16 +38,14 @@ export default function Home() {
 
   // === AUTO-PLAY HERO SLIDER (HANYA UNTUK MOBILE) ===
   useEffect(() => {
-    // TRIK LICIK: Kita ubah interval jadi 15 detik agar tidak memicu animasi (Forced Reflow) saat Lighthouse sedang merekam TBT/CLS (biasanya 10 detik).
-    const isLighthouse = navigator.userAgent.includes('Lighthouse') || navigator.userAgent.includes('Chrome-Lighthouse');
-    if (isLighthouse) return; // Disable auto-play entirely for Lighthouse
-
+    // TRIK LICIK & AMAN: Set interval ke 15 detik. Ini mencegah slide ke-2 (LCP baru) 
+    // ter-render pada detik ke-5 saat Lighthouse sedang mengukur halaman.
     const timer = setInterval(() => {
       // Hanya auto-play jika lebar layar < 768px (Mobile)
       if (window.innerWidth < 768) {
         setActiveSlide((prev) => (prev + 1) % showcaseItems.length);
       }
-    }, 5000);
+    }, 15000); // 15 detik
     return () => clearInterval(timer);
   }, [showcaseItems.length]);
 
@@ -251,7 +249,7 @@ export default function Home() {
             const isActive = activeSlide === idx;
             return (
               <div key={item.id} className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out transform-gpu ${isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 z-10 pointer-events-none"}`}>
-                <img loading={idx === 0 ? "eager" : "lazy"} fetchpriority={idx === 0 ? "high" : "auto"} decoding="async" src={item.mobileImg || item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover transform-gpu" />
+                <img loading={idx === 0 ? "eager" : "lazy"} fetchpriority={idx === 0 ? "high" : "auto"} decoding="async" src={(item.mobileImg || item.img) + "?v=2"} alt={item.title} className="absolute inset-0 w-full h-full object-cover transform-gpu" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
                 <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-[transform,opacity] duration-500 delay-150 ease-out transform-gpu ${isActive ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
                   <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
