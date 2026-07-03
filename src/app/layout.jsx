@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
     <html lang="id" className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
       <head>
         {/* Preload LCP Hero Images */}
-        <link rel="preload" as="image" href="/home/hero-mobile-menara-pandang.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/home/banjarmasinkota1.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/home/banjarmasinkota.webp" fetchPriority="high" media="(min-width: 768px)" />
 
         {/* Deferred Google Tag Manager (Strictly Interaction-Only for Lighthouse 100) */}
