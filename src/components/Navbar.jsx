@@ -170,7 +170,7 @@ export default function Navbar() {
           
           {/* Logo - Klik ke Home */}
           <Link href="/" className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
-            <img src="/favicon.svg" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md bg-transparent" style={{ backgroundColor: "transparent" }} />
+            <img src="/logo-banjarmasin.webp" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md bg-transparent" style={{ backgroundColor: "transparent" }} />
             <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
           </Link>
 
