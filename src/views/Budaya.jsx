@@ -59,10 +59,28 @@ export default function Budaya() {
     { url: 'https://banjarmasinkota.go.id/' }
   ];
   const translatedFestival = tLocal('festivalResmiData') || [];
-  const festivalResmiData = festivalMeta.map((f, idx) => ({
-    ...f,
-    ...(translatedFestival[idx] || {})
-  }));
+  const [festivalResmiData, setFestivalResmiData] = useState(
+    festivalMeta.map((f, idx) => ({ ...f, ...(translatedFestival[idx] || {}) }))
+  );
+
+  useEffect(() => {
+    fetch('/api/events')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          // Format dynamic data to match the UI structure
+          const formatted = data.map(ev => ({
+            title: ev.title[language] || ev.title.id,
+            desc: ev.desc[language] || ev.desc.id,
+            tag: ev.tag[language] || ev.tag.id,
+            portalName: ev.portalName,
+            url: `/${language}/blog/${ev.slug}` // Just linking to blog/slug or self
+          }));
+          setFestivalResmiData(formatted);
+        }
+      })
+      .catch(console.error);
+  }, [language]);
 
   const sanggarMeta = [
     { url: 'https://www.instagram.com/explore/tags/kampungsasirangan/' },

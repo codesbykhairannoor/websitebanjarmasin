@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "slug": "banjarmasin-sasirangan-festival",
+    "title": {
+      "id": "Banjarmasin Sasirangan Festival (BSF)",
+      "en": "Banjarmasin Sasirangan Festival (BSF)",
+      "ms": "Banjarmasin Sasirangan Festival (BSF)",
+      "zh": "马辰 Sasirangan 文化节 (BSF)"
+    },
+    "desc": {
+      "id": "Ajang tahunan terbesar (edisi ke-8 pada 2024) yang digelar di kawasan Siring Menara Pandang & Duta Mall Banjarmasin. Menampilkan fashion show, pameran UMKM pengrajin, lomba desain motif, dan pawai basasirangan. Tercatat transaksi ekonomi kreatif mencapai Rp1,7 miliar.",
+      "en": "The biggest annual event (8th edition in 2024) held at Siring Menara Pandang & Duta Mall. Showcases fashion shows, craft exhibitions, and designer competitions, generating billions in local creative economy.",
+      "ms": "Ajang tahunan terbesar (BSF) mempamerkan pertunjukan fesyen, pameran kraf UMKM, dan perarakan basasirangan yang menjana ekonomi kreatif tempatan.",
+      "zh": "在Siring Menara Pandang和Duta Mall举行的最大年度盛会（2024年第八届）。展示时装秀、手工艺品展览和设计师比赛，在当地创意经济中创造数十亿印尼盾的收入。"
+    },
+    "portalName": "Portal Resmi Kota Banjarmasin",
+    "tag": {
+      "id": "Festival Wastra",
+      "en": "Fabric Festival",
+      "ms": "Festival Wastra",
+      "zh": "织物节"
+    },
+    "date": "2026-08-15"
+  },
+  {
+    "id": "2",
+    "slug": "festival-jukung-hias-tanglong",
+    "title": {
+      "id": "Festival Jukung Hias Tanglong",
+      "en": "Decorated Jukung Tanglong Festival",
+      "ms": "Festival Jukung Hias Tanglong",
+      "zh": "装饰 Jukung Tanglong 灯笼节"
+    },
+    "desc": {
+      "id": "Festival tahunan resmi kota yang menampilkan ratusan perahu jukung tradisional yang dihias dengan lampu tanglong (lentera) indah dan diarak di Sungai Martapura pada malam hari. Menjadi agenda budaya unggulan Disbudporapar Kota Banjarmasin.",
+      "en": "An official annual festival featuring decorated boats lit with lanterns (tanglong) cruising the Martapura River at night, run by Disbudporapar Banjarmasin.",
+      "ms": "Acara tahunan rasmi mempamerkan ratusan bot tradisional jukung berhiaskan lampu tanglong berarak di Sungai Martapura malam hari.",
+      "zh": "一个官方的年度节日，以挂满灯笼的装饰船（tanglong）在夜间巡游Martapura河为特色，由马辰旅游局主办。"
+    },
+    "portalName": "Disbudporapar Kota Banjarmasin",
+    "tag": {
+      "id": "Festival Bahari",
+      "en": "Maritime Festival",
+      "ms": "Festival Bahari",
+      "zh": "海洋节"
+    },
+    "date": "2026-09-24"
+  }
+]

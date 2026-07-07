@@ -7,13 +7,26 @@ export function middleware(request) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
   
-  // Exclude static files, api, _next, and sw.js
+  // Exclude static files, api, _next, and admin
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.includes('.') || 
     pathname === '/sw.js'
   ) {
+    return NextResponse.next();
+  }
+
+  // Admin Dashboard Protection
+  if (pathname.startsWith('/admin/dashboard')) {
+    const token = request.cookies.get('admin_token');
+    if (!token) {
+      return NextResponse.redirect(new URL('/admin', request.url));
+    }
+    return NextResponse.next();
+  }
+
+  if (pathname.startsWith('/admin')) {
     return NextResponse.next();
   }
 
