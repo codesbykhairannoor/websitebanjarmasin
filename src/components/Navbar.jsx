@@ -245,12 +245,44 @@ export default function Navbar() {
               {t('navbar.culture')}
             </Link>
 
-            <Link
-              href="/panduan"
-              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/panduan' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
-            >
-              {t('navbar.guide')}
-            </Link>
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setOpenDropdown(!openDropdown)}
+                onMouseEnter={() => setOpenDropdown(true)}
+                className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${['/panduan', '/blog'].includes(currentPath) ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              >
+                <span>{t('navbar.infoDropdown') || 'Info & Panduan'}</span>
+                <span className={`text-[10px] transition-transform duration-200 ${openDropdown ? 'rotate-180' : ''}`}>▼</span>
+              </button>
+
+              <AnimatePresence>
+                {openDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    onMouseLeave={() => setOpenDropdown(false)}
+                    className="absolute top-full right-0 mt-3 w-52 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
+                  >
+                    <Link
+                      href="/panduan"
+                      onClick={() => setOpenDropdown(false)}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/panduan' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                    >
+                      <span className="text-base">🗺️</span> {t('navbar.guide')}
+                    </Link>
+                    <Link
+                      href="/blog"
+                      onClick={() => setOpenDropdown(false)}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/blog' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                    >
+                      <span className="text-base">📰</span> {t('navbar.blog') || 'Blog & Artikel'}
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </nav>
 
           {/* Right Action Icons */}
@@ -478,6 +510,7 @@ export default function Navbar() {
               <Link href="/kuliner" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🍲 {t('navbar.culinary')}</Link>
               <Link href="/budaya" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🎭 {t('navbar.culture')}</Link>
               <Link href="/panduan" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
+              <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
               <Link href="/panduan" onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
             </motion.div>
           )}

@@ -16,6 +16,8 @@ export const id = {
     culinary: "Kuliner",
     culture: "Budaya & Seni",
     guide: "Panduan & Rute",
+    infoDropdown: "Info & Panduan",
+    blog: "Blog & Artikel",
     exploreCTA: "Jelajah Kota",
     exploreCTA_mobile: "Jelajah Kota Sekarang ➔",
     audioMenuTitle: "🎧 Suasana Musik Banjar",

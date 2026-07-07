@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "id": "1",
+    "slug": "5-tempat-nongkrong-di-banjarmasin",
+    "title": {
+      "id": "5 Tempat Nongkrong Sore di Pinggir Sungai Martapura",
+      "en": "5 Afternoon Hangout Spots Along the Martapura River",
+      "ms": "5 Tempat Lepak Petang di Tepi Sungai Martapura",
+      "zh": "马辰河畔的5个下午闲逛好去处"
+    },
+    "content": {
+      "id": "Banjarmasin, Kota Seribu Sungai, memiliki pesona yang tak ada habisnya jika berbicara tentang wisata sungai. Selain Pasar Terapung yang legendaris, bersantai di sore hari di pinggir Sungai Martapura adalah pengalaman magis yang tidak boleh dilewatkan.\n\nBerikut 5 rekomendasi tempat nongkrong:\n1. Siring Menara Pandang\n2. Kawasan Patung Bekantan\n3. Cafe di kawasan Siring\n4. Taman Kamboja\n5. Dermaga Soto Bang Amat",
+      "en": "Banjarmasin, the City of a Thousand Rivers, has endless charm when it comes to river tourism. Besides the legendary Floating Market, relaxing in the afternoon along the Martapura River is a magical experience not to be missed.\n\nHere are 5 recommended hangout spots:\n1. Siring Menara Pandang\n2. Bekantan Statue Area\n3. Cafes around Siring\n4. Kamboja Park\n5. Bang Amat Soto Pier",
+      "ms": "Banjarmasin, Kota Seribu Sungai, mempunyai pesona yang tiada habisnya apabila bercakap tentang pelancongan sungai. Selain Pasar Terapung yang legenda, bersantai pada waktu petang di sepanjang Sungai Martapura adalah pengalaman magis yang tidak boleh dilepaskan.\n\nBerikut adalah 5 tempat lepak yang disyorkan:\n1. Siring Menara Pandang\n2. Kawasan Patung Bekantan\n3. Kafe di sekitar Siring\n4. Taman Kamboja\n5. Jeti Soto Bang Amat",
+      "zh": "班贾尔马辛，千河之城，在河流旅游方面有着无尽的魅力。除了传奇的水上市场，下午在Martapura河畔放松也是不容错过的神奇体验。\n\n以下是5个推荐的休闲场所：\n1. Siring Menara Pandang\n2. 贝坎坦雕像区\n3. Siring附近的咖啡馆\n4. 甘博亚公园\n5. 邦阿马特索托码头"
+    },
+    "image": "https://images.unsplash.com/photo-1542384701-c0e46e0eda04?auto=format&fit=crop&q=80&w=1200",
+    "date": "2026-06-12T10:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "slug": "sejarah-pasar-terapung-lok-baintan",
+    "title": {
+      "id": "Sejarah Panjang Pasar Terapung Lok Baintan Sejak Abad 16",
+      "en": "The Long History of Lok Baintan Floating Market Since the 16th Century",
+      "ms": "Sejarah Panjang Pasar Terapung Lok Baintan Sejak Abad ke-16",
+      "zh": "Lok Baintan 水上市场自 16 世纪以来的悠久历史"
+    },
+    "content": {
+      "id": "Pasar Terapung Lok Baintan bukanlah sekadar objek wisata buatan, melainkan urat nadi perdagangan masyarakat Banjar yang telah eksis semenjak Kesultanan Banjar berdiri.\n\nPada abad ke-16, sistem barter sangat mendominasi perdagangan di Kalimantan Selatan. Para pedagang menggunakan jukung (perahu tradisional) untuk menelusuri sungai Barito dan anak-anak sungainya.",
+      "en": "The Lok Baintan Floating Market is not just an artificial tourist attraction, but the commercial lifeblood of the Banjar people that has existed since the establishment of the Banjar Sultanate.\n\nIn the 16th century, the barter system dominated trade in South Kalimantan. Traders used jukung (traditional boats) to navigate the Barito river and its tributaries.",
+      "ms": "Pasar Terapung Lok Baintan bukan sekadar tarikan pelancong buatan, tetapi nadi komersial masyarakat Banjar yang telah wujud sejak penubuhan Kesultanan Banjar.\n\nPada abad ke-16, sistem barter mendominasi perdagangan di Kalimantan Selatan. Pedagang menggunakan jukung (bot tradisional) untuk menyusuri sungai Barito dan anak sungainya.",
+      "zh": "Lok Baintan水上市场不仅是一个人造旅游景点，更是班贾尔人自班贾尔苏丹国建立以来一直存在的商业命脉。\n\n在16世纪，以物易物系统主导着南加里曼丹的贸易。商人们乘坐jukung（传统船只）在巴里托河及其支流航行。"
+    },
+    "image": "https://images.unsplash.com/photo-1582236353245-0d26bfd8955f?auto=format&fit=crop&q=80&w=1200",
+    "date": "2026-06-25T08:30:00.000Z"
+  },
+  {
+    "id": "3",
+    "slug": "panduan-naik-brt-banjarbakula",
+    "title": {
+      "id": "Panduan Lengkap Naik Bus Tayo (BRT Trans Banjarbakula)",
+      "en": "Complete Guide to Riding Tayo Bus (BRT Trans Banjarbakula)",
+      "ms": "Panduan Lengkap Menaiki Bas Tayo (BRT Trans Banjarbakula)",
+      "zh": "乘坐 Tayo 巴士 (BRT Trans Banjarbakula) 完整指南"
+    },
+    "content": {
+      "id": "Masyarakat lokal menyebutnya 'Bus Tayo' karena warnanya yang biru cerah. BRT Trans Banjarbakula adalah tulang punggung transportasi massal di Kalimantan Selatan, khususnya Banjarmasin.\n\nCara naik:\n1. Datang ke halte terdekat (misalnya Halte Km 0).\n2. Siapkan uang pas atau e-money (QRIS).\n3. Rute akan menghubungkan dari Bandara Syamsudin Noor langsung ke pusat kota Banjarmasin.",
+      "en": "Locals call it the 'Tayo Bus' because of its bright blue color. BRT Trans Banjarbakula is the backbone of mass transportation in South Kalimantan, especially Banjarmasin.\n\nHow to ride:\n1. Come to the nearest bus stop (e.g., Km 0 Stop).\n2. Prepare exact change or e-money (QRIS).\n3. The route connects Syamsudin Noor Airport directly to downtown Banjarmasin.",
+      "ms": "Penduduk tempatan memanggilnya 'Bas Tayo' kerana warna birunya yang terang. BRT Trans Banjarbakula adalah tulang belakang pengangkutan massa di Kalimantan Selatan, terutamanya Banjarmasin.\n\nCara menaiki:\n1. Datang ke perhentian bas berhampiran (contohnya Perhentian Km 0).\n2. Sediakan wang pas atau e-money (QRIS).\n3. Laluan menghubungkan dari Lapangan Terbang Syamsudin Noor terus ke pusat bandar Banjarmasin.",
+      "zh": "当地人称之为“Tayo巴士”，因为它是明亮的蓝色。BRT Trans Banjarbakula是南加里曼丹特别是班贾尔马辛的公共交通骨干。\n\n如何乘坐：\n1. 来到最近的巴士站（例如：Km 0站）。\n2. 准备零钱或电子货币（QRIS）。\n3. 路线直接连接Syamsudin Noor机场和班贾尔马辛市中心。"
+    },
+    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1200",
+    "date": "2026-07-02T14:15:00.000Z"
+  }
+]
