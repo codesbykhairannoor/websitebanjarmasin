@@ -40,7 +40,8 @@ export default function Navbar() {
   const [isPlaying, setIsPlaying] = useState(() => getGlobalAudio().isPlaying);
   const [theme, setTheme] = useState(() => typeof window !== 'undefined' ? (localStorage.getItem('theme') || 'dark') : 'dark');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(false);
+  const [openTentangDropdown, setOpenTentangDropdown] = useState(false);
+  const [openInfoDropdown, setOpenInfoDropdown] = useState(false);
   const [openLangDropdown, setOpenLangDropdown] = useState(false);
   const [openAudioDropdown, setOpenAudioDropdown] = useState(false);
   const [activeTrackId, setActiveTrackId] = useState(() => getGlobalAudio().activeTrackId);
@@ -48,6 +49,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const location = { pathname };
   const dropdownRef = useRef(null);
+  const infoDropdownRef = useRef(null);
   const langDropdownRef = useRef(null);
   const audioDropdownRef = useRef(null);
 
@@ -81,7 +83,10 @@ export default function Navbar() {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setOpenDropdown(false);
+        setOpenTentangDropdown(false);
+      }
+      if (infoDropdownRef.current && !infoDropdownRef.current.contains(event.target)) {
+        setOpenInfoDropdown(false);
       }
       if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
         setOpenLangDropdown(false);
@@ -161,7 +166,8 @@ export default function Navbar() {
   };
 
   const currentPath = location.pathname;
-  const isTentangActive = ['/profil', '/sejarah', '/smart-city'].includes(currentPath);
+  const isTentangActive = ['/profil', '/sejarah', '/smart-city'].some(p => currentPath.includes(p));
+  const isInfoActive = ['/panduan', '/blog'].some(p => currentPath.includes(p));
 
   return (
     <div className="fixed top-0 left-0 w-full z-[100] bg-[var(--nav-bg)] backdrop-blur-md shadow-lg border-b border-[var(--glass-border)] transition-colors duration-300">
@@ -179,17 +185,17 @@ export default function Navbar() {
             {/* Pilihan 1: Dropdown Tentang Kota */}
             <div className="relative" ref={dropdownRef}>
               <button
-                onClick={() => setOpenDropdown(!openDropdown)}
-                onMouseEnter={() => setOpenDropdown(true)}
+                onClick={() => setOpenTentangDropdown(!openTentangDropdown)}
+                onMouseEnter={() => setOpenTentangDropdown(true)}
                 className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${isTentangActive ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
               >
                 <span>{t('navbar.aboutCity')}</span>
-                <span className={`text-[10px] transition-transform duration-200 ${openDropdown ? 'rotate-180' : ''}`}>▼</span>
+                <span className={`text-[10px] transition-transform duration-200 ${openTentangDropdown ? 'rotate-180' : ''}`}>▼</span>
               </button>
 
               {/* Dropdown Menu */}
               <AnimatePresence>
-                {openDropdown && (
+                {openTentangDropdown && (
                   <motion.div
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -200,21 +206,21 @@ export default function Navbar() {
                   >
                     <Link
                       href="/profil"
-                      onClick={() => setOpenDropdown(false)}
+                      onClick={() => setOpenTentangDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/profil' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">🏛️</span> {t('navbar.profile')}
                     </Link>
                     <Link
                       href="/sejarah"
-                      onClick={() => setOpenDropdown(false)}
+                      onClick={() => setOpenTentangDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/sejarah' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">📜</span> {t('navbar.history')}
                     </Link>
                     <Link
                       href="/smart-city"
-                      onClick={() => setOpenDropdown(false)}
+                      onClick={() => setOpenTentangDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/smart-city' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">⚡</span> {t('navbar.innovation')}
@@ -245,37 +251,37 @@ export default function Navbar() {
               {t('navbar.culture')}
             </Link>
 
-            <div className="relative" ref={dropdownRef}>
+            <div className="relative" ref={infoDropdownRef}>
               <button
-                onClick={() => setOpenDropdown(!openDropdown)}
-                onMouseEnter={() => setOpenDropdown(true)}
-                className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${['/panduan', '/blog'].includes(currentPath) ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+                onClick={() => setOpenInfoDropdown(!openInfoDropdown)}
+                onMouseEnter={() => setOpenInfoDropdown(true)}
+                className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${isInfoActive ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
               >
                 <span>{t('navbar.infoDropdown') || 'Info & Panduan'}</span>
-                <span className={`text-[10px] transition-transform duration-200 ${openDropdown ? 'rotate-180' : ''}`}>▼</span>
+                <span className={`text-[10px] transition-transform duration-200 ${openInfoDropdown ? 'rotate-180' : ''}`}>▼</span>
               </button>
 
               <AnimatePresence>
-                {openDropdown && (
+                {openInfoDropdown && (
                   <motion.div
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    onMouseLeave={() => setOpenDropdown(false)}
+                    onMouseLeave={() => setOpenInfoDropdown(false)}
                     className="absolute top-full right-0 mt-3 w-52 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
                   >
                     <Link
                       href="/panduan"
-                      onClick={() => setOpenDropdown(false)}
-                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/panduan' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                      onClick={() => setOpenInfoDropdown(false)}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/panduan') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">🗺️</span> {t('navbar.guide')}
                     </Link>
                     <Link
                       href="/blog"
-                      onClick={() => setOpenDropdown(false)}
-                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/blog' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                      onClick={() => setOpenInfoDropdown(false)}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/blog') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">📰</span> {t('navbar.blog') || 'Blog & Artikel'}
                     </Link>
