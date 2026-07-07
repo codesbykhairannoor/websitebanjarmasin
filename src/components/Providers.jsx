@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { LanguageProvider } from "../context/LanguageContext";
 import { HelmetProvider } from "react-helmet-async";
-import SEO from "./SEO";
 import ScrollToTop from "./ScrollToTop";
 import AcilAssistant from "./AcilAssistant";
 import SplashScreen from "./SplashScreen";
@@ -82,7 +81,6 @@ export default function Providers({ children }) {
     <HelmetProvider>
       <LanguageProvider>
         {showSplash && <SplashScreen isReady={true} />}
-        <SEO />
         <ScrollToTop />
         <ScrollObserver />
         <main id="main-content">

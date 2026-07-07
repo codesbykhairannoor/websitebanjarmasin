@@ -1,20 +1,10 @@
 User-agent: *
 Allow: /
 
-# Block AI scrapers from overwhelming the server or stealing content without attribution
-User-agent: CCBot
-Disallow: /
-User-agent: ChatGPT-User
-Disallow: /
-User-agent: GPTBot
-Disallow: /
+# Mengizinkan bot AI agar website Banjarmasin bisa direkomendasikan di Google AI Overviews dan ChatGPT
 User-agent: Google-Extended
-Disallow: /
-User-agent: Anthropic-ai
-Disallow: /
-User-agent: Claude-Web
-Disallow: /
-User-agent: cohere-ai
-Disallow: /
+Allow: /
+User-agent: GPTBot
+Allow: /
 
 Sitemap: https://visitbanjarmasin.id/sitemap.xml
