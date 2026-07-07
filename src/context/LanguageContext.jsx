@@ -1,26 +1,30 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { translations } from '../translations';
 import { pagesTranslations } from '../translations/pagesTranslations';
 
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  const [language, setLangState] = useState(() => {
-    if (typeof window === 'undefined') return 'id';
-    try {
-      return localStorage.getItem('lang') || 'id';
-    } catch (e) {
-      return 'id';
-    }
-  });
+  const params = useParams();
+  const pathname = usePathname();
+  const router = useRouter();
 
-  const setLanguage = (lang) => {
-    setLangState(lang);
-    try {
-      localStorage.setItem('lang', lang);
-    } catch (e) {}
+  // Ambil language dari URL segment pertama (contoh: /en/wisata -> 'en')
+  // Fallback ke 'id' jika undefined
+  const language = params?.lang || 'id';
+
+  const setLanguage = (newLang) => {
+    if (!pathname) return;
+    document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000`;
+    const segments = pathname.split('/');
+    // pathname selalu mulai dengan / (contoh: ['', 'id', 'wisata'])
+    if (segments.length >= 2) {
+      segments[1] = newLang;
+      router.push(segments.join('/'));
+    }
   };
 
   useEffect(() => {

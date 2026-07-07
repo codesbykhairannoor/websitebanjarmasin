@@ -16,17 +16,17 @@ export default function sitemap() {
 
   // Map to Next.js Sitemap format with full alternates
   return routes.map((route) => ({
-    url: `${baseUrl}${route.url}`,
+    url: `${baseUrl}/id${route.url}`,
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
     alternates: {
       languages: {
-        "id-ID": `${baseUrl}${route.url}`,
+        "id-ID": `${baseUrl}/id${route.url}`,
         "en-US": `${baseUrl}/en${route.url}`,
         "ms-MY": `${baseUrl}/ms${route.url}`,
         "zh-CN": `${baseUrl}/zh${route.url}`,
-        "x-default": `${baseUrl}${route.url}`,
+        "x-default": `${baseUrl}/id${route.url}`,
       },
     },
   }));

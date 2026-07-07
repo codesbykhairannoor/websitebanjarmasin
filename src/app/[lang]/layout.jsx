@@ -1,8 +1,8 @@
 import React from "react";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
-import "../index.css";
-import "../App.css";
-import Providers from "../components/Providers";
+import "../../index.css";
+import "../../App.css";
+import Providers from "../../components/Providers";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -15,6 +15,10 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
   display: "swap",
 });
+
+export async function generateStaticParams() {
+  return [{ lang: 'id' }, { lang: 'en' }, { lang: 'ms' }, { lang: 'zh' }];
+}
 
 export const metadata = {
   metadataBase: new URL("https://visitbanjarmasin.id"),
@@ -87,9 +91,9 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, params: { lang } }) {
   return (
-    <html lang="id" className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
+    <html lang={lang} className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
       <head>
         {/* Preload LCP Hero Images */}
         <link rel="preload" as="image" href="/home/hero-mobile-menara-pandang.webp" fetchPriority="high" />
