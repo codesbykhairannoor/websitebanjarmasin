@@ -742,10 +742,10 @@ export default function SmartCity() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href={`/${language}/wisata`} className="bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-black px-8 py-4 rounded-full shadow-md transition-transform hover:-translate-y-1 text-sm sm:text-base">
-              {t('sejarah.exploreWisata')}
+              {tLocal('section5Btn1')}
             </Link>
             <Link href={`/${language}/profil`} className="bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#33C3B3] text-[var(--text-main)] font-black px-8 py-4 rounded-full transition-all text-sm sm:text-base">
-              {t('sejarah.backToProfil')}
+              {tLocal('section5Btn2')}
             </Link>
           </div>
         </div>
