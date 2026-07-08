@@ -19,7 +19,7 @@ export default function Footer() {
           
           {/* Col 1: Brand & Mascot Story (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-2 sm:gap-2.5 font-heading text-2xl sm:text-3xl font-black tracking-tight">
+            <Link href={`/${language}`} className="inline-flex items-center gap-2 sm:gap-2.5 font-heading text-2xl sm:text-3xl font-black tracking-tight">
               <img src="/logo-banjarmasin.webp" alt="Logo Banjarmasin" className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-md bg-transparent" style={{ backgroundColor: "transparent" }} />
               <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
             </Link>
@@ -40,11 +40,11 @@ export default function Footer() {
             <h4 className="font-heading font-black text-sm uppercase tracking-wider text-[#00A896]">
               {t('footer.sectionTravel')}
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm font-body">
-              <li><Link href="/wisata" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🏖️ {t('navbar.tourism')}</Link></li>
-              <li><Link href="/kuliner" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🍲 {t('navbar.culinary')}</Link></li>
-              <li><Link href="/budaya" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🎭 {t('navbar.culture')}</Link></li>
-              <li><Link href="/panduan" className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🗺️ {t('navbar.guide')}</Link></li>
+            <ul className="space-y-3 mt-4 text-sm font-heading font-bold">
+              <li><Link href={`/${language}/wisata`} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🏖️ {t('navbar.tourism')}</Link></li>
+              <li><Link href={`/${language}/kuliner`} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🍲 {t('navbar.culinary')}</Link></li>
+              <li><Link href={`/${language}/budaya`} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🎭 {t('navbar.culture')}</Link></li>
+              <li><Link href={`/${language}/panduan`} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🗺️ {t('navbar.guide')}</Link></li>
             </ul>
           </div>
 
@@ -53,11 +53,11 @@ export default function Footer() {
             <h4 className="font-heading font-black text-sm uppercase tracking-wider text-[#F4C038]">
               {t('footer.sectionAbout')}
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm font-body">
-              <li><Link href="/profil" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">🏛️ {t('navbar.profile')}</Link></li>
-              <li><Link href="/sejarah" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">📜 {t('navbar.history')}</Link></li>
-              <li><Link href="/smart-city" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">⚡ {t('navbar.innovation')}</Link></li>
-              <li><Link href="/panduan#faq" className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">❓ FAQ</Link></li>
+            <ul className="space-y-3 mt-4 text-sm font-heading font-bold">
+              <li><Link href={`/${language}/profil`} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">🏛️ {t('navbar.profile')}</Link></li>
+              <li><Link href={`/${language}/sejarah`} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">📜 {t('navbar.history')}</Link></li>
+              <li><Link href={`/${language}/smart-city`} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">⚡ {t('navbar.innovation')}</Link></li>
+              <li><Link href={`/${language}/panduan#faq`} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">❓ FAQ</Link></li>
             </ul>
           </div>
 

@@ -332,7 +332,7 @@ export default function Home() {
                   </div>
                   <div className="bento-bottom">
                     <h3 className="bento-title">{s.title}</h3>
-                    <Link href="/wisata" className="btn-bento-action">{t('common.exploreNow')}</Link>
+                    <Link href={`/${language}/wisata`} className="btn-bento-action">{t('common.exploreNow')}</Link>
                   </div>
                 </div>
               </motion.div>
@@ -346,7 +346,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href="/wisata" className="btn-gateway inline-block">{t('home.wisata.btnText')}</Link>
+            <Link href={`/${language}/wisata`} className="btn-gateway inline-block">{t('home.wisata.btnText')}</Link>
           </motion.div>
         </section>
 
@@ -426,7 +426,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link href="/kuliner" className="btn-gateway inline-block">{t('home.kuliner.btnText')}</Link>
+            <Link href={`/${language}/kuliner`} className="btn-gateway inline-block">{t('home.kuliner.btnText')}</Link>
           </motion.div>
         </section>
 
@@ -467,7 +467,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <Link href="/budaya" className="btn-gateway inline-block">{t('home.budaya.btnText')}</Link>
+              <Link href={`/${language}/budaya`} className="btn-gateway inline-block">{t('home.budaya.btnText')}</Link>
             </motion.div>
 
             <motion.div 
@@ -521,7 +521,7 @@ export default function Home() {
               <p className="text-gray-200 text-sm md:text-base lg:text-lg mb-8 leading-relaxed max-w-lg">
                 {t('home.smartCity.desc')}
               </p>
-              <Link href="/smart-city" className="bg-gradient-to-r from-[#33C3B3] to-[#00A896] hover:brightness-110 text-white px-8 py-4 rounded-full font-bold shadow-xl transition-all hover:-translate-y-1 inline-block">
+              <Link href={`/${language}/smart-city`} className="bg-gradient-to-r from-[#33C3B3] to-[#00A896] hover:brightness-110 text-white px-8 py-4 rounded-full font-bold shadow-xl transition-all hover:-translate-y-1 inline-block">
                 {t('home.smartCity.btnText')}
               </Link>
             </motion.div>
@@ -595,7 +595,7 @@ export default function Home() {
                 <div className="p-6 md:p-8 flex-1 flex flex-col">
                   <h3 className="font-heading font-black text-xl md:text-2xl text-[var(--text-main)] mb-3">{item.title}</h3>
                   <p className="text-sm md:text-base text-[var(--text-muted)] leading-relaxed mb-6 flex-1">{item.desc}</p>
-                  <Link href="/panduan" className="text-[#33C3B3] font-bold text-sm md:text-base hover:text-[#2AA698] flex items-center gap-2 group-hover:gap-4 transition-all">
+                  <Link href={`/${language}/panduan`} className="text-[#33C3B3] font-bold text-sm md:text-base hover:text-[#2AA698] flex items-center gap-2 group-hover:gap-4 transition-all">
                     {t('home.panduan.readDetails', 'Baca Detail Panduan')} <span>➔</span>
                   </Link>
                 </div>
@@ -604,7 +604,7 @@ export default function Home() {
           </div>
           
           <div className="text-center mt-6">
-            <Link href="/panduan" className="btn-gateway inline-block">{t('home.panduan.btnText')}</Link>
+            <Link href={`/${language}/panduan`} className="btn-gateway inline-block">{t('home.panduan.btnText')}</Link>
           </div>
         </section>
 
