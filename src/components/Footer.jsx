@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   return (
     <footer className="w-full bg-[var(--card-bg)] border-t border-[var(--glass-border)] text-[var(--text-main)] transition-colors duration-300 relative overflow-hidden">
       {/* Decorative Subtle Background Glow */}
