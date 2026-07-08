@@ -272,14 +272,14 @@ export default function Navbar() {
                     className="absolute top-full right-0 mt-3 w-52 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
                   >
                     <Link
-                      href="/panduan"
+                      href={`/${language}/panduan`}
                       onClick={() => setOpenInfoDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/panduan') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">🗺️</span> {t('navbar.guide')}
                     </Link>
                     <Link
-                      href="/blog"
+                      href={`/${language}/blog`}
                       onClick={() => setOpenInfoDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/blog') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
