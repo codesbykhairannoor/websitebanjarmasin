@@ -229,7 +229,7 @@ export default function Home() {
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></a>
                     ) : (
-                      <Link href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
+                      <Link href={`/${language}${item.btnLink}`} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
                     )}
                     {item.price && (
                       <span className="text-sm font-bold text-gray-200 bg-white/10 backdrop-blur-md px-6 py-4 rounded-full border border-white/20 shadow-lg">{item.price}</span>
@@ -271,7 +271,7 @@ export default function Home() {
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</a>
                     ) : (
-                      <Link href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
+                      <Link href={`/${language}${item.btnLink}`} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
                     )}
                   </div>
                 </div>
