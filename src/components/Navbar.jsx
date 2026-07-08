@@ -175,7 +175,7 @@ export default function Navbar() {
         <header className="flex items-center justify-between w-full">
           
           {/* Logo - Klik ke Home */}
-          <Link href="/" className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
+          <Link href={`/${language}`} className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
             <img src="/logo-banjarmasin.webp" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md bg-transparent" style={{ backgroundColor: "transparent" }} />
             <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
           </Link>
@@ -205,23 +205,23 @@ export default function Navbar() {
                     className="absolute top-full left-0 mt-3 w-56 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
                   >
                     <Link
-                      href="/profil"
+                      href={`/${language}/profil`}
                       onClick={() => setOpenTentangDropdown(false)}
-                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/profil' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/profil') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">🏛️</span> {t('navbar.profile')}
                     </Link>
                     <Link
-                      href="/sejarah"
+                      href={`/${language}/sejarah`}
                       onClick={() => setOpenTentangDropdown(false)}
-                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/sejarah' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/sejarah') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">📜</span> {t('navbar.history')}
                     </Link>
                     <Link
-                      href="/smart-city"
+                      href={`/${language}/smart-city`}
                       onClick={() => setOpenTentangDropdown(false)}
-                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath === '/smart-city' ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/smart-city') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">⚡</span> {t('navbar.innovation')}
                     </Link>
@@ -231,22 +231,22 @@ export default function Navbar() {
             </div>
 
             <Link
-              href="/wisata"
-              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/wisata' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              href={`/${language}/wisata`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/wisata') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.tourism')}
             </Link>
 
             <Link
-              href="/kuliner"
-              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/kuliner' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              href={`/${language}/kuliner`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/kuliner') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.culinary')}
             </Link>
 
             <Link
-              href="/budaya"
-              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath === '/budaya' ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              href={`/${language}/budaya`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/budaya') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.culture')}
             </Link>
@@ -422,7 +422,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <Link
-              href="/panduan"
+              href={`/${language}/panduan`}
               className="hidden sm:flex items-center gap-1 px-3 sm:px-4 py-2 rounded-full bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-heading font-black text-xs transition-all shadow-[0_4px_15px_rgba(244,192,56,0.3)] hover:scale-105 shrink-0 max-w-[120px] sm:max-w-[150px] overflow-hidden"
             >
               <span className="truncate">{t('navbar.exploreCTA')}</span>
@@ -507,17 +507,17 @@ export default function Navbar() {
 
               <div className="pl-4 py-1 text-[10px] font-black uppercase tracking-widest text-[#00A896]">{t('navbar.aboutCity')}</div>
               <div className="grid grid-cols-3 gap-2 px-2 mb-1">
-                <Link href="/profil" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🏛️ {t('navbar.profile').split(' ')[0]}</Link>
-                <Link href="/sejarah" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">📜 {t('navbar.history').split(' ')[0]}</Link>
-                <Link href="/smart-city" onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">⚡ {t('navbar.innovation').split(' ')[0]}</Link>
+                <Link href={`/${language}/profil`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🏛️ {t('navbar.profile').split(' ')[0]}</Link>
+                <Link href={`/${language}/sejarah`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">📜 {t('navbar.history').split(' ')[0]}</Link>
+                <Link href={`/${language}/smart-city`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">⚡ {t('navbar.innovation').split(' ')[0]}</Link>
               </div>
 
-              <Link href="/wisata" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🏖️ {t('navbar.tourism')}</Link>
-              <Link href="/kuliner" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🍲 {t('navbar.culinary')}</Link>
-              <Link href="/budaya" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🎭 {t('navbar.culture')}</Link>
-              <Link href="/panduan" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
-              <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
-              <Link href="/panduan" onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
+              <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🏖️ {t('navbar.tourism')}</Link>
+              <Link href={`/${language}/kuliner`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🍲 {t('navbar.culinary')}</Link>
+              <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🎭 {t('navbar.culture')}</Link>
+              <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
+              <Link href={`/${language}/blog`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
+              <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
             </motion.div>
           )}
         </AnimatePresence>

@@ -72,8 +72,8 @@ export const metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon.png", type: "image/png" },
-      { url: "/favicon.webp", type: "image/webp" },
     ],
     apple: "/favicon.png",
   },

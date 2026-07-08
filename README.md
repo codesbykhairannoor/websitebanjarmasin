@@ -1,37 +1,40 @@
-# 🌿 Banjarmasin Saku - Nusantara Digital City Portal
+# Visit Banjarmasin 🌊
 
-Portal digital resmi dan panduan interaktif Kota Banjarmasin berbasis React & Vite. Mempersembahkan keindahan, sejarah, kuliner, dan inovasi smart city **Kota Seribu Sungai** kepada wisatawan lokal maupun mancanegara.
+Portal Eksplorasi Wisata & Budaya Kota Seribu Sungai (Banjarmasin, Kalimantan Selatan).
+Website ini merupakan sebuah sistem informasi pariwisata modern yang dibangun menggunakan framework **Next.js 15 (App Router)**.
 
-## ✨ Fitur Unggulan
+## Fitur Utama 🚀
+- **Super Fast & SEO Optimized:** Dibangun di atas arsitektur Server-Side Rendering (SSR) & Static Site Generation (SSG) untuk performa dan SEO maksimal.
+- **Multilingual Support (i18n):** Mendukung 4 bahasa (Indonesia, English, Melayu, dan Mandarin/Chinese). 
+- **Light & Dark Mode:** Mendukung mode terang dan gelap dengan preferensi tema yang tersimpan secara lokal.
+- **Background Music Player:** Fitur *audio player global* yang memutar instrumen musik tradisional Sape' / Panting agar pengunjung bisa merasakan *vibes* Kalimantan secara langsung.
+- **Smart City Map:** Peta interaktif tempat wisata, kuliner, dan budaya yang tertanam di halaman Smart City.
+- **CMS Lokal Terintegrasi:** Memiliki Dashboard Admin (`/admin`) untuk mengelola Konten Blog dan Event tanpa butuh *database external*.
+- **Mobile-First Design:** Antarmuka modern *glassmorphism* yang super responsif, terutama pada layar *smartphone*.
 
-- 🏛️ **Sejarah & Budaya Terapung**: Linimasa interaktif Kesultanan Banjar 1526 hingga era modern serta eksplorasi filosofi Sasirangan & arsitektur Bubungan Tinggi.
-- 🍲 **Jelajah Kuliner Legendaris**: Kurasi kuliner otentik (Soto Banjar Bang Amat, Ketupat Kandangan, Bingka) dengan *Interactive Spotlight Tabs*.
-- 🏖️ **Destinasi Wisata**: Panduan lengkap Pasar Terapung Lok Baintan, Menara Pandang 360°, dan susur sungai.
-- ⚡ **Inovasi Smart City**: Membedah 5 pilar Banjarmasin Pintar, termasuk sistem retribusi pasar **e-Limpas** & **Baiman Store**.
-- 🗺️ **Peta Interaktif Live**: 19 titik navigasi penting (Rute bus BRT Rp 5.000, dermaga kelotok, hotel, posko darurat medis SOS 112) terintegrasi langsung ke Google Maps.
-- 🐵 **Acil AI Virtual Assistant (Powered by Google Gemini)**: Asisten cerdas siaga 24 jam untuk memandu perjalanan wisata, dilengkapi opsi *Chat Manual WhatsApp Admin Manusia*.
-- 🔊 **Suara Sungai Alami**: Synthesizer Web Audio API di Navbar yang menghasilkan relaksasi aliran air sungai secara nyata.
+## Stack Teknologi 💻
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS (dengan custom CSS Variables di index.css)
+- **Animations:** Framer Motion
+- **Icons & Map:** Leaflet (React-Leaflet) untuk peta interaktif
+- **PWA Ready:** Menggunakan next-pwa
 
-## 🛠️ Cara Menjalankan Secara Lokal
+## Struktur Direktori Penting 📂
+- `/src/app/[lang]`: Direktori utama aplikasi dengan dukungan *routing* bahasa.
+- `/src/components`: Semua komponen *reusable* (Navbar, Footer, SEO, AudioPlayer, dll).
+- `/src/data`: Tempat penyimpanan file `.json` sebagai *database* lokal (CMS).
+- `/public`: Aset statis seperti gambar (.webp) dan ikon.
+- `/src/translations`: Berisi file dictionary untuk penerjemahan (i18n).
 
-1. Kloning repositori ini:
-   ```bash
-   git clone https://github.com/codesbykhairannoor/websitebanjarmasin.git
-   cd websitebanjarmasin
-   ```
-2. Instal dependensi:
+## Cara Menjalankan Secara Lokal 🛠️
+1. Install dependencies:
    ```bash
    npm install
    ```
-3. Atur API Key Gemini (Super Security):
-   Salin `.env.example` menjadi `.env` lalu masukkan kunci API Gemini Anda:
-   ```env
-   VITE_GEMINI_API_KEY=your_gemini_api_key_here
-   ```
-4. Jalankan server pengembangan:
+2. Jalankan development server:
    ```bash
    npm run dev
    ```
+3. Buka `http://localhost:3000` di *browser*.
 
----
-*Ditemani Maskot Bekantan Siaga • Banjarmasin Barasih wan Nyaman (Baiman)*
+*Mari lestarikan keindahan budaya Kalimantan Selatan dan tingkatkan pariwisata Nusantara!*
