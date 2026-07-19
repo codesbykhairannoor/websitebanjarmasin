@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoogleGenAI } from '@google/genai';
 import { useLanguage } from '../context/LanguageContext';
+import ReactMarkdown from 'react-markdown';
 
 export default function AcilAssistant() {
   const { language, t } = useLanguage();
@@ -216,10 +217,14 @@ Sila jawab dalam Bahasa Melayu. Berikan jawapan yang ringkas, praktikal, membant
                     className={`max-w-[85%] p-3.5 rounded-2xl leading-relaxed shadow-sm ${
                       msg.sender === 'user'
                         ? 'bg-[#F4C038] text-[#091422] font-semibold rounded-br-none'
-                        : 'bg-[var(--bg-main)]/80 border border-[var(--glass-border)] text-[var(--text-main)] rounded-bl-none font-body'
+                        : 'bg-[var(--bg-main)]/80 border border-[var(--glass-border)] text-[var(--text-main)] rounded-bl-none font-body [&>p]:mb-2 [&>ul]:list-disc [&>ul]:ml-4 [&>ol]:list-decimal [&>ol]:ml-4 [&>strong]:font-bold [&>em]:italic [&>h3]:font-bold [&>h3]:mt-2 [&>h3]:mb-1'
                     }`}
                   >
-                    {msg.text}
+                    {msg.sender === 'ai' ? (
+                      <ReactMarkdown>{msg.text}</ReactMarkdown>
+                    ) : (
+                      msg.text
+                    )}
                   </div>
                 </div>
               ))}
