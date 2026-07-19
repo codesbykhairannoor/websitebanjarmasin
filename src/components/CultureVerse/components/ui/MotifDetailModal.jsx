@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { ArrowLeft, Sparkles, Shield, CheckCircle, Info, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, Sparkles, Shield, CheckCircle, Info, MapPin } from 'lucide-react';
 
 export default function MotifDetailModal() {
   const { currentView, selectedMotif, exitPortal } = useAppStore();

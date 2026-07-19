@@ -175,13 +175,13 @@ export default function MuseumGallery() {
     }
   }, []);
 
-  // Load authentic high-resolution WebP Sasirangan textures & Banjarmasin Logo!
+  // Load authentic high-resolution WebP Visit Banjarmasin textures!
   const [bayamTex, gigiTex, kambangTex, sarigadingTex, nagaTex, logoTex] = useTexture([
-    '/motif bayam raj.webp',
-    '/motif_gigi_haruan.webp',
-    '/motif kembang kacang.webp',
-    '/kain_sarigading.webp',
-    '/naga-balimbur-salah-satu-motif-b.webp',
+    '/wisata/960px-Menara_Pandang_Banjarmasin.webp',
+    '/budaya/tari baksa kembang.webp',
+    '/kuliner/soto banjar.webp',
+    '/wisata/960px-Pasar_Terapung_Siring_Banj.webp',
+    '/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp',
     '/LOGO KOTA BANJARMASIN - 328 KB.webp'
   ]);
 
@@ -446,7 +446,7 @@ export default function MuseumGallery() {
                 fontWeight="bold"
                 letterSpacing={0.1}
               >
-                BABAD SASIRANGAN
+                BJM VIRTUAL TOUR
               </Text>
 
               {/* Ornamental line under title */}
@@ -466,7 +466,7 @@ export default function MuseumGallery() {
                 textAlign="center"
                 lineHeight={1.55}
               >
-                {`Menurut Hikayat Banjar (Abad ke-12), Sasirangan pertama kali\ndibuat oleh Patih Lambung Mangkurat sebagai "Kain Pamali"\natau kain penyembuhan sakral untuk Putri Junjung Buih.`}
+                {`Selamat datang di Culture Verse Banjarmasin.\nSebuah pengalaman imersif yang merangkum keindahan ikon kota,\nkekayaan budaya, dan pesona wisata Seribu Sungai.`}
               </Text>
 
               {/* Paragraph 2 - compact */}
@@ -480,7 +480,7 @@ export default function MuseumGallery() {
                 textAlign="center"
                 lineHeight={1.55}
               >
-                {`Berasal dari kata "Sirang" (dijelujur dengan tangan),\ndikerjakan semalaman sambil melantunkan salawat.\nKini menjadi identitas membanggakan Kalimantan Selatan.`}
+                {`Banjarmasin Baiman (Barasih wan Nyaman).\nMewujudkan kota pesisir yang inklusif, cerdas, dan lestari\nsebagai pintu gerbang Nusantara di tanah Borneo.`}
               </Text>
 
               {/* Bottom ornamental line */}
@@ -506,11 +506,7 @@ export default function MuseumGallery() {
         </RigidBody>
       </group>
 
-      {/* ==========================================
-          5.5 ECO-DYE STATION (NEW SDG 12 & 11.4 SHOWCASE)
-          Moved to Z = 4 to avoid collision with benches and give more space from monolith
-         ========================================== */}
-      <EcoDyeStation position={[0, 0.4, 4]} />
+
 
       {/* ==========================================
           6. AUTHENTIC WEBP SASIRANGAN SHOWCASE PAINTINGS (5 MASTERPIECES)
@@ -568,7 +564,7 @@ export default function MuseumGallery() {
             <meshStandardMaterial color="#0f172a" roughness={0.2} metalness={0.8} />
           </mesh>
           <Text position={[0, 0, 0.12]} fontSize={0.24} maxWidth={3.2} textAlign="center" color="#f59e0b" anchorX="center" anchorY="middle" fontWeight="bold">
-            Bayam Raja (Kepemimpinan)
+            Menara Pandang (Landmark)
           </Text>
         </group>
 
@@ -631,7 +627,7 @@ export default function MuseumGallery() {
             <meshStandardMaterial color="#0f172a" roughness={0.2} metalness={0.8} />
           </mesh>
           <Text position={[0, 0, 0.12]} fontSize={0.24} maxWidth={3.2} textAlign="center" color="#f59e0b" anchorX="center" anchorY="middle" fontWeight="bold">
-            Gigi Haruan (Ketajaman Berpikir)
+            Tari Baksa Kembang (Budaya)
           </Text>
         </group>
       </group>
@@ -693,7 +689,7 @@ export default function MuseumGallery() {
             <meshStandardMaterial color="#0f172a" roughness={0.2} metalness={0.8} />
           </mesh>
           <Text position={[0, 0, 0.12]} fontSize={0.24} maxWidth={3.2} textAlign="center" color="#f59e0b" anchorX="center" anchorY="middle" fontWeight="bold">
-            Kambang Kacang (Gotong Royong)
+            Soto Banjar (Kuliner)
           </Text>
         </group>
       </group>
@@ -755,7 +751,7 @@ export default function MuseumGallery() {
             <meshStandardMaterial color="#0f172a" roughness={0.2} metalness={0.8} />
           </mesh>
           <Text position={[0, 0, 0.12]} fontSize={0.24} maxWidth={3.2} textAlign="center" color="#f59e0b" anchorX="center" anchorY="middle" fontWeight="bold">
-            Kain Sarigading (Warisan Budaya)
+            Pasar Terapung (Pariwisata)
           </Text>
         </group>
       </group>
@@ -817,7 +813,7 @@ export default function MuseumGallery() {
             <meshStandardMaterial color="#0f172a" roughness={0.2} metalness={0.8} />
           </mesh>
           <Text position={[0, 0, 0.12]} fontSize={0.24} maxWidth={3.2} textAlign="center" color="#f59e0b" anchorX="center" anchorY="middle" fontWeight="bold">
-            Naga Balimbur (Pelindung Alam)
+            Trans Banjarmasin (Smart City)
           </Text>
         </group>
       </group>

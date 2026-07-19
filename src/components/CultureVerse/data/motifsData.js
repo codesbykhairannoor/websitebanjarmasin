@@ -1,127 +1,107 @@
 export const MOTIFS_DATA = [
   {
-    id: 'bayam-raja',
-    title: 'Motif Bayam Raja',
-    subtitle: 'Kepemimpinan & Kemakmuran (Presidential Centerpiece)',
+    id: 'menara-pandang',
+    title: 'Menara Pandang Siring',
+    subtitle: 'Ikon Pariwisata Kota (Landmark Centerpiece)',
     color: '#10b981',
     glowColor: 'rgba(16, 185, 129, 0.6)',
-    textureUrl: '/motif bayam raj.webp',
+    textureUrl: '/wisata/960px-Menara_Pandang_Banjarmasin.webp',
     position: [0, 5.0, -22],
     rotation: [0, 0, 0],
-    philosophy: 'Menggambarkan sulur daun bayam raja yang tumbuh tegak, subur, dan memberi manfaat bagi lingkungan sekitarnya. Motif ini mengandung doa dan filosofi kepemimpinan yang mengayomi, martabat luhur, dan kesejahteraan masyarakat.',
-    sdgImpact: 'SDG 11 & SDG 8 — Kota Berkelanjutan & Ekonomi Kreatif: Pemberdayaan komunitas pengrajin lokal di Banjarmasin untuk menciptakan ekosistem kemandirian ekonomi berbasis budaya.',
+    philosophy: 'Menara Pandang Siring adalah ikon utama Kota Banjarmasin yang berdiri megah di tepi Sungai Martapura. Tempat ini melambangkan keterbukaan dan visi ke depan kota Seribu Sungai.',
+    sdgImpact: 'SDG 11 — Kota Berkelanjutan: Pengembangan kawasan Siring sebagai ruang publik inklusif yang aman dan mudah diakses oleh seluruh lapisan masyarakat.',
     facts: [
-      'Secara tradisi diperuntukkan bagi pemimpin atau tokoh masyarakat.',
-      'Garis vertikal melambangkan hubungan harmonis manusia dengan Tuhan.',
-      'Menjadi motif standar untuk kemitraan diplomatik budaya Kalimantan Selatan.'
+      'Menjadi pusat berkumpulnya wisatawan dan warga lokal.',
+      'Memiliki arsitektur unik dengan sentuhan ornamen khas Banjar.',
+      'Dari puncaknya, pengunjung bisa melihat pemandangan hamparan Sungai Martapura.'
     ],
-    shopName: 'Toko Sasirangan Khas Banjar (Shopee)',
-    shopLink: 'https://shopee.co.id/search?keyword=kain%20sasirangan%20banjarmasin'
+    shopName: 'Lihat Destinasi Wisata',
+    shopLink: '/id/wisata'
   },
   {
-    id: 'gigi-haruan',
-    title: 'Motif Gigi Haruan',
-    subtitle: 'Ketajaman Berpikir & Ketangkasan (Left Wing Masterpiece)',
+    id: 'tari-baksa-kembang',
+    title: 'Tari Baksa Kembang',
+    subtitle: 'Keanggunan Budaya Banjar (Cultural Heritage)',
     color: '#f43f5e',
     glowColor: 'rgba(244, 63, 94, 0.6)',
-    textureUrl: '/motif_gigi_haruan.webp',
+    textureUrl: '/budaya/tari baksa kembang.webp',
     position: [-7.8, 5.0, 6],
     rotation: [0, Math.PI / 2, 0],
-    philosophy: 'Terinspirasi dari deretan gigi ikan haruan (gabus) khas rawa Kalimantan yang tajam dan kuat. Motif ini melambangkan ketajaman pemikiran, kewaspadaan, dan kebijaksanaan dalam mengambil keputusan.',
-    sdgImpact: 'SDG Target 11.4 — Melestarikan Warisan Budaya & Alam: Transformasi motif klasik ke dalam ekosistem digital metaverse meningkatkan nilai brand Sasirangan di kancah global.',
+    philosophy: 'Tarian klasik keraton Banjar yang diciptakan untuk menyambut tamu kehormatan. Tarian ini melambangkan keramahan, kelembutan budi pekerti, dan penghormatan warga Banjar kepada setiap pendatang.',
+    sdgImpact: 'SDG Target 11.4 — Melestarikan Warisan Budaya: Menjaga kesenian tradisi di tengah arus modernisasi sebagai daya tarik wisata budaya.',
     facts: [
-      'Digunakan oleh bangsawan Banjar pada upacara adat sakral.',
-      'Melambangkan perlindungan diri dan keteguhan prinsip.',
-      'Proses pembuatan teknik jumputan membutuhkan ketelitian presisi.'
+      'Penari wanita biasanya menggunakan mahkota bernama Gajah Oling.',
+      'Diiringi oleh alat musik tradisional Panting dan Gamelan Banjar.',
+      'Sering dipentaskan dalam acara pernikahan dan penyambutan tokoh.'
     ],
-    shopName: 'Diyang Kinjut Sasirangan (Instagram)',
-    shopLink: 'https://www.instagram.com/diyangkinjut/'
+    shopName: 'Jelajahi Budaya Banjar',
+    shopLink: '/id/budaya'
   },
   {
-    id: 'kambang-kacang',
-    title: 'Motif Kambang Kacang',
-    subtitle: 'Persaudaraan & Gotong Royong (Right Wing Masterpiece)',
-    color: '#a855f7',
-    glowColor: 'rgba(168, 85, 247, 0.6)',
-    textureUrl: '/motif kembang kacang.webp',
-    position: [7.8, 5.0, -6],
-    rotation: [0, -Math.PI / 2, 0],
-    philosophy: 'Terinspirasi dari bunga kacang panjang yang merambat dan saling mengait tidak pernah putus. Melambangkan ikatan persaudaraan yang abadi, kesetiaan, gotong royong, dan keharmonisan sosial.',
-    sdgImpact: 'SDG 11 — Komunitas Perkotaan yang Inklusif: Membangun resiliensi kota melalui keharmonisan sosial dan menjadikan seni tradisi sebagai jembatan persatuan.',
-    facts: [
-      'Sering dijadikan hadiah pernikahan sebagai simbol cinta abadi.',
-      'Pola sulur lengkung melambangkan kelembutan budi pekerti.',
-      'Melambangkan sinergi antar elemen masyarakat dalam membangun peradaban.'
-    ],
-    shopName: 'Irma Sasirangan (Shopee)',
-    shopLink: 'https://shopee.co.id/search?keyword=sasirangan%20irma'
-  },
-  {
-    id: 'kain-sarigading',
-    title: 'Motif Kain Sarigading',
-    subtitle: 'Keanggunan & Kesucian Budaya Banjar (Heritage Gallery)',
-    color: '#06b6d4',
-    glowColor: 'rgba(6, 182, 212, 0.6)',
-    textureUrl: '/kain_sarigading.webp',
-    position: [-7.8, 5.0, -16],
-    rotation: [0, Math.PI / 2, 0],
-    philosophy: 'Motif Sarigading merupakan salah satu motif tertua dalam tradisi tenun dan celup khas Kalimantan Selatan. Mengandung nilai kesucian, keanggunan tata krama, serta penghormatan terhadap alam semesta.',
-    sdgImpact: 'SDG 12 — Konsumsi dan Produksi Bertanggung Jawab: Penggunaan pewarna alami tradisi Banjar menjaga kelestarian sungai dan ekosistem air lokal.',
-    facts: [
-      'merupakan warisan budaya tak benda yang bernilai sejarah tinggi.',
-      'Dibuat dengan teknik celup rintang warna tradisional khas Banjar.',
-      'Memiliki pola geometris harmonis yang menenangkan mata.'
-    ],
-    shopName: 'Galuh Sasirangan (Instagram)',
-    shopLink: 'https://www.instagram.com/galuhsasirangan/'
-  },
-  {
-    id: 'naga-balimbur',
-    title: 'Motif Naga Balimbur',
-    subtitle: 'Kekuatan & Pelindung Alam Semesta (Heritage Gallery)',
+    id: 'soto-banjar',
+    title: 'Soto Banjar',
+    subtitle: 'Kelezatan Gastronomi Lokal (Culinary)',
     color: '#fbbf24',
     glowColor: 'rgba(251, 191, 36, 0.6)',
-    textureUrl: '/naga-balimbur-salah-satu-motif-b.webp',
-    position: [7.8, 5.0, -18],
+    textureUrl: '/kuliner/soto banjar.webp',
+    position: [7.8, 5.0, -6],
     rotation: [0, -Math.PI / 2, 0],
-    philosophy: 'Terinspirasi dari mitologi naga yang mandi di sungai (balimbur), melambangkan pembersihan diri, kekuatan spiritual pembawa kesuburan, serta penjaga keseimbangan ekosistem perairan.',
-    sdgImpact: 'SDG 6 & SDG 14 — Pelestarian Air dan Ekosistem Sungai: Filosofi Naga Balimbur mengajarkan masyarakat untuk selalu menjaga kebersihan sungai dan sumber daya air.',
+    philosophy: 'Kekayaan rempah nusantara berpadu dalam kuah kaldu Soto Banjar. Kuliner ini adalah simbol akulturasi dan keramahan warga yang selalu menyajikan makanan terbaik bagi tamunya.',
+    sdgImpact: 'SDG 8 — Pertumbuhan Ekonomi: Memberdayakan UMKM lokal dan sektor kuliner tradisional untuk menciptakan lapangan kerja berkelanjutan.',
     facts: [
-      'Motif ini melambangkan kegembiraan dan penyucian jiwa.',
-      'Sering dipakai dalam acara mandi-mandi pengantin adat Banjar.',
-      'Menggabungkan unsur flora dan fauna dalam satu kesatuan estetika.'
+      'Kuahnya khas karena menggunakan rempah kayu manis, biji pala, dan cengkeh.',
+      'Biasa disajikan dengan ketupat, sate ayam, dan perkedel singkong.',
+      'Menjadi menu wajib bagi wisatawan yang datang ke Banjarmasin.'
     ],
-    shopName: 'Nida Sasirangan (Shopee)',
-    shopLink: 'https://shopee.co.id/search?keyword=sasirangan'
+    shopName: 'Cicipi Kuliner Khas',
+    shopLink: '/id/kuliner'
   },
   {
-    id: 'sdg12-alchemist',
-    title: 'Pewarnaan Alami & Zero Waste',
-    subtitle: 'Sustainable Fashion Initiative (SDG 12 Showcase)',
-    color: '#84cc16', // Lime Green
-    glowColor: 'rgba(132, 204, 22, 0.6)',
-    textureUrl: null, 
-    position: [0, 5.0, 0], // Center of the room
-    rotation: [0, 0, 0],
-    philosophy: 'Industri fashion modern seringkali menjadi penyumbang polusi air terbesar. Namun, pengrajin Sasirangan tradisional Kalimantan Selatan telah lama mengadopsi prinsip "Zero Waste" dengan memanfaatkan ekstrak bahan alam seperti kayu ulin, kunyit, dan daun tarum untuk menghasilkan warna yang indah sekaligus menjaga kejernihan air sungai.',
-    sdgImpact: 'SDG 12 — Konsumsi dan Produksi Bertanggung Jawab: Memastikan pola produksi fesyen yang ramah lingkungan dengan meminimalisir limbah kimia berbahaya ke aliran sungai lokal.',
+    id: 'pasar-terapung',
+    title: 'Pasar Terapung',
+    subtitle: 'Tradisi Perdagangan Sungai (River Tourism)',
+    color: '#06b6d4',
+    glowColor: 'rgba(6, 182, 212, 0.6)',
+    textureUrl: '/wisata/960px-Pasar_Terapung_Siring_Banj.webp',
+    position: [-7.8, 5.0, -16],
+    rotation: [0, Math.PI / 2, 0],
+    philosophy: 'Pasar Terapung bukan sekadar tempat transaksi jual beli, tapi denyut nadi peradaban masyarakat tepian sungai yang saling bergantung (simbiosis mutualisme) dan menjunjung tinggi kearifan lokal.',
+    sdgImpact: 'SDG 12 — Konsumsi dan Produksi Bertanggung Jawab: Mempertahankan sistem barter dan perdagangan hasil bumi lokal yang rendah jejak karbon.',
     facts: [
-      'Warna kuning alami diekstrak dari rimpang kunyit.',
-      'Warna coklat eksotis didapat dari ekstrak kayu ulin khas Kalimantan.',
-      'Sisa rebusan pewarna alam aman untuk diserap kembali oleh tanah.'
-    ]
-  }
+      'Tradisi ini sudah ada sejak ratusan tahun lalu di sepanjang Sungai Barito dan Martapura.',
+      'Didominasi oleh "Acil-Acil" (ibu-ibu) yang berjualan di atas jukung.',
+      'Pasar Terapung Lok Baintan merupakan salah satu destinasi wisata unggulan nasional.'
+    ],
+    shopName: 'Telusuri Destinasi Wisata',
+    shopLink: '/id/wisata'
+  },
+  {
+    id: 'trans-banjarmasin',
+    title: 'Trans Banjarmasin & BRT',
+    subtitle: 'Mobilitas Cerdas (Smart City)',
+    color: '#a855f7',
+    glowColor: 'rgba(168, 85, 247, 0.6)',
+    textureUrl: '/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp',
+    position: [7.8, 5.0, -18],
+    rotation: [0, -Math.PI / 2, 0],
+    philosophy: 'Banjarmasin terus bergerak maju dengan fasilitas transportasi massal berbasis BRT (Bus Rapid Transit) yang nyaman, terintegrasi, dan ramah lingkungan, mewujudkan visi Banjarmasin Smart City.',
+    sdgImpact: 'SDG 11 & SDG 13 — Transportasi Berkelanjutan & Penanganan Perubahan Iklim: Mendorong warga beralih ke transportasi publik untuk mengurangi emisi.',
+    facts: [
+      'Bus Trans Banjarmasin dilengkapi dengan AC dan fasilitas ramah difabel.',
+      'Rute menjangkau titik-titik strategis termasuk pelabuhan dan kawasan wisata.',
+      'Terkoneksi dengan sistem BRT Banjarbakula (lintas kota/kabupaten).'
+    ],
 ];
 
 export const SDG_INFO = {
   title: "SDG 11 : Kota & Komunitas Berkelanjutan",
-  subTheme: "Culture Verse — Branding Untuk Dampak Nyata",
+  subTheme: "Visit Banjarmasin — Smart City Berbudaya",
   target: "Target 11.4 : Memperkuat upaya melestarikan warisan budaya dan alam dunia.",
-  description: "Di era disrupsi digital, kota berkelanjutan bukan hanya tentang infrastruktur beton dan teknologi cerdas, tetapi juga tentang mempertahankan identitas jiwa dan warisan budaya (Cultural Heritage). Melalui proyek 'Sasirangan Metaverse', kami mentransformasikan kain adat tradisi leluhur menjadi aset brand agensi high-tech yang relevan bagi generasi muda.",
+  description: "Banjarmasin bertransformasi menjadi kota cerdas (Smart City) tanpa meninggalkan akar budayanya. Inovasi seperti transportasi publik BRT, restorasi bantaran sungai, dan ekosistem pariwisata digital memastikan kesejahteraan warga sekaligus melestarikan pesona 'Kota Seribu Sungai' untuk generasi masa depan.",
   stats: [
-    { label: "Pengrajin Terberdayakan", value: "1,200+" },
-    { label: "Pewarna Alami Ramah Lingkungan", value: "100%" },
-    { label: "Pengurangan Limbah Tekstil", value: "65%" },
-    { label: "Peningkatan Nilai Brand Global", value: "3.5x" }
+    { label: "UMKM Lokal Terberdayakan", value: "5,000+" },
+    { label: "Ruang Terbuka Hijau & Siring", value: "Diperluas" },
+    { label: "Armada Bus Trans Banjarmasin", value: "Terintegrasi" },
+    { label: "Peningkatan Wisatawan Global", value: "3.5x" }
   ]
 };
