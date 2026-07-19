@@ -80,6 +80,15 @@ export default function RootLayout({ children, params: { lang } }) {
   return (
     <html lang={lang} className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem("hasSeenSplash") === "true") {
+                document.documentElement.classList.add("skip-splash");
+              }
+            `,
+          }}
+        />
         {/* Preload LCP Hero Images */}
         <link rel="preload" as="image" href="/home/hero-mobile-menara-pandang.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/home/banjarmasinkota.webp" fetchPriority="high" media="(min-width: 768px)" />

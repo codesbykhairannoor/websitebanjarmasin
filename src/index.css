@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Skip Splash Screen */
+html.skip-splash .splash-container {
+  display: none !important;
+}
+
 :root {
   /* Authentic Banjarmasin Dark Mode Color Tokens */
   --martapura-night: #091422;

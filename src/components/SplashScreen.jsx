@@ -2,7 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Player } from '@lottiefiles/react-lottie-player';
+import dynamic from 'next/dynamic';
+
+const Player = dynamic(
+  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+  { ssr: false }
+);
 
 const SplashScreen = ({ isReady }) => {
   const [shouldRender, setShouldRender] = useState(true);
@@ -25,7 +30,7 @@ const SplashScreen = ({ isReady }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
           transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[9999] bg-[#050B14] flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-[#050B14] flex flex-col items-center justify-center overflow-hidden splash-container"
         >
           {/* Lottie Animation */}
           <motion.div
