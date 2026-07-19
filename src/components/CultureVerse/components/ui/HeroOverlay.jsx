@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useAppStore } from '../../store/useAppStore';
+import { useLanguage } from '../../../../context/LanguageContext';
 import { Sparkles, Play } from 'lucide-react';
 
 export default function HeroOverlay() {
   const { currentView, setView, is3dLoaded, setSettingsOpen, setAboutOpen } = useAppStore();
+  const { language } = useLanguage();
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   if (currentView !== 'hero' && !isTransitioning) return null;
@@ -29,7 +31,7 @@ export default function HeroOverlay() {
 
           {/* ── Subtitle Tag ── */}
           <p className="text-[9px] sm:text-[10px] font-game font-semibold tracking-[0.4em] uppercase text-amber-500/80 mb-2 sm:mb-4">
-            Eksplorasi Budaya • Virtual Tour 3D
+            {language === 'en' ? 'Cultural Exploration • 3D Virtual Tour' : language === 'ms' ? 'Eksplorasi Budaya • Virtual Tour 3D' : language === 'zh' ? '文化探索 • 3D 虚拟导览' : 'Eksplorasi Budaya • Virtual Tour 3D'}
           </p>
 
           {/* ── Main Title ── */}
@@ -58,7 +60,7 @@ export default function HeroOverlay() {
             >
               <Play className="w-3 h-3 sm:w-5 sm:h-5 text-amber-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
               <span className={`transition-colors duration-300 ${is3dLoaded ? 'text-white group-hover:text-amber-400' : 'text-slate-500'}`}>
-                {is3dLoaded ? 'Masuk Virtual Tour' : 'Memuat...'}
+                {is3dLoaded ? (language === 'en' ? 'Enter Virtual Tour' : language === 'zh' ? '进入虚拟导览' : 'Masuk Virtual Tour') : (language === 'en' ? 'Loading...' : language === 'zh' ? '载入中...' : 'Memuat...')}
               </span>
             </button>
 
@@ -67,7 +69,7 @@ export default function HeroOverlay() {
               onClick={() => setSettingsOpen(true)}
               className="font-title font-bold text-xs sm:text-sm md:text-base lg:text-xl tracking-[0.15em] uppercase text-slate-400 hover:text-amber-300 transition-colors duration-300"
             >
-              Pengaturan
+              {language === 'en' ? 'Settings' : language === 'zh' ? '设置' : 'Pengaturan'}
             </button>
 
 
@@ -81,7 +83,7 @@ export default function HeroOverlay() {
         <div className="fixed inset-0 z-50 bg-slate-950 flex flex-col items-center justify-center pointer-events-none">
           <Sparkles className="w-10 h-10 text-amber-400 animate-spin mb-4" style={{ animationDuration: '2s' }} />
           <p className="text-amber-500 font-game font-bold tracking-[0.3em] uppercase animate-pulse text-sm">
-            Memasuki Metaverse...
+            {language === 'en' ? 'Entering Metaverse...' : language === 'zh' ? '进入元宇宙...' : 'Memasuki Metaverse...'}
           </p>
         </div>
       )}

@@ -1,12 +1,16 @@
 import React from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { SDG_INFO } from '../../data/motifsData';
+import { getLocalizedSdg } from '../../data/motifsData';
+import { useLanguage } from '../../../../context/LanguageContext';
 import { Globe, X, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function SdgModal() {
   const { currentView, closeSdgModal } = useAppStore();
+  const { language } = useLanguage();
 
   if (currentView !== 'sdg-info') return null;
+
+  const sdgInfo = getLocalizedSdg(language);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/85 backdrop-blur-md animate-fade-in font-sans">
@@ -30,19 +34,19 @@ export default function SdgModal() {
           <div className="space-y-2 font-game">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-wide capitalize">
               <Globe className="w-3.5 h-3.5" />
-              <span>SDGs Creative Web Competition</span>
+              <span>{language === 'en' ? 'SDGs Creative Web Competition' : 'SDGs Creative Web Competition'}</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-title font-black text-white capitalize tracking-wide">
-              {SDG_INFO.title}
+              {sdgInfo.title}
             </h2>
             <h3 className="text-sm md:text-base font-bold text-rose-400 tracking-wide capitalize">
-              {SDG_INFO.subTheme}
+              {sdgInfo.subTheme}
             </h3>
           </div>
 
           {/* Description */}
           <div className="p-5 rounded-2xl bg-slate-900/80 border border-white/15 text-slate-200 text-sm md:text-base leading-relaxed font-semibold">
-            {SDG_INFO.description}
+            {sdgInfo.description}
           </div>
 
           {/* Target Highlight */}
@@ -52,7 +56,7 @@ export default function SdgModal() {
             </div>
             <div>
               <h4 className="text-sm font-game font-extrabold text-white capitalize tracking-wide">
-                {SDG_INFO.target}
+                {sdgInfo.target}
               </h4>
               <p className="text-xs text-slate-300 mt-1">
                 Kain Sasirangan bukan sekadar pakaian adat, melainkan rekam jejak peradaban suku Banjar yang sarat dengan doa, filosofi pengobatan tradisional, dan keharmonisan dengan alam raya.
@@ -62,7 +66,7 @@ export default function SdgModal() {
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2 font-game">
-            {SDG_INFO.stats.map((stat, idx) => (
+            {sdgInfo.stats.map((stat, idx) => (
               <div key={idx} className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-center space-y-1">
                 <span className="text-xl md:text-2xl font-black bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent">
                   {stat.value}
@@ -77,7 +81,7 @@ export default function SdgModal() {
           {/* Why 3D & No-DB Static Web? */}
           <div className="space-y-3 pt-2">
             <h4 className="text-xs font-game font-bold text-slate-300 capitalize tracking-wide flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-400" /> Keunggulan Inovasi Proyek Ini
+              <Sparkles className="w-4 h-4 text-amber-400" /> {language === 'en' ? 'Project Innovation Advantages' : language === 'zh' ? '项目创新优势' : 'Keunggulan Inovasi Proyek Ini'}
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-300 font-semibold">
               <div className="p-3.5 rounded-xl bg-slate-900/60 border border-white/10 flex items-start gap-2.5">
@@ -97,7 +101,7 @@ export default function SdgModal() {
               onClick={closeSdgModal}
               className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-purple-600 hover:from-rose-500 hover:to-purple-500 text-white font-bold text-xs capitalize tracking-wide shadow-lg shadow-rose-600/30 transition-all cursor-pointer"
             >
-              Kembali Ke Galeri 3D
+              {language === 'en' ? 'Return to 3D Gallery' : language === 'ms' ? 'Kembali Ke Galeri 3D' : language === 'zh' ? '返回 3D 画廊' : 'Kembali Ke Galeri 3D'}
             </button>
           </div>
 

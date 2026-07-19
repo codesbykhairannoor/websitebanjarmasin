@@ -360,55 +360,57 @@ export default function Navbar() {
           {/* Right Action Icons */}
           <div className="flex items-center gap-2 sm:gap-3">
             
-            {/* Language Selector - Animated Expandable Pill (Hidden on mobile top bar) */}
-            <motion.div 
-              className="relative hidden sm:flex items-center bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-full h-9 sm:h-10 px-1 shadow-sm overflow-hidden"
-              initial={false}
-              animate={{ width: openLangDropdown ? '180px' : '40px' }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              onHoverStart={() => setOpenLangDropdown(true)}
-              onHoverEnd={() => setOpenLangDropdown(false)}
-            >
-              <AnimatePresence mode="wait">
-                {!openLangDropdown ? (
-                  <motion.button
-                    key="collapsed"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="w-full h-full flex items-center justify-center text-lg"
-                  >
-                    {language === 'id' ? '🇮🇩' : language === 'en' ? '🇬🇧' : language === 'ms' ? '🇲🇾' : '🇨🇳'}
-                  </motion.button>
-                ) : (
+            {/* Language Selector Dropdown (Hidden on mobile top bar) */}
+            <div className="relative hidden sm:block" ref={langDropdownRef}>
+              <button
+                onClick={() => setOpenLangDropdown(!openLangDropdown)}
+                title={t('navbar.tooltipLanguage') || "Change Language"}
+                className={`min-h-[40px] px-3 rounded-full border transition-all flex items-center justify-center gap-2 shadow-sm hover:scale-105 shrink-0 ${
+                  openLangDropdown
+                    ? 'bg-[#33C3B3]/20 border-[#33C3B3] text-[var(--text-main)]'
+                    : 'bg-[var(--card-bg)] border-[var(--glass-border)] hover:border-[#33C3B3] text-[var(--text-muted)]'
+                }`}
+              >
+                <span className="text-sm font-bold uppercase">{language}</span>
+                <span className="text-[10px]">▼</span>
+              </button>
+
+              <AnimatePresence>
+                {openLangDropdown && (
                   <motion.div
-                    key="expanded"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="flex items-center gap-1 w-full h-full justify-center px-1"
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-2 w-36 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-2xl shadow-xl overflow-hidden z-[100] backdrop-blur-xl"
                   >
-                    {[
-                      { code: 'id', emoji: '🇮🇩' },
-                      { code: 'en', emoji: '🇬🇧' },
-                      { code: 'ms', emoji: '🇲🇾' },
-                      { code: 'zh', emoji: '🇨🇳' }
-                    ].map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => setLanguage(lang.code)}
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-lg transition-all ${
-                          language === lang.code ? 'bg-[#33C3B3]/20 shadow-inner scale-110' : 'hover:bg-[var(--glass-border)] opacity-60 hover:opacity-100 hover:scale-110'
-                        }`}
-                        title={lang.code.toUpperCase()}
-                      >
-                        {lang.emoji}
-                      </button>
-                    ))}
+                    <div className="flex flex-col py-2">
+                      {[
+                        { code: 'id', label: 'ID - Indonesia' },
+                        { code: 'en', label: 'EN - English' },
+                        { code: 'ms', label: 'MS - Melayu' },
+                        { code: 'zh', label: 'ZH - 中文' }
+                      ].map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            setLanguage(lang.code);
+                            setOpenLangDropdown(false);
+                          }}
+                          className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                            language === lang.code
+                              ? 'bg-[#33C3B3]/20 text-[#33C3B3] font-bold'
+                              : 'text-[var(--text-muted)] hover:bg-[var(--glass-border)] hover:text-[var(--text-main)]'
+                          }`}
+                        >
+                          {lang.label}
+                        </button>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
 
             {/* Theme Toggle Icon Only (Hidden on mobile top bar, available in mobile menu) */}
             <button
@@ -531,10 +533,10 @@ export default function Navbar() {
                 <div className="flex items-center justify-between gap-1.5">
                   <div className="flex items-center gap-1 bg-[var(--glass-border)] p-1 rounded-lg">
                     {[
-                      { code: 'id', label: '🇮🇩 ID' },
-                      { code: 'en', label: '🇬🇧 EN' },
-                      { code: 'ms', label: '🇲🇾 MS' },
-                      { code: 'zh', label: '🇨🇳 ZH' }
+                      { code: 'id', label: 'ID' },
+                      { code: 'en', label: 'EN' },
+                      { code: 'ms', label: 'MS' },
+                      { code: 'zh', label: 'ZH' }
                     ].map((lang) => (
                       <button
                         key={lang.code}
