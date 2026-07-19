@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Navbar from '../../../components/Navbar';
 import DynamicApp from '../../../components/CultureVerse/DynamicApp';
 
 export default function CultureVersePage({ params }) {
@@ -18,16 +19,8 @@ export default function CultureVersePage({ params }) {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-black">
-      {/* Floating Back Button */}
-      <Link
-        href={`/${lang}`}
-        className="absolute top-6 left-6 z-50 px-6 py-3 bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white font-bold rounded-full flex items-center gap-2 transition-all hover:-translate-x-1"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m15 18-6-6 6-6"/>
-        </svg>
-        Kembali ke Beranda
-      </Link>
+      {/* Global Website Navbar on top of the 3D Game! */}
+      <Navbar />
 
       {/* Next.js Wrapped 3D Museum */}
       <DynamicApp />

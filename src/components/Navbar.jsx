@@ -225,6 +225,15 @@ export default function Navbar() {
                     >
                       <span className="text-base">⚡</span> {t('navbar.innovation')}
                     </Link>
+                    <Link
+                      href={`/${language}/culture-verse`}
+                      onClick={() => setOpenTentangDropdown(false)}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center justify-between transition-all ${currentPath.includes('/culture-verse') ? 'bg-[#33C3B3]/20 text-[#33C3B3] font-black' : 'text-[#33C3B3] hover:bg-[#33C3B3]/10 font-bold'}`}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <span className="text-base">🚀</span> Virtual Tour 3D
+                      </div>
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -249,14 +258,6 @@ export default function Navbar() {
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/budaya') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.culture')}
-            </Link>
-
-            <Link
-              href={`/${language}/culture-verse`}
-              className={`text-sm font-heading flex items-center gap-1.5 transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[#33C3B3] font-black' : 'text-[#33C3B3]/80 hover:text-[#33C3B3] font-bold'}`}
-            >
-              Virtual Tour 3D
-              <span className="bg-[#33C3B3] text-white text-[8px] font-black px-1.5 py-0.5 rounded-full animate-pulse shadow-sm shadow-[#33C3B3]/50">NEW</span>
             </Link>
 
             <div className="relative" ref={infoDropdownRef}>
@@ -535,7 +536,6 @@ export default function Navbar() {
               
               <Link href={`/${language}/culture-verse`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[#33C3B3]/10 border border-[#33C3B3]/30 font-heading font-bold text-sm text-[#33C3B3] flex items-center justify-between">
                 <span>🚀 Virtual Tour 3D</span>
-                <span className="bg-[#33C3B3] text-white text-[9px] font-black px-2 py-0.5 rounded-full animate-pulse">NEW</span>
               </Link>
               <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
               <Link href={`/${language}/blog`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
