@@ -166,7 +166,7 @@ export default function Navbar() {
   };
 
   const currentPath = location.pathname;
-  const isTentangActive = ['/profil', '/sejarah', '/smart-city'].some(p => currentPath.includes(p));
+  const isTentangActive = ['/profil', '/sejarah', '/budaya', '/smart-city'].some(p => currentPath.includes(p));
   const isInfoActive = ['/panduan', '/blog'].some(p => currentPath.includes(p));
 
   return (
@@ -219,20 +219,18 @@ export default function Navbar() {
                       <span className="text-base">📜</span> {t('navbar.history')}
                     </Link>
                     <Link
+                      href={`/${language}/budaya`}
+                      onClick={() => setOpenTentangDropdown(false)}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/budaya') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                    >
+                      <span className="text-base">🎭</span> {t('navbar.culture')}
+                    </Link>
+                    <Link
                       href={`/${language}/smart-city`}
                       onClick={() => setOpenTentangDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/smart-city') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">⚡</span> {t('navbar.innovation')}
-                    </Link>
-                    <Link
-                      href={`/${language}/culture-verse`}
-                      onClick={() => setOpenTentangDropdown(false)}
-                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center justify-between transition-all ${currentPath.includes('/culture-verse') ? 'bg-[#33C3B3]/20 text-[#33C3B3] font-black' : 'text-[#33C3B3] hover:bg-[#33C3B3]/10 font-bold'}`}
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-base">🚀</span> Virtual Tour 3D
-                      </div>
                     </Link>
                   </motion.div>
                 )}
@@ -254,10 +252,10 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href={`/${language}/budaya`}
-              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/budaya') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              href={`/${language}/culture-verse`}
+              className={`text-sm font-heading flex items-center gap-1.5 transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[#33C3B3] font-black' : 'text-[#33C3B3]/80 hover:text-[#33C3B3] font-bold'}`}
             >
-              {t('navbar.culture')}
+              🚀 Virtual Tour 3D
             </Link>
 
             <div className="relative" ref={infoDropdownRef}>
@@ -524,15 +522,15 @@ export default function Navbar() {
               </div>
 
               <div className="pl-4 py-1 text-[10px] font-black uppercase tracking-widest text-[#00A896]">{t('navbar.aboutCity')}</div>
-              <div className="grid grid-cols-3 gap-2 px-2 mb-1">
+              <div className="grid grid-cols-2 gap-2 px-2 mb-1">
                 <Link href={`/${language}/profil`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🏛️ {t('navbar.profile').split(' ')[0]}</Link>
                 <Link href={`/${language}/sejarah`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">📜 {t('navbar.history').split(' ')[0]}</Link>
+                <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🎭 {t('navbar.culture').split(' ')[0]}</Link>
                 <Link href={`/${language}/smart-city`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">⚡ {t('navbar.innovation').split(' ')[0]}</Link>
               </div>
 
               <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🏖️ {t('navbar.tourism')}</Link>
               <Link href={`/${language}/kuliner`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🍲 {t('navbar.culinary')}</Link>
-              <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🎭 {t('navbar.culture')}</Link>
               
               <Link href={`/${language}/culture-verse`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[#33C3B3]/10 border border-[#33C3B3]/30 font-heading font-bold text-sm text-[#33C3B3] flex items-center justify-between">
                 <span>🚀 Virtual Tour 3D</span>
