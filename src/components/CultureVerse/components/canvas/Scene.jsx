@@ -202,23 +202,15 @@ function RpgSceneController({ setNearbyMotif }) {
         let lookPos = new THREE.Vector3(motif.position[0], motif.position[1], motif.position[2]);
         
         if (motif.id === 'bayam-raja') {
-          // Center North wall (Z = -27.5). Look slightly left (-X) so painting moves left.
-          camPos.set(0, 5.0, -23);
-          lookPos.set(-2, 4.5, -27.5);
+          camPos.set(0, 5.0, -17.5);
         } else if (motif.id === 'gigi-haruan') {
-          // Left Wall (X = -7.5). Camera looks at -X. To move painting left, look slightly right (+Z).
-          camPos.set(-2.5, 5.0, -6);
-          lookPos.set(-7.5, 4.5, -4);
+          camPos.set(-3.3, 5.0, 6);
         } else if (motif.id === 'kambang-kacang') {
-          // Right Wall (X = 7.5). Camera looks at +X. To move painting left, look slightly right (-Z).
-          camPos.set(2.5, 5.0, -6);
-          lookPos.set(7.5, 4.5, -8);
+          camPos.set(3.3, 5.0, -6);
         } else if (motif.id === 'kain-sarigading') {
-          camPos.set(-2.5, 5.0, -16);
-          lookPos.set(-7.5, 4.5, -14);
+          camPos.set(-3.3, 5.0, -16);
         } else if (motif.id === 'naga-balimbur') {
-          camPos.set(2.5, 5.0, -18);
-          lookPos.set(7.5, 4.5, -20);
+          camPos.set(3.3, 5.0, -18);
         } else {
           camPos.set(motif.position[0], motif.position[1], motif.position[2] + 4.5);
         }

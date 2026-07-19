@@ -48,9 +48,38 @@ export default function MuseumGallery() {
     '/LOGO KOTA BANJARMASIN - 328 KB.webp'
   ]);
 
+  const [
+    asset1, asset2, asset3, asset4, asset5,
+    asset6, asset7, asset8, asset9, asset10
+  ] = useTexture([
+    '/aset sasirangan/1915452023-6993141070_8be042c8f4.webp',
+    '/aset sasirangan/IMG_1162.webp',
+    '/aset sasirangan/geometric-ethnic-tribal-vintage.webp',
+    '/aset sasirangan/images-1.webp',
+    '/aset sasirangan/images-2.webp',
+    '/aset sasirangan/images-3.webp',
+    '/aset sasirangan/images.webp',
+    '/aset sasirangan/kalimantan-sasirangan-motif-back.webp',
+    '/aset sasirangan/large-img-2580-c672ad34767909f09.webp',
+    '/aset sasirangan/pola-mulus-seni-wallpaper-pola-e.webp'
+  ]);
+
+  useEffect(() => {
+    const allAssets = [asset1, asset2, asset3, asset4, asset5, asset6, asset7, asset8, asset9, asset10];
+    allAssets.forEach(tex => {
+      if (tex) {
+        tex.wrapS = THREE.RepeatWrapping;
+        tex.wrapT = THREE.RepeatWrapping;
+        tex.repeat.set(0.6, 0.6); 
+        tex.offset.set(0.5, 0.5);
+        tex.needsUpdate = true;
+      }
+    });
+  }, [asset1, asset2, asset3, asset4, asset5, asset6, asset7, asset8, asset9, asset10]);
+
   const { gl } = useThree();
   
-  // ⚡ HD Texture Injection (Anisotropic Filtering + Color Space correction)
+  // ⚡ HD Texture Injection (Anisotropic Filtering + Color Space correction) for paintings!
   useEffect(() => {
     const maxAnisotropy = gl.capabilities.getMaxAnisotropy();
     [bayamTex, gigiTex, kambangTex, sarigadingTex, nagaTex, logoTex].forEach(tex => {
@@ -260,14 +289,14 @@ export default function MuseumGallery() {
 
 
       {/* ==========================================
-          5. FASHION SHOWCASE AREA (BACK ROOM Z = 20 to 26)
+          5. FASHION SHOWCASE AREA (MIDDLE ROOM Z = 10 to 14)
          ========================================== */}
-      <ExhibitionMannequin position={[-3.5, 0.1, 26]} rotation={[0, Math.PI / 6, 0]} texture={bayamTex} type="tshirt" title="Kemeja Pria" />
-      <ExhibitionMannequin position={[3.5, 0.1, 26]} rotation={[0, -Math.PI / 6, 0]} texture={kambangTex} type="dress" title="Gaun Wanita" />
-      <ExhibitionMannequin position={[-5.5, 0.1, 22]} rotation={[0, Math.PI / 4, 0]} texture={sarigadingTex} type="kimono" title="Outerwear" />
-      <ExhibitionMannequin position={[5.5, 0.1, 22]} rotation={[0, -Math.PI / 4, 0]} texture={gigiTex} type="selendang" title="Selendang" />
-      <ExhibitionMannequin position={[-1.5, 0.1, 20]} rotation={[0, 0, 0]} texture={nagaTex} type="celana" title="Celana" />
-      <ExhibitionMannequin position={[1.5, 0.1, 20]} rotation={[0, 0, 0]} texture={bayamTex} type="tas" title="Totebag" />
+      <ExhibitionMannequin position={[-3.5, 0.1, 14]} rotation={[0, Math.PI / 6, 0]} texture={asset1} type="tshirt" title="Kemeja Pria" />
+      <ExhibitionMannequin position={[3.5, 0.1, 14]} rotation={[0, -Math.PI / 6, 0]} texture={asset2} type="dress" title="Gaun Wanita" />
+      <ExhibitionMannequin position={[-5.5, 0.1, 12]} rotation={[0, Math.PI / 4, 0]} texture={asset3} type="kimono" title="Outerwear" />
+      <ExhibitionMannequin position={[5.5, 0.1, 12]} rotation={[0, -Math.PI / 4, 0]} texture={asset4} type="selendang" title="Selendang" />
+      <ExhibitionMannequin position={[-1.5, 0.1, 10]} rotation={[0, 0, 0]} texture={asset5} type="celana" title="Celana" />
+      <ExhibitionMannequin position={[1.5, 0.1, 10]} rotation={[0, 0, 0]} texture={asset6} type="tas" title="Totebag" />
 
       {/* ==========================================
           6. AUTHENTIC WEBP SASIRANGAN SHOWCASE PAINTINGS (5 MASTERPIECES)
