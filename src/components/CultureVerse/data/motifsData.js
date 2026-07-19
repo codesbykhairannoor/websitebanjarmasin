@@ -91,6 +91,9 @@ export const MOTIFS_DATA = [
       'Rute menjangkau titik-titik strategis termasuk pelabuhan dan kawasan wisata.',
       'Terkoneksi dengan sistem BRT Banjarbakula (lintas kota/kabupaten).'
     ],
+    shopName: 'Pelajari Smart City',
+    shopLink: '/id/smart-city'
+  }
 ];
 
 export const SDG_INFO = {
