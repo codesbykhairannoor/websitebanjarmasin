@@ -59,16 +59,16 @@ export default function Providers({ children }) {
     if (!initialSeen) {
       setShowSplash(true);
       
-      // Start exit animation after 1.5 seconds
+      // Start exit animation after 3.5 seconds
       const readyTimer = setTimeout(() => {
         setIsSplashReady(true);
         sessionStorage.setItem("hasSeenSplash", "true");
-      }, 1500);
+      }, 3500);
 
-      // Remove from DOM completely after 2.5 seconds (allowing 1s for animation)
+      // Remove from DOM completely after 4.5 seconds (allowing 1s for animation)
       const removeTimer = setTimeout(() => {
         setShowSplash(false);
-      }, 2500);
+      }, 4500);
 
       return () => {
         clearTimeout(readyTimer);
