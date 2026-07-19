@@ -294,46 +294,55 @@ export default function Navbar() {
           {/* Right Action Icons */}
           <div className="flex items-center gap-2 sm:gap-3">
             
-            {/* Language Selector Dropdown (Hidden on mobile top bar, available in mobile menu) */}
-            <div className="relative hidden sm:block" ref={langDropdownRef}>
-              <button
-                onClick={() => setOpenLangDropdown(!openLangDropdown)}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#33C3B3] text-lg transition-all shadow-sm hover:scale-105 shrink-0"
-                title={t('navbar.tooltipLang')}
-              >
-                {language === 'id' ? '🇮🇩' : language === 'en' ? '🇬🇧' : language === 'ms' ? '🇲🇾' : '🇨🇳'}
-              </button>
-              
-              <AnimatePresence>
-                {openLangDropdown && (
+            {/* Language Selector - Animated Expandable Pill (Hidden on mobile top bar) */}
+            <motion.div 
+              className="relative hidden sm:flex items-center bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-full h-9 sm:h-10 px-1 shadow-sm overflow-hidden"
+              initial={false}
+              animate={{ width: openLangDropdown ? '180px' : '40px' }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              onHoverStart={() => setOpenLangDropdown(true)}
+              onHoverEnd={() => setOpenLangDropdown(false)}
+            >
+              <AnimatePresence mode="wait">
+                {!openLangDropdown ? (
+                  <motion.button
+                    key="collapsed"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="w-full h-full flex items-center justify-center text-lg"
+                  >
+                    {language === 'id' ? '🇮🇩' : language === 'en' ? '🇬🇧' : language === 'ms' ? '🇲🇾' : '🇨🇳'}
+                  </motion.button>
+                ) : (
                   <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-2 w-32 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
+                    key="expanded"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="flex items-center gap-1 w-full h-full justify-center px-1"
                   >
                     {[
-                      { code: 'id', label: '🇮🇩 Indo' },
-                      { code: 'en', label: '🇬🇧 English' },
-                      { code: 'ms', label: '🇲🇾 Melayu' },
-                      { code: 'zh', label: '🇨🇳 中文' }
+                      { code: 'id', emoji: '🇮🇩' },
+                      { code: 'en', emoji: '🇬🇧' },
+                      { code: 'ms', emoji: '🇲🇾' },
+                      { code: 'zh', emoji: '🇨🇳' }
                     ].map((lang) => (
                       <button
                         key={lang.code}
-                        onClick={() => {
-                          setLanguage(lang.code);
-                          setOpenLangDropdown(false);
-                        }}
-                        className={`px-3 py-2 rounded-xl text-left text-xs font-bold transition-all flex items-center gap-2 w-full ${language === lang.code ? 'bg-[#33C3B3]/20 text-[#33C3B3]' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                        onClick={() => setLanguage(lang.code)}
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-lg transition-all ${
+                          language === lang.code ? 'bg-[#33C3B3]/20 shadow-inner scale-110' : 'hover:bg-[var(--glass-border)] opacity-60 hover:opacity-100 hover:scale-110'
+                        }`}
+                        title={lang.code.toUpperCase()}
                       >
-                        {lang.label}
+                        {lang.emoji}
                       </button>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
 
             {/* Theme Toggle Icon Only (Hidden on mobile top bar, available in mobile menu) */}
             <button

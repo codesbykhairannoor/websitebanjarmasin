@@ -358,6 +358,15 @@ export default function RouteAccessibilityMap() {
       L.control.zoom({ position: 'bottomright' }).addTo(map);
       mapInstanceRef.current = map;
       setTimeout(() => { if (map) map.invalidateSize(); }, 200);
+
+      // Add ResizeObserver to prevent map disappearing on container resize
+      const resizeObserver = new ResizeObserver(() => {
+        if (map) map.invalidateSize();
+      });
+      resizeObserver.observe(mapContainerRef.current);
+      
+      // Store observer in map object to clean it up later if needed
+      map._resizeObserver = resizeObserver;
     }
 
     return () => {

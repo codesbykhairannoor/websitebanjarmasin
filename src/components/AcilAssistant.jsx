@@ -158,19 +158,35 @@ Sila jawab dalam Bahasa Melayu. Berikan jawapan yang ringkas, praktikal, membant
   return (
     <div className="fixed bottom-6 right-6 z-[100] font-body">
       
-      {/* Floating Widget Button */}
+      {/* Floating Widget Button - Interactive Spotlight */}
       {!isOpen && (
-        <button
+        <motion.button
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-3 bg-gradient-to-r from-[#00A896] to-[#028090] hover:from-[#008075] hover:to-[#00A896] text-white px-5 py-3 rounded-full shadow-[0_8px_25px_rgba(0,168,150,0.4)] border border-[#F4C038]/80 transition-all hover:scale-105 active:scale-95"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="group relative flex items-center gap-3 bg-gradient-to-r from-[#00A896] to-[#028090] text-white px-5 py-3 rounded-full shadow-[0_8px_30px_rgba(0,168,150,0.5)] border border-[#F4C038]/80 transition-all"
           title={t('assistant.title')}
         >
-          <span className="text-xl">🧭</span>
-          <div className="text-left">
-            <span className="block text-[9px] font-black uppercase tracking-wider text-[#F4C038] font-heading leading-tight">AI Virtual Guide</span>
+          {/* Pulsing Spotlight Effect */}
+          <motion.div 
+            className="absolute inset-0 rounded-full border-2 border-[#33C3B3] opacity-50"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute inset-0 rounded-full border border-[#F4C038] opacity-30"
+            animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+            transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut", delay: 0.5 }}
+          />
+          
+          <span className="text-2xl relative z-10 animate-bounce">🧭</span>
+          <div className="text-left relative z-10">
+            <span className="block text-[9px] font-black uppercase tracking-wider text-[#F4C038] font-heading leading-tight drop-shadow-md">AI Virtual Guide</span>
             <span className="block text-xs sm:text-sm font-black font-heading leading-tight">{t('assistant.title')}</span>
           </div>
-        </button>
+        </motion.button>
       )}
 
       {/* Chat Window Popup */}

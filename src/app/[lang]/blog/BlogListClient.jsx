@@ -172,10 +172,10 @@ export default function BlogListClient({ blogs, lang }) {
             {/* Article Grid */}
             {rest.length > 0 && (
               <>
-                <p className="text-[#33C3B3] text-xs font-black tracking-[0.3em] uppercase mb-6">
-                  {L.allArticles}
+                <p className="text-[#33C3B3] text-xs font-black tracking-[0.3em] uppercase mb-6 flex items-center gap-3">
+                  {L.allArticles} <span className="h-[1px] flex-1 bg-gradient-to-r from-[#33C3B3]/30 to-transparent block sm:hidden"></span>
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div className="flex overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-4 sm:mx-0 sm:px-0 gap-5 sm:gap-6 lg:gap-8 wadai-scroll">
                   {rest.map((blog, idx) => {
                     const title = blog.title[currentLang] || blog.title.id;
                     const content = blog.content[currentLang] || blog.content.id;
@@ -188,13 +188,14 @@ export default function BlogListClient({ blogs, lang }) {
                     return (
                       <motion.div
                         key={blog.id}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: idx * 0.1 }}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: idx * 0.1, type: "spring", stiffness: 100 }}
+                        className="min-w-[280px] sm:min-w-[320px] max-w-[340px] snap-center shrink-0"
                       >
                         <Link
                           href={`/${currentLang}/blog/${blog.slug}`}
-                          className="group flex flex-col h-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-2xl overflow-hidden hover:border-[#33C3B3]/60 hover:shadow-[0_8px_30px_rgba(51,195,179,0.12)] transition-all duration-400 hover:-translate-y-1"
+                          className="group flex flex-col h-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[2rem] overflow-hidden hover:border-[#33C3B3]/60 hover:shadow-[0_15px_40px_rgba(51,195,179,0.15)] transition-all duration-500 hover:-translate-y-2 relative"
                         >
                           {/* Image */}
                           <div className="relative h-52 overflow-hidden bg-[var(--glass-border)]">
