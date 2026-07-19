@@ -37,15 +37,16 @@ function notifyAudioListeners() {
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
-  const [isPlaying, setIsPlaying] = useState(() => getGlobalAudio().isPlaying);
-  const [theme, setTheme] = useState(() => typeof window !== 'undefined' ? (localStorage.getItem('theme') || 'dark') : 'dark');
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [theme, setTheme] = useState('dark');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openTentangDropdown, setOpenTentangDropdown] = useState(false);
   const [openInfoDropdown, setOpenInfoDropdown] = useState(false);
   const [openEksplorasiDropdown, setOpenEksplorasiDropdown] = useState(false);
   const [openLangDropdown, setOpenLangDropdown] = useState(false);
   const [openAudioDropdown, setOpenAudioDropdown] = useState(false);
-  const [activeTrackId, setActiveTrackId] = useState(() => getGlobalAudio().activeTrackId);
+  const [activeTrackId, setActiveTrackId] = useState('ampar');
+  const [mounted, setMounted] = useState(false);
   
   const pathname = usePathname();
   const location = { pathname };
@@ -63,12 +64,17 @@ export default function Navbar() {
   ];
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    if (mounted) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+  }, [theme, mounted]);
 
   // Sync state audio global saat mount/update
   useEffect(() => {
+    setMounted(true);
+    setTheme(localStorage.getItem('theme') || 'dark');
+    
     const listener = (state) => {
       setIsPlaying(state.isPlaying);
       setActiveTrackId(state.activeTrackId);
@@ -418,7 +424,7 @@ export default function Navbar() {
               title={t('navbar.tooltipTheme')}
               className="hidden sm:flex w-9 h-9 sm:w-10 sm:h-10 rounded-full items-center justify-center bg-[var(--card-bg)] border border-[var(--glass-border)] hover:border-[#F4C038] text-base sm:text-lg transition-all shadow-sm hover:scale-105 shrink-0"
             >
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {!mounted ? '☀️' : (theme === 'dark' ? '☀️' : '🌙')}
             </button>
 
             {/* Soundscape Dropdown & Player (Hidden on mobile top bar, available in mobile menu) */}
@@ -582,24 +588,21 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <div className="pl-4 py-1 text-[10px] font-black uppercase tracking-widest text-[#00A896]">{t('navbar.aboutCity')}</div>
-              <div className="grid grid-cols-3 gap-2 px-2 mb-1">
-                <Link href={`/${language}/profil`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🏛️ {t('navbar.profile').split(' ')[0]}</Link>
-                <Link href={`/${language}/sejarah`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">📜 {t('navbar.history').split(' ')[0]}</Link>
-                <Link href={`/${language}/smart-city`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">⚡ {t('navbar.innovation').split(' ')[0]}</Link>
+              <div className="flex flex-col gap-1.5 px-2 mb-1">
+                <div className="text-[10px] font-black uppercase tracking-widest text-[#00A896] px-2">{t('navbar.aboutCity')}</div>
+                <Link href={`/${language}/profil`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🏛️ {t('navbar.profile')}</Link>
+                <Link href={`/${language}/sejarah`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">📜 {t('navbar.history')}</Link>
+                <Link href={`/${language}/smart-city`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">⚡ {t('navbar.innovation')}</Link>
+
+                <div className="text-[10px] font-black uppercase tracking-widest text-[#00A896] px-2 mt-2">{language === 'en' ? 'EXPLORE' : 'EKSPLORASI'}</div>
+                <Link href={`/${language}/kuliner`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🍲 {t('navbar.culinary')}</Link>
+                <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🎭 {t('navbar.culture')}</Link>
+                <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🏖️ {t('navbar.tourism')}</Link>
+                <a href={`/${language}/culture-verse`} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[#F4C038] flex items-center gap-2 transition-colors hover:bg-[#F4C038]/10"><span className="text-base">🎮</span> Virtual Tour 3D</a>
+                <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🗺️ {t('navbar.guide')}</Link>
+                <Link href={`/${language}/blog`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
               </div>
 
-              <div className="pl-4 py-1 text-[10px] font-black uppercase tracking-widest text-[#00A896] mt-1">{language === 'en' ? 'EXPLORE' : 'EKSPLORASI'}</div>
-              <div className="grid grid-cols-2 gap-2 px-2 mb-1">
-                <Link href={`/${language}/kuliner`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🍲 {t('navbar.culinary').split(' ')[0]}</Link>
-                <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🎭 {t('navbar.culture').split(' ')[0]}</Link>
-              </div>
-
-              <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] mt-1">🏖️ {t('navbar.tourism')}</Link>
-              
-              <a href={`/${language}/culture-verse`} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">Virtual Tour 3D</a>
-              <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
-              <Link href={`/${language}/blog`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
               <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
             </motion.div>
           )}
