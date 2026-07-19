@@ -42,6 +42,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openTentangDropdown, setOpenTentangDropdown] = useState(false);
   const [openInfoDropdown, setOpenInfoDropdown] = useState(false);
+  const [openEksplorasiDropdown, setOpenEksplorasiDropdown] = useState(false);
   const [openLangDropdown, setOpenLangDropdown] = useState(false);
   const [openAudioDropdown, setOpenAudioDropdown] = useState(false);
   const [activeTrackId, setActiveTrackId] = useState(() => getGlobalAudio().activeTrackId);
@@ -50,6 +51,7 @@ export default function Navbar() {
   const location = { pathname };
   const dropdownRef = useRef(null);
   const infoDropdownRef = useRef(null);
+  const eksplorasiDropdownRef = useRef(null);
   const langDropdownRef = useRef(null);
   const audioDropdownRef = useRef(null);
 
@@ -87,6 +89,9 @@ export default function Navbar() {
       }
       if (infoDropdownRef.current && !infoDropdownRef.current.contains(event.target)) {
         setOpenInfoDropdown(false);
+      }
+      if (eksplorasiDropdownRef.current && !eksplorasiDropdownRef.current.contains(event.target)) {
+        setOpenEksplorasiDropdown(false);
       }
       if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
         setOpenLangDropdown(false);
@@ -166,8 +171,9 @@ export default function Navbar() {
   };
 
   const currentPath = location.pathname;
-  const isTentangActive = ['/profil', '/sejarah', '/budaya', '/smart-city'].some(p => currentPath.includes(p));
+  const isTentangActive = ['/profil', '/sejarah', '/smart-city'].some(p => currentPath.includes(p));
   const isInfoActive = ['/panduan', '/blog'].some(p => currentPath.includes(p));
+  const isEksplorasiActive = ['/kuliner', '/budaya'].some(p => currentPath.includes(p));
 
   return (
     <div className="fixed top-0 left-0 w-full z-[100] bg-[var(--nav-bg)] backdrop-blur-md shadow-lg border-b border-[var(--glass-border)] transition-colors duration-300">
@@ -219,13 +225,6 @@ export default function Navbar() {
                       <span className="text-base">📜</span> {t('navbar.history')}
                     </Link>
                     <Link
-                      href={`/${language}/budaya`}
-                      onClick={() => setOpenTentangDropdown(false)}
-                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/budaya') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
-                    >
-                      <span className="text-base">🎭</span> {t('navbar.culture')}
-                    </Link>
-                    <Link
                       href={`/${language}/smart-city`}
                       onClick={() => setOpenTentangDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/smart-city') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
@@ -244,12 +243,44 @@ export default function Navbar() {
               {t('navbar.tourism')}
             </Link>
 
-            <Link
-              href={`/${language}/kuliner`}
-              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/kuliner') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
-            >
-              {t('navbar.culinary')}
-            </Link>
+            <div className="relative" ref={eksplorasiDropdownRef}>
+              <button
+                onClick={() => setOpenEksplorasiDropdown(!openEksplorasiDropdown)}
+                onMouseEnter={() => setOpenEksplorasiDropdown(true)}
+                className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${isEksplorasiActive ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              >
+                <span>{language === 'en' ? 'Explore' : 'Eksplorasi'}</span>
+                <span className={`text-[10px] transition-transform duration-200 ${openEksplorasiDropdown ? 'rotate-180' : ''}`}>▼</span>
+              </button>
+
+              <AnimatePresence>
+                {openEksplorasiDropdown && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    onMouseLeave={() => setOpenEksplorasiDropdown(false)}
+                    className="absolute top-full left-0 mt-3 w-48 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
+                  >
+                    <Link
+                      href={`/${language}/kuliner`}
+                      onClick={() => setOpenEksplorasiDropdown(false)}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/kuliner') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                    >
+                      <span className="text-base">🍲</span> {t('navbar.culinary')}
+                    </Link>
+                    <Link
+                      href={`/${language}/budaya`}
+                      onClick={() => setOpenEksplorasiDropdown(false)}
+                      className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/budaya') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
+                    >
+                      <span className="text-base">🎭</span> {t('navbar.culture')}
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <Link
               href={`/${language}/culture-verse`}
@@ -522,15 +553,19 @@ export default function Navbar() {
               </div>
 
               <div className="pl-4 py-1 text-[10px] font-black uppercase tracking-widest text-[#00A896]">{t('navbar.aboutCity')}</div>
-              <div className="grid grid-cols-2 gap-2 px-2 mb-1">
+              <div className="grid grid-cols-3 gap-2 px-2 mb-1">
                 <Link href={`/${language}/profil`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🏛️ {t('navbar.profile').split(' ')[0]}</Link>
                 <Link href={`/${language}/sejarah`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">📜 {t('navbar.history').split(' ')[0]}</Link>
-                <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🎭 {t('navbar.culture').split(' ')[0]}</Link>
                 <Link href={`/${language}/smart-city`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">⚡ {t('navbar.innovation').split(' ')[0]}</Link>
               </div>
 
-              <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🏖️ {t('navbar.tourism')}</Link>
-              <Link href={`/${language}/kuliner`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🍲 {t('navbar.culinary')}</Link>
+              <div className="pl-4 py-1 text-[10px] font-black uppercase tracking-widest text-[#00A896] mt-1">{language === 'en' ? 'EXPLORE' : 'EKSPLORASI'}</div>
+              <div className="grid grid-cols-2 gap-2 px-2 mb-1">
+                <Link href={`/${language}/kuliner`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🍲 {t('navbar.culinary').split(' ')[0]}</Link>
+                <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="p-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--glass-border)] text-center text-xs font-bold text-[var(--text-main)]">🎭 {t('navbar.culture').split(' ')[0]}</Link>
+              </div>
+
+              <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] mt-1">🏖️ {t('navbar.tourism')}</Link>
               
               <Link href={`/${language}/culture-verse`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[#33C3B3]/10 border border-[#33C3B3]/30 font-heading font-bold text-sm text-[#33C3B3] flex items-center justify-between">
                 <span>🚀 Virtual Tour 3D</span>
