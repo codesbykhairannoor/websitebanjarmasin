@@ -207,7 +207,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    onMouseLeave={() => setOpenDropdown(false)}
+                    onMouseLeave={() => setOpenTentangDropdown(false)}
                     className="absolute top-full left-0 mt-3 w-56 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
                   >
                     <Link
@@ -236,13 +236,7 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link
-              href={`/${language}/wisata`}
-              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/wisata') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
-            >
-              {t('navbar.tourism')}
-            </Link>
-
+            {/* Pilihan 2: Eksplorasi Dropdown */}
             <div className="relative" ref={eksplorasiDropdownRef}>
               <button
                 onClick={() => setOpenEksplorasiDropdown(!openEksplorasiDropdown)}
@@ -282,13 +276,7 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link
-              href={`/${language}/culture-verse`}
-              className={`text-sm font-heading flex items-center gap-1.5 transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[#33C3B3] font-black' : 'text-[#33C3B3]/80 hover:text-[#33C3B3] font-bold'}`}
-            >
-              🚀 Virtual Tour 3D
-            </Link>
-
+            {/* Pilihan 3: Info & Panduan Dropdown */}
             <div className="relative" ref={infoDropdownRef}>
               <button
                 onClick={() => setOpenInfoDropdown(!openInfoDropdown)}
@@ -327,6 +315,22 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Pilihan 4: Wisata */}
+            <Link
+              href={`/${language}/wisata`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/wisata') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+            >
+              {t('navbar.tourism')}
+            </Link>
+
+            {/* Pilihan 5: Virtual Tour 3D */}
+            <Link
+              href={`/${language}/culture-verse`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+            >
+              Virtual Tour 3D
+            </Link>
           </nav>
 
           {/* Right Action Icons */}
@@ -567,9 +571,7 @@ export default function Navbar() {
 
               <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] mt-1">🏖️ {t('navbar.tourism')}</Link>
               
-              <Link href={`/${language}/culture-verse`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[#33C3B3]/10 border border-[#33C3B3]/30 font-heading font-bold text-sm text-[#33C3B3] flex items-center justify-between">
-                <span>🚀 Virtual Tour 3D</span>
-              </Link>
+              <Link href={`/${language}/culture-verse`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">Virtual Tour 3D</Link>
               <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
               <Link href={`/${language}/blog`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
               <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
