@@ -1,3 +1,6 @@
+import fs from 'fs';
+import path from 'path';
+
 export default function sitemap() {
   const baseUrl = "https://visitbanjarmasin.id";
   
@@ -14,8 +17,28 @@ export default function sitemap() {
     { url: "/profil", priority: 0.7, changeFrequency: "monthly" },
   ];
 
+  // Try to load PSEO Dataset
+  let pseoDataset = [];
+  try {
+    const datasetPath = path.join(process.cwd(), 'src/data/pseo-dataset.json');
+    if (fs.existsSync(datasetPath)) {
+      pseoDataset = JSON.parse(fs.readFileSync(datasetPath, 'utf8'));
+    }
+  } catch (e) {
+    console.error("Failed to load pSEO dataset for sitemap:", e);
+  }
+
+  // Generate PSEO routes
+  const pseoRoutes = pseoDataset.map(record => ({
+    url: `/explore/${record.slug}`,
+    priority: 0.6,
+    changeFrequency: "monthly"
+  }));
+
+  const allRoutes = [...routes, ...pseoRoutes];
+
   // Map to Next.js Sitemap format with full alternates
-  return routes.map((route) => ({
+  return allRoutes.map((route) => ({
     url: `${baseUrl}/id${route.url}`,
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,

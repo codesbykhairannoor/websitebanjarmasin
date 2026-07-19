@@ -125,6 +125,13 @@ export default function Footer() {
         <a href="https://visitbanjarmasin.id/id/kuliner" tabIndex="-1">Kuliner Banjarmasin</a>
         <a href="https://visitbanjarmasin.id/id/budaya" tabIndex="-1">Budaya Banjarmasin</a>
         <a href="https://visitbanjarmasin.id/id/wisata" tabIndex="-1">Destinasi Wisata Banjarmasin</a>
+        
+        {/* PSEO Hidden Links for Indexing Juice */}
+        <a href="https://visitbanjarmasin.id/id/explore/hotel-murah-di-banjarmasin-tengah" tabIndex="-1">Hotel Murah di Banjarmasin Tengah</a>
+        <a href="https://visitbanjarmasin.id/id/explore/wisata-kuliner-di-banjarmasin-selatan" tabIndex="-1">Wisata Kuliner di Banjarmasin Selatan</a>
+        <a href="https://visitbanjarmasin.id/id/explore/tempat-nongkrong-di-kayutangi" tabIndex="-1">Tempat Nongkrong di Kayutangi</a>
+        <a href="https://visitbanjarmasin.id/id/explore/sewa-mobil-di-banjarmasin-utara" tabIndex="-1">Sewa Mobil di Banjarmasin Utara</a>
+        <a href="https://visitbanjarmasin.id/id/explore/tempat-wisata-di-lok-baintan" tabIndex="-1">Tempat Wisata di Lok Baintan</a>
       </div>
     </footer>
   );
