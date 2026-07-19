@@ -543,9 +543,6 @@ export default function MuseumGallery() {
         </group>
       </group>
 
-      {/* Showcase 5 Mannequins — in WORLD space (outside rotated group) */}
-      <ExhibitionMannequin position={[6, 0.1, -15.5]} rotation={[0, -Math.PI / 4, 0]} texture={asset9} type="tshirt" />
-      <ExhibitionMannequin position={[6, 0.1, -20.5]} rotation={[0, -Math.PI / 4, 0]} texture={asset10} type="dress" />
 
       {/* Glowing Exhibition Banners hanging from Ceiling */}
       <group position={[0, 11, 8]}>
