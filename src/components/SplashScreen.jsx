@@ -2,12 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import dynamic from 'next/dynamic';
-
-const Player = dynamic(
-  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
-  { ssr: false }
-);
 
 const SplashScreen = ({ isReady }) => {
   const [shouldRender, setShouldRender] = useState(true);
@@ -26,24 +20,28 @@ const SplashScreen = ({ isReady }) => {
     <AnimatePresence>
       {!isReady && (
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
           transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[9999] bg-[#050B14] flex flex-col items-center justify-center overflow-hidden splash-container"
         >
-          {/* Lottie Animation */}
+          {/* Framer Motion Minimalist Loading Diamond */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
+            initial={{ scale: 0.8, opacity: 0, rotate: 45 }}
+            animate={{ scale: 1, opacity: 1, rotate: 45 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-            className="w-48 h-48 sm:w-64 sm:h-64 mb-8"
+            className="mb-12 relative w-16 h-16 sm:w-20 sm:h-20"
           >
-            <Player
-              autoplay
-              loop
-              src="/splash.json"
-              style={{ width: '100%', height: '100%' }}
+            <motion.div 
+              className="absolute inset-0 border border-[#33C3B3] rounded-lg"
+              animate={{ rotate: 90, scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            />
+            <motion.div 
+              className="absolute inset-2 bg-gradient-to-tr from-[#33C3B3] to-[#F4C038] rounded-md opacity-80"
+              animate={{ rotate: -90, scale: [1, 0.8, 1] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             />
           </motion.div>
 
