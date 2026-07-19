@@ -251,6 +251,14 @@ export default function Navbar() {
               {t('navbar.culture')}
             </Link>
 
+            <Link
+              href={`/${language}/culture-verse`}
+              className={`text-sm font-heading flex items-center gap-1.5 transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[#33C3B3] font-black' : 'text-[#33C3B3]/80 hover:text-[#33C3B3] font-bold'}`}
+            >
+              Virtual Tour 3D
+              <span className="bg-[#33C3B3] text-white text-[8px] font-black px-1.5 py-0.5 rounded-full animate-pulse shadow-sm shadow-[#33C3B3]/50">NEW</span>
+            </Link>
+
             <div className="relative" ref={infoDropdownRef}>
               <button
                 onClick={() => setOpenInfoDropdown(!openInfoDropdown)}
@@ -524,6 +532,11 @@ export default function Navbar() {
               <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🏖️ {t('navbar.tourism')}</Link>
               <Link href={`/${language}/kuliner`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🍲 {t('navbar.culinary')}</Link>
               <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🎭 {t('navbar.culture')}</Link>
+              
+              <Link href={`/${language}/culture-verse`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[#33C3B3]/10 border border-[#33C3B3]/30 font-heading font-bold text-sm text-[#33C3B3] flex items-center justify-between">
+                <span>🚀 Virtual Tour 3D</span>
+                <span className="bg-[#33C3B3] text-white text-[9px] font-black px-2 py-0.5 rounded-full animate-pulse">NEW</span>
+              </Link>
               <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
               <Link href={`/${language}/blog`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
               <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>

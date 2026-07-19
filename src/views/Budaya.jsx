@@ -461,15 +461,15 @@ export default function Budaya() {
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-center md:text-left max-w-xl">
               <span className="inline-block px-3 py-1 rounded-full bg-[#F4C038]/10 border border-[#F4C038]/30 text-[#F4C038] text-[10px] font-black uppercase tracking-widest mb-4">
-                🚀 {language === 'en' ? 'New Experimental Feature' : 'Fitur Eksperimental Baru'}
+                🚀 {language === 'en' ? 'New Virtual Tour' : 'Tur Virtual Baru'}
               </span>
               <h3 className="text-3xl md:text-4xl font-black text-white font-heading mb-3">
-                Culture Verse <span className="text-[#33C3B3]">3D Museum</span>
+                Banjarmasin <span className="text-[#33C3B3]">Virtual Tour 3D</span>
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed font-body">
                 {language === 'en'
-                  ? 'Step into a fully immersive 3D virtual museum. Explore the philosophy of Sasirangan, interact with traditional motifs, and experience our culture in the Metaverse.'
-                  : 'Masuk ke dalam museum virtual 3D yang imersif. Jelajahi filosofi kain Sasirangan, berinteraksi dengan motif tradisional, dan rasakan budaya Banjar dalam pengalaman Metaverse.'}
+                  ? 'Step into a fully immersive 3D virtual museum. Explore the landmark, interact with traditional motifs, and experience our culture in the Metaverse.'
+                  : 'Masuk ke dalam museum virtual 3D yang imersif. Jelajahi landmark ikonik Banjarmasin, berinteraksi dengan pameran, dan rasakan perpaduan budaya serta teknologi modern.'}
               </p>
             </div>
             

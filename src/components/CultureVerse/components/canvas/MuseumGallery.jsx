@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Text, RoundedBox, useTexture } from '@react-three/drei';
+import { useThree } from '@react-three/fiber';
 import { RigidBody, CuboidCollider } from '@react-three/rapier';
 import * as THREE from 'three';
 import { useAppStore } from '../../store/useAppStore';
@@ -45,6 +46,23 @@ export default function MuseumGallery() {
     '/profil kota/Angkutan-BTS-Trans-Banjarmasin-t.webp',
     '/LOGO KOTA BANJARMASIN - 328 KB.webp'
   ]);
+
+  const { gl } = useThree();
+  
+  // ⚡ HD Texture Injection (Anisotropic Filtering + Color Space correction)
+  useEffect(() => {
+    const maxAnisotropy = gl.capabilities.getMaxAnisotropy();
+    [bayamTex, gigiTex, kambangTex, sarigadingTex, nagaTex, logoTex].forEach(tex => {
+      if (tex) {
+        tex.anisotropy = maxAnisotropy;
+        tex.minFilter = THREE.LinearMipmapLinearFilter;
+        tex.magFilter = THREE.LinearFilter;
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.needsUpdate = true;
+      }
+    });
+  }, [gl, bayamTex, gigiTex, kambangTex, sarigadingTex, nagaTex, logoTex]);
+
 
 
 
@@ -555,7 +573,7 @@ export default function MuseumGallery() {
           <meshStandardMaterial color="#f59e0b" emissive="#f59e0b" emissiveIntensity={0.5} />
         </mesh>
         <Text position={[0, 0, 0.1]} fontSize={0.6} color="#06080f" anchorX="center" anchorY="middle" fontWeight="black">
-          Culture Verse : SDG 11
+          Banjarmasin Virtual Tour
         </Text>
       </group>
 
@@ -569,7 +587,7 @@ export default function MuseumGallery() {
           <meshStandardMaterial color="#06b6d4" emissive="#06b6d4" emissiveIntensity={0.5} />
         </mesh>
         <Text position={[0, 0, 0.1]} fontSize={0.6} color="#06080f" anchorX="center" anchorY="middle" fontWeight="black">
-          Pameran Warisan Budaya High-Tech
+          Tur 3D Realistis & High-Definition
         </Text>
       </group>
     </group>
