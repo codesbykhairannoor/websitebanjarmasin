@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { LanguageProvider } from "../context/LanguageContext";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./ScrollToTop";
-import SplashScreen from "./SplashScreen";
 import dynamic from 'next/dynamic';
 
 const AcilAssistant = dynamic(() => import("./AcilAssistant"), { ssr: false });
+const SplashScreen = dynamic(() => import("./SplashScreen"), { ssr: false });
 
 // Lightweight Route-aware Scroll Observer
 const ScrollObserver = () => {
