@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { useAppStore } from '../../store/useAppStore';
 import { MOTIFS_DATA } from '../../data/motifsData';
 import EcoDyeStation from './EcoDyeStation';
+import ExhibitionMannequin from './ExhibitionMannequin';
 import FashionShowcase from './FashionShowcase';
 
 // SUPER RESEARCH & DEITY-LEVEL AAA MUSEUM ARCHITECTURE:
@@ -260,9 +261,14 @@ export default function MuseumGallery() {
 
 
       {/* ==========================================
-          5. FASHION SHOWCASE AREA (CENTER)
+          5. FASHION SHOWCASE AREA (BACK ROOM Z = 20 to 26)
          ========================================== */}
-      <FashionShowcase position={[0, 0.5, -10]} />
+      <ExhibitionMannequin position={[-3.5, 0.1, 26]} rotation={[0, Math.PI / 6, 0]} texture={bayamTex} type="tshirt" title="Kemeja Pria" />
+      <ExhibitionMannequin position={[3.5, 0.1, 26]} rotation={[0, -Math.PI / 6, 0]} texture={kambangTex} type="dress" title="Gaun Wanita" />
+      <ExhibitionMannequin position={[-5.5, 0.1, 22]} rotation={[0, Math.PI / 4, 0]} texture={sarigadingTex} type="kimono" title="Outerwear" />
+      <ExhibitionMannequin position={[5.5, 0.1, 22]} rotation={[0, -Math.PI / 4, 0]} texture={gigiTex} type="selendang" title="Selendang" />
+      <ExhibitionMannequin position={[-1.5, 0.1, 20]} rotation={[0, 0, 0]} texture={nagaTex} type="celana" title="Celana" />
+      <ExhibitionMannequin position={[1.5, 0.1, 20]} rotation={[0, 0, 0]} texture={bayamTex} type="tas" title="Totebag" />
 
       {/* ==========================================
           6. AUTHENTIC WEBP SASIRANGAN SHOWCASE PAINTINGS (5 MASTERPIECES)
