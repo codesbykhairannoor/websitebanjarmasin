@@ -450,8 +450,40 @@ export default function Budaya() {
               </motion.div>
             </AnimatePresence>
           </div>
+      {/* 3D Museum CTA Banner */}
+      <div className="max-w-[1240px] mx-auto px-4 mt-12 mb-8">
+        <div className="bg-gradient-to-r from-slate-900 to-[#091422] border border-[#33C3B3]/30 rounded-3xl p-8 md:p-12 relative overflow-hidden group shadow-2xl">
+          <div className="absolute inset-0 bg-[url('/budaya/motif_gigi_haruan.webp')] opacity-5 mix-blend-screen bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00A896]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left max-w-xl">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#F4C038]/10 border border-[#F4C038]/30 text-[#F4C038] text-[10px] font-black uppercase tracking-widest mb-4">
+                🚀 {language === 'en' ? 'New Experimental Feature' : 'Fitur Eksperimental Baru'}
+              </span>
+              <h3 className="text-3xl md:text-4xl font-black text-white font-heading mb-3">
+                Culture Verse <span className="text-[#33C3B3]">3D Museum</span>
+              </h3>
+              <p className="text-slate-300 text-sm leading-relaxed font-body">
+                {language === 'en'
+                  ? 'Step into a fully immersive 3D virtual museum. Explore the philosophy of Sasirangan, interact with traditional motifs, and experience our culture in the Metaverse.'
+                  : 'Masuk ke dalam museum virtual 3D yang imersif. Jelajahi filosofi kain Sasirangan, berinteraksi dengan motif tradisional, dan rasakan budaya Banjar dalam pengalaman Metaverse.'}
+              </p>
+            </div>
+            
+            <a 
+              href={`/${language}/culture-verse`}
+              className="relative overflow-hidden px-8 py-4 bg-[#33C3B3] hover:bg-[#2AA395] text-white font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(51,195,179,0.4)] flex items-center gap-3 group"
+            >
+              <span className="relative z-10">{language === 'en' ? 'Enter 3D Museum' : 'Masuk Museum 3D'}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 transition-transform group-hover:translate-x-1">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* =========================================================================
           SECTION 2: SENI PERTUNJUKAN & TRADISI BANJAR (Grid 3 kolom, mobile 1 kolom)
