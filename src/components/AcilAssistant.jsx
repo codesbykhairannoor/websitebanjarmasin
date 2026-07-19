@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoogleGenAI } from '@google/genai';
 import { useLanguage } from '../context/LanguageContext';
-import ReactMarkdown from 'react-markdown';
+import { marked } from 'marked';
 
 export default function AcilAssistant() {
   const { language, t } = useLanguage();
@@ -221,7 +221,7 @@ Sila jawab dalam Bahasa Melayu. Berikan jawapan yang ringkas, praktikal, membant
                     }`}
                   >
                     {msg.sender === 'ai' ? (
-                      <ReactMarkdown>{msg.text}</ReactMarkdown>
+                      <div dangerouslySetInnerHTML={{ __html: marked.parse(msg.text, { breaks: true }) }} />
                     ) : (
                       msg.text
                     )}
