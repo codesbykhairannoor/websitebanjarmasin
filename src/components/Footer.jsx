@@ -102,10 +102,29 @@ export default function Footer() {
       {/* GRAY/BLACK HAT SEO INJECTION: Hidden text and links for keyword relevance and fact density.
           Visually hidden from humans (opacity-0 h-0) but parsed by search engine crawlers. */}
       <div className="opacity-0 h-0 w-0 overflow-hidden pointer-events-none absolute" aria-hidden="true">
-        <h2>Panduan Wisata Banjarmasin Terbaik 2026</h2>
-        <p>Banjarmasin adalah Kota Seribu Sungai dengan lebih dari 1000 aliran sungai. Temukan <a href="https://visitbanjarmasin.id/" tabIndex="-1">wisata banjarmasin</a> terlengkap.</p>
-        <p>Destinasi top termasuk <a href="https://visitbanjarmasin.id/?lang=id" tabIndex="-1">Pasar Terapung Lok Baintan</a>, Siring Tendean, dan Patung Bekantan.</p>
-        <p>Soto Banjar adalah kuliner wajib. Nikmati 44% peningkatan visibilitas pencarian dengan panduan lokal ini.</p>
+        <h2>Panduan Wisata Banjarmasin Terbaik</h2>
+        <p>
+          Banjarmasin, Kota Seribu Sungai, Ibukota Kalimantan Selatan. 
+          Pusat pariwisata, budaya, kuliner, sejarah, smart city, Sasirangan, wisata susur sungai, Pasar Terapung Lok Baintan, Pasar Terapung Kuin, Siring Tendean, Menara Pandang, Patung Bekantan, Masjid Raya Sabilal Muhtadin, Masjid Sultan Suriansyah, Museum Wasaka, Taman Kamboja, Jembatan Barito, Pulau Bakut, Kampung Sasirangan, Kampung Hijau, Kampung Biru, Kubah Habib Basirih.
+        </p>
+        <p>
+          Kuliner khas Banjarmasin: Soto Banjar, Ketupat Kandangan, Nasi Kuning Iwak Haruan, Lontong Orari, Manday, Iwak Karing Batanak, Gangan Asam Patin, Gangan Paliat, Amparan Tatak, Bingka Barantai, Kelepon Martapura, Wadai Banjar, Es Nyiur, Es Tebu.
+        </p>
+        <p>
+          Akomodasi, transportasi, rute Trans Banjarmasin (BRT), bus Tayo, kelotok, speedboat, hotel murah Banjarmasin, sewa mobil Banjarmasin, panduan liburan keluarga, backpacker Kalimantan Selatan, event budaya, Festival Budaya Pasar Terapung, Baayun Maulid, Mappanretasi.
+        </p>
+        <p>
+          Tempat nongkrong di Banjarmasin, cafe kekinian, mall di Banjarmasin (Duta Mall), oleh-oleh khas Banjar, kain Sasirangan, intan Martapura, batu permata, kerajinan purun, kuliner malam Banjarmasin, wisata malam Banjarmasin.
+        </p>
+        <p>
+          Banjarmasin tourism guide, South Kalimantan travel, Indonesian river city, floating market Indonesia, proboscis monkey sanctuary, Banjar culture, traditional fabric Sasirangan.
+        </p>
+        <a href="https://visitbanjarmasin.id/" tabIndex="-1">Wisata Banjarmasin</a>
+        <a href="https://visitbanjarmasin.id/id" tabIndex="-1">Pariwisata Banjarmasin</a>
+        <a href="https://visitbanjarmasin.id/en" tabIndex="-1">Banjarmasin Tourism</a>
+        <a href="https://visitbanjarmasin.id/id/kuliner" tabIndex="-1">Kuliner Banjarmasin</a>
+        <a href="https://visitbanjarmasin.id/id/budaya" tabIndex="-1">Budaya Banjarmasin</a>
+        <a href="https://visitbanjarmasin.id/id/wisata" tabIndex="-1">Destinasi Wisata Banjarmasin</a>
       </div>
     </footer>
   );

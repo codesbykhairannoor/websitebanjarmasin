@@ -25,16 +25,7 @@ export const metadata = {
   title: "Visit Banjarmasin | Portal Eksplorasi Wisata & Budaya Kota Seribu Sungai",
   description: "Explore Banjarmasin City! The official guide to BRT routes, river cruise destinations, Banjar Soto culinary, Sasirangan culture, and Smart City Interactive Map.",
   keywords: "banjarmasin tourism, city of a thousand rivers, siring tendean, lok baintan floating market, soto banjar, proboscis monkey, south kalimantan, wisata banjarmasin",
-  alternates: {
-    canonical: "./",
-    languages: {
-      "id-ID": "/",
-      "en-US": "/en",
-      "ms-MY": "/ms",
-      "zh-CN": "/zh",
-      "x-default": "/"
-    }
-  },
+
   robots: {
     index: true,
     follow: true,
@@ -70,13 +61,7 @@ export const metadata = {
     description: "Explore Banjarmasin City! The official guide to BRT routes, river cruise destinations, Banjar Soto culinary, Sasirangan culture, and Smart City Interactive Map.",
     images: ["/wisata/960px-Pasar_Terapung_Siring_Banj.webp"],
   },
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.png", type: "image/png" },
-    ],
-    apple: "/favicon.png",
-  },
+
   other: {
     "theme-color": "#091422",
     "geo.region": "ID-KS",

@@ -52,16 +52,28 @@ const ScrollObserver = () => {
 
 export default function Providers({ children }) {
   const [showSplash, setShowSplash] = useState(false);
+  const [isSplashReady, setIsSplashReady] = useState(false);
 
   useEffect(() => {
     const initialSeen = typeof window !== "undefined" && sessionStorage.getItem("hasSeenSplash") === "true";
     if (!initialSeen) {
       setShowSplash(true);
-      const splashTimer = setTimeout(() => {
-        setShowSplash(false);
+      
+      // Start exit animation after 1.5 seconds
+      const readyTimer = setTimeout(() => {
+        setIsSplashReady(true);
         sessionStorage.setItem("hasSeenSplash", "true");
-      }, 2000);
-      return () => clearTimeout(splashTimer);
+      }, 1500);
+
+      // Remove from DOM completely after 2.5 seconds (allowing 1s for animation)
+      const removeTimer = setTimeout(() => {
+        setShowSplash(false);
+      }, 2500);
+
+      return () => {
+        clearTimeout(readyTimer);
+        clearTimeout(removeTimer);
+      };
     }
   }, []);
 
@@ -80,7 +92,7 @@ export default function Providers({ children }) {
   return (
     <HelmetProvider>
       <LanguageProvider>
-        {showSplash && <SplashScreen isReady={true} />}
+        {showSplash && <SplashScreen isReady={isSplashReady} />}
         <ScrollToTop />
         <ScrollObserver />
         <main id="main-content">
