@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import { MOTIFS_DATA } from '../../data/motifsData';
-import { Award, ArrowLeft, Gamepad2, Eye, Rocket, Volume2, VolumeX } from 'lucide-react';
+import { Award, ArrowLeft, Eye, Volume2, VolumeX } from 'lucide-react';
 
 export default function GamificationHud() {
   const { currentView, discoveredMotifs, isAllDiscovered, openRewardModal, setView, povMode, togglePov, setMobileJump, isAudioMuted, toggleAudio } = useAppStore();
@@ -14,20 +14,7 @@ export default function GamificationHud() {
 
   return (
     <div className="font-sans">
-      {/* 1. MOBILE DEDICATED JUMP BUTTON */}
-      <div className="fixed bottom-24 right-6 z-50 pointer-events-auto md:hidden animate-fade-in">
-        <button
-          onPointerDown={() => setMobileJump(true)}
-          onPointerUp={() => setMobileJump(false)}
-          onPointerLeave={() => setMobileJump(false)}
-          className="w-16 h-16 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 active:scale-90 text-white font-game font-black shadow-[0_0_25px_rgba(6,182,212,0.8)] border-2 border-white/40 flex flex-col items-center justify-center gap-0.5 cursor-pointer select-none transition-transform"
-        >
-          <Rocket className="w-6 h-6 animate-bounce" />
-          <span className="text-[10px] tracking-wide capitalize">Lompat</span>
-        </button>
-      </div>
 
-      {/* 2. MAIN BOTTOM HUD BAR */}
       <div className="fixed bottom-4 lg:bottom-6 left-0 right-0 z-40 px-3 lg:px-8 pointer-events-none flex flex-col lg:flex-row items-center justify-between gap-3 animate-fade-in">
         
         {/* Left: Interactive RPG Controls Hint & POV Button */}

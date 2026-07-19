@@ -100,7 +100,7 @@ export default function Providers({ children }) {
         <main id="main-content">
           {children}
         </main>
-        <AcilAssistant />
+        <AcilAssistant hideOnMobileForRoute="culture-verse" />
       </LanguageProvider>
     </HelmetProvider>
   );

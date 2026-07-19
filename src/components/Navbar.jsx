@@ -357,9 +357,9 @@ export default function Navbar() {
             {/* Pilihan 5: Virtual Tour 3D */}
             <a
               href={`/${language}/culture-verse`}
-              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
+              className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[var(--text-main)] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
-              Virtual Tour 3D
+              🎮 Virtual Tour 3D
             </a>
           </nav>
 
