@@ -7,14 +7,6 @@ export function middleware(request) {
   // Check if there is any supported locale in the pathname
   const { pathname, hostname } = request.nextUrl;
   
-  // SEO: Redirect www to non-www to prevent duplicate content indexing
-  if (hostname.startsWith('www.')) {
-    const nonWwwHostname = hostname.replace(/^www\./, '');
-    const url = request.nextUrl.clone();
-    url.hostname = nonWwwHostname;
-    return NextResponse.redirect(url, 301); // 301 Permanent Redirect
-  }
-
   // Exclude static files, api, _next, and admin
   if (
     pathname.startsWith('/_next') ||
