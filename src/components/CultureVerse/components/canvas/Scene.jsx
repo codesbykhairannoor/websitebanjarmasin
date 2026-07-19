@@ -457,7 +457,7 @@ export default function Scene() {
           <directionalLight position={[-15, 20, -15]} intensity={0.6} color="#38bdf8" />
 
           {/* BRIGHT STUDIO ENVIRONMENT REFLECTION (Enabled globally for rich reflections, optimized by disabling shadows) */}
-          <Environment preset="apartment" />
+          <Environment files="/lebombo_1k.hdr" />
 
           {/* SOFT CONTACT SHADOWS ON POLISHED SLATE FLOOR */}
           <ContactShadows 
