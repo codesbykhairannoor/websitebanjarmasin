@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { useAppStore } from '../../store/useAppStore';
 import { MOTIFS_DATA } from '../../data/motifsData';
 import EcoDyeStation from './EcoDyeStation';
+import FashionShowcase from './FashionShowcase';
 
 // SUPER RESEARCH & DEITY-LEVEL AAA MUSEUM ARCHITECTURE:
 // 1. GENIUS COLUMNS & AESTHETIC INTERIOR ("ADA JUGA TUH GAMBAR YG KETUTUPAN TIANG"):
@@ -258,6 +259,10 @@ export default function MuseumGallery() {
 
 
 
+      {/* ==========================================
+          5. FASHION SHOWCASE AREA (CENTER)
+         ========================================== */}
+      <FashionShowcase position={[0, 0.5, -10]} />
 
       {/* ==========================================
           6. AUTHENTIC WEBP SASIRANGAN SHOWCASE PAINTINGS (5 MASTERPIECES)

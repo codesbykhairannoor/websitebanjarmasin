@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { ArrowLeft, Sparkles, Shield, CheckCircle, Info, MapPin } from 'lucide-react';
+import { ArrowLeft, Sparkles, Shield, CheckCircle, Info, MapPin, ShoppingCart } from 'lucide-react';
 
 export default function MotifDetailModal() {
   const { currentView, selectedMotif, exitPortal } = useAppStore();
@@ -57,15 +57,7 @@ export default function MotifDetailModal() {
           </p>
         </div>
 
-        {/* SDG Impact */}
-        <div className="space-y-1.5 md:space-y-2">
-          <h4 className="text-[10px] md:text-xs font-game font-bold tracking-wide text-emerald-400 flex items-center gap-1.5">
-            <Shield className="w-3 h-3 md:w-3.5 md:h-3.5" /> Kontribusi SDG 11
-          </h4>
-          <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-200 text-[10px] md:text-sm leading-relaxed font-semibold">
-            {selectedMotif.sdgImpact}
-          </div>
-        </div>
+
 
         {/* Key Facts */}
         <div className="space-y-1.5 md:space-y-2">
