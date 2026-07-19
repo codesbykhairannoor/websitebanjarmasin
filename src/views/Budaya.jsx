@@ -327,7 +327,39 @@ export default function Budaya() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-4 flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scrollbar-none snap-x">
+          <div className="lg:col-span-4 space-y-2">
+
+            {/* Interactive Color Swatch Row */}
+            <div className="flex gap-2.5 mb-5 flex-wrap">
+              {sasiranganData.map((motif) => (
+                <motion.button
+                  key={`swatch-${motif.id}`}
+                  onClick={() => setActiveMotif(motif)}
+                  whileHover={{ scale: 1.18, y: -3 }}
+                  whileTap={{ scale: 0.92 }}
+                  title={motif.name}
+                  className="relative"
+                >
+                  <span
+                    className="block w-10 h-10 rounded-full border-4 transition-all duration-300"
+                    style={{
+                      backgroundColor: motif.hex,
+                      borderColor: activeMotif.id === motif.id ? '#ffffff' : 'transparent',
+                      boxShadow: activeMotif.id === motif.id
+                        ? `0 0 18px ${motif.hex}88, 0 0 5px ${motif.hex}`
+                        : `0 2px 8px ${motif.hex}44`
+                    }}
+                  />
+                  {activeMotif.id === motif.id && (
+                    <motion.span
+                      layoutId="swatch-active-ring"
+                      className="absolute -inset-1.5 rounded-full border-2 border-white/30"
+                    />
+                  )}
+                </motion.button>
+              ))}
+            </div>
+
             {sasiranganData.map((motif) => {
               const isSelected = activeMotif.id === motif.id;
               return (
@@ -359,16 +391,55 @@ export default function Budaya() {
                 </button>
               );
             })}
+
+            {/* ── UMKM E-Commerce CTA ── */}
+            <motion.div
+              className="mt-6 p-4 rounded-2xl border border-dashed border-[#33C3B3]/40 bg-[#33C3B3]/5"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <p className="text-[10px] font-black uppercase tracking-widest text-[#33C3B3] font-heading mb-1.5 flex items-center gap-1.5">
+                🛍️ {tLocal('umkmTitle') || 'BELI KAIN ASLI BANJARMASIN'}
+              </p>
+              <p className="text-xs text-[var(--text-muted)] font-body mb-3 leading-relaxed">
+                {tLocal('umkmDesc') || 'Dukung pengrajin lokal Kampung Sasirangan. Pesan kain motif asli langsung dari pengrajin Banjar.'}
+              </p>
+              <div className="flex flex-col gap-2">
+                <a
+                  href="https://www.tokopedia.com/search?st=product&q=kain+sasirangan+banjarmasin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#00A896] hover:bg-[#008075] text-white text-xs font-black font-heading transition-all hover:-translate-y-0.5 shadow-md hover:shadow-[0_4px_15px_rgba(0,168,150,0.35)]"
+                >
+                  🛒 {tLocal('shopTokopedia') || 'Beli di Tokopedia'}
+                </a>
+                <a
+                  href="https://shopee.co.id/search?keyword=kain+sasirangan+banjarmasin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#F4C038] hover:bg-amber-400 text-[#091422] text-xs font-black font-heading transition-all hover:-translate-y-0.5 shadow-md hover:shadow-[0_4px_15px_rgba(244,192,56,0.35)]"
+                >
+                  🧡 {tLocal('shopShopee') || 'Beli di Shopee'}
+                </a>
+              </div>
+            </motion.div>
           </div>
 
           <div className="lg:col-span-8 bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 md:p-8 shadow-md relative overflow-hidden">
+            {/* Dynamic colour accent bar */}
+            <motion.div
+              className="absolute top-0 left-0 right-0 h-1 rounded-t-[32px]"
+              animate={{ backgroundColor: activeMotif.hex || '#F4C038' }}
+              transition={{ duration: 0.5 }}
+            />
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeMotif.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.15 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.25, ease: 'easeInOut' }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center"
               >
                 <div className="relative rounded-2xl overflow-hidden h-[260px] md:h-[320px] bg-slate-900 border border-white/10 shadow-inner group">
@@ -395,9 +466,13 @@ export default function Budaya() {
                     </h3>
 
                     <div className="space-y-3 text-xs md:text-sm text-[var(--text-muted)] font-body leading-relaxed">
-                      <p className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 text-[var(--text-main)]">
+                      <motion.p
+                        className="p-3 rounded-xl border text-[var(--text-main)]"
+                        animate={{ borderColor: `${activeMotif.hex}40`, backgroundColor: `${activeMotif.hex}08` }}
+                        transition={{ duration: 0.5 }}
+                      >
                         <strong>{tLocal('kisahKebangsawanan')}</strong> {activeMotif.filosofi}
-                      </p>
+                      </motion.p>
                       <p>
                         <strong>{tLocal('ritualBatatamba')}</strong> {activeMotif.penyembuhan}
                       </p>
