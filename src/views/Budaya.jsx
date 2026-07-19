@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLanguage } from '../context/LanguageContext';
 import { pagesTranslations } from '../translations/pagesTranslations';
-import SasiranganStudio from '../components/SasiranganStudio';
+
 
 export default function Budaya() {
   const { language } = useLanguage();
@@ -452,11 +452,6 @@ export default function Budaya() {
           </div>
         </div>
       </section>
-
-      {/* =========================================================================
-          SECTION 1B: SASIRANGAN VIRTUAL STUDIO
-          ========================================================================= */}
-      <SasiranganStudio sasiranganData={sasiranganData} language={language} tLocal={tLocal} />
 
       {/* =========================================================================
           SECTION 2: SENI PERTUNJUKAN & TRADISI BANJAR (Grid 3 kolom, mobile 1 kolom)
