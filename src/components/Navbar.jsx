@@ -191,8 +191,16 @@ export default function Navbar() {
             {/* Pilihan 1: Dropdown Tentang Kota */}
             <div className="relative" ref={dropdownRef}>
               <button
-                onClick={() => setOpenTentangDropdown(!openTentangDropdown)}
-                onMouseEnter={() => setOpenTentangDropdown(true)}
+                onClick={() => {
+                  setOpenTentangDropdown(!openTentangDropdown);
+                  setOpenEksplorasiDropdown(false);
+                  setOpenInfoDropdown(false);
+                }}
+                onMouseEnter={() => {
+                  setOpenTentangDropdown(true);
+                  setOpenEksplorasiDropdown(false);
+                  setOpenInfoDropdown(false);
+                }}
                 className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${isTentangActive ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
               >
                 <span>{t('navbar.aboutCity')}</span>
@@ -239,8 +247,16 @@ export default function Navbar() {
             {/* Pilihan 2: Eksplorasi Dropdown */}
             <div className="relative" ref={eksplorasiDropdownRef}>
               <button
-                onClick={() => setOpenEksplorasiDropdown(!openEksplorasiDropdown)}
-                onMouseEnter={() => setOpenEksplorasiDropdown(true)}
+                onClick={() => {
+                  setOpenEksplorasiDropdown(!openEksplorasiDropdown);
+                  setOpenTentangDropdown(false);
+                  setOpenInfoDropdown(false);
+                }}
+                onMouseEnter={() => {
+                  setOpenEksplorasiDropdown(true);
+                  setOpenTentangDropdown(false);
+                  setOpenInfoDropdown(false);
+                }}
                 className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${isEksplorasiActive ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
               >
                 <span>{language === 'en' ? 'Explore' : 'Eksplorasi'}</span>
@@ -279,8 +295,16 @@ export default function Navbar() {
             {/* Pilihan 3: Info & Panduan Dropdown */}
             <div className="relative" ref={infoDropdownRef}>
               <button
-                onClick={() => setOpenInfoDropdown(!openInfoDropdown)}
-                onMouseEnter={() => setOpenInfoDropdown(true)}
+                onClick={() => {
+                  setOpenInfoDropdown(!openInfoDropdown);
+                  setOpenTentangDropdown(false);
+                  setOpenEksplorasiDropdown(false);
+                }}
+                onMouseEnter={() => {
+                  setOpenInfoDropdown(true);
+                  setOpenTentangDropdown(false);
+                  setOpenEksplorasiDropdown(false);
+                }}
                 className={`text-sm font-heading flex items-center gap-1 transition-colors whitespace-nowrap ${isInfoActive ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
               >
                 <span>{t('navbar.infoDropdown') || 'Info & Panduan'}</span>
@@ -325,12 +349,12 @@ export default function Navbar() {
             </Link>
 
             {/* Pilihan 5: Virtual Tour 3D */}
-            <Link
+            <a
               href={`/${language}/culture-verse`}
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               Virtual Tour 3D
-            </Link>
+            </a>
           </nav>
 
           {/* Right Action Icons */}
@@ -571,7 +595,7 @@ export default function Navbar() {
 
               <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] mt-1">🏖️ {t('navbar.tourism')}</Link>
               
-              <Link href={`/${language}/culture-verse`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">Virtual Tour 3D</Link>
+              <a href={`/${language}/culture-verse`} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">Virtual Tour 3D</a>
               <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">🗺️ {t('navbar.guide')}</Link>
               <Link href={`/${language}/blog`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
               <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
