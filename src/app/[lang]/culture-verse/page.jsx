@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import DynamicApp from '../../../components/CultureVerse/DynamicApp';
 
 export default function CultureVersePage({ params }) {
   const [lang, setLang] = useState('id');
@@ -28,14 +29,8 @@ export default function CultureVersePage({ params }) {
         Kembali ke Beranda
       </Link>
 
-      {/* Embedded 3D Museum */}
-      <iframe 
-        src="/culture-verse/index.html" 
-        className="w-full h-full border-none"
-        title="Sasirangan Culture Verse 3D"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      />
+      {/* Next.js Wrapped 3D Museum */}
+      <DynamicApp />
     </div>
   );
 }
