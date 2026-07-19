@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Environment, ContactShadows, KeyboardControls, useKeyboardControls, PerformanceMonitor } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import { Ecctrl } from 'ecctrl';
-import { Joystick, VirtualButton, useJoystickStore } from 'ecctrl/input';
+import { Joystick, VirtualButton, useJoystickStore, useButtonStore } from 'ecctrl/input';
 import { EcctrlCameraControls } from 'ecctrl/camera';
 import * as THREE from 'three';
 import { useAppStore } from '../../store/useAppStore';
@@ -250,13 +250,14 @@ function RpgSceneController({ setNearbyMotif }) {
       const keys = getKeys();
       const joysticks = useJoystickStore.getState().joysticks;
       const joystick = joysticks ? joysticks['default'] : null;
+      const buttons = useButtonStore.getState().buttons;
       
       ecctrlRef.current.setMovement({
         forward: keys.forward,
         backward: keys.backward,
         leftward: keys.leftward,
         rightward: keys.rightward,
-        jump: keys.jump || mobileJump,
+        jump: keys.jump || mobileJump || buttons['jump'],
         run: keys.run,
         joystick: joystick ? { x: joystick.x, y: joystick.y } : undefined
       });
