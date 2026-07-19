@@ -450,6 +450,8 @@ export default function Budaya() {
               </motion.div>
             </AnimatePresence>
           </div>
+        </div>
+
       {/* 3D Museum CTA Banner */}
       <div className="max-w-[1240px] mx-auto px-4 mt-12 mb-8">
         <div className="bg-gradient-to-r from-slate-900 to-[#091422] border border-[#33C3B3]/30 rounded-3xl p-8 md:p-12 relative overflow-hidden group shadow-2xl">
