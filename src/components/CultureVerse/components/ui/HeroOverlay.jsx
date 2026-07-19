@@ -29,7 +29,7 @@ export default function HeroOverlay() {
 
           {/* ── Subtitle Tag ── */}
           <p className="text-[9px] sm:text-[10px] font-game font-semibold tracking-[0.4em] uppercase text-amber-500/80 mb-2 sm:mb-4">
-            SDG 11 • Culture Verse • Target 11.4
+            Eksplorasi Budaya • Virtual Tour 3D
           </p>
 
           {/* ── Main Title ── */}
@@ -70,13 +70,7 @@ export default function HeroOverlay() {
               Pengaturan
             </button>
 
-            {/* TENTANG PLATFORM */}
-            <button
-              onClick={() => setAboutOpen(true)}
-              className="font-title font-bold text-xs sm:text-sm md:text-base lg:text-xl tracking-[0.15em] uppercase text-slate-400 hover:text-amber-300 transition-colors duration-300"
-            >
-              Tentang Platform
-            </button>
+
           </nav>
 
         </div>

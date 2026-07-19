@@ -45,16 +45,6 @@ export default function AboutModal() {
           </div>
 
           <div className="flex gap-4">
-            <Target className="w-6 h-6 text-cyan-400 mt-0.5 shrink-0" />
-            <div>
-              <h3 className="font-bold text-slate-100 uppercase tracking-wide mb-1">SDGs Target 11.4</h3>
-              <p className="text-sm leading-relaxed text-slate-400">
-                Mendukung upaya pelestarian warisan budaya dan alam dunia — membuktikan bahwa teknologi interaktif bisa menjadi medium pelestarian budaya lokal yang kuat.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
             <Globe className="w-6 h-6 text-emerald-400 mt-0.5 shrink-0" />
             <div>
               <h3 className="font-bold text-slate-100 uppercase tracking-wide mb-1">Cara Navigasi</h3>
@@ -66,16 +56,6 @@ export default function AboutModal() {
                 <li>▸ <strong className="text-slate-300">P</strong> — Buka Pengaturan</li>
                 <li>▸ <strong className="text-slate-300">ESC</strong> — Keluar Kamera Lock</li>
               </ul>
-            </div>
-          </div>
-
-          <div className="flex gap-4">
-            <Users className="w-6 h-6 text-amber-400 mt-0.5 shrink-0" />
-            <div>
-              <h3 className="font-bold text-slate-100 uppercase tracking-wide mb-1">SDG 11 Creative Web Competition</h3>
-              <p className="text-sm leading-relaxed text-slate-400">
-                Dibuat untuk SDG 11 Creative Web Competition. Teknologi: React, Three.js, R3F, Rapier Physics, Ecctrl.
-              </p>
             </div>
           </div>
 
