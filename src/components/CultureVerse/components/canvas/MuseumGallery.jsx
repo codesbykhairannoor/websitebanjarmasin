@@ -7,7 +7,6 @@ import { useAppStore } from '../../store/useAppStore';
 import { MOTIFS_DATA } from '../../data/motifsData';
 import EcoDyeStation from './EcoDyeStation';
 import ExhibitionMannequin from './ExhibitionMannequin';
-import FashionShowcase from './FashionShowcase';
 
 // SUPER RESEARCH & DEITY-LEVEL AAA MUSEUM ARCHITECTURE:
 // 1. GENIUS COLUMNS & AESTHETIC INTERIOR ("ADA JUGA TUH GAMBAR YG KETUTUPAN TIANG"):
