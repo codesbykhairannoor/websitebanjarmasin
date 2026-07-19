@@ -34,10 +34,10 @@ export default function HeroOverlay() {
 
           {/* ── Main Title ── */}
           <h1 className="text-[1.6rem] sm:text-3xl md:text-4xl lg:text-7xl font-title font-bold tracking-wider text-slate-100 uppercase leading-[1.05] drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)]">
-            Sasirangan
+            Banjarmasin
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500">
-              Metaverse
+              Virtual Tour
             </span>
           </h1>
 
@@ -58,7 +58,7 @@ export default function HeroOverlay() {
             >
               <Play className="w-3 h-3 sm:w-5 sm:h-5 text-amber-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
               <span className={`transition-colors duration-300 ${is3dLoaded ? 'text-white group-hover:text-amber-400' : 'text-slate-500'}`}>
-                {is3dLoaded ? 'Mulai Eksplorasi' : 'Memuat...'}
+                {is3dLoaded ? 'Masuk Virtual Tour' : 'Memuat...'}
               </span>
             </button>
 

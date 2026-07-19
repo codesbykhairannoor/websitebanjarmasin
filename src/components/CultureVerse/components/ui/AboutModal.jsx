@@ -37,7 +37,7 @@ export default function AboutModal() {
           <div className="flex gap-4">
             <BookOpen className="w-6 h-6 text-amber-400 mt-0.5 shrink-0" />
             <div>
-              <h3 className="font-bold text-slate-100 uppercase tracking-wide mb-1">Apa Itu Sasirangan Metaverse?</h3>
+              <h3 className="font-bold text-slate-100 uppercase tracking-wide mb-1">Apa Itu Banjarmasin Virtual Tour?</h3>
               <p className="text-sm leading-relaxed text-slate-400">
                 Museum virtual 3D interaktif yang menampilkan kain tradisional Sasirangan dari Kalimantan Selatan. Jelajahi galeri, temukan motif, dan pelajari filosofi di balik setiap kain.
               </p>
@@ -84,7 +84,7 @@ export default function AboutModal() {
         {/* Footer */}
         <div className="mt-6 pt-4 border-t border-white/5 text-center">
           <p className="text-[10px] font-game text-slate-500 tracking-widest uppercase">
-            Sasirangan Metaverse v1.0 • 100% Client-Side
+            Banjarmasin Virtual Tour v1.0 • 100% Client-Side
           </p>
         </div>
 

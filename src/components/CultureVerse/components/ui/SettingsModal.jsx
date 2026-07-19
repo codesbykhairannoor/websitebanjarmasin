@@ -169,7 +169,7 @@ export default function SettingsModal() {
         {/* Footer */}
         <div className="mt-6 pt-4 border-t border-white/5 text-center">
           <p className="text-[10px] font-game text-slate-500 tracking-widest uppercase">
-            Sasirangan Metaverse v1.0 • SDGs Creative Web
+            Banjarmasin Virtual Tour v1.0 • SDGs Creative Web
           </p>
         </div>
 

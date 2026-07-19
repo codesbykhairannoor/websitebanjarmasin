@@ -4,13 +4,10 @@ import LoadingScreen from './components/ui/LoadingScreen';
 import HeroOverlay from './components/ui/HeroOverlay';
 import SdgModal from './components/ui/SdgModal';
 import MotifDetailModal from './components/ui/MotifDetailModal';
-import GamificationHud from './components/ui/GamificationHud';
-import RewardModal from './components/ui/RewardModal';
 import AudioPlayer from './components/ui/AudioPlayer';
 import MobileLandscapeOverlay from './components/ui/MobileLandscapeOverlay';
 import SettingsModal from './components/ui/SettingsModal';
 import AboutModal from './components/ui/AboutModal';
-import EcoDyeModal from './components/ui/EcoDyeModal';
 import Scene from './components/canvas/Scene';
 
 export default function App() {
@@ -25,12 +22,9 @@ export default function App() {
       <HeroOverlay />
       <SdgModal />
       <MotifDetailModal />
-      <GamificationHud />
-      <RewardModal />
+      <AudioPlayer />
       <SettingsModal />
       <AboutModal />
-      <EcoDyeModal />
-      <AudioPlayer />
 
       {/* 2. WebGL 3D Canvas Layer */}
       <Scene />
