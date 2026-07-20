@@ -10,6 +10,10 @@
 - Untuk sajian konten berganda (seperti kuliner atau peta wisata), gunakan interaksi dinamis seperti **Interactive Spotlight Tabs** atau **Horizontal Showcase Card** yang elegan dan tetap sempurna saat ditampilkan di layar seluler.
 
 ## 3. Light & Dark Mode Consistency
-- DILARANG KERAS menanamkan kelas statis seperti 	ext-white, g-black, 	ext-slate-200, dll secara langsung (hardcode) pada teks atau kontainer utama.
-- Wajib selalu menggunakan CSS variables (contoh: ar(--text-main), ar(--card-bg), ar(--text-muted)) agar elemen dapat beradaptasi secara otomatis pada pergantian tema Terang/Gelap.
+- DILARANG KERAS menanamkan kelas statis seperti 	ext-white,  g-black, 	ext-slate-200, dll secara langsung (hardcode) pada teks atau kontainer utama.
+- Wajib selalu menggunakan CSS variables (contoh:  ar(--text-main),  ar(--card-bg),  ar(--text-muted)) agar elemen dapat beradaptasi secara otomatis pada pergantian tema Terang/Gelap.
 - Pastikan state tema disimpan secara global (misal: di localStorage) agar preferensi tema tidak reset saat navigasi pindah halaman.
+
+## 4. Git Workflow (Wajib Push)
+- **Selalu Commit & Push**: Setiap kali sebuah fitur selesai diimplementasikan atau modifikasi kode selesai dilakukan, WAJIB melakukan perintah `git add .`, `git commit -m "..."`, dan `git push` ke repository secara otomatis tanpa perlu menunggu instruksi lanjutan dari user.
+- Berikan pesan commit yang deskriptif dan profesional.
