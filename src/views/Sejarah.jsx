@@ -194,74 +194,77 @@ export default function Sejarah() {
       </div>
 
       {/* =========================================================
-          SECTION 1: GARIS WAKTU INTERAKTIF (INTERACTIVE STEPPER)
+          SECTION 1: GARIS WAKTU INTERAKTIF (VERTICAL TIMELINE)
           ========================================================= */}
       <section className="py-24 bg-[var(--bg-main)] relative overflow-hidden">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 wisata-reveal">
             <span className="inline-block text-[10px] sm:text-xs font-extrabold tracking-[0.25em] uppercase text-[#33C3B3] mb-2 font-heading">
               {tLocal('section1Tag')}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--text-main)] font-heading leading-tight">
               {tLocal('section1Title')} <span className="text-[#F4C038]">{tLocal('section1TitleSpan')}</span>
             </h2>
-            <p className="text-[var(--text-muted)] font-body mt-3">
+            <p className="text-[var(--text-muted)] font-body mt-3 max-w-2xl mx-auto">
               {tLocal('section1Desc')}
             </p>
           </div>
 
-          {/* Stepper Tabs */}
-          <div className="flex sm:justify-center items-center gap-3 sm:gap-4 mb-12 overflow-x-auto hide-scrollbar pb-4 px-4 sm:px-0 snap-x">
-            {timelineData.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveTab(index)}
-                className={`shrink-0 snap-center px-6 sm:px-8 py-3 sm:py-4 rounded-full font-heading font-black text-sm sm:text-lg transition-all duration-300 border ${
-                  activeTab === index
-                    ? 'bg-[#F4C038] text-[#091422] border-[#F4C038] shadow-[0_0_20px_rgba(244,192,56,0.4)] scale-105'
-                    : 'bg-[var(--card-bg)] text-[var(--text-muted)] border-[var(--glass-border)] hover:border-[#33C3B3] hover:text-[var(--text-main)]'
-                }`}
-              >
-                {item.year}
-              </button>
-            ))}
+          <div className="relative max-w-5xl mx-auto">
+            {/* The Central Line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#33C3B3] via-[#F4C038] to-[#33C3B3] md:-translate-x-1/2 rounded-full opacity-30 shadow-[0_0_15px_rgba(51,195,179,0.5)]"></div>
+
+            {/* Timeline Items */}
+            <div className="space-y-16 sm:space-y-24">
+              {timelineData.map((item, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <div key={index} className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-0 ${isEven ? 'md:flex-row-reverse' : ''}`}>
+                    {/* The Dot */}
+                    <div className="absolute left-8 md:left-1/2 w-6 h-6 rounded-full bg-[var(--bg-main)] border-4 border-[#F4C038] shadow-[0_0_15px_#F4C038] md:-translate-x-1/2 -translate-x-[10px] z-20 top-1/2 -translate-y-1/2"></div>
+                    
+                    {/* Empty Space for the other side (Desktop) */}
+                    <div className="hidden md:block w-1/2"></div>
+
+                    {/* Content Card */}
+                    <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-16 pl-20 md:pl-0 text-left md:text-right' : 'md:pl-16 pl-20 text-left'} wisata-reveal-${isEven ? 'left' : 'right'}`}>
+                      <div className="group bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 sm:p-8 shadow-2xl hover:shadow-[#F4C038]/20 hover:border-[#F4C038]/50 transition-all duration-500 overflow-hidden relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#F4C038]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div className={`flex items-center gap-4 mb-6 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                          <div className="bg-[#33C3B3]/10 border border-[#33C3B3]/30 px-4 py-2 rounded-full">
+                            <span className="text-[#33C3B3] font-black text-xl md:text-2xl font-heading">{item.year}</span>
+                          </div>
+                          <span className="inline-block px-3 py-1 rounded-full bg-[#F4C038]/10 text-[#F4C038] font-bold text-xs uppercase tracking-widest border border-[#F4C038]/30 shadow-sm">
+                            {item.tag}
+                          </span>
+                        </div>
+
+                        <div className="relative h-[200px] sm:h-[260px] rounded-2xl overflow-hidden mb-6 shadow-inner border border-white/5">
+                          <img loading="lazy" 
+                            src={item.img} 
+                            alt={item.title} 
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90 group-hover:brightness-110" 
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                          <h3 className="absolute bottom-4 left-4 right-4 text-xl sm:text-2xl font-black text-white font-heading leading-tight drop-shadow-md text-left">
+                            {item.title}
+                          </h3>
+                        </div>
+
+                        <h4 className="text-sm sm:text-base text-[#F4C038] font-bold font-body mb-3">
+                          {item.subtitle}
+                        </h4>
+                        <p className="text-[var(--text-muted)] font-body text-sm sm:text-base leading-relaxed group-hover:text-gray-300 transition-colors">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-
-          {/* Tab Content Showcase */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[32px] p-6 sm:p-10 lg:p-12 shadow-2xl backdrop-blur-md max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-            >
-              <div className="lg:col-span-6 order-2 lg:order-1">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#33C3B3]/20 text-[#33C3B3] font-bold text-xs uppercase tracking-widest mb-4 border border-[#33C3B3]/30">
-                  {timelineData[activeTab].tag}
-                </span>
-                <h3 className="text-2xl sm:text-4xl font-black text-[var(--text-main)] font-heading leading-tight mb-2">
-                  {timelineData[activeTab].title}
-                </h3>
-                <h4 className="text-sm sm:text-base text-[#F4C038] font-semibold font-body mb-6">
-                  {timelineData[activeTab].subtitle}
-                </h4>
-                <p className="text-[var(--text-muted)] font-body text-sm sm:text-base leading-relaxed">
-                  {timelineData[activeTab].desc}
-                </p>
-              </div>
-              <div className="lg:col-span-6 order-1 lg:order-2 h-[260px] sm:h-[350px] rounded-2xl overflow-hidden shadow-lg relative group">
-                <img loading="lazy" 
-                  src={timelineData[activeTab].img} 
-                  alt={timelineData[activeTab].title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
         </div>
       </section>
 
