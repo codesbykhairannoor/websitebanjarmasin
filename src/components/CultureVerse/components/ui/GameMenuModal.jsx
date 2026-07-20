@@ -113,6 +113,7 @@ export default function GameMenuModal() {
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
   );
