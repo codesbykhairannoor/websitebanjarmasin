@@ -44,6 +44,7 @@ export const useAppStore = create((set, get) => ({
   isSettingsOpen: false,
   isAboutOpen: false,
   isEcoModalOpen: false,
+  isMemoryGameOpen: false,
   selectedTrack: 'paris_barantai',
   selectedShirt: 'default',
 
@@ -55,6 +56,10 @@ export const useAppStore = create((set, get) => ({
   setEcoModalOpen: (isOpen) => {
     if (isOpen && document.pointerLockElement) document.exitPointerLock();
     set({ isEcoModalOpen: isOpen });
+  },
+  setMemoryGameOpen: (isOpen) => {
+    if (isOpen && document.pointerLockElement) document.exitPointerLock();
+    set({ isMemoryGameOpen: isOpen });
   },
   setSelectedTrack: (track) => set({ selectedTrack: track }),
   setSelectedShirt: (shirt) => set({ selectedShirt: shirt }),

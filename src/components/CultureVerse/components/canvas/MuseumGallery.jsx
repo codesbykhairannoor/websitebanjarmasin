@@ -629,6 +629,31 @@ export default function MuseumGallery() {
           Tur 3D Realistis & High-Definition
         </Text>
       </group>
+
+      {/* --- GAME ARCADE TRIGGER --- */}
+      <group position={[0, 1.5, -3]}>
+        {/* Floating Rotating Box */}
+        <mesh 
+          castShadow 
+          onClick={() => useAppStore.getState().setMemoryGameOpen(true)}
+          onPointerOver={(e) => (document.body.style.cursor = 'pointer')}
+          onPointerOut={(e) => (document.body.style.cursor = 'auto')}
+          position={[0, 1, 0]}
+        >
+          <boxGeometry args={[1.2, 1.2, 1.2]} />
+          <meshStandardMaterial color="#F4C038" metalness={1} roughness={0.1} emissive="#F4C038" emissiveIntensity={0.8} />
+        </mesh>
+        {/* Pedestal */}
+        <mesh position={[0, -1, 0]} castShadow receiveShadow>
+          <cylinderGeometry args={[1, 1.2, 2, 8]} />
+          <meshStandardMaterial color="#1e293b" metalness={0.8} roughness={0.2} />
+        </mesh>
+        <pointLight position={[0, 1.5, 0]} color="#F4C038" intensity={15} distance={5} />
+        {/* Floating Text above Box */}
+        <Text position={[0, 2.2, 0]} fontSize={0.4} color="#ffffff" anchorX="center" anchorY="middle" fontWeight="black">
+          MAIN GAME!
+        </Text>
+      </group>
     </group>
   );
 }
