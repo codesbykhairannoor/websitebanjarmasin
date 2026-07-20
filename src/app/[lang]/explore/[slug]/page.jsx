@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { lang, slug } = params;
+  const { lang, slug } = await params;
   const record = dataset.find(r => r.slug === slug);
   
   if (!record) return { title: 'Not Found' };
@@ -35,8 +35,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function PSEOPage({ params }) {
-  const { lang, slug } = params;
+export default async function PSEOPage({ params }) {
+  const { lang, slug } = await params;
   const record = dataset.find(r => r.slug === slug);
   
   if (!record) {

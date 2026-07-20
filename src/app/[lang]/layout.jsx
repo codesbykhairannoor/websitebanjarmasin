@@ -76,7 +76,8 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children, params: { lang } }) {
+export default async function RootLayout({ children, params }) {
+  const { lang } = await params;
   return (
     <html lang={lang} className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <head>
