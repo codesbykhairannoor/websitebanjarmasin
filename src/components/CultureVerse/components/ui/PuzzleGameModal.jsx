@@ -123,7 +123,7 @@ export default function PuzzleGameModal() {
           <div className="w-full max-w-sm aspect-square bg-black/50 p-2 rounded-xl border border-white/10 shadow-inner">
             <div 
               className="w-full h-full grid gap-1" 
-              style={{ gridTemplateColumns: \`repeat(\${GRID_SIZE}, minmax(0, 1fr))\` }}
+              style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, minmax(0, 1fr))` }}
             >
               {tiles.map((tileVal, index) => {
                 const row = Math.floor(tileVal / GRID_SIZE);
@@ -135,22 +135,22 @@ export default function PuzzleGameModal() {
                   <div
                     key={index}
                     onClick={() => handleTileClick(index)}
-                    className={\`relative cursor-pointer rounded overflow-hidden transition-all duration-200 
-                      \${isSelected ? 'ring-4 ring-[#06b6d4] scale-95 z-10' : 'hover:scale-[0.98]'}
-                      \${isCorrect ? 'opacity-100' : 'opacity-90'}
-                    \`}
+                    className={`relative cursor-pointer rounded overflow-hidden transition-all duration-200 
+                      ${isSelected ? 'ring-4 ring-[#06b6d4] scale-95 z-10' : 'hover:scale-[0.98]'}
+                      ${isCorrect ? 'opacity-100' : 'opacity-90'}
+                    `}
                   >
                     {/* Background image slice */}
                     <div 
                       className="absolute inset-0 bg-cover bg-no-repeat"
                       style={{
-                        backgroundImage: \`url(\${PUZZLE_IMAGE})\`,
-                        backgroundSize: \`\${GRID_SIZE * 100}% \${GRID_SIZE * 100}%\`,
-                        backgroundPosition: \`\${(col / (GRID_SIZE - 1)) * 100}% \${(row / (GRID_SIZE - 1)) * 100}%\`
+                        backgroundImage: `url(${PUZZLE_IMAGE})`,
+                        backgroundSize: `${GRID_SIZE * 100}% ${GRID_SIZE * 100}%`,
+                        backgroundPosition: `${(col / (GRID_SIZE - 1)) * 100}% ${(row / (GRID_SIZE - 1)) * 100}%`
                       }}
                     />
                     {/* Overlay for interaction feedback */}
-                    <div className={\`absolute inset-0 bg-black/10 transition-colors \${isSelected ? 'bg-[#06b6d4]/20' : ''}\`} />
+                    <div className={`absolute inset-0 bg-black/10 transition-colors ${isSelected ? 'bg-[#06b6d4]/20' : ''}`} />
                   </div>
                 );
               })}

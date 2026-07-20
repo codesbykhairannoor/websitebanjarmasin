@@ -143,7 +143,7 @@ export default function WordleGameModal() {
                   return (
                     <div 
                       key={colIndex}
-                      className={\`aspect-square flex items-center justify-center text-xl sm:text-2xl font-black rounded-lg border-2 \${bgClass} transition-colors uppercase\`}
+                      className={`aspect-square flex items-center justify-center text-xl sm:text-2xl font-black rounded-lg border-2 ${bgClass} transition-colors uppercase`}
                     >
                       {letter}
                     </div>
@@ -171,7 +171,7 @@ export default function WordleGameModal() {
                   <button
                     key={key}
                     onClick={() => onKeyPress(key)}
-                    className={\`\${isBigBtn ? 'px-2 sm:px-3 text-[10px] sm:text-xs' : 'flex-1 text-xs sm:text-sm'} h-10 sm:h-12 font-bold rounded \${btnBg} transition-colors\`}
+                    className={`${isBigBtn ? 'px-2 sm:px-3 text-[10px] sm:text-xs' : 'flex-1 text-xs sm:text-sm'} h-10 sm:h-12 font-bold rounded ${btnBg} transition-colors`}
                   >
                     {key}
                   </button>
