@@ -789,6 +789,48 @@ export default function ProfilKota() {
       </section>
 
       {/* =========================================================
+          SECTION 5B: POTENSI DAERAH (BENTO GRID)
+          ========================================================= */}
+      <section className="py-24 w-full bg-[var(--bg-main)] overflow-hidden relative border-t border-[var(--glass-border)]">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 relative z-20">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-[var(--glass-border)] bg-[var(--card-bg)] text-[var(--text-muted)] text-sm font-bold tracking-widest uppercase mb-6">
+              {tLocal('potensiDaerahTag') || "Peluang Masa Depan"}
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[var(--text-main)] font-heading leading-tight mb-6">
+              {tLocal('potensiDaerahTitle') || "Potensi Daerah &"} <span className="text-[#33C3B3]">{tLocal('potensiDaerahTitleSpan') || "Iklim Investasi"}</span>
+            </h2>
+            <p className="text-lg md:text-xl text-[var(--text-muted)] font-body leading-relaxed">
+              {tLocal('potensiDaerahDesc') || "Dengan kemudahan perizinan terpadu (DPMPTSP) dan target investasi tahunan, Banjarmasin membuka pintu lebar bagi pengembangan sektor-sektor strategis."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {(tLocal('potensiDaerahItems') || []).map((item, idx) => (
+              <div 
+                key={idx} 
+                className="group relative p-8 rounded-3xl border border-[var(--glass-border)] bg-[var(--card-bg)] hover:bg-[#091422] transition-colors duration-500 overflow-hidden"
+              >
+                <div className="absolute -right-10 -top-10 text-[#33C3B3] opacity-10 group-hover:opacity-20 transition-opacity duration-500 font-heading text-9xl font-black pointer-events-none">
+                  {item.id}
+                </div>
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-black text-[var(--text-main)] group-hover:text-white font-heading mb-4 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-[var(--text-muted)] group-hover:text-slate-300 font-body leading-relaxed transition-colors duration-300">
+                    {item.desc}
+                  </p>
+                </div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#33C3B3] to-[#F4C038] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================
           SECTION 6: BUDAYA SUNGAI (SPOTLIGHT REVEAL)
           ========================================================= */}
       <section 

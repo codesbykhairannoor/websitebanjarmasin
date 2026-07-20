@@ -311,6 +311,16 @@ export const pagesTranslations = {
         { title: "Kawasan Niaga", desc: "Revitalisasi ruang niaga modern dan pasar tradisional yang mendongkrak ekosistem ekonomi berdaya saing tinggi." },
         { title: "Jasa Pariwisata", desc: "Pemanfaatan potensi budaya sungai dan hospitality modern sebagai roda penggerak ekonomi warga lokal." }
       ],
+      potensiDaerahTag: "Peluang Masa Depan",
+      potensiDaerahTitle: "Potensi Daerah &",
+      potensiDaerahTitleSpan: "Iklim Investasi",
+      potensiDaerahDesc: "Dengan kemudahan perizinan terpadu (DPMPTSP) dan target investasi tahunan lebih dari Rp1,2 Triliun, Banjarmasin membuka pintu lebar bagi pengembangan sektor-sektor strategis.",
+      potensiDaerahItems: [
+        { id: "01", title: "Perdagangan & Jasa", desc: "Sektor tersier penyumbang utama PDRB, menjadikan kota ini hub komersial utama di Kalimantan Selatan dengan pertumbuhan positif." },
+        { id: "02", title: "Logistik & Pergudangan", desc: "Didukung Pelabuhan Trisakti sebagai pelabuhan tersibuk di Kalimantan, kawasan Banjarmasin Selatan terus berkembang menjadi pusat distribusi regional." },
+        { id: "03", title: "Fasilitas Kesehatan", desc: "Menjadi magnet investasi baru dengan pesatnya pembangunan rumah sakit dan klinik terpadu bertaraf nasional." },
+        { id: "04", title: "Ekonomi Kreatif & Kriya", desc: "Pariwisata berbasis sungai dan industri kain Sasirangan yang terus diakselerasi melalui festival dan inkubasi UMKM." }
+      ],
       section6Title: "Nafas",
       section6TitleSpan: "Budaya",
       section6TitleEnd: "Masyarakat Sungai",
@@ -954,6 +964,16 @@ export const pagesTranslations = {
         { title: "Trisakti Port", desc: "One of the busiest and largest logistics sea ports in Kalimantan island, supporting shipping lanes." },
         { title: "Business District", desc: "Revitalization of modern shopping corridors and traditional floating markets to boost regional GDP." },
         { title: "Tourism Services", desc: "Capitalizing on unique river cultural heritage and modern hospitality for local business growth." }
+      ],
+      potensiDaerahTag: "Future Opportunities",
+      potensiDaerahTitle: "Regional Potential &",
+      potensiDaerahTitleSpan: "Investment Climate",
+      potensiDaerahDesc: "With integrated online licensing (DPMPTSP) and an annual investment target of over Rp1.2 Trillion, Banjarmasin opens wide doors for strategic sector development.",
+      potensiDaerahItems: [
+        { id: "01", title: "Trade & Services", desc: "The tertiary sector is the main contributor to GRDP, making this city the primary commercial hub in South Kalimantan with positive growth." },
+        { id: "02", title: "Logistics & Warehousing", desc: "Supported by Trisakti Port, the busiest port in Kalimantan, South Banjarmasin continues to develop into a regional distribution center." },
+        { id: "03", title: "Healthcare Facilities", desc: "Becoming a new investment magnet with the rapid construction of national-standard integrated hospitals and clinics." },
+        { id: "04", title: "Creative Economy & Crafts", desc: "River-based tourism and the Sasirangan fabric industry are continuously accelerated through festivals and MSME incubation." }
       ],
       section6Title: "River Culture",
       section6TitleSpan: "Breath",
@@ -1607,6 +1627,16 @@ export const pagesTranslations = {
         { title: "Kawasan Niaga", desc: "Revitalisasi ruang niaga modern dan pasar tradisional yang mendongkrak ekosistem ekonomi berdaya saing tinggi." },
         { title: "Jasa Pariwisata", desc: "Pemanfaatan potensi budaya sungai dan hospitality modern sebagai roda penggerak ekonomi warga lokal." }
       ],
+      potensiDaerahTag: "未来机遇",
+      potensiDaerahTitle: "区域潜力与",
+      potensiDaerahTitleSpan: "投资环境",
+      potensiDaerahDesc: "凭借综合在线许可（DPMPTSP）和每年超过 1.2 万亿印尼盾的投资目标，马辰为战略部门的发展敞开了大门。",
+      potensiDaerahItems: [
+        { id: "01", title: "贸易与服务", desc: "第三产业是国内生产总值的主要贡献者，使这座城市成为南加里曼丹的主要商业中心，并保持正增长。" },
+        { id: "02", title: "物流与仓储", desc: "在加里曼丹最繁忙的特里萨克蒂港的支持下，南马辰继续发展成为区域配送中心。" },
+        { id: "03", title: "医疗设施", desc: "随着国家标准综合医院和诊所的快速建设，成为新的投资磁石。" },
+        { id: "04", title: "创意经济与手工艺", desc: "基于河流的旅游业和 Sasirangan 面料工业通过节日和中小微企业孵化不断加速发展。" }
+      ],
       section6Title: "Nafas",
       section6TitleSpan: "Budaya",
       section6TitleEnd: "Masyarakat Sungai",
@@ -2256,6 +2286,16 @@ export const pagesTranslations = {
         { title: "特里萨克蒂港 (Trisakti)", desc: "加里曼丹岛最繁忙、规模最大的海上物流货运港口之一，支撑区域国际航线。" },
         { title: "现代商业中心", desc: "振兴现代购物商圈与传统水上市场，大力拉动地区国内生产总值增长。" },
         { title: "文旅酒店服务", desc: "依托独特的水上文化遗产与现代酒店接待能力，促进本地商业持续繁荣。" }
+      ],
+      potensiDaerahTag: "Peluang Masa Depan",
+      potensiDaerahTitle: "Potensi Daerah &",
+      potensiDaerahTitleSpan: "Iklim Pelaburan",
+      potensiDaerahDesc: "Dengan kemudahan perlesenan bersepadu (DPMPTSP) dan sasaran pelaburan tahunan melebihi Rp1.2 Trilion, Banjarmasin membuka pintu luas bagi pembangunan sektor strategik.",
+      potensiDaerahItems: [
+        { id: "01", title: "Perdagangan & Perkhidmatan", desc: "Sektor tertiari penyumbang utama KDNK, menjadikan bandar ini hab komersial utama di Kalimantan Selatan dengan pertumbuhan positif." },
+        { id: "02", title: "Logistik & Pergudangan", desc: "Disokong Pelabuhan Trisakti sebagai pelabuhan tersibuk di Kalimantan, kawasan Banjarmasin Selatan terus berkembang menjadi pusat pengedaran serantau." },
+        { id: "03", title: "Kemudahan Kesihatan", desc: "Menjadi magnet pelaburan baharu dengan pesatnya pembinaan hospital dan klinik bersepadu bertaraf kebangsaan." },
+        { id: "04", title: "Ekonomi Kreatif & Kraf", desc: "Pelancongan berasaskan sungai dan industri kain Sasirangan yang terus dipecut melalui festival dan inkubasi PKS." }
       ],
       section6Title: "河流文化：",
       section6TitleSpan: "水乡民众的",
