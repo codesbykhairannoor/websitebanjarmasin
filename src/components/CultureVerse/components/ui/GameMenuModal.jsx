@@ -13,6 +13,13 @@ export default function GameMenuModal() {
     ? translations[language] 
     : translations['id'];
 
+  const handleClose = () => {
+    setGameMenuOpen(false);
+    if (!document.pointerLockElement && document.body.requestPointerLock) {
+      document.body.requestPointerLock();
+    }
+  };
+
   if (!isGameMenuOpen) return null;
 
   return (
@@ -20,7 +27,7 @@ export default function GameMenuModal() {
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
-        onClick={() => setGameMenuOpen(false)}
+        onClick={handleClose}
       />
       
       {/* Modal Container */}
@@ -28,12 +35,18 @@ export default function GameMenuModal() {
         className="relative w-full max-w-5xl bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-3xl border border-[var(--glass-border)] shadow-[0_0_50px_rgba(244,192,56,0.15)] p-6 md:p-10 flex flex-col items-center animate-in fade-in zoom-in duration-300"
         style={{ maxHeight: '90vh', overflowY: 'auto' }}
       >
-        <button 
-          onClick={() => setGameMenuOpen(false)}
-          className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/20 text-white transition-colors border border-white/10 z-10"
-        >
-          <X className="w-6 h-6" />
-        </button>
+        <div className="w-full flex items-center justify-between pb-4 border-b border-white/10 font-game font-bold mb-6">
+          <button
+            onClick={handleClose}
+            className="flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-white/5 hover:bg-white/20 text-slate-300 hover:text-white transition-all text-xs md:text-sm border border-white/10 group cursor-pointer tracking-wide"
+          >
+            <span className="group-hover:-translate-x-1 transition-transform">←</span>
+            <span>{language === 'en' ? 'Back to Museum' : 'Kembali ke Museum'}</span>
+          </button>
+          <span className="text-[10px] md:text-xs px-3 py-1 rounded-full bg-white/10 text-slate-300 tracking-wide font-medium">
+            3D Arcade
+          </span>
+        </div>
 
         <div className="text-center mb-10 mt-4">
           <Gamepad2 className="w-16 h-16 text-[#F4C038] mx-auto mb-4 drop-shadow-[0_0_15px_rgba(244,192,56,0.5)]" />

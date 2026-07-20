@@ -21,6 +21,13 @@ const shuffleCards = () => {
 
 export default function MemoryGameModal() {
   const { isMemoryGameOpen, setMemoryGameOpen } = useAppStore();
+
+  const handleClose = () => {
+    setMemoryGameOpen(false);
+    if (!document.pointerLockElement && document.body.requestPointerLock) {
+      document.body.requestPointerLock();
+    }
+  };
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
@@ -96,7 +103,7 @@ export default function MemoryGameModal() {
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
-        onClick={() => setMemoryGameOpen(false)}
+        onClick={handleClose}
       />
       
       {/* Modal Container */}
@@ -104,12 +111,18 @@ export default function MemoryGameModal() {
         className="relative w-full max-w-4xl bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-3xl border border-[var(--glass-border)] shadow-2xl p-6 md:p-10 flex flex-col items-center animate-in fade-in zoom-in duration-300"
         style={{ maxHeight: '90vh', overflowY: 'auto' }}
       >
-        <button 
-          onClick={() => setMemoryGameOpen(false)}
-          className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/20 text-white transition-colors border border-white/10"
-        >
-          <X className="w-6 h-6" />
-        </button>
+        <div className="w-full flex items-center justify-between pb-3 border-b border-white/10 font-game font-bold mb-4">
+          <button
+            onClick={handleClose}
+            className="flex items-center gap-1 md:gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/20 text-slate-300 hover:text-white transition-all text-[10px] md:text-xs border border-white/10 group cursor-pointer tracking-wide"
+          >
+            <span className="group-hover:-translate-x-1 transition-transform">←</span>
+            <span>Kembali ke Museum</span>
+          </button>
+          <span className="text-[9px] md:text-[10px] px-2 py-1 rounded-full bg-[#F4C038]/20 text-[#F4C038] tracking-wide font-medium">
+            Arcade • Memory Flip
+          </span>
+        </div>
 
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#F4C038] to-[#ffaa00] font-heading mb-2">

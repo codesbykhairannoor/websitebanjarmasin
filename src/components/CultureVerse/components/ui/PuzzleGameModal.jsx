@@ -19,6 +19,13 @@ const shuffleTiles = () => {
 
 export default function PuzzleGameModal() {
   const { isPuzzleGameOpen, setPuzzleGameOpen } = useAppStore();
+
+  const handleClose = () => {
+    setPuzzleGameOpen(false);
+    if (!document.pointerLockElement && document.body.requestPointerLock) {
+      document.body.requestPointerLock();
+    }
+  };
   const [tiles, setTiles] = useState([]);
   const [selectedTileIndex, setSelectedTileIndex] = useState(null);
   const [moves, setMoves] = useState(0);
@@ -67,7 +74,7 @@ export default function PuzzleGameModal() {
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
-        onClick={() => setPuzzleGameOpen(false)}
+        onClick={handleClose}
       />
       
       {/* Modal Container */}
@@ -75,12 +82,18 @@ export default function PuzzleGameModal() {
         className="relative w-full max-w-2xl bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-3xl border border-[var(--glass-border)] shadow-2xl p-6 md:p-8 flex flex-col items-center animate-in fade-in zoom-in duration-300"
         style={{ maxHeight: '90vh', overflowY: 'auto' }}
       >
-        <button 
-          onClick={() => setPuzzleGameOpen(false)}
-          className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/20 text-white transition-colors border border-white/10"
-        >
-          <X className="w-6 h-6" />
-        </button>
+        <div className="w-full flex items-center justify-between pb-3 border-b border-white/10 font-game font-bold mb-4">
+          <button
+            onClick={handleClose}
+            className="flex items-center gap-1 md:gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/20 text-slate-300 hover:text-white transition-all text-[10px] md:text-xs border border-white/10 group cursor-pointer tracking-wide"
+          >
+            <span className="group-hover:-translate-x-1 transition-transform">←</span>
+            <span>Kembali ke Museum</span>
+          </button>
+          <span className="text-[9px] md:text-[10px] px-2 py-1 rounded-full bg-[#06b6d4]/20 text-[#38bdf8] tracking-wide font-medium">
+            Arcade • Artefak Puzzle
+          </span>
+        </div>
 
         <div className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-[#38bdf8] font-heading mb-2">
@@ -113,7 +126,7 @@ export default function PuzzleGameModal() {
                <img src={PUZZLE_IMAGE} className="w-full h-full object-cover" alt="Completed" />
             </div>
             <button 
-              onClick={() => setPuzzleGameOpen(false)}
+              onClick={handleClose}
               className="px-8 py-3 bg-[#06b6d4] hover:bg-[#0891b2] text-white font-black uppercase tracking-wider rounded-xl transition-transform hover:scale-105"
             >
               Kembali

@@ -14,6 +14,13 @@ const KEYBOARD_ROWS = [
 
 export default function WordleGameModal() {
   const { isWordleGameOpen, setWordleGameOpen } = useAppStore();
+  
+  const handleClose = () => {
+    setWordleGameOpen(false);
+    if (!document.pointerLockElement && document.body.requestPointerLock) {
+      document.body.requestPointerLock();
+    }
+  };
   const [guesses, setGuesses] = useState([]);
   const [currentGuess, setCurrentGuess] = useState('');
   const [isWin, setIsWin] = useState(false);
@@ -101,7 +108,7 @@ export default function WordleGameModal() {
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
-        onClick={() => setWordleGameOpen(false)}
+        onClick={handleClose}
       />
       
       {/* Modal Container */}
@@ -109,12 +116,18 @@ export default function WordleGameModal() {
         className="relative w-full max-w-lg bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-3xl border border-[var(--glass-border)] shadow-2xl p-4 sm:p-8 flex flex-col items-center animate-in fade-in zoom-in duration-300"
         style={{ maxHeight: '95vh', overflowY: 'auto' }}
       >
-        <button 
-          onClick={() => setWordleGameOpen(false)}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/20 text-white transition-colors border border-white/10"
-        >
-          <X className="w-5 h-5" />
-        </button>
+        <div className="w-full flex items-center justify-between pb-3 border-b border-white/10 font-game font-bold mb-4">
+          <button
+            onClick={handleClose}
+            className="flex items-center gap-1 md:gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/20 text-slate-300 hover:text-white transition-all text-[10px] md:text-xs border border-white/10 group cursor-pointer tracking-wide"
+          >
+            <span className="group-hover:-translate-x-1 transition-transform">←</span>
+            <span>Kembali ke Museum</span>
+          </button>
+          <span className="text-[9px] md:text-[10px] px-2 py-1 rounded-full bg-[#a855f7]/20 text-[#d946ef] tracking-wide font-medium">
+            Arcade • Kata Banua
+          </span>
+        </div>
 
         <div className="text-center mb-6 mt-2">
           <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] to-[#d946ef] font-heading mb-1">
