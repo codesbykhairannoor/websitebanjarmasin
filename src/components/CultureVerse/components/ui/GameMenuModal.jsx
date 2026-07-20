@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { useLanguage } from '../../../Providers';
+import { useLanguage } from '../../../../context/LanguageContext';
 import { X, Gamepad2, Puzzle, Type } from 'lucide-react';
-import { translations } from '../../../../translations/pagesTranslations';
+import { translations } from '../../../../translations';
 
 export default function GameMenuModal() {
   const { isGameMenuOpen, setGameMenuOpen, setMemoryGameOpen, setPuzzleGameOpen, setWordleGameOpen } = useAppStore();
