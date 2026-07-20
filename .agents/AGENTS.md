@@ -17,3 +17,8 @@
 ## 4. Git Workflow (Wajib Push)
 - **Selalu Commit & Push**: Setiap kali sebuah fitur selesai diimplementasikan atau modifikasi kode selesai dilakukan, WAJIB melakukan perintah `git add .`, `git commit -m "..."`, dan `git push` ke repository secara otomatis tanpa perlu menunggu instruksi lanjutan dari user.
 - Berikan pesan commit yang deskriptif dan profesional.
+
+## 5. Standar Import Lokalisasi (Translation Imports)
+- **useLanguage Hook**: WAJIB selalu diimpor secara spesifik dari `src/context/LanguageContext.jsx`. DILARANG KERAS mengimpor `useLanguage` dari file *Providers*.
+- **Obyek translations**: WAJIB selalu diimpor dari file *entry-point* `src/translations/index.js` (atau cukup folder `src/translations`), BUKAN langsung dari `src/translations/pagesTranslations.js`.
+- Selalu pastikan *relative path* mundur (`../../../`) diarahkan dengan benar berdasarkan lokasi komponen yang sedang dimodifikasi.
