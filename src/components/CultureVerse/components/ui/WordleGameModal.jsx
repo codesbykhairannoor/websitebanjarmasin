@@ -56,11 +56,14 @@ export default function WordleGameModal() {
       
       const key = e.key.toUpperCase();
       if (key === 'ENTER' || key === 'BACKSPACE' || /^[A-Z]$/.test(key)) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        e.preventDefault();
         onKeyPress(key === 'BACKSPACE' ? 'DEL' : key);
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown, { capture: true });
+    return () => window.removeEventListener('keydown', handleKeyDown, { capture: true });
   }, [currentGuess, guesses, isWin, isLose, isWordleGameOpen]);
 
   const restartGame = () => {

@@ -58,9 +58,7 @@ function RpgSceneController({ setNearbyMotif }) {
       } else if ((e.key === 'e' || e.key === 'E' || e.key === 'Enter') && cameraMode === 'rpg') {
         if (nearbyMotifRef.current) {
           e.preventDefault();
-          if (nearbyMotifRef.current.id === 'sdg12-alchemist') {
-            useAppStore.getState().setEcoModalOpen(true);
-          } else if (nearbyMotifRef.current.id === 'memory-game') {
+          if (nearbyMotifRef.current.id === 'memory-game') {
             useAppStore.getState().setGameMenuOpen(true);
           } else {
             enterPortal(nearbyMotifRef.current.id);
@@ -299,8 +297,7 @@ function RpgSceneController({ setNearbyMotif }) {
           { motif: getMotif('soto-banjar'), px: 7.5, pz: -6 },
           { motif: getMotif('pasar-terapung'), px: -7.5, pz: -16 },
           { motif: getMotif('trans-banjarmasin'), px: 7.5, pz: -18 },
-          { motif: getMotif('memory-game'), px: 0, pz: -3 },
-          { motif: { id: 'sdg12-alchemist', title: 'Mesin Daur Ulang' }, px: 0, pz: 8 }
+          { motif: getMotif('memory-game'), px: 0, pz: -3 }
         ];
 
         let found = null;
@@ -377,6 +374,8 @@ export default function Scene() {
   return (
     <div 
       className="w-full h-screen fixed inset-0 z-10 bg-[#06080f]"
+      onDoubleClick={requestLock}
+      onClick={requestLock}
     >
       {/* Toast Prompt to click to lock pointer when not locked */}
       {cameraMode === 'rpg' && !isPointerLocked && !isTouchDevice && (
@@ -407,9 +406,7 @@ export default function Scene() {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              if (nearbyMotif.id === 'sdg12-alchemist') {
-                useAppStore.getState().setEcoModalOpen(true);
-              } else if (nearbyMotif.id === 'memory-game') {
+              if (nearbyMotif.id === 'memory-game') {
                 useAppStore.getState().setGameMenuOpen(true);
               } else {
                 enterPortal(nearbyMotif.id);
