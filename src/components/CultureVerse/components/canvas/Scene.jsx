@@ -325,7 +325,7 @@ function RpgSceneController({ setNearbyMotif }) {
         maxWalkVel={4}
         maxRunVel={8}
         jumpVel={6}
-        position={[0, 2.0, 4]}
+        position={[0, 2.0, -22]} // Spawn di paling belakang sebelum aset sasirangan (-27.5)
         capsuleRadius={0.4}
         capsuleHalfHeight={0.5}
         floatHeight={0.3}
