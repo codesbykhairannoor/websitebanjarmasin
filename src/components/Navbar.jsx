@@ -359,7 +359,7 @@ export default function Navbar() {
               href={`/${language}/culture-verse`}
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[var(--text-main)] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
-              🎮 Virtual Tour 3D
+              Virtual Tour 3D
             </a>
           </nav>
 

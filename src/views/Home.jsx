@@ -140,26 +140,103 @@ export default function Home() {
     }
     canonical.setAttribute('href', window.location.origin + window.location.pathname);
 
-    // AI-Ready Schema.org JSON-LD Structured Data
+    // AI-Ready & Super PSEO Schema.org JSON-LD Structured Data
+    // Menggunakan @graph untuk mendominasi hasil pencarian dengan Sitelinks (Seperti ClickUp)
     const schemaData = {
       "@context": "https://schema.org",
-      "@type": "City",
-      "name": "Banjarmasin",
-      "alternateName": "Banjarmasin City of a Thousand Rivers",
-      "description": descriptions[language] || descriptions.id,
-      "url": window.location.origin,
-      "logo": window.location.origin + "/logo-banjarmasin.webp",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-3.316694",
-        "longitude": "114.590111"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Banjarmasin",
-        "addressRegion": "Kalimantan Selatan",
-        "addressCountry": "ID"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": window.location.origin + "/#website",
+          "url": window.location.origin,
+          "name": "Visit Banjarmasin",
+          "description": descriptions[language] || descriptions.id,
+          "publisher": {
+            "@id": window.location.origin + "/#organization"
+          },
+          "potentialAction": [{
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": window.location.origin + `/${language}/wisata?q={search_term_string}`
+            },
+            "query-input": "required name=search_term_string"
+          }]
+        },
+        {
+          "@type": "Organization",
+          "@id": window.location.origin + "/#organization",
+          "name": "Pemerintah Kota Banjarmasin",
+          "url": window.location.origin,
+          "logo": {
+            "@type": "ImageObject",
+            "url": window.location.origin + "/logo-banjarmasin.webp"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support"
+          }
+        },
+        {
+          "@type": "City",
+          "@id": window.location.origin + "/#city",
+          "name": "Banjarmasin",
+          "alternateName": "Banjarmasin City of a Thousand Rivers",
+          "description": descriptions[language] || descriptions.id,
+          "url": window.location.origin,
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-3.316694",
+            "longitude": "114.590111"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Banjarmasin",
+            "addressRegion": "Kalimantan Selatan",
+            "addressCountry": "ID"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "SiteNavigationElement",
+              "position": 1,
+              "name": "Wisata Unggulan",
+              "description": "Destinasi wisata terbaik di Banjarmasin.",
+              "url": window.location.origin + `/${language}/wisata`
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "position": 2,
+              "name": "Kuliner Khas",
+              "description": "Makanan dan jajanan legendaris khas Banjar.",
+              "url": window.location.origin + `/${language}/kuliner`
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "position": 3,
+              "name": "Sejarah & Budaya",
+              "description": "Jelajahi sejarah dan kebudayaan Kota Banjarmasin.",
+              "url": window.location.origin + `/${language}/sejarah`
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "position": 4,
+              "name": "Panduan Travel",
+              "description": "Tips dan akomodasi selama di Banjarmasin.",
+              "url": window.location.origin + `/${language}/panduan`
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "position": 5,
+              "name": "Virtual Tour 3D",
+              "description": "Jelajahi kota Banjarmasin dalam bentuk 3 dimensi.",
+              "url": window.location.origin + `/${language}/culture-verse`
+            }
+          ]
+        }
+      ]
     };
 
     let schemaScript = document.getElementById('jsonld-schema');
