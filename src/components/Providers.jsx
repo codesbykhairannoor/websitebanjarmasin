@@ -6,9 +6,7 @@ import { LanguageProvider } from "../context/LanguageContext";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./ScrollToTop";
 import SplashScreen from "./SplashScreen";
-import dynamic from 'next/dynamic';
-
-const AcilAssistant = dynamic(() => import("./AcilAssistant"), { ssr: false });
+import AcilAssistant from "./AcilAssistant";
 
 // Lightweight Route-aware Scroll Observer
 const ScrollObserver = () => {
