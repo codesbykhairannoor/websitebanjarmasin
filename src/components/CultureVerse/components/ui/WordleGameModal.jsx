@@ -104,7 +104,7 @@ export default function WordleGameModal() {
   if (!isWordleGameOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4">
+    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-2 sm:p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
@@ -113,8 +113,8 @@ export default function WordleGameModal() {
       
       {/* Modal Container */}
       <div 
-        className="relative w-full max-w-lg bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-3xl border border-[var(--glass-border)] shadow-2xl p-4 sm:p-8 flex flex-col items-center animate-in fade-in zoom-in duration-300"
-        style={{ maxHeight: '95vh', overflowY: 'auto' }}
+        className="relative w-full max-w-lg bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-t-2xl sm:rounded-3xl border border-[var(--glass-border)] shadow-2xl p-3 sm:p-5 md:p-8 flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 sm:zoom-in duration-300"
+        style={{ maxHeight: '85vh', overflowY: 'auto' }}
       >
         <div className="w-full flex items-center justify-between pb-3 border-b border-white/10 font-game font-bold mb-4">
           <button
@@ -129,23 +129,23 @@ export default function WordleGameModal() {
           </span>
         </div>
 
-        <div className="text-center mb-6 mt-2">
-          <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] to-[#d946ef] font-heading mb-1">
+        <div className="text-center mb-3 sm:mb-5 mt-1 sm:mt-2">
+          <h2 className="text-lg sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] to-[#d946ef] font-heading mb-1">
             Kata Banua
           </h2>
-          <p className="text-[var(--text-muted)] font-body text-xs sm:text-sm">
-            Tebak kata 5 huruf khas Banjar! (Contoh kata: WADAI)
+          <p className="text-[var(--text-muted)] font-body text-[10px] sm:text-xs">
+            Tebak kata 5 huruf khas Banjar!
           </p>
         </div>
 
         {/* Board */}
-        <div className="grid grid-rows-6 gap-1.5 sm:gap-2 mb-6 w-full max-w-[300px]">
+        <div className="grid grid-rows-6 gap-1 sm:gap-1.5 md:gap-2 mb-4 sm:mb-6 w-full max-w-[240px] sm:max-w-[280px] md:max-w-[300px]">
           {Array.from({ length: MAX_GUESSES }).map((_, rowIndex) => {
             const isCurrentRow = rowIndex === guesses.length;
             const guess = guesses[rowIndex] || (isCurrentRow ? currentGuess : '');
             
             return (
-              <div key={rowIndex} className="grid grid-cols-5 gap-1.5 sm:gap-2">
+              <div key={rowIndex} className="grid grid-cols-5 gap-1 sm:gap-1.5 md:gap-2">
                 {Array.from({ length: WORD_LENGTH }).map((_, colIndex) => {
                   const letter = guess[colIndex] || '';
                   const status = guesses[rowIndex] ? getLetterStatus(letter, colIndex, guess) : 'empty';
@@ -159,7 +159,7 @@ export default function WordleGameModal() {
                   return (
                     <div 
                       key={colIndex}
-                      className={`aspect-square flex items-center justify-center text-xl sm:text-2xl font-black rounded-lg border-2 ${bgClass} transition-colors uppercase`}
+                      className={`aspect-square flex items-center justify-center text-base sm:text-xl md:text-2xl font-black rounded-md sm:rounded-lg border-2 ${bgClass} transition-colors uppercase`}
                     >
                       {letter}
                     </div>
@@ -171,9 +171,9 @@ export default function WordleGameModal() {
         </div>
 
         {/* Keyboard */}
-        <div className="w-full flex flex-col gap-1.5 sm:gap-2 select-none">
+        <div className="w-full flex flex-col gap-1 sm:gap-1.5 md:gap-2 select-none">
           {KEYBOARD_ROWS.map((row, i) => (
-            <div key={i} className="flex justify-center gap-1 sm:gap-1.5">
+            <div key={i} className="flex justify-center gap-0.5 sm:gap-1 md:gap-1.5">
               {row.map(key => {
                 const status = getKeyStatus(key);
                 let btnBg = 'bg-slate-600 hover:bg-slate-500 text-white';
@@ -187,7 +187,7 @@ export default function WordleGameModal() {
                   <button
                     key={key}
                     onClick={() => onKeyPress(key)}
-                    className={`${isBigBtn ? 'px-2 sm:px-3 text-[10px] sm:text-xs' : 'flex-1 text-xs sm:text-sm'} h-10 sm:h-12 font-bold rounded ${btnBg} transition-colors`}
+                    className={`${isBigBtn ? 'px-1.5 sm:px-2 md:px-3 text-[8px] sm:text-[10px] md:text-xs' : 'flex-1 text-[10px] sm:text-xs md:text-sm'} h-8 sm:h-10 md:h-12 font-bold rounded ${btnBg} transition-colors`}
                   >
                     {key}
                   </button>

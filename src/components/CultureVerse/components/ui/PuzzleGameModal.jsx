@@ -70,7 +70,7 @@ export default function PuzzleGameModal() {
   if (!isPuzzleGameOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-2 sm:p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
@@ -79,8 +79,8 @@ export default function PuzzleGameModal() {
       
       {/* Modal Container */}
       <div 
-        className="relative w-full max-w-xl lg:max-w-2xl bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-3xl border border-[var(--glass-border)] shadow-2xl p-4 sm:p-6 flex flex-col items-center animate-in fade-in zoom-in duration-300"
-        style={{ maxHeight: '90vh', overflowY: 'auto' }}
+        className="relative w-full max-w-xl lg:max-w-2xl bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-t-2xl sm:rounded-3xl border border-[var(--glass-border)] shadow-2xl p-3 sm:p-5 flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 sm:zoom-in duration-300"
+        style={{ maxHeight: '80vh', overflowY: 'auto' }}
       >
         <div className="w-full flex items-center justify-between pb-3 border-b border-white/10 font-game font-bold mb-4">
           <button
@@ -95,8 +95,8 @@ export default function PuzzleGameModal() {
           </span>
         </div>
 
-        <div className="text-center mb-6">
-          <h2 className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-[#38bdf8] font-heading mb-2">
+        <div className="text-center mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-[#38bdf8] font-heading mb-1 sm:mb-2">
             Artefak Puzzle
           </h2>
           <p className="text-[var(--text-muted)] font-body text-sm">
