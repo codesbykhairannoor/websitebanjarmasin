@@ -79,7 +79,7 @@ export default function PuzzleGameModal() {
       
       {/* Modal Container */}
       <div 
-        className="relative w-full max-w-2xl bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-3xl border border-[var(--glass-border)] shadow-2xl p-6 md:p-8 flex flex-col items-center animate-in fade-in zoom-in duration-300"
+        className="relative w-full max-w-xl lg:max-w-2xl bg-gradient-to-br from-[#0a1929] to-[#0d2137] rounded-3xl border border-[var(--glass-border)] shadow-2xl p-4 sm:p-6 flex flex-col items-center animate-in fade-in zoom-in duration-300"
         style={{ maxHeight: '90vh', overflowY: 'auto' }}
       >
         <div className="w-full flex items-center justify-between pb-3 border-b border-white/10 font-game font-bold mb-4">

@@ -168,7 +168,7 @@ export default function Budaya() {
   }, [language]);
 
   return (
-    <div className="app-container min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
 
       {/* =========================================================================
