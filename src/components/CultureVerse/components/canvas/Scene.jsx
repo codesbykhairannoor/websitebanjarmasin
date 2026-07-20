@@ -60,6 +60,8 @@ function RpgSceneController({ setNearbyMotif }) {
           e.preventDefault();
           if (nearbyMotifRef.current.id === 'sdg12-alchemist') {
             useAppStore.getState().setEcoModalOpen(true);
+          } else if (nearbyMotifRef.current.id === 'memory-game') {
+            useAppStore.getState().setMemoryGameOpen(true);
           } else {
             enterPortal(nearbyMotifRef.current.id);
           }
@@ -182,6 +184,8 @@ function RpgSceneController({ setNearbyMotif }) {
       if (nearbyMotifRef.current) {
         if (nearbyMotifRef.current.id === 'sdg12-alchemist') {
           useAppStore.getState().setEcoModalOpen(true);
+        } else if (nearbyMotifRef.current.id === 'memory-game') {
+          useAppStore.getState().setMemoryGameOpen(true);
         } else {
           enterPortal(nearbyMotifRef.current.id);
         }
@@ -402,6 +406,8 @@ export default function Scene() {
               e.stopPropagation();
               if (nearbyMotif.id === 'sdg12-alchemist') {
                 useAppStore.getState().setEcoModalOpen(true);
+              } else if (nearbyMotif.id === 'memory-game') {
+                useAppStore.getState().setMemoryGameOpen(true);
               } else {
                 enterPortal(nearbyMotif.id);
               }

@@ -44,6 +44,16 @@ export const MOTIFS_DATA = [
     position: [7.5, 5.0, -18],
     rotation: [0, -Math.PI / 2, 0],
     shopLink: '/{lang}/smart-city'
+  },
+  {
+    id: 'memory-game',
+    title: 'MAIN GAME!',
+    color: '#F4C038',
+    glowColor: 'rgba(244, 192, 56, 0.6)',
+    textureUrl: '',
+    position: [0, 1.5, -3],
+    rotation: [0, 0, 0],
+    shopLink: ''
   }
 ];
 
