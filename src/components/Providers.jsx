@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, startTransition } from "react";
 import { usePathname } from "next/navigation";
 import { LanguageProvider } from "../context/LanguageContext";
 import { HelmetProvider } from "react-helmet-async";
@@ -59,17 +59,23 @@ export default function Providers({ children }) {
   useEffect(() => {
     const initialSeen = typeof window !== "undefined" && sessionStorage.getItem("hasSeenSplash") === "true";
     if (initialSeen) {
-      setShowSplash(false);
+      startTransition(() => {
+        setShowSplash(false);
+      });
     } else {
       // Start exit animation after 3.5 seconds
       const readyTimer = setTimeout(() => {
-        setIsSplashReady(true);
+        startTransition(() => {
+          setIsSplashReady(true);
+        });
         sessionStorage.setItem("hasSeenSplash", "true");
       }, 3500);
 
       // Remove from DOM completely after 4.5 seconds (allowing 1s for animation)
       const removeTimer = setTimeout(() => {
-        setShowSplash(false);
+        startTransition(() => {
+          setShowSplash(false);
+        });
       }, 4500);
 
       return () => {
