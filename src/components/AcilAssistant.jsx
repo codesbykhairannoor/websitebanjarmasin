@@ -27,13 +27,7 @@ export default function AcilAssistant({ hideOnMobileForRoute }) {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  // Prevent hydration mismatch and node removal crashes by only rendering after mount
-  if (!mounted) return null;
 
-  // If on mobile AND on the specified route, hide completely
-  if (hideOnMobileForRoute && isMobile && pathname && pathname.includes(hideOnMobileForRoute)) {
-    return null;
-  }
 
   // Sync initial message when language changes
   useEffect(() => {
@@ -54,6 +48,14 @@ export default function AcilAssistant({ hideOnMobileForRoute }) {
       scrollToBottom();
     }
   }, [messages, isOpen]);
+
+  // Prevent hydration mismatch and node removal crashes by only rendering after mount
+  if (!mounted) return null;
+
+  // If on mobile AND on the specified route, hide completely
+  if (hideOnMobileForRoute && isMobile && pathname && pathname.includes(hideOnMobileForRoute)) {
+    return null;
+  }
 
   // 🛡️ SUPER SECURITY: Input Sanitization (Strip malicious script/HTML tags)
   const sanitizeInput = (text) => {
