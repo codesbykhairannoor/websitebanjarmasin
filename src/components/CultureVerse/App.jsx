@@ -9,6 +9,9 @@ import MobileLandscapeOverlay from './components/ui/MobileLandscapeOverlay';
 import SettingsModal from './components/ui/SettingsModal';
 import AboutModal from './components/ui/AboutModal';
 import MemoryGameModal from './components/ui/MemoryGameModal';
+import GameMenuModal from './components/ui/GameMenuModal';
+import PuzzleGameModal from './components/ui/PuzzleGameModal';
+import WordleGameModal from './components/ui/WordleGameModal';
 import Scene from './components/canvas/Scene';
 
 export default function App() {
@@ -26,7 +29,10 @@ export default function App() {
       <AudioPlayer />
       <SettingsModal />
       <AboutModal />
+      <GameMenuModal />
       <MemoryGameModal />
+      <PuzzleGameModal />
+      <WordleGameModal />
 
       {/* 2. WebGL 3D Canvas Layer */}
       <Scene />

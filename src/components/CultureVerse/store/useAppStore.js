@@ -44,7 +44,10 @@ export const useAppStore = create((set, get) => ({
   isSettingsOpen: false,
   isAboutOpen: false,
   isEcoModalOpen: false,
+  isGameMenuOpen: false,
   isMemoryGameOpen: false,
+  isPuzzleGameOpen: false,
+  isWordleGameOpen: false,
   selectedTrack: 'paris_barantai',
   selectedShirt: 'default',
 
@@ -57,10 +60,13 @@ export const useAppStore = create((set, get) => ({
     if (isOpen && document.pointerLockElement) document.exitPointerLock();
     set({ isEcoModalOpen: isOpen });
   },
-  setMemoryGameOpen: (isOpen) => {
+  setGameMenuOpen: (isOpen) => {
     if (isOpen && document.pointerLockElement) document.exitPointerLock();
-    set({ isMemoryGameOpen: isOpen });
+    set({ isGameMenuOpen: isOpen });
   },
+  setMemoryGameOpen: (isOpen) => set({ isMemoryGameOpen: isOpen }),
+  setPuzzleGameOpen: (isOpen) => set({ isPuzzleGameOpen: isOpen }),
+  setWordleGameOpen: (isOpen) => set({ isWordleGameOpen: isOpen }),
   setSelectedTrack: (track) => set({ selectedTrack: track }),
   setSelectedShirt: (shirt) => set({ selectedShirt: shirt }),
   

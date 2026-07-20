@@ -61,7 +61,7 @@ function RpgSceneController({ setNearbyMotif }) {
           if (nearbyMotifRef.current.id === 'sdg12-alchemist') {
             useAppStore.getState().setEcoModalOpen(true);
           } else if (nearbyMotifRef.current.id === 'memory-game') {
-            useAppStore.getState().setMemoryGameOpen(true);
+            useAppStore.getState().setGameMenuOpen(true);
           } else {
             enterPortal(nearbyMotifRef.current.id);
           }
@@ -185,7 +185,7 @@ function RpgSceneController({ setNearbyMotif }) {
         if (nearbyMotifRef.current.id === 'sdg12-alchemist') {
           useAppStore.getState().setEcoModalOpen(true);
         } else if (nearbyMotifRef.current.id === 'memory-game') {
-          useAppStore.getState().setMemoryGameOpen(true);
+          useAppStore.getState().setGameMenuOpen(true);
         } else {
           enterPortal(nearbyMotifRef.current.id);
         }
@@ -291,13 +291,16 @@ function RpgSceneController({ setNearbyMotif }) {
         // Painting positions (x, z): Bayam Raja (0, -27.5), Gigi Haruan (-7.5, 6),
         // Kambang Kacang (7.5, -6), Kain Sarigading (-7.5, -16), Naga Balimbur (7.5, -18)
         // SDG 12 EcoDye (0, 0), Monolith Babad (0, 16)
+        const getMotif = (id) => MOTIFS_DATA.find(m => m.id === id) || { id, title: 'Interact' };
+        
         const paintings = [
-          { motif: MOTIFS_DATA[0], px: 0,    pz: -27.5 },
-          { motif: MOTIFS_DATA[1], px: -7.5, pz: -6    },
-          { motif: MOTIFS_DATA[2], px: 7.5,  pz: -6    },
-          { motif: MOTIFS_DATA[3], px: -7.5, pz: -16   },
-          { motif: MOTIFS_DATA[4], px: 7.5,  pz: -18   },
-          { motif: MOTIFS_DATA[5], px: 0,    pz: 8     }  // EcoDyeStation (Moved away from benches)
+          { motif: getMotif('menara-pandang'), px: 0, pz: -27.5 },
+          { motif: getMotif('tari-baksa-kembang'), px: -7.5, pz: -6 },
+          { motif: getMotif('soto-banjar'), px: 7.5, pz: -6 },
+          { motif: getMotif('pasar-terapung'), px: -7.5, pz: -16 },
+          { motif: getMotif('trans-banjarmasin'), px: 7.5, pz: -18 },
+          { motif: getMotif('memory-game'), px: 0, pz: -3 },
+          { motif: { id: 'sdg12-alchemist', title: 'Mesin Daur Ulang' }, px: 0, pz: 8 }
         ];
 
         let found = null;
@@ -407,7 +410,7 @@ export default function Scene() {
               if (nearbyMotif.id === 'sdg12-alchemist') {
                 useAppStore.getState().setEcoModalOpen(true);
               } else if (nearbyMotif.id === 'memory-game') {
-                useAppStore.getState().setMemoryGameOpen(true);
+                useAppStore.getState().setGameMenuOpen(true);
               } else {
                 enterPortal(nearbyMotif.id);
               }

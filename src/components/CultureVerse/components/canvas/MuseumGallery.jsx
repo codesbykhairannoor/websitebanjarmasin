@@ -635,7 +635,7 @@ export default function MuseumGallery() {
         {/* Floating Rotating Box */}
         <mesh 
           castShadow 
-          onClick={() => useAppStore.getState().setMemoryGameOpen(true)}
+          onClick={() => useAppStore.getState().setGameMenuOpen(true)}
           onPointerOver={(e) => (document.body.style.cursor = 'pointer')}
           onPointerOut={(e) => (document.body.style.cursor = 'auto')}
           position={[0, 1, 0]}
