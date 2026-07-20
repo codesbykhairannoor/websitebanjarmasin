@@ -325,7 +325,7 @@ function RpgSceneController({ setNearbyMotif }) {
         maxWalkVel={4}
         maxRunVel={8}
         jumpVel={6}
-        position={[0, 2.0, -22]} // Spawn di paling belakang sebelum aset sasirangan (-27.5)
+        position={[0, 2.0, 26]} // Spawn dekat Logo Banjarmasin (ujung selatan Z=29)
         capsuleRadius={0.4}
         capsuleHalfHeight={0.5}
         floatHeight={0.3}
@@ -366,9 +366,12 @@ export default function Scene() {
     return () => document.removeEventListener('pointerlockchange', onLockChange);
   }, []);
 
-  const requestLock = () => {
+  const requestLock = (e) => {
     if (isTouchDevice) return;
-    if (!document.pointerLockElement) document.body.requestPointerLock();
+    if (e && e.target && (e.target.tagName === 'BUTTON' || e.target.closest('button'))) return;
+    if (!document.pointerLockElement) {
+      document.body.requestPointerLock();
+    }
   };
 
   return (
@@ -376,6 +379,7 @@ export default function Scene() {
       className="w-full h-screen fixed inset-0 z-10 bg-[#06080f]"
       onDoubleClick={requestLock}
       onClick={requestLock}
+      onPointerDown={requestLock}
     >
       {/* Toast Prompt to click to lock pointer when not locked */}
       {cameraMode === 'rpg' && !isPointerLocked && !isTouchDevice && (
