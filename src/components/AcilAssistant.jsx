@@ -11,6 +11,7 @@ export default function AcilAssistant({ hideOnMobileForRoute }) {
   const { language, t } = useLanguage();
   const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -21,9 +22,13 @@ export default function AcilAssistant({ hideOnMobileForRoute }) {
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0);
     check();
+    setMounted(true);
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
+
+  // Prevent hydration mismatch and node removal crashes by only rendering after mount
+  if (!mounted) return null;
 
   // If on mobile AND on the specified route, hide completely
   if (hideOnMobileForRoute && isMobile && pathname && pathname.includes(hideOnMobileForRoute)) {

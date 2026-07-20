@@ -16,7 +16,7 @@ function MobileBackBar({ lang }) {
         <span>←</span>
         <span>Beranda</span>
       </Link>
-      <span className="ml-auto text-[#F4C038] font-heading font-black text-sm tracking-wide">🎮 Virtual Tour 3D</span>
+      <span className="ml-auto text-white font-heading font-black text-sm tracking-wide">🎮 Virtual Tour 3D</span>
     </div>
   );
 }

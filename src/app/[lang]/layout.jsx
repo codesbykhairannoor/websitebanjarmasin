@@ -78,7 +78,7 @@ export const viewport = {
 
 export default function RootLayout({ children, params: { lang } }) {
   return (
-    <html lang={lang} className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}>
+    <html lang={lang} className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -118,7 +118,7 @@ export default function RootLayout({ children, params: { lang } }) {
           }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <script
           dangerouslySetInnerHTML={{
             __html: `
