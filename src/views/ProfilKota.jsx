@@ -154,7 +154,7 @@ const InteractivePillarSpotlight = () => {
 
 
 export default function ProfilKota() {
-  const { language } = useLanguage();
+  const { language, getHref } = useLanguage();
   const tLocal = (key) => {
     return pagesTranslations[language]?.profil?.[key] || pagesTranslations['id'].profil?.[key] || '';
   };
@@ -199,29 +199,28 @@ export default function ProfilKota() {
           display: flex;
           flex-direction: column;
           gap: var(--marquee-gap);
-          animation: scrollUp 20s linear infinite;
+          animation: scrollUp 25s linear infinite;
         }
         .marquee-content-down {
           display: flex;
           flex-direction: column;
           gap: var(--marquee-gap);
-          animation: scrollDown 20s linear infinite;
+          animation: scrollDown 25s linear infinite;
         }
-        .hover-pause:hover .marquee-content-up,
-        .hover-pause:hover .marquee-content-down {
+        .marquee-col:hover .marquee-content-up,
+        .marquee-col:hover .marquee-content-down {
           animation-play-state: paused;
         }
       `}</style>
 
       {/* =========================================================
-          HERO SECTION: STREAMA STYLE (PARALLAX MARQUEE)
+          HERO SECTION (2-COLUMN VERTICAL MARQUEE STREAM)
           ========================================================= */}
-      <section className="relative w-full h-[100vh] min-h-[700px] flex items-center overflow-hidden pt-20">
+      <section className="relative w-full min-h-[100vh] lg:h-screen flex items-center bg-[var(--martapura-night)] overflow-hidden pt-20 lg:pt-0">
         
-        {/* Left Half: Marquee Grid (Full Bleed on Desktop) */}
-        <div className="absolute left-0 top-0 w-full lg:w-[55vw] h-full lg:h-[120%] lg:-top-[10%] flex justify-center gap-4 lg:gap-8 opacity-40 lg:opacity-100 z-0 lg:z-10">
-          
-          {/* Awan / Fade Overlays (Top, Bottom, and Right side) */}
+        {/* Left/Background Stream Container */}
+        <div className="absolute inset-0 flex gap-4 sm:gap-6 justify-center lg:justify-start lg:left-[5vw] opacity-35 lg:opacity-75 pointer-events-none z-10 overflow-hidden">
+          {/* Top & Bottom Dark Fades */}
           <div className="absolute top-0 left-0 w-full h-[20vh] lg:h-[25vh] bg-gradient-to-b from-[var(--martapura-night)] to-transparent z-20 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-full h-[20vh] lg:h-[25vh] bg-gradient-to-t from-[var(--martapura-night)] to-transparent z-20 pointer-events-none" />
           
@@ -285,7 +284,7 @@ export default function ProfilKota() {
               <button className="bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-black px-8 py-4 rounded-full shadow-[0_0_20px_rgba(244,192,56,0.3)] transition-transform hover:-translate-y-1 w-full sm:w-auto text-sm sm:text-base">
                 {tLocal('exploreBtn')}
               </button>
-              <Link href={`/${language}/sejarah`} className="bg-[var(--card-bg)] backdrop-blur-md border border-[var(--glass-border)] hover:bg-[var(--text-main)] hover:text-[var(--martapura-deep)] text-[var(--text-main)] font-black px-8 py-4 rounded-full transition-all w-full sm:w-auto text-sm sm:text-base text-center">
+              <Link href={getHref('/sejarah')} className="bg-[var(--card-bg)] backdrop-blur-md border border-[var(--glass-border)] hover:bg-[var(--text-main)] hover:text-[var(--martapura-deep)] text-[var(--text-main)] font-black px-8 py-4 rounded-full transition-all w-full sm:w-auto text-sm sm:text-base text-center">
                 {tLocal('historyBtn')}
               </Link>
             </div>

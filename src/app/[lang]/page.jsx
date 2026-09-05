@@ -33,19 +33,19 @@ export async function generateMetadata({ params }) {
     description: currentSEO.description,
     keywords: currentSEO.keywords,
     alternates: {
-      canonical: `/${lang}`,
+      canonical: lang === "id" ? "/" : `/${lang}`,
       languages: {
-        "id-ID": "/id",
+        "id-ID": "/",
         "en-US": "/en",
         "ms-MY": "/ms",
         "zh-CN": "/zh",
-        "x-default": "/id"
+        "x-default": "/"
       }
     },
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: `https://visitbanjarmasin.id/${lang}`,
+      url: lang === "id" ? "https://visitbanjarmasin.id" : `https://visitbanjarmasin.id/${lang}`,
       images: ["/home/hero-desktop-pasar-terapung.webp"],
     }
   };

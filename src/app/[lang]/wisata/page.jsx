@@ -34,19 +34,19 @@ export async function generateMetadata({ params }) {
     description: currentSEO.description,
     keywords: currentSEO.keywords,
     alternates: {
-      canonical: `/${lang}/wisata`,
+      canonical: lang === "id" ? "/wisata" : `/${lang}/wisata`,
       languages: {
-        "id-ID": "/id/wisata",
+        "id-ID": "/wisata",
         "en-US": "/en/wisata",
         "ms-MY": "/ms/wisata",
         "zh-CN": "/zh/wisata",
-        "x-default": "/id/wisata"
+        "x-default": "/wisata"
       }
     },
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: `https://visitbanjarmasin.id/${lang}/wisata`,
+      url: lang === "id" ? "https://visitbanjarmasin.id/wisata" : `https://visitbanjarmasin.id/${lang}/wisata`,
       images: ["/wisata/960px-Pasar_Terapung_Siring_Banj.webp"],
     }
   };

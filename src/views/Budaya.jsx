@@ -9,7 +9,7 @@ import { pagesTranslations } from '../translations/pagesTranslations';
 
 
 export default function Budaya() {
-  const { language } = useLanguage();
+  const { language, getHref } = useLanguage();
 
   // Helper to load localized data
   const tLocal = (key) => {
@@ -75,7 +75,7 @@ export default function Budaya() {
             desc: ev.desc[language] || ev.desc.id,
             tag: ev.tag[language] || ev.tag.id,
             portalName: ev.portalName,
-            url: `/${language}/blog/${ev.slug}` // Just linking to blog/slug or self
+            url: getHref(`/blog/${ev.slug}`) // Just linking to blog/slug or self
           }));
           setFestivalResmiData(formatted);
         }
@@ -474,7 +474,7 @@ export default function Budaya() {
             </div>
             
             <a 
-              href={`/${language}/culture-verse`}
+              href={getHref('/culture-verse')}
               className="relative overflow-hidden px-8 py-4 bg-[#33C3B3] hover:bg-[#2AA395] text-white font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(51,195,179,0.4)] flex items-center gap-3 group"
             >
               <span className="relative z-10">{language === 'en' ? 'Enter 3D Museum' : 'Masuk Museum 3D'}</span>

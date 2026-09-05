@@ -33,19 +33,19 @@ export async function generateMetadata({ params }) {
     description: currentSEO.description,
     keywords: currentSEO.keywords,
     alternates: {
-      canonical: `/${lang}/sejarah`,
+      canonical: lang === "id" ? "/sejarah" : `/${lang}/sejarah`,
       languages: {
-        "id-ID": "/id/sejarah",
+        "id-ID": "/sejarah",
         "en-US": "/en/sejarah",
         "ms-MY": "/ms/sejarah",
         "zh-CN": "/zh/sejarah",
-        "x-default": "/id/sejarah"
+        "x-default": "/sejarah"
       }
     },
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: `https://visitbanjarmasin.id/${lang}/sejarah`,
+      url: lang === "id" ? "https://visitbanjarmasin.id/sejarah" : `https://visitbanjarmasin.id/${lang}/sejarah`,
       images: ["/wisata/masjid sultan suriansyah.webp"],
     }
   };

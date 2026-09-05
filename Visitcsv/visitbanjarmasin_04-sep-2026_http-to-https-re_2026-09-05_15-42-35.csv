@@ -1,0 +1,9 @@
+PR,URL,Title,Content type,Is rendered page,HTTP status code,Organic traffic,Redirect chain URLs,Redirect chain URLs codes,Is redirect loop,No. of all inlinks,No. of redirect inlinks,First found at
+0,http://visitbanjarmasin.id/,,text/plain,false,308,0,"https://visitbanjarmasin.id/
+https://www.visitbanjarmasin.id/
+https://www.visitbanjarmasin.id/id","308
+307
+200",false,0,0,
+0,http://www.visitbanjarmasin.id/,,text/plain,false,308,0,"https://www.visitbanjarmasin.id/
+https://www.visitbanjarmasin.id/id","307
+200",false,0,0,

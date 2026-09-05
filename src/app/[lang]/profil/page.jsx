@@ -33,19 +33,19 @@ export async function generateMetadata({ params }) {
     description: currentSEO.description,
     keywords: currentSEO.keywords,
     alternates: {
-      canonical: `/${lang}/profil`,
+      canonical: lang === "id" ? "/profil" : `/${lang}/profil`,
       languages: {
-        "id-ID": "/id/profil",
+        "id-ID": "/profil",
         "en-US": "/en/profil",
         "ms-MY": "/ms/profil",
         "zh-CN": "/zh/profil",
-        "x-default": "/id/profil"
+        "x-default": "/profil"
       }
     },
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: `https://visitbanjarmasin.id/${lang}/profil`,
+      url: lang === "id" ? "https://visitbanjarmasin.id/profil" : `https://visitbanjarmasin.id/${lang}/profil`,
       images: ["/home/banjarmasinkota.webp"],
     }
   };

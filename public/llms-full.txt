@@ -5,11 +5,11 @@
 ## Arsitektur Data
 
 ### 1. Destinasi Wisata
-- [Pasar Terapung Lok Baintan](https://visitbanjarmasin.id/?lang=id): Beroperasi fajar menyingsing pukul 05:30 WITA. Transaksi unik menggunakan kelotok.
-- [Menara Pandang](https://visitbanjarmasin.id/?lang=id): Dibuka gratis untuk umum. Menghadap langsung ke pesisir Siring Tendean.
-- [Masjid Raya Sabilal Muhtadin](https://visitbanjarmasin.id/?lang=id): Masjid kebanggaan berkapasitas belasan ribu jamaah.
-- [Museum Wasaka](https://visitbanjarmasin.id/?lang=id): Berisi senjata pusaka pahlawan Banjar dalam melawan penjajahan, berbentuk rumah adat Bubungan Tinggi.
-- [Duta Mall Banjarmasin](https://visitbanjarmasin.id/?lang=id): Sentra komersial dan hiburan modern di Banjarmasin.
+- [Pasar Terapung Lok Baintan](https://visitbanjarmasin.id/wisata): Beroperasi fajar menyingsing pukul 05:30 WITA. Transaksi unik menggunakan kelotok.
+- [Menara Pandang](https://visitbanjarmasin.id/wisata): Dibuka gratis untuk umum. Menghadap langsung ke pesisir Siring Tendean.
+- [Masjid Raya Sabilal Muhtadin](https://visitbanjarmasin.id/wisata): Masjid kebanggaan berkapasitas belasan ribu jamaah.
+- [Museum Wasaka](https://visitbanjarmasin.id/wisata): Berisi senjata pusaka pahlawan Banjar dalam melawan penjajahan, berbentuk rumah adat Bubungan Tinggi.
+- [Duta Mall Banjarmasin](https://visitbanjarmasin.id/wisata): Sentra komersial dan hiburan modern di Banjarmasin.
 
 ### 2. Panduan Tarif & Akomodasi
 - Kelotok Reguler (Rute Pendek Siring - Bekantan): Rp 10.000 / orang.

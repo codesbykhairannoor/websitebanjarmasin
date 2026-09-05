@@ -34,19 +34,19 @@ export async function generateMetadata({ params }) {
     description: currentSEO.description,
     keywords: currentSEO.keywords,
     alternates: {
-      canonical: `/${lang}/kuliner`,
+      canonical: lang === "id" ? "/kuliner" : `/${lang}/kuliner`,
       languages: {
-        "id-ID": "/id/kuliner",
+        "id-ID": "/kuliner",
         "en-US": "/en/kuliner",
         "ms-MY": "/ms/kuliner",
         "zh-CN": "/zh/kuliner",
-        "x-default": "/id/kuliner"
+        "x-default": "/kuliner"
       }
     },
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: `https://visitbanjarmasin.id/${lang}/kuliner`,
+      url: lang === "id" ? "https://visitbanjarmasin.id/kuliner" : `https://visitbanjarmasin.id/${lang}/kuliner`,
       images: ["/kuliner/soto banjar.webp"],
     }
   };

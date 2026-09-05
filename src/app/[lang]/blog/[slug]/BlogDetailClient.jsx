@@ -58,7 +58,7 @@ function renderContent(content) {
 }
 
 export default function BlogDetailClient({ blog, otherBlogs, lang }) {
-  const { language } = useLanguage();
+  const { language, getHref } = useLanguage();
   const currentLang = language || lang || "id";
   const L = labels[currentLang] || labels.id;
 
@@ -84,7 +84,7 @@ export default function BlogDetailClient({ blog, otherBlogs, lang }) {
         {/* Back Link */}
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}>
           <Link
-            href={`/${currentLang}/blog`}
+            href={getHref('/blog')}
             className="inline-flex items-center gap-2 text-[#33C3B3] font-bold text-sm hover:gap-4 transition-all duration-300 mb-10 group"
           >
             <span className="group-hover:-translate-x-1 transition-transform">←</span>
@@ -178,7 +178,7 @@ export default function BlogDetailClient({ blog, otherBlogs, lang }) {
                 return (
                   <Link
                     key={b.id}
-                    href={`/${currentLang}/blog/${b.slug}`}
+                    href={getHref(`/blog/${b.slug}`)}
                     className="group flex flex-col bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-2xl overflow-hidden hover:border-[#33C3B3]/60 hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="relative h-36 overflow-hidden">

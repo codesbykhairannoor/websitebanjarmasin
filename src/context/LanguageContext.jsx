@@ -13,18 +13,46 @@ export function LanguageProvider({ children }) {
   const router = useRouter();
 
   // Ambil language dari URL segment pertama (contoh: /en/wisata -> 'en')
-  // Fallback ke 'id' jika undefined
+  // Fallback ke 'id' jika undefined atau di root/unprefixed path
   const language = params?.lang || 'id';
+
+  // Helper untuk menghasilkan URL yang tepat sesuai bahasa aktif
+  // Jika bahasa 'id', URL tidak menggunakan prefix '/id' (contoh: '/wisata', '/')
+  // Jika bahasa lain ('en', 'ms', 'zh'), URL menggunakan prefix (contoh: '/en/wisata', '/en')
+  const getHref = (path = '/') => {
+    if (!path || path === '/') {
+      return language === 'id' ? '/' : `/${language}`;
+    }
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    if (language === 'id') {
+      return cleanPath;
+    }
+    return `/${language}${cleanPath}`;
+  };
 
   const setLanguage = (newLang) => {
     if (!pathname) return;
-    document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000`;
-    const segments = pathname.split('/');
-    // pathname selalu mulai dengan / (contoh: ['', 'id', 'wisata'])
-    if (segments.length >= 2) {
-      segments[1] = newLang;
-      router.push(segments.join('/'));
+    document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000; SameSite=Lax`;
+
+    const nonDefaultLocales = ['en', 'ms', 'zh', 'id'];
+    const segments = pathname.split('/').filter(Boolean);
+
+    let pathWithoutLocale = pathname;
+    if (segments.length > 0 && nonDefaultLocales.includes(segments[0])) {
+      pathWithoutLocale = '/' + segments.slice(1).join('/');
     }
+    if (!pathWithoutLocale.startsWith('/')) {
+      pathWithoutLocale = '/' + pathWithoutLocale;
+    }
+
+    let targetPath = '';
+    if (newLang === 'id') {
+      targetPath = pathWithoutLocale || '/';
+    } else {
+      targetPath = `/${newLang}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+    }
+
+    router.push(targetPath);
   };
 
   useEffect(() => {
@@ -65,12 +93,12 @@ export function LanguageProvider({ children }) {
     res = resolve(pagesTranslations['id']);
     if (res !== undefined) return res;
 
-    // Jika tidak ditemukan sama sekali, kembalikan undefined agar operasi fallback seperti (t('...') || []) aman dan tidak crash (.map is not a function)
+    // Jika tidak ditemukan sama sekali, kembalikan undefined agar operasi fallback aman
     return undefined;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, getHref }}>
       {children}
     </LanguageContext.Provider>
   );
@@ -83,3 +111,4 @@ export function useLanguage() {
   }
   return context;
 }
+

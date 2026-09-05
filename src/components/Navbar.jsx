@@ -36,7 +36,7 @@ function notifyAudioListeners() {
 }
 
 export default function Navbar() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, getHref } = useLanguage();
   const [isPlaying, setIsPlaying] = useState(false);
   const [theme, setTheme] = useState('dark');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -187,7 +187,7 @@ export default function Navbar() {
         <header className="flex items-center justify-between w-full">
           
           {/* Logo - Klik ke Home */}
-          <Link href={`/${language}`} className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
+          <Link href={getHref('/')} className="font-heading text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight hover:opacity-90 transition-opacity flex items-center gap-2 sm:gap-2.5">
             <img src="/logo-banjarmasin.webp" alt="Logo Banjarmasin" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md bg-transparent" style={{ backgroundColor: "transparent" }} />
             <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
           </Link>
@@ -225,21 +225,21 @@ export default function Navbar() {
                     className="absolute top-full left-0 mt-3 w-56 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
                   >
                     <Link
-                      href={`/${language}/profil`}
+                      href={getHref('/profil')}
                       onClick={() => setOpenTentangDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/profil') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">🏛️</span> {t('navbar.profile')}
                     </Link>
                     <Link
-                      href={`/${language}/sejarah`}
+                      href={getHref('/sejarah')}
                       onClick={() => setOpenTentangDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/sejarah') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">📜</span> {t('navbar.history')}
                     </Link>
                     <Link
-                      href={`/${language}/smart-city`}
+                      href={getHref('/smart-city')}
                       onClick={() => setOpenTentangDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/smart-city') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
@@ -280,14 +280,14 @@ export default function Navbar() {
                     className="absolute top-full left-0 mt-3 w-48 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
                   >
                     <Link
-                      href={`/${language}/kuliner`}
+                      href={getHref('/kuliner')}
                       onClick={() => setOpenEksplorasiDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/kuliner') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">🍲</span> {t('navbar.culinary')}
                     </Link>
                     <Link
-                      href={`/${language}/budaya`}
+                      href={getHref('/budaya')}
                       onClick={() => setOpenEksplorasiDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/budaya') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
@@ -328,14 +328,14 @@ export default function Navbar() {
                     className="absolute top-full right-0 mt-3 w-52 p-2 rounded-2xl bg-[var(--card-bg)] border border-[var(--glass-border)] shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50"
                   >
                     <Link
-                      href={`/${language}/panduan`}
+                      href={getHref('/panduan')}
                       onClick={() => setOpenInfoDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/panduan') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
                       <span className="text-base">🗺️</span> {t('navbar.guide')}
                     </Link>
                     <Link
-                      href={`/${language}/blog`}
+                      href={getHref('/blog')}
                       onClick={() => setOpenInfoDropdown(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-heading flex items-center gap-2.5 transition-all ${currentPath.includes('/blog') ? 'bg-[#F4C038]/20 text-[#F4C038] font-black' : 'text-[var(--text-main)] hover:bg-[var(--glass-border)]'}`}
                     >
@@ -348,7 +348,7 @@ export default function Navbar() {
 
             {/* Pilihan 4: Wisata */}
             <Link
-              href={`/${language}/wisata`}
+              href={getHref('/wisata')}
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/wisata') ? 'text-[#F4C038] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               {t('navbar.tourism')}
@@ -356,7 +356,7 @@ export default function Navbar() {
 
             {/* Pilihan 5: Virtual Tour 3D */}
             <a
-              href={`/${language}/culture-verse`}
+              href={getHref('/culture-verse')}
               className={`text-sm font-heading transition-colors whitespace-nowrap ${currentPath.includes('/culture-verse') ? 'text-[var(--text-main)] font-black' : 'text-[var(--text-muted)] hover:text-[var(--text-main)] font-semibold'}`}
             >
               Virtual Tour 3D
@@ -505,7 +505,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <Link
-              href={`/${language}/panduan`}
+              href={getHref('/panduan')}
               className="hidden sm:flex items-center gap-1 px-3 sm:px-4 py-2 rounded-full bg-[#F4C038] hover:bg-amber-400 text-[#091422] font-heading font-black text-xs transition-all shadow-[0_4px_15px_rgba(244,192,56,0.3)] hover:scale-105 shrink-0 max-w-[120px] sm:max-w-[150px] overflow-hidden"
             >
               <span className="truncate">{t('navbar.exploreCTA')}</span>
@@ -590,20 +590,20 @@ export default function Navbar() {
 
               <div className="flex flex-col gap-1.5 px-2 mb-1">
                 <div className="text-[10px] font-black uppercase tracking-widest text-[#00A896] px-2">{t('navbar.aboutCity')}</div>
-                <Link href={`/${language}/profil`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🏛️ {t('navbar.profile')}</Link>
-                <Link href={`/${language}/sejarah`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">📜 {t('navbar.history')}</Link>
-                <Link href={`/${language}/smart-city`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">⚡ {t('navbar.innovation')}</Link>
+                <Link href={getHref('/profil')} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🏛️ {t('navbar.profile')}</Link>
+                <Link href={getHref('/sejarah')} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">📜 {t('navbar.history')}</Link>
+                <Link href={getHref('/smart-city')} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">⚡ {t('navbar.innovation')}</Link>
 
                 <div className="text-[10px] font-black uppercase tracking-widest text-[#00A896] px-2 mt-2">{language === 'en' ? 'EXPLORE' : 'EKSPLORASI'}</div>
-                <Link href={`/${language}/kuliner`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🍲 {t('navbar.culinary')}</Link>
-                <Link href={`/${language}/budaya`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🎭 {t('navbar.culture')}</Link>
-                <Link href={`/${language}/wisata`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🏖️ {t('navbar.tourism')}</Link>
-                <a href={`/${language}/culture-verse`} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] flex items-center gap-2 transition-colors hover:bg-[var(--glass-border)]"><span className="text-base">🎮</span> Virtual Tour 3D</a>
-                <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🗺️ {t('navbar.guide')}</Link>
-                <Link href={`/${language}/blog`} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
+                <Link href={getHref('/kuliner')} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🍲 {t('navbar.culinary')}</Link>
+                <Link href={getHref('/budaya')} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🎭 {t('navbar.culture')}</Link>
+                <Link href={getHref('/wisata')} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🏖️ {t('navbar.tourism')}</Link>
+                <a href={getHref('/culture-verse')} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] flex items-center gap-2 transition-colors hover:bg-[var(--glass-border)]"><span className="text-base">🎮</span> Virtual Tour 3D</a>
+                <Link href={getHref('/panduan')} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">🗺️ {t('navbar.guide')}</Link>
+                <Link href={getHref('/blog')} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2.5 rounded-xl bg-[var(--card-bg)] font-heading font-bold text-sm text-[var(--text-main)] transition-colors hover:bg-[var(--glass-border)]">📰 {t('navbar.blog') || 'Blog & Artikel'}</Link>
               </div>
 
-              <Link href={`/${language}/panduan`} onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
+              <Link href={getHref('/panduan')} onClick={() => setIsMobileMenuOpen(false)} className="mt-2 px-4 py-3 rounded-xl bg-[#F4C038] text-[#091422] font-heading font-black text-center text-sm shadow">{t('navbar.exploreCTA_mobile')}</Link>
             </motion.div>
           )}
         </AnimatePresence>

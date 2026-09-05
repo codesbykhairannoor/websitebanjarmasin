@@ -34,9 +34,20 @@ export async function generateMetadata({ params }) {
   return {
     title: titles[lang] || titles.id,
     description: descs[lang] || descs.id,
+    alternates: {
+      canonical: lang === "id" ? "/blog" : `/${lang}/blog`,
+      languages: {
+        "id-ID": "/blog",
+        "en-US": "/en/blog",
+        "ms-MY": "/ms/blog",
+        "zh-CN": "/zh/blog",
+        "x-default": "/blog"
+      }
+    },
     openGraph: {
       title: titles[lang] || titles.id,
       description: descs[lang] || descs.id,
+      url: lang === "id" ? "https://visitbanjarmasin.id/blog" : `https://visitbanjarmasin.id/${lang}/blog`,
     },
   };
 }

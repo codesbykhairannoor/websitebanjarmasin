@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server';
 
 const defaultLocale = 'id';
 const locales = ['id', 'en', 'ms', 'zh'];
+const nonDefaultLocales = ['en', 'ms', 'zh'];
 
 export function middleware(request) {
-  // Check if there is any supported locale in the pathname
-  const { pathname, hostname } = request.nextUrl;
+  const { pathname } = request.nextUrl;
   
-  // Exclude static files, api, _next, and admin
+  // Exclude static files, api, _next, favicon, and service worker
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
@@ -30,21 +30,28 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
-  const pathnameHasLocale = locales.some(
+  // 1. Redirect /id or /id/* to clean URL without /id prefix
+  if (pathname === '/id' || pathname === '/id/') {
+    return NextResponse.redirect(new URL('/', request.url), 308);
+  }
+  if (pathname.startsWith('/id/')) {
+    const cleanPath = pathname.replace(/^\/id/, '') || '/';
+    return NextResponse.redirect(new URL(cleanPath, request.url), 308);
+  }
+
+  // 2. Allow non-default locales (/en, /ms, /zh)
+  const pathnameHasNonDefaultLocale = nonDefaultLocales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) {
+  if (pathnameHasNonDefaultLocale) {
     return NextResponse.next();
   }
 
-  // Cek cookie NEXT_LOCALE, atau fallback ke id
-  const localeCookie = request.cookies.get('NEXT_LOCALE')?.value;
-  const preferredLocale = locales.includes(localeCookie) ? localeCookie : defaultLocale;
-
-  // Redirect if there is no locale
-  request.nextUrl.pathname = `/${preferredLocale}${pathname}`;
-  return NextResponse.redirect(request.nextUrl);
+  // 3. Unprefixed URLs -> Internally rewrite to /id route handler
+  const rewriteUrl = request.nextUrl.clone();
+  rewriteUrl.pathname = `/id${pathname === '/' ? '' : pathname}`;
+  return NextResponse.rewrite(rewriteUrl);
 }
 
 export const config = {

@@ -33,19 +33,19 @@ export async function generateMetadata({ params }) {
     description: currentSEO.description,
     keywords: currentSEO.keywords,
     alternates: {
-      canonical: `/${lang}/budaya`,
+      canonical: lang === "id" ? "/budaya" : `/${lang}/budaya`,
       languages: {
-        "id-ID": "/id/budaya",
+        "id-ID": "/budaya",
         "en-US": "/en/budaya",
         "ms-MY": "/ms/budaya",
         "zh-CN": "/zh/budaya",
-        "x-default": "/id/budaya"
+        "x-default": "/budaya"
       }
     },
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: `https://visitbanjarmasin.id/${lang}/budaya`,
+      url: lang === "id" ? "https://visitbanjarmasin.id/budaya" : `https://visitbanjarmasin.id/${lang}/budaya`,
       images: ["/home/hero_kain_sasirangan.webp"],
     }
   };

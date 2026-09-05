@@ -53,7 +53,7 @@ const labels = {
 };
 
 export default function BlogListClient({ blogs, lang }) {
-  const { language } = useLanguage();
+  const { language, getHref } = useLanguage();
   const currentLang = language || lang || "id";
   const L = labels[currentLang] || labels.id;
   const [filter, setFilter] = useState("all");
@@ -132,7 +132,7 @@ export default function BlogListClient({ blogs, lang }) {
                   {L.featured}
                 </p>
                 <Link
-                  href={`/${currentLang}/blog/${featured.slug}`}
+                  href={getHref(`/blog/${featured.slug}`)}
                   className="group grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-[var(--glass-border)] hover:border-[#33C3B3] transition-all duration-500 bg-[var(--card-bg)] shadow-2xl hover:shadow-[0_20px_60px_rgba(51,195,179,0.15)]"
                 >
                   <div className="relative h-72 lg:h-auto min-h-[300px] overflow-hidden">
@@ -194,7 +194,7 @@ export default function BlogListClient({ blogs, lang }) {
                         className="min-w-[280px] sm:min-w-[320px] max-w-[340px] snap-center shrink-0"
                       >
                         <Link
-                          href={`/${currentLang}/blog/${blog.slug}`}
+                          href={getHref(`/blog/${blog.slug}`)}
                           className="group flex flex-col h-full bg-[var(--card-bg)] border border-[var(--glass-border)] rounded-[2rem] overflow-hidden hover:border-[#33C3B3]/60 hover:shadow-[0_15px_40px_rgba(51,195,179,0.15)] transition-all duration-500 hover:-translate-y-2 relative"
                         >
                           {/* Image */}

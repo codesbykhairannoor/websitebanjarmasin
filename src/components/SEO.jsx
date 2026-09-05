@@ -14,7 +14,7 @@ export default function SEO() {
   const pathWithoutLang = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '');
   const cleanPath = pathWithoutLang === '' ? '' : pathWithoutLang;
 
-  const canonicalUrl = `${domain}/${language}${cleanPath}`;
+  const canonicalUrl = language === 'id' ? `${domain}${cleanPath}` : `${domain}/${language}${cleanPath}`;
 
   const titles = {
     id: "Visit Banjarmasin | Portal Eksplorasi Wisata & Budaya",
@@ -52,7 +52,7 @@ export default function SEO() {
         },
         "potentialAction": {
           "@type": "SearchAction",
-          "target": `${domain}/${language}/search?q={search_term_string}`,
+          "target": language === 'id' ? `${domain}/search?q={search_term_string}` : `${domain}/${language}/search?q={search_term_string}`,
           "query-input": "required name=search_term_string"
         }
       },
@@ -76,7 +76,7 @@ export default function SEO() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": `${domain}/${language}`
+            "item": language === 'id' ? domain : `${domain}/${language}`
           },
           ...(cleanPath ? [{
             "@type": "ListItem",
@@ -94,11 +94,11 @@ export default function SEO() {
       <title>{title}</title>
       <meta name="description" content={description} />
       
-      <link rel="alternate" hrefLang="id" href={`${domain}/id${cleanPath}`} />
+      <link rel="alternate" hrefLang="id" href={`${domain}${cleanPath}`} />
       <link rel="alternate" hrefLang="en" href={`${domain}/en${cleanPath}`} />
       <link rel="alternate" hrefLang="ms" href={`${domain}/ms${cleanPath}`} />
       <link rel="alternate" hrefLang="zh" href={`${domain}/zh${cleanPath}`} />
-      <link rel="alternate" hrefLang="x-default" href={`${domain}/id${cleanPath}`} />
+      <link rel="alternate" hrefLang="x-default" href={`${domain}${cleanPath}`} />
       <link rel="canonical" href={canonicalUrl} />
 
       <meta property="og:title" content={title} />

@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Home() {
-  const { language, t } = useLanguage();
+  const { language, t, getHref } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -107,19 +107,19 @@ export default function Home() {
   };
   const currentMap = spotsData[activeSpot] || spotsData.lokbaintan;
 
-  // === SEO, GEO & AI STRUCTURED DATA DYNAMIC UPDATE ===
+  // JSON-LD Structured Data for Super SEO
   useEffect(() => {
     const titles = {
-      id: "Portal Wisata Resmi Banjarmasin - Kota Seribu Sungai",
-      en: "Official Tourism Portal of Banjarmasin - City of a Thousand Rivers",
-      ms: "Portal Pelancongan Rasmi Banjarmasin - Kota Seribu Sungai",
-      zh: "马辰官方旅游门户网站 - 千河之城"
+      id: "Visit Banjarmasin | Portal Eksplorasi Wisata & Budaya",
+      en: "Visit Banjarmasin | Tourism & Cultural Exploration Portal",
+      ms: "Visit Banjarmasin | Portal Penerokaan Pelancongan & Budaya",
+      zh: "Visit Banjarmasin | 旅游与文化探索门户"
     };
     const descriptions = {
-      id: "Jelajahi keindahan budaya sungai, kuliner legendaris, kain Sasirangan, dan destinasi ikonik Kota Banjarmasin.",
-      en: "Explore the beauty of river culture, legendary culinary, Sasirangan fabrics, and iconic destinations of Banjarmasin.",
-      ms: "Terokai keindahan budaya sungai, kuliner legenda, kain Sasirangan, dan destinasi ikonik Kota Banjarmasin.",
-      zh: "探索马辰河流文化的美丽、传奇美食、萨希朗安扎染布和标志性景点。"
+      id: "Eksplorasi Kota Banjarmasin! Panduan resmi rute BRT, destinasi susur sungai, kuliner Soto Banjar, budaya Sasirangan, dan Peta Interaktif Smart City.",
+      en: "Explore Banjarmasin City! The official guide to BRT routes, river cruise destinations, Banjar Soto culinary, Sasirangan culture, and Smart City Interactive Map.",
+      ms: "Terokai Bandar Banjarmasin! Panduan rasmi laluan BRT, pelayaran sungai, masakan Soto Banjar, budaya Sasirangan, dan Peta Interaktif Smart City.",
+      zh: "探索班贾尔马辛市！BRT路线、河流游轮目的地、Banjar Soto美食、Sasirangan文化和智能城市交互式地图的官方指南。"
     };
 
     document.title = titles[language] || titles.id;
@@ -132,16 +132,6 @@ export default function Home() {
     }
     metaDesc.setAttribute('content', descriptions[language] || descriptions.id);
 
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', window.location.origin + window.location.pathname);
-
-    // AI-Ready & Super PSEO Schema.org JSON-LD Structured Data
-    // Menggunakan @graph untuk mendominasi hasil pencarian dengan Sitelinks (Seperti ClickUp)
     const schemaData = {
       "@context": "https://schema.org",
       "@graph": [
@@ -151,14 +141,12 @@ export default function Home() {
           "url": window.location.origin,
           "name": "Visit Banjarmasin",
           "description": descriptions[language] || descriptions.id,
-          "publisher": {
-            "@id": window.location.origin + "/#organization"
-          },
+          "publisher": { "@id": window.location.origin + "/#organization" },
           "potentialAction": [{
             "@type": "SearchAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": window.location.origin + `/${language}/wisata?q={search_term_string}`
+              "urlTemplate": window.location.origin + (language === 'id' ? '/wisata?q={search_term_string}' : `/${language}/wisata?q={search_term_string}`)
             },
             "query-input": "required name=search_term_string"
           }]
@@ -171,29 +159,6 @@ export default function Home() {
           "logo": {
             "@type": "ImageObject",
             "url": window.location.origin + "/logo-banjarmasin.webp"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer support"
-          }
-        },
-        {
-          "@type": "City",
-          "@id": window.location.origin + "/#city",
-          "name": "Banjarmasin",
-          "alternateName": "Banjarmasin City of a Thousand Rivers",
-          "description": descriptions[language] || descriptions.id,
-          "url": window.location.origin,
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "-3.316694",
-            "longitude": "114.590111"
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Banjarmasin",
-            "addressRegion": "Kalimantan Selatan",
-            "addressCountry": "ID"
           }
         },
         {
@@ -204,35 +169,35 @@ export default function Home() {
               "position": 1,
               "name": "Wisata Unggulan",
               "description": "Destinasi wisata terbaik di Banjarmasin.",
-              "url": window.location.origin + `/${language}/wisata`
+              "url": window.location.origin + getHref('/wisata')
             },
             {
               "@type": "SiteNavigationElement",
               "position": 2,
               "name": "Kuliner Khas",
               "description": "Makanan dan jajanan legendaris khas Banjar.",
-              "url": window.location.origin + `/${language}/kuliner`
+              "url": window.location.origin + getHref('/kuliner')
             },
             {
               "@type": "SiteNavigationElement",
               "position": 3,
               "name": "Sejarah & Budaya",
               "description": "Jelajahi sejarah dan kebudayaan Kota Banjarmasin.",
-              "url": window.location.origin + `/${language}/sejarah`
+              "url": window.location.origin + getHref('/sejarah')
             },
             {
               "@type": "SiteNavigationElement",
               "position": 4,
               "name": "Panduan Travel",
               "description": "Tips dan akomodasi selama di Banjarmasin.",
-              "url": window.location.origin + `/${language}/panduan`
+              "url": window.location.origin + getHref('/panduan')
             },
             {
               "@type": "SiteNavigationElement",
               "position": 5,
               "name": "Virtual Tour 3D",
               "description": "Jelajahi kota Banjarmasin dalam bentuk 3 dimensi.",
-              "url": window.location.origin + `/${language}/culture-verse`
+              "url": window.location.origin + getHref('/culture-verse')
             }
           ]
         }
@@ -306,7 +271,7 @@ export default function Home() {
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></a>
                     ) : (
-                      <Link href={`/${language}${item.btnLink}`} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
+                      <Link href={getHref(item.btnLink)} className="bg-[#F4C038] hover:bg-white text-[#091422] px-8 py-4 rounded-full font-heading font-black text-sm shadow-[0_0_30px_rgba(244,192,56,0.3)] transition-all hover:scale-105 flex items-center gap-3">{item.btnText} <span className="text-lg">➔</span></Link>
                     )}
                     {item.price && (
                       <span className="text-sm font-bold text-gray-200 bg-white/10 backdrop-blur-md px-6 py-4 rounded-full border border-white/20 shadow-lg">{item.price}</span>
@@ -348,7 +313,7 @@ export default function Home() {
                     {item.btnLink.startsWith('#') ? (
                       <a href={item.btnLink} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</a>
                     ) : (
-                      <Link href={`/${language}${item.btnLink}`} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
+                      <Link href={getHref(item.btnLink)} className="bg-[#F4C038] hover:bg-white text-[#091422] px-6 py-3 rounded-full font-heading font-black text-xs shadow-[0_0_20px_rgba(244,192,56,0.4)] transition-all flex items-center gap-2">{item.btnText} ➔</Link>
                     )}
                   </div>
                 </div>
@@ -409,7 +374,7 @@ export default function Home() {
                   </div>
                   <div className="bento-bottom">
                     <h3 className="bento-title">{s.title}</h3>
-                    <Link href={`/${language}/wisata`} className="btn-bento-action">{t('common.exploreNow')}</Link>
+                    <Link href={getHref('/wisata')} className="btn-bento-action">{t('common.exploreNow')}</Link>
                   </div>
                 </div>
               </motion.div>
@@ -423,7 +388,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href={`/${language}/wisata`} className="btn-gateway inline-block">{t('home.wisata.btnText')}</Link>
+            <Link href={getHref('/wisata')} className="btn-gateway inline-block">{t('home.wisata.btnText')}</Link>
           </motion.div>
         </section>
 
@@ -503,7 +468,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link href={`/${language}/kuliner`} className="btn-gateway inline-block">{t('home.kuliner.btnText')}</Link>
+            <Link href={getHref('/kuliner')} className="btn-gateway inline-block">{t('home.kuliner.btnText')}</Link>
           </motion.div>
         </section>
 
@@ -544,7 +509,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <Link href={`/${language}/budaya`} className="btn-gateway inline-block">{t('home.budaya.btnText')}</Link>
+              <Link href={getHref('/budaya')} className="btn-gateway inline-block">{t('home.budaya.btnText')}</Link>
             </motion.div>
 
             <motion.div 
@@ -598,7 +563,7 @@ export default function Home() {
               <p className="text-gray-200 text-sm md:text-base lg:text-lg mb-8 leading-relaxed max-w-lg">
                 {t('home.smartCity.desc')}
               </p>
-              <Link href={`/${language}/smart-city`} className="bg-gradient-to-r from-[#33C3B3] to-[#00A896] hover:brightness-110 text-white px-8 py-4 rounded-full font-bold shadow-xl transition-all hover:-translate-y-1 inline-block">
+              <Link href={getHref('/smart-city')} className="bg-gradient-to-r from-[#33C3B3] to-[#00A896] hover:brightness-110 text-white px-8 py-4 rounded-full font-bold shadow-xl transition-all hover:-translate-y-1 inline-block">
                 {t('home.smartCity.btnText')}
               </Link>
             </motion.div>
@@ -672,7 +637,7 @@ export default function Home() {
                 <div className="p-6 md:p-8 flex-1 flex flex-col">
                   <h3 className="font-heading font-black text-xl md:text-2xl text-[var(--text-main)] mb-3">{item.title}</h3>
                   <p className="text-sm md:text-base text-[var(--text-muted)] leading-relaxed mb-6 flex-1">{item.desc}</p>
-                  <Link href={`/${language}/panduan`} className="text-[#33C3B3] font-bold text-sm md:text-base hover:text-[#2AA698] flex items-center gap-2 group-hover:gap-4 transition-all">
+                  <Link href={getHref('/panduan')} className="text-[#33C3B3] font-bold text-sm md:text-base hover:text-[#2AA698] flex items-center gap-2 group-hover:gap-4 transition-all">
                     {t('home.panduan.readDetails', 'Baca Detail Panduan')} <span>➔</span>
                   </Link>
                 </div>
@@ -681,7 +646,7 @@ export default function Home() {
           </div>
           
           <div className="text-center mt-6">
-            <Link href={`/${language}/panduan`} className="btn-gateway inline-block">{t('home.panduan.btnText')}</Link>
+            <Link href={getHref('/panduan')} className="btn-gateway inline-block">{t('home.panduan.btnText')}</Link>
           </div>
         </section>
 

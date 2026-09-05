@@ -25,12 +25,23 @@ export async function generateMetadata({ params }) {
   
   if (!record) return { title: 'Not Found' };
   
+  const canonicalUrl = lang === 'id' 
+    ? `https://visitbanjarmasin.id/explore/${slug}`
+    : `https://visitbanjarmasin.id/${lang}/explore/${slug}`;
+
   return {
     title: `${record.title} | Visit Banjarmasin`,
     description: record.description,
     keywords: `${record.location}, ${record.category}, wisata banjarmasin, kalimantan selatan`,
     alternates: {
-      canonical: `https://visitbanjarmasin.id/${lang}/explore/${slug}`
+      canonical: canonicalUrl,
+      languages: {
+        "id-ID": `https://visitbanjarmasin.id/explore/${slug}`,
+        "en-US": `https://visitbanjarmasin.id/en/explore/${slug}`,
+        "ms-MY": `https://visitbanjarmasin.id/ms/explore/${slug}`,
+        "zh-CN": `https://visitbanjarmasin.id/zh/explore/${slug}`,
+        "x-default": `https://visitbanjarmasin.id/explore/${slug}`,
+      }
     }
   };
 }
@@ -42,6 +53,9 @@ export default async function PSEOPage({ params }) {
   if (!record) {
     return <div className="p-20 text-center">Halaman tidak ditemukan.</div>;
   }
+
+  const homeHref = lang === 'id' ? '/' : `/${lang}`;
+  const wisataHref = lang === 'id' ? '/wisata' : `/${lang}/wisata`;
 
   // Schema.org specifically for this pSEO page
   const jsonLd = {
@@ -62,7 +76,7 @@ export default async function PSEOPage({ params }) {
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-[var(--text-muted)]">
-          <Link href={`/${lang}`} className="hover:text-[#F4C038]">Home</Link>
+          <Link href={homeHref} className="hover:text-[#F4C038]">Home</Link>
           <span className="mx-2">/</span>
           <span className="capitalize">{record.category}</span>
           <span className="mx-2">/</span>
@@ -92,7 +106,7 @@ export default async function PSEOPage({ params }) {
           
           <div className="pt-6">
             <Link 
-              href={`/${lang}/wisata`} 
+              href={wisataHref} 
               className="inline-flex items-center justify-center px-6 py-3 bg-[#00A896] hover:bg-[#33C3B3] text-white font-bold rounded-xl transition-colors"
             >
               Lihat Semua Destinasi Wisata

@@ -33,19 +33,19 @@ export async function generateMetadata({ params }) {
     description: currentSEO.description,
     keywords: currentSEO.keywords,
     alternates: {
-      canonical: `/${lang}/panduan`,
+      canonical: lang === "id" ? "/panduan" : `/${lang}/panduan`,
       languages: {
-        "id-ID": "/id/panduan",
+        "id-ID": "/panduan",
         "en-US": "/en/panduan",
         "ms-MY": "/ms/panduan",
         "zh-CN": "/zh/panduan",
-        "x-default": "/id/panduan"
+        "x-default": "/panduan"
       }
     },
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: `https://visitbanjarmasin.id/${lang}/panduan`,
+      url: lang === "id" ? "https://visitbanjarmasin.id/panduan" : `https://visitbanjarmasin.id/${lang}/panduan`,
       images: ["/profil kota/trans banjarbakula.webp"],
     }
   };

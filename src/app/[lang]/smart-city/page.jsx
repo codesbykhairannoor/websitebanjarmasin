@@ -33,19 +33,19 @@ export async function generateMetadata({ params }) {
     description: currentSEO.description,
     keywords: currentSEO.keywords,
     alternates: {
-      canonical: `/${lang}/smart-city`,
+      canonical: lang === "id" ? "/smart-city" : `/${lang}/smart-city`,
       languages: {
-        "id-ID": "/id/smart-city",
+        "id-ID": "/smart-city",
         "en-US": "/en/smart-city",
         "ms-MY": "/ms/smart-city",
         "zh-CN": "/zh/smart-city",
-        "x-default": "/id/smart-city"
+        "x-default": "/smart-city"
       }
     },
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: `https://visitbanjarmasin.id/${lang}/smart-city`,
+      url: lang === "id" ? "https://visitbanjarmasin.id/smart-city" : `https://visitbanjarmasin.id/${lang}/smart-city`,
       images: ["/profil kota/trans banjarbakula.webp"],
     }
   };

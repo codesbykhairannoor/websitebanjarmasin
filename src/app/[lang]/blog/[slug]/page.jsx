@@ -38,13 +38,26 @@ export async function generateMetadata({ params }) {
   if (!blog) return { title: "Not Found" };
   const title = blog.title[lang] || blog.title.id;
   const content = blog.content[lang] || blog.content.id;
-  const firstPara = content.split("\n").find((p) => p.trim() && !p.startsWith("#"));
+  const firstPara = content.split("\n").find((p) => p.trim() && !p.startsWith("#")) || "";
+  const canonicalUrl = lang === "id" ? `/blog/${slug}` : `/${lang}/blog/${slug}`;
+
   return {
     title: `${title} | Visit Banjarmasin Blog`,
     description: firstPara?.substring(0, 160),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        "id-ID": `/blog/${slug}`,
+        "en-US": `/en/blog/${slug}`,
+        "ms-MY": `/ms/blog/${slug}`,
+        "zh-CN": `/zh/blog/${slug}`,
+        "x-default": `/blog/${slug}`
+      }
+    },
     openGraph: {
       title,
       description: firstPara?.substring(0, 160),
+      url: lang === "id" ? `https://visitbanjarmasin.id/blog/${slug}` : `https://visitbanjarmasin.id/${lang}/blog/${slug}`,
       images: blog.image ? [{ url: blog.image, width: 1200, height: 630 }] : [],
     },
   };

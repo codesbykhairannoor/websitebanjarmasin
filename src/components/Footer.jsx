@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
-  const { language, t } = useLanguage();
+  const { language, t, getHref } = useLanguage();
   return (
     <footer className="w-full bg-[var(--card-bg)] border-t border-[var(--glass-border)] text-[var(--text-main)] transition-colors duration-300 relative overflow-hidden">
       {/* Decorative Subtle Background Glow */}
@@ -19,7 +19,7 @@ export default function Footer() {
           
           {/* Col 1: Brand & Mascot Story (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href={`/${language}`} className="inline-flex items-center gap-2 sm:gap-2.5 font-heading text-2xl sm:text-3xl font-black tracking-tight">
+            <Link href={getHref('/')} className="inline-flex items-center gap-2 sm:gap-2.5 font-heading text-2xl sm:text-3xl font-black tracking-tight">
               <img src="/logo-banjarmasin.webp" alt="Logo Banjarmasin" className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-md bg-transparent" style={{ backgroundColor: "transparent" }} />
               <span>Banjarmasin<span className="text-[#F4C038]">.</span></span>
             </Link>
@@ -41,10 +41,10 @@ export default function Footer() {
               {t('footer.sectionTravel')}
             </h4>
             <ul className="space-y-3 mt-4 text-sm font-heading font-bold">
-              <li><Link href={`/${language}/wisata`} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🏖️ {t('navbar.tourism')}</Link></li>
-              <li><Link href={`/${language}/kuliner`} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🍲 {t('navbar.culinary')}</Link></li>
-              <li><Link href={`/${language}/budaya`} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🎭 {t('navbar.culture')}</Link></li>
-              <li><Link href={`/${language}/panduan`} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🗺️ {t('navbar.guide')}</Link></li>
+              <li><Link href={getHref('/wisata')} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🏖️ {t('navbar.tourism')}</Link></li>
+              <li><Link href={getHref('/kuliner')} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🍲 {t('navbar.culinary')}</Link></li>
+              <li><Link href={getHref('/budaya')} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🎭 {t('navbar.culture')}</Link></li>
+              <li><Link href={getHref('/panduan')} className="text-[var(--text-muted)] hover:text-[#F4C038] transition-colors">🗺️ {t('navbar.guide')}</Link></li>
             </ul>
           </div>
 
@@ -54,10 +54,10 @@ export default function Footer() {
               {t('footer.sectionAbout')}
             </h4>
             <ul className="space-y-3 mt-4 text-sm font-heading font-bold">
-              <li><Link href={`/${language}/profil`} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">🏛️ {t('navbar.profile')}</Link></li>
-              <li><Link href={`/${language}/sejarah`} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">📜 {t('navbar.history')}</Link></li>
-              <li><Link href={`/${language}/smart-city`} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">⚡ {t('navbar.innovation')}</Link></li>
-              <li><Link href={`/${language}/panduan#faq`} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">❓ FAQ</Link></li>
+              <li><Link href={getHref('/profil')} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">🏛️ {t('navbar.profile')}</Link></li>
+              <li><Link href={getHref('/sejarah')} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">📜 {t('navbar.history')}</Link></li>
+              <li><Link href={getHref('/smart-city')} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">⚡ {t('navbar.innovation')}</Link></li>
+              <li><Link href={getHref('/panduan#faq')} className="text-[var(--text-muted)] hover:text-[#00A896] transition-colors">❓ FAQ</Link></li>
             </ul>
           </div>
 
