@@ -90,7 +90,7 @@ export default function EcoDyeStation({ position, rotation }) {
         <CuboidCollider args={[0.42, 1.0, 0.42]} position={[0, 1.8, 0]} />
         <CuboidCollider args={[0.55, 0.1, 0.55]} position={[0, 0.06, 0]} />
         <FabricRoll
-          textureUrl="/textures/bayam_raja.png"
+          textureUrl="/textures/bayam_raja.webp"
           color="#10b981"
           position={[0, 0, 0]}
           label="Motif Bayam Raja"
@@ -101,7 +101,7 @@ export default function EcoDyeStation({ position, rotation }) {
         <CuboidCollider args={[0.42, 1.0, 0.42]} position={[0, 1.8, 0]} />
         <CuboidCollider args={[0.55, 0.1, 0.55]} position={[0, 0.06, 0]} />
         <FabricRoll
-          textureUrl="/textures/gigi_haruan.png"
+          textureUrl="/textures/gigi_haruan.webp"
           color="#f43f5e"
           position={[0, 0, 0]}
           label="Motif Gigi Haruan"
@@ -112,7 +112,7 @@ export default function EcoDyeStation({ position, rotation }) {
         <CuboidCollider args={[0.42, 1.0, 0.42]} position={[0, 1.8, 0]} />
         <CuboidCollider args={[0.55, 0.1, 0.55]} position={[0, 0.06, 0]} />
         <FabricRoll
-          textureUrl="/textures/kambang_kacang.png"
+          textureUrl="/textures/kambang_kacang.webp"
           color="#a855f7"
           position={[0, 0, 0]}
           label="Motif Kambang Kacang"
