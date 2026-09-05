@@ -5,23 +5,23 @@ export async function generateMetadata({ params }) {
 
   const seoDB = {
     id: {
-      title: "Panduan Wisata & Transportasi | Visit Banjarmasin",
-      description: "Panduan praktis transportasi rute BRT Trans Banjarmasin, kelotok wisata, rute aksesibilitas, dan tips perjalanan bagi wisatawan.",
+      title: "Panduan Wisata, Hotel & Transportasi BRT | Visit Banjarmasin",
+      description: "Panduan praktis transportasi rute BRT Banjarbakula, kelotok susur sungai, tips akomodasi hotel, dan peta aksesibilitas wisata Banjarmasin.",
       keywords: "panduan wisata banjarmasin, rute brt trans banjarmasin, rute kelotok banjarmasin, transportasi umum banjarmasin, hotel di banjarmasin, penginapan murah banjarmasin",
     },
     en: {
-      title: "Travel Guide & Transport | Visit Banjarmasin",
-      description: "Practical guide for BRT Trans Banjarmasin routes, tourist boats, accessibility routes, and travel tips for tourists.",
+      title: "Travel Guide, Hotels & BRT Public Transport | Visit Banjarmasin",
+      description: "Practical travel guide for BRT bus routes, river kelotok boat rentals, recommended hotels, and tourist navigation in Banjarmasin City.",
       keywords: "banjarmasin travel guide, brt route banjarmasin, borneo boat rental, banjarmasin public transport, hotels in banjarmasin, borneo travel tips",
     },
     ms: {
-      title: "Panduan Pelancongan | Visit Banjarmasin",
-      description: "Panduan praktikal pengangkutan laluan BRT Trans Banjarmasin, bot pelancong, dan petua perjalanan untuk pelancong.",
+      title: "Panduan Pelancongan, Hotel & Pengangkutan Awam | Visit Banjarmasin",
+      description: "Panduan praktikal pengangkutan laluan BRT Banjarbakula, sewa bot kelotok sungai, hotel bajet, dan petua navigasi di Banjarmasin.",
       keywords: "panduan pelancongan banjarmasin, laluan bas banjarmasin, pengangkutan awam kalimantan, hotel murah banjarmasin, tips melancong ke borneo",
     },
     zh: {
-      title: "旅游指南与交通 | 马辰旅游",
-      description: "BRT Trans Banjarmasin 路线、旅游船、无障碍路线以及游客旅行提示的实用指南。",
+      title: "马辰旅游实用指南：BRT公交线路与交通贴士 | Visit Banjarmasin",
+      description: "马辰旅游实用指南：BRT Trans Banjarmasin公交线路、Kelotok游船租用、酒店住宿推荐与无障碍旅游贴士。",
       keywords: "马辰旅游指南, 马辰交通, 婆罗洲租船, 马辰酒店, 加里曼丹旅行贴士",
     }
   };

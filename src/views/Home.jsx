@@ -244,6 +244,8 @@ export default function Home() {
           HERO SECTION (DISNEY+ SHOWCASE ACCORDION FULL-WIDTH)
           ========================================================= */}
       <section className="relative w-full h-screen min-h-[600px] bg-[var(--bg-main)] pt-[56px] sm:pt-[60px] overflow-hidden flex flex-col border-b border-[var(--glass-border)]">
+        {/* Semantic Primary H1 for SEO */}
+        <h1 className="sr-only">Visit Banjarmasin - Portal Eksplorasi Wisata & Budaya Kota Seribu Sungai</h1>
         
         {/* DESKTOP ACCORDION (Hidden on Mobile) */}
         <div className="hidden md:flex w-full h-full">
@@ -265,7 +267,7 @@ export default function Home() {
                 {/* Active Slide Content (Centered vertically) */}
                 <div className={`absolute inset-0 flex flex-col justify-center p-8 md:p-14 lg:p-16 z-20 pointer-events-none transition-[opacity,transform] duration-700 delay-100 max-w-3xl lg:max-w-4xl ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
                   <span className="text-[#F4C038] font-heading font-black text-sm tracking-[0.25em] uppercase mb-4 drop-shadow-md">{item.tag}</span>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-4 drop-shadow-xl text-white">{item.title}</h1>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-4 drop-shadow-xl text-white">{item.title}</h2>
                   <p className="text-lg md:text-xl font-bold text-sasirangan mb-8 font-heading drop-shadow-lg">{item.subtitle}</p>
                   <div className="flex flex-wrap items-center gap-4 pointer-events-auto">
                     {item.btnLink.startsWith('#') ? (
@@ -307,7 +309,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent w-full z-10 pointer-events-none" />
                 <div className={`absolute inset-0 z-20 flex flex-col justify-end pb-32 sm:pb-40 px-6 max-w-5xl text-white transition-[transform,opacity] duration-500 delay-150 ease-out transform-gpu ${isActive ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
                   <span className="text-[#F4C038] font-heading font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2 block">{item.tag}</span>
-                  <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-tight leading-tight mb-2 drop-shadow-lg text-white">{item.title}</h1>
+                  <h2 className="text-3xl sm:text-4xl font-heading font-black tracking-tight leading-tight mb-2 drop-shadow-lg text-white">{item.title}</h2>
                   <p className="text-sm font-bold text-sasirangan mb-6 font-heading drop-shadow-md">{item.subtitle}</p>
                   <div className="flex flex-wrap items-center gap-3">
                     {item.btnLink.startsWith('#') ? (

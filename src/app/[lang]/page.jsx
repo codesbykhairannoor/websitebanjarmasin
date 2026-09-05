@@ -5,23 +5,23 @@ export async function generateMetadata({ params }) {
 
   const seoDB = {
     id: {
-      title: "Visit Banjarmasin | Eksplorasi Wisata & Budaya",
-      description: "Jelajahi Kota Seribu Sungai! Panduan resmi destinasi wisata, budaya, dan kuliner Banjarmasin.",
+      title: "Visit Banjarmasin | Portal Eksplorasi Wisata & Budaya",
+      description: "Jelajahi keindahan Kota Seribu Sungai! Panduan resmi terlengkap destinasi wisata, kebudayaan Banjar, kuliner legendaris, dan inovasi Smart City Banjarmasin.",
       keywords: "visit banjarmasin, wisata banjarmasin, kalimantan selatan, kota seribu sungai, soto banjar, pasar terapung, sasirangan",
     },
     en: {
-      title: "Visit Banjarmasin | Explore Tourism & Culture",
-      description: "Explore the City of a Thousand Rivers! Official guide to Banjarmasin destinations, culture, and culinary.",
+      title: "Visit Banjarmasin | Tourism & Cultural Exploration Portal",
+      description: "Explore the City of a Thousand Rivers! Official guide to top destinations, Banjar heritage, culinary delights, river cruises, and Smart City Banjarmasin.",
       keywords: "visit banjarmasin, banjarmasin tourism, south kalimantan, city of a thousand rivers, borneo travel, floating market",
     },
     ms: {
-      title: "Visit Banjarmasin | Penerokaan Pelancongan",
-      description: "Terokai Kota Seribu Sungai! Panduan rasmi destinasi pelancongan, budaya, dan masakan Banjarmasin.",
+      title: "Visit Banjarmasin | Portal Penerokaan Pelancongan & Budaya",
+      description: "Terokai keindahan Kota Seribu Sungai! Panduan rasmi destinasi pelancongan, warisan budaya Banjar, kulinari autentik, dan inovasi pintar Banjarmasin.",
       keywords: "melancong ke banjarmasin, pelancongan kalimantan, kota seribu sungai, pasar terapung, borneo",
     },
     zh: {
-      title: "马辰旅游 | 探索旅游与文化",
-      description: "探索千河之城！马辰目的地、文化和美食的官方指南。",
+      title: "马辰旅游官方指南：探索千河之城景点与文化 | Visit Banjarmasin",
+      description: "探索千河之城班贾尔马辛！官方旅游指南为您呈现水上市场、正宗Soto Banjar美食、Sasirangan文化及智慧城市探索。",
       keywords: "马辰旅游, 南加里曼丹, 千河之城, 婆罗洲旅行, 水上市场",
     }
   };

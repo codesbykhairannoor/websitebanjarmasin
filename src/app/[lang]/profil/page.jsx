@@ -5,23 +5,23 @@ export async function generateMetadata({ params }) {
 
   const seoDB = {
     id: {
-      title: "Profil Kota Banjarmasin | Visit Banjarmasin",
-      description: "Kenali lebih dekat visi misi, jajaran pimpinan kota, fasilitas publik, dan kemajuan infrastruktur Kota Seribu Sungai.",
+      title: "Profil Kota Banjarmasin: Visi, Pimpinan & Tata Kota | Visit Banjarmasin",
+      description: "Kenali lebih dekat visi misi, jajaran pimpinan walikota, fasilitas publik, demografi, dan kemajuan infrastruktur Kota Seribu Sungai Banjarmasin.",
       keywords: "profil kota banjarmasin, walikota banjarmasin, ibnu sina, visi misi banjarmasin, pemerintahan kota banjarmasin, demografi banjarmasin",
     },
     en: {
-      title: "City Profile | Visit Banjarmasin",
-      description: "Get to know the vision, mission, city leaders, public facilities, and infrastructure progress of the City of a Thousand Rivers.",
+      title: "City Profile & Vision of Banjarmasin | Visit Banjarmasin",
+      description: "Get to know the city vision, municipal leadership, public facilities, demographics, and modern infrastructure progress of Banjarmasin City.",
       keywords: "banjarmasin city profile, mayor of banjarmasin, banjarmasin government, south kalimantan capital, banjarmasin demographics",
     },
     ms: {
-      title: "Profil Bandar Banjarmasin | Visit Banjarmasin",
-      description: "Kenali lebih dekat visi misi, barisan pemimpin bandar, kemudahan awam, dan kemajuan infrastruktur Kota Seribu Sungai.",
+      title: "Profil Bandar Banjarmasin: Visi & Kemajuan | Visit Banjarmasin",
+      description: "Kenali lebih dekat visi misi, barisan pemimpin bandar, kemudahan awam, demografi, dan kemajuan infrastruktur moden Kota Seribu Sungai.",
       keywords: "profil bandar banjarmasin, datuk bandar banjarmasin, pentadbiran banjarmasin, ibu negeri kalimantan selatan",
     },
     zh: {
-      title: "城市概况 | 马辰旅游",
-      description: "了解千河之城的愿景、使命、城市领导人、公共设施和基础设施进展。",
+      title: "马辰城市概况与千河之城发展愿景 | Visit Banjarmasin",
+      description: "了解班贾尔马辛城市概况：领导团队、城市发展愿景、地理环境、公共设施与千河之城现代化基础设施建设成就。",
       keywords: "马辰城市概况, 马辰市长, 马辰政府, 南加里曼丹首府, 马辰人口统计",
     }
   };

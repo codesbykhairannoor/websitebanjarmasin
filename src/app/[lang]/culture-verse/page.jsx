@@ -1,49 +1,59 @@
-"use client";
+import React from 'react';
+import CultureVerseClient from './CultureVerseClient';
 
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Navbar from '../../../components/Navbar';
-import DynamicApp from '../../../components/CultureVerse/DynamicApp';
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
 
-// Minimal mobile-only back bar for the 3D page (replaces full navbar on mobile)
-function MobileBackBar({ lang }) {
-  const homeHref = lang === 'id' ? '/' : `/${lang}`;
-  return (
-    <div className="lg:hidden fixed top-0 left-0 w-full z-[100] flex items-center px-4 py-2 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
-      <Link
-        href={homeHref}
-        className="flex items-center gap-2 text-white font-heading font-bold text-sm px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 active:bg-white/30 transition-colors"
-      >
-        <span>←</span>
-        <span>Beranda</span>
-      </Link>
-      <span className="ml-auto text-white font-heading font-black text-sm tracking-wide">🎮 Virtual Tour 3D</span>
-    </div>
-  );
+  const seoDB = {
+    id: {
+      title: "Virtual Tour 3D Museum Banjar | Visit Banjarmasin",
+      description: "Jelajahi museum virtual 3D interaktif kebudayaan Banjar. Eksplorasi motif Sasirangan, mini games edukatif, dan artefak sejarah Kota Seribu Sungai.",
+      keywords: "virtual tour banjarmasin, 3d museum banjar, sasirangan 3d, rumah adat banjar 3d, visit banjarmasin cultureverse",
+    },
+    en: {
+      title: "3D Virtual Museum Tour | Visit Banjarmasin",
+      description: "Explore the interactive 3D virtual museum of Banjar culture. Discover Sasirangan motifs, educational mini-games, and historical artifacts of Banjarmasin.",
+      keywords: "banjarmasin virtual tour, 3d museum borneo, sasirangan 3d, banjar culture 3d tour",
+    },
+    ms: {
+      title: "Lawatan Maya 3D Muzium Banjar | Visit Banjarmasin",
+      description: "Terokai muzium maya 3D interaktif kebudayaan Banjar. Terokai motif Sasirangan, permainan mini pendidikan, dan artifak sejarah Banjarmasin.",
+      keywords: "lawatan maya 3d banjarmasin, muzium banjar 3d, sasirangan 3d",
+    },
+    zh: {
+      title: "3D虚拟博物馆之旅与文化探索 | 马辰旅游",
+      description: "探索班查文化的交互式3D虚拟博物馆。探索Sasirangan萨西兰甘图案、教育小游戏以及班贾尔马辛市的历史文物。",
+      keywords: "马辰3D虚拟博物馆, 婆罗洲3D文化之旅, 萨西兰甘3D展示",
+    }
+  };
+
+  const currentSEO = seoDB[lang] || seoDB.id;
+  const canonicalUrl = lang === 'id' ? '/culture-verse' : `/${lang}/culture-verse`;
+
+  return {
+    title: currentSEO.title,
+    description: currentSEO.description,
+    keywords: currentSEO.keywords,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        "id-ID": "/culture-verse",
+        "en-US": "/en/culture-verse",
+        "ms-MY": "/ms/culture-verse",
+        "zh-CN": "/zh/culture-verse",
+        "x-default": "/culture-verse"
+      }
+    },
+    openGraph: {
+      title: currentSEO.title,
+      description: currentSEO.description,
+      url: lang === 'id' ? "https://visitbanjarmasin.id/culture-verse" : `https://visitbanjarmasin.id/${lang}/culture-verse`,
+      images: ["/home/hero_kain_sasirangan.webp"],
+    }
+  };
 }
 
-export default function CultureVersePage({ params }) {
-  const [lang, setLang] = useState('id');
-
-  useEffect(() => {
-    // Safely unwrap params if it's a promise (Next.js 15+ behavior)
-    if (params && params.then) {
-      params.then(p => setLang(p.lang || 'id'));
-    } else if (params) {
-      setLang(params.lang || 'id');
-    }
-  }, [params]);
-
-  return (
-    <div className="relative w-screen h-screen overflow-hidden bg-black">
-      {/* Mobile: Minimal back bar. Desktop: Full Navbar */}
-      <MobileBackBar lang={lang} />
-      <div className="hidden lg:block">
-        <Navbar />
-      </div>
-
-      {/* Next.js Wrapped 3D Museum */}
-      <DynamicApp />
-    </div>
-  );
+export default async function CultureVersePage({ params }) {
+  const { lang } = await params;
+  return <CultureVerseClient lang={lang} />;
 }

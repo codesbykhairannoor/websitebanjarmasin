@@ -5,23 +5,23 @@ export async function generateMetadata({ params }) {
 
   const seoDB = {
     id: {
-      title: "Seni & Budaya Banjar | Visit Banjarmasin",
-      description: "Eksplorasi mahakarya kain Sasirangan, arsitektur Rumah Adat Bubungan Tinggi, tarian tradisional, hingga seni Madihin.",
+      title: "Seni & Budaya Banjar: Sasirangan & Warisan | Visit Banjarmasin",
+      description: "Eksplorasi mahakarya kain Sasirangan, arsitektur Rumah Adat Bubungan Tinggi, tarian Baksa Kembang, hingga seni tutur Madihin khas Banjar.",
       keywords: "budaya banjar, kain sasirangan, motif sasirangan, rumah adat bubungan tinggi, rumah banjar, madihin, john tralala, baayun maulid, tradisi kalimantan selatan, tarian baksa kembang, seni budaya banjarmasin, sejarah sasirangan",
     },
     en: {
-      title: "Arts & Culture | Visit Banjarmasin",
-      description: "Explore the masterpiece of Sasirangan fabric, Bubungan Tinggi traditional house architecture, traditional dances, and Madihin art.",
+      title: "Arts, Heritage & Banjar Culture Guide | Visit Banjarmasin",
+      description: "Explore the masterpiece of Sasirangan textiles, traditional Bubungan Tinggi architecture, Baksa Kembang dance, and rich Banjar heritage.",
       keywords: "banjarese culture, sasirangan fabric, traditional indonesian textile, bubungan tinggi house, borneo traditional house, baksa kembang dance, kalimantan culture, madihin traditional art, south kalimantan heritage",
     },
     ms: {
-      title: "Seni & Budaya Banjar | Visit Banjarmasin",
-      description: "Terokai karya agung kain Sasirangan, seni bina Rumah Adat Bubungan Tinggi, tarian tradisional, hingga seni Madihin.",
+      title: "Seni & Budaya Banjar: Sasirangan & Warisan | Visit Banjarmasin",
+      description: "Terokai karya agung kain Sasirangan, seni bina Rumah Adat Bubungan Tinggi, tarian tradisi Baksa Kembang, dan warisan budaya Kalimantan Selatan.",
       keywords: "budaya banjar kalimantan, kain sasirangan asli, rumah adat kalimantan, tarian tradisional kalimantan, warisan budaya borneo, seni madihin",
     },
     zh: {
-      title: "艺术与文化 | 马辰旅游",
-      description: "探索Sasirangan织物杰作、Bubungan Tinggi传统民居建筑、传统舞蹈和Madihin艺术。",
+      title: "班查传统艺术、Sasirangan织物与文化遗产 | Visit Banjarmasin",
+      description: "探索南加里曼丹非物质文化遗产：传统Sasirangan扎染织物、Bubungan Tinggi高脚屋建筑、Baksa Kembang传统舞蹈与Madihin口头艺术。",
       keywords: "马辰文化, 婆罗洲传统文化, Sasirangan 蜡染布, 印尼传统建筑, Bubungan Tinggi 房屋, 加里曼丹传统舞蹈",
     }
   };

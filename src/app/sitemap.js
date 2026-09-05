@@ -16,6 +16,7 @@ export default function sitemap() {
     { url: "/profil-kota", priority: 0.7, changeFrequency: "monthly" },
     { url: "/profil", priority: 0.7, changeFrequency: "monthly" },
     { url: "/blog", priority: 0.8, changeFrequency: "weekly" },
+    { url: "/culture-verse", priority: 0.8, changeFrequency: "monthly" },
   ];
 
   // Try to load Blogs Dataset

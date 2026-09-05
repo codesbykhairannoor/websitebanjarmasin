@@ -29,9 +29,24 @@ export async function generateMetadata({ params }) {
     ? `https://visitbanjarmasin.id/explore/${slug}`
     : `https://visitbanjarmasin.id/${lang}/explore/${slug}`;
 
+  const titles = {
+    id: `${record.title} | Visit Banjarmasin`,
+    en: `${record.title} in Banjarmasin | Visit Banjarmasin`,
+    ms: `${record.title} di Banjarmasin | Visit Banjarmasin`,
+    zh: `${record.title}（班贾尔马辛）| 马辰旅游`,
+  };
+
+  // Keep meta descriptions within 135-155 characters
+  const descLocales = {
+    id: `Panduan rekomendasi ${record.category.toLowerCase()} terbaik di kawasan ${record.location}, Banjarmasin. Informasi alamat, ulasan, dan tips perjalanan lengkap.`,
+    en: `Comprehensive travel guide to ${record.category.toLowerCase()} in ${record.location}, Banjarmasin. Discover top recommendations, reviews, and local tips.`,
+    ms: `Panduan lengkap ${record.category.toLowerCase()} terbaik di kawasan ${record.location}, Banjarmasin. Dapatkan maklumat ulasan dan petua pelancongan.`,
+    zh: `探索位于班贾尔马辛 ${record.location} 的 ${record.category} 完整旅游指南，提供精选目的地推荐、真实评价与实用贴士。`,
+  };
+
   return {
-    title: `${record.title} | Visit Banjarmasin`,
-    description: record.description,
+    title: titles[lang] || titles.id,
+    description: descLocales[lang] || descLocales.id,
     keywords: `${record.location}, ${record.category}, wisata banjarmasin, kalimantan selatan`,
     alternates: {
       canonical: canonicalUrl,
