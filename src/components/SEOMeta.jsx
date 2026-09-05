@@ -34,7 +34,7 @@ export default function SEOMeta() {
   };
 
   const currentSEO = seoData[language] || seoData.id;
-  const canonicalUrl = "https://visitbanjarmasin.id";
+  const canonicalUrl = "https://www.visitbanjarmasin.id";
 
   // AI-Friendly Structured Data (JSON-LD)
   const jsonLd = {
@@ -44,7 +44,7 @@ export default function SEOMeta() {
     "alternateName": ["City of a Thousand Rivers", "马辰", "Banjarmasin City"],
     "description": currentSEO.description,
     "url": canonicalUrl,
-    "image": "https://visitbanjarmasin.id/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
+    "image": "https://www.visitbanjarmasin.id/wisata/960px-Pasar_Terapung_Siring_Banj.webp",
     "touristType": [
       "Cultural tourism",
       "River tourism",
@@ -81,14 +81,14 @@ export default function SEOMeta() {
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={currentSEO.title} />
       <meta property="og:description" content={currentSEO.description} />
-      <meta property="og:image" content="https://visitbanjarmasin.id/wisata/960px-Pasar_Terapung_Siring_Banj.webp" />
+      <meta property="og:image" content="https://www.visitbanjarmasin.id/wisata/960px-Pasar_Terapung_Siring_Banj.webp" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={canonicalUrl} />
       <meta property="twitter:title" content={currentSEO.title} />
       <meta property="twitter:description" content={currentSEO.description} />
-      <meta property="twitter:image" content="https://visitbanjarmasin.id/wisata/960px-Pasar_Terapung_Siring_Banj.webp" />
+      <meta property="twitter:image" content="https://www.visitbanjarmasin.id/wisata/960px-Pasar_Terapung_Siring_Banj.webp" />
 
       {/* AI-Friendly Structured Data (JSON-LD) */}
       <script type="application/ld+json">

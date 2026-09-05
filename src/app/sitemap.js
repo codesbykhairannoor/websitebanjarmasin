@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default function sitemap() {
-  const baseUrl = "https://visitbanjarmasin.id";
+  const baseUrl = "https://www.visitbanjarmasin.id";
   
   // Define all core routes
   const routes = [

@@ -47,7 +47,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: lang === 'id' ? "https://visitbanjarmasin.id/culture-verse" : `https://visitbanjarmasin.id/${lang}/culture-verse`,
+      url: lang === 'id' ? "https://www.visitbanjarmasin.id/culture-verse" : `https://www.visitbanjarmasin.id/${lang}/culture-verse`,
       images: ["/home/hero_kain_sasirangan.webp"],
     }
   };

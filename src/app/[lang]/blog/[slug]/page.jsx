@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title,
       description: firstPara?.substring(0, 160),
-      url: lang === "id" ? `https://visitbanjarmasin.id/blog/${slug}` : `https://visitbanjarmasin.id/${lang}/blog/${slug}`,
+      url: lang === "id" ? `https://www.visitbanjarmasin.id/blog/${slug}` : `https://www.visitbanjarmasin.id/${lang}/blog/${slug}`,
       images: blog.image ? [{ url: blog.image, width: 1200, height: 630 }] : [],
     },
   };

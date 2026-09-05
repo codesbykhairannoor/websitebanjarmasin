@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export const metadata = {
-  metadataBase: new URL("https://visitbanjarmasin.id"),
+  metadataBase: new URL("https://www.visitbanjarmasin.id"),
   title: "Visit Banjarmasin | Portal Eksplorasi Wisata & Budaya Kota Seribu Sungai",
   description: "Explore Banjarmasin City! The official guide to BRT routes, river cruise destinations, Banjar Soto culinary, Sasirangan culture, and Smart City Interactive Map.",
   keywords: "banjarmasin tourism, city of a thousand rivers, siring tendean, lok baintan floating market, soto banjar, proboscis monkey, south kalimantan, wisata banjarmasin",
@@ -42,7 +42,7 @@ export const metadata = {
   openGraph: {
     title: "Visit Banjarmasin | Tourism & Cultural Exploration Portal",
     description: "Explore Banjarmasin City! The official guide to BRT routes, river cruise destinations, Banjar Soto culinary, Sasirangan culture, and Smart City Interactive Map.",
-    url: "https://visitbanjarmasin.id",
+    url: "https://www.visitbanjarmasin.id",
     siteName: "Visit Banjarmasin",
     images: [
       {

@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: lang === "id" ? "https://visitbanjarmasin.id" : `https://visitbanjarmasin.id/${lang}`,
+      url: lang === "id" ? "https://www.visitbanjarmasin.id" : `https://www.visitbanjarmasin.id/${lang}`,
       images: ["/home/hero-desktop-pasar-terapung.webp"],
     }
   };

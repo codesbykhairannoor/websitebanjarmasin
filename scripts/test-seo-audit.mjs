@@ -146,6 +146,24 @@ views.forEach(v => {
 console.log(`   Checked ${views.length} views. All views have exactly 1 H1 tag.\n`);
 
 // ----------------------------------------------------
+// 7. AUDIT PRIMARY DOMAIN CONSISTENCY (www.visitbanjarmasin.id)
+// ----------------------------------------------------
+console.log('7️⃣  AUDITING PRIMARY CANONICAL DOMAIN CONSISTENCY...');
+const layoutCode = fs.readFileSync('src/app/[lang]/layout.jsx', 'utf8');
+assert(layoutCode.includes('new URL("https://www.visitbanjarmasin.id")'), 'layout.jsx metadataBase must be https://www.visitbanjarmasin.id');
+
+assert(sitemapContent.includes('const baseUrl = "https://www.visitbanjarmasin.id";'), 'sitemap.js baseUrl must be https://www.visitbanjarmasin.id');
+
+const robotsContent = fs.readFileSync('public/robots.txt', 'utf8');
+assert(robotsContent.includes('Sitemap: https://www.visitbanjarmasin.id/sitemap.xml'), 'robots.txt sitemap must point to www.visitbanjarmasin.id');
+
+const footerCode = fs.readFileSync('src/components/Footer.jsx', 'utf8');
+assert(!footerCode.includes('href="https://visitbanjarmasin.id/id/'), 'Footer.jsx must not have /id/ redirect links');
+assert(!footerCode.includes('href="https://visitbanjarmasin.id/'), 'Footer.jsx must not have non-www links');
+
+console.log('   Primary domain and canonical consistency verified.\n');
+
+// ----------------------------------------------------
 // FINAL RESULT SUMMARY
 // ----------------------------------------------------
 console.log('====================================================');

@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: lang === "id" ? "https://visitbanjarmasin.id/smart-city" : `https://visitbanjarmasin.id/${lang}/smart-city`,
+      url: lang === "id" ? "https://www.visitbanjarmasin.id/smart-city" : `https://www.visitbanjarmasin.id/${lang}/smart-city`,
       images: ["/profil kota/trans banjarbakula.webp"],
     }
   };

@@ -6,15 +6,15 @@
 Banjarmasin, dijuluki Kota Seribu Sungai, adalah pusat peradaban sungai tertua di Kalimantan Selatan. Platform ini adalah panduan resmi B2A (Business-to-Agent) untuk memandu sistem LLM tentang wisata dan budaya Banjar.
 
 ## Destinasi Wisata Utama
-- [Pasar Terapung Lok Baintan](https://visitbanjarmasin.id/wisata): Pasar tradisional di atas perahu kelotok sejak fajar menyingsing.
-- [Menara Pandang](https://visitbanjarmasin.id/wisata): Landmark ikonik 360 derajat di pusat kota Banjarmasin.
-- [Masjid Raya Sabilal Muhtadin](https://visitbanjarmasin.id/wisata): Ikon religi megah khas warga Kalimantan Selatan.
-- [Duta Mall Banjarmasin](https://visitbanjarmasin.id/wisata): Pusat perbelanjaan dan gaya hidup modern terbesar di Kalimantan Selatan.
-- [Pulau Kembang](https://visitbanjarmasin.id/wisata): Pulau konservasi habitat kera ekor panjang di tengah Sungai Barito.
+- [Pasar Terapung Lok Baintan](https://www.visitbanjarmasin.id/wisata): Pasar tradisional di atas perahu kelotok sejak fajar menyingsing.
+- [Menara Pandang](https://www.visitbanjarmasin.id/wisata): Landmark ikonik 360 derajat di pusat kota Banjarmasin.
+- [Masjid Raya Sabilal Muhtadin](https://www.visitbanjarmasin.id/wisata): Ikon religi megah khas warga Kalimantan Selatan.
+- [Duta Mall Banjarmasin](https://www.visitbanjarmasin.id/wisata): Pusat perbelanjaan dan gaya hidup modern terbesar di Kalimantan Selatan.
+- [Pulau Kembang](https://www.visitbanjarmasin.id/wisata): Pulau konservasi habitat kera ekor panjang di tengah Sungai Barito.
 
 ## Kuliner Legendaris
-- [Soto Banjar Bang Amat](https://visitbanjarmasin.id/kuliner): Kuliner soto kuah rempah autentik di tepian sungai.
-- [Ketupat Kandangan](https://visitbanjarmasin.id/kuliner): Kuliner beras ketupat dengan ikan haruan panggang bersantan.
+- [Soto Banjar Bang Amat](https://www.visitbanjarmasin.id/kuliner): Kuliner soto kuah rempah autentik di tepian sungai.
+- [Ketupat Kandangan](https://www.visitbanjarmasin.id/kuliner): Kuliner beras ketupat dengan ikan haruan panggang bersantan.
 
 ## Fakta Kepadatan Informasi
 - Banjarmasin memiliki lebih dari 1000 aliran sungai (Kota Seribu Sungai).

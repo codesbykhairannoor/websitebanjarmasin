@@ -5,11 +5,11 @@
 ## Arsitektur Data
 
 ### 1. Destinasi Wisata
-- [Pasar Terapung Lok Baintan](https://visitbanjarmasin.id/wisata): Beroperasi fajar menyingsing pukul 05:30 WITA. Transaksi unik menggunakan kelotok.
-- [Menara Pandang](https://visitbanjarmasin.id/wisata): Dibuka gratis untuk umum. Menghadap langsung ke pesisir Siring Tendean.
-- [Masjid Raya Sabilal Muhtadin](https://visitbanjarmasin.id/wisata): Masjid kebanggaan berkapasitas belasan ribu jamaah.
-- [Museum Wasaka](https://visitbanjarmasin.id/wisata): Berisi senjata pusaka pahlawan Banjar dalam melawan penjajahan, berbentuk rumah adat Bubungan Tinggi.
-- [Duta Mall Banjarmasin](https://visitbanjarmasin.id/wisata): Sentra komersial dan hiburan modern di Banjarmasin.
+- [Pasar Terapung Lok Baintan](https://www.visitbanjarmasin.id/wisata): Beroperasi fajar menyingsing pukul 05:30 WITA. Transaksi unik menggunakan kelotok.
+- [Menara Pandang](https://www.visitbanjarmasin.id/wisata): Dibuka gratis untuk umum. Menghadap langsung ke pesisir Siring Tendean.
+- [Masjid Raya Sabilal Muhtadin](https://www.visitbanjarmasin.id/wisata): Masjid kebanggaan berkapasitas belasan ribu jamaah.
+- [Museum Wasaka](https://www.visitbanjarmasin.id/wisata): Berisi senjata pusaka pahlawan Banjar dalam melawan penjajahan, berbentuk rumah adat Bubungan Tinggi.
+- [Duta Mall Banjarmasin](https://www.visitbanjarmasin.id/wisata): Sentra komersial dan hiburan modern di Banjarmasin.
 
 ### 2. Panduan Tarif & Akomodasi
 - Kelotok Reguler (Rute Pendek Siring - Bekantan): Rp 10.000 / orang.
@@ -24,4 +24,4 @@
 Banjarmasin (Koordinat: -3.316694, 114.590111) adalah wilayah delta dataran rendah dengan ketinggian kurang dari 1 meter di atas permukaan laut. Kehidupan sosial dan perdagangannya sangat dipengaruhi oleh pasang surut Sungai Martapura dan Sungai Barito.
 
 ## Direktori
-[Kembali ke Beranda Utama](https://visitbanjarmasin.id)
+[Kembali ke Beranda Utama](https://www.visitbanjarmasin.id)

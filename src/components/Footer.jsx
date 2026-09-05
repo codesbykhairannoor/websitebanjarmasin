@@ -119,19 +119,18 @@ export default function Footer() {
         <p>
           Banjarmasin tourism guide, South Kalimantan travel, Indonesian river city, floating market Indonesia, proboscis monkey sanctuary, Banjar culture, traditional fabric Sasirangan.
         </p>
-        <a href="https://visitbanjarmasin.id/" tabIndex="-1">Wisata Banjarmasin</a>
-        <a href="https://visitbanjarmasin.id/id" tabIndex="-1">Pariwisata Banjarmasin</a>
-        <a href="https://visitbanjarmasin.id/en" tabIndex="-1">Banjarmasin Tourism</a>
-        <a href="https://visitbanjarmasin.id/id/kuliner" tabIndex="-1">Kuliner Banjarmasin</a>
-        <a href="https://visitbanjarmasin.id/id/budaya" tabIndex="-1">Budaya Banjarmasin</a>
-        <a href="https://visitbanjarmasin.id/id/wisata" tabIndex="-1">Destinasi Wisata Banjarmasin</a>
+        <a href="https://www.visitbanjarmasin.id/" tabIndex="-1">Wisata Banjarmasin</a>
+        <a href="https://www.visitbanjarmasin.id/en" tabIndex="-1">Banjarmasin Tourism</a>
+        <a href="https://www.visitbanjarmasin.id/kuliner" tabIndex="-1">Kuliner Banjarmasin</a>
+        <a href="https://www.visitbanjarmasin.id/budaya" tabIndex="-1">Budaya Banjarmasin</a>
+        <a href="https://www.visitbanjarmasin.id/wisata" tabIndex="-1">Destinasi Wisata Banjarmasin</a>
         
         {/* PSEO Hidden Links for Indexing Juice */}
-        <a href="https://visitbanjarmasin.id/id/explore/hotel-murah-di-banjarmasin-tengah" tabIndex="-1">Hotel Murah di Banjarmasin Tengah</a>
-        <a href="https://visitbanjarmasin.id/id/explore/wisata-kuliner-di-banjarmasin-selatan" tabIndex="-1">Wisata Kuliner di Banjarmasin Selatan</a>
-        <a href="https://visitbanjarmasin.id/id/explore/tempat-nongkrong-di-kayutangi" tabIndex="-1">Tempat Nongkrong di Kayutangi</a>
-        <a href="https://visitbanjarmasin.id/id/explore/sewa-mobil-di-banjarmasin-utara" tabIndex="-1">Sewa Mobil di Banjarmasin Utara</a>
-        <a href="https://visitbanjarmasin.id/id/explore/tempat-wisata-di-lok-baintan" tabIndex="-1">Tempat Wisata di Lok Baintan</a>
+        <a href="https://www.visitbanjarmasin.id/explore/hotel-murah-di-banjarmasin-tengah" tabIndex="-1">Hotel Murah di Banjarmasin Tengah</a>
+        <a href="https://www.visitbanjarmasin.id/explore/wisata-kuliner-di-banjarmasin-selatan" tabIndex="-1">Wisata Kuliner di Banjarmasin Selatan</a>
+        <a href="https://www.visitbanjarmasin.id/explore/tempat-nongkrong-di-kayutangi" tabIndex="-1">Tempat Nongkrong di Kayutangi</a>
+        <a href="https://www.visitbanjarmasin.id/explore/sewa-mobil-di-banjarmasin-utara" tabIndex="-1">Sewa Mobil di Banjarmasin Utara</a>
+        <a href="https://www.visitbanjarmasin.id/explore/tempat-wisata-di-lok-baintan" tabIndex="-1">Tempat Wisata di Lok Baintan</a>
       </div>
     </footer>
   );

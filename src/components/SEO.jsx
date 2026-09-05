@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 export default function SEO() {
   const { language } = useLanguage();
   const pathname = usePathname(); // e.g. /id/kuliner or /en
-  const domain = "https://visitbanjarmasin.id";
+  const domain = "https://www.visitbanjarmasin.id";
   
   // Clean pathname by removing language prefix
   const pathWithoutLang = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '');

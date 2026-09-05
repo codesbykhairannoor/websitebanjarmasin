@@ -46,7 +46,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: lang === "id" ? "https://visitbanjarmasin.id/wisata" : `https://visitbanjarmasin.id/${lang}/wisata`,
+      url: lang === "id" ? "https://www.visitbanjarmasin.id/wisata" : `https://www.visitbanjarmasin.id/${lang}/wisata`,
       images: ["/wisata/960px-Pasar_Terapung_Siring_Banj.webp"],
     }
   };

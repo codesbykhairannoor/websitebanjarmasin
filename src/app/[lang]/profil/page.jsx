@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: lang === "id" ? "https://visitbanjarmasin.id/profil" : `https://visitbanjarmasin.id/${lang}/profil`,
+      url: lang === "id" ? "https://www.visitbanjarmasin.id/profil" : `https://www.visitbanjarmasin.id/${lang}/profil`,
       images: ["/home/banjarmasinkota.webp"],
     }
   };

@@ -26,8 +26,8 @@ export async function generateMetadata({ params }) {
   if (!record) return { title: 'Not Found' };
   
   const canonicalUrl = lang === 'id' 
-    ? `https://visitbanjarmasin.id/explore/${slug}`
-    : `https://visitbanjarmasin.id/${lang}/explore/${slug}`;
+    ? `https://www.visitbanjarmasin.id/explore/${slug}`
+    : `https://www.visitbanjarmasin.id/${lang}/explore/${slug}`;
 
   const titles = {
     id: `${record.title} | Visit Banjarmasin`,
@@ -51,11 +51,11 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        "id-ID": `https://visitbanjarmasin.id/explore/${slug}`,
-        "en-US": `https://visitbanjarmasin.id/en/explore/${slug}`,
-        "ms-MY": `https://visitbanjarmasin.id/ms/explore/${slug}`,
-        "zh-CN": `https://visitbanjarmasin.id/zh/explore/${slug}`,
-        "x-default": `https://visitbanjarmasin.id/explore/${slug}`,
+        "id-ID": `https://www.visitbanjarmasin.id/explore/${slug}`,
+        "en-US": `https://www.visitbanjarmasin.id/en/explore/${slug}`,
+        "ms-MY": `https://www.visitbanjarmasin.id/ms/explore/${slug}`,
+        "zh-CN": `https://www.visitbanjarmasin.id/zh/explore/${slug}`,
+        "x-default": `https://www.visitbanjarmasin.id/explore/${slug}`,
       }
     }
   };

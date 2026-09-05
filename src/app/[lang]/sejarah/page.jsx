@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: currentSEO.title,
       description: currentSEO.description,
-      url: lang === "id" ? "https://visitbanjarmasin.id/sejarah" : `https://visitbanjarmasin.id/${lang}/sejarah`,
+      url: lang === "id" ? "https://www.visitbanjarmasin.id/sejarah" : `https://www.visitbanjarmasin.id/${lang}/sejarah`,
       images: ["/wisata/masjid sultan suriansyah.webp"],
     }
   };
