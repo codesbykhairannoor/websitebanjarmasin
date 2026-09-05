@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/test-seo-audit.mjs",
     "build": "next build --webpack",
+    "test:seo": "node scripts/test-seo-audit.mjs",
     "start": "next start",
     "lint": "next lint"
   },

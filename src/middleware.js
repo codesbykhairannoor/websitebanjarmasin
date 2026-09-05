@@ -30,7 +30,21 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
-  // 1. Redirect /id or /id/* to clean URL without /id prefix
+  // 1. Single-Hop Apex Collapse: If request hits apex domain directly, collapse to www in 1 hop
+  const host = request.headers.get('host') || '';
+  const isApex = host === 'visitbanjarmasin.id';
+  if (isApex) {
+    let cleanPath = pathname;
+    if (cleanPath === '/id' || cleanPath === '/id/') {
+      cleanPath = '/';
+    } else if (cleanPath.startsWith('/id/')) {
+      cleanPath = cleanPath.replace(/^\/id/, '') || '/';
+    }
+    const targetUrl = new URL(cleanPath + request.nextUrl.search, 'https://www.visitbanjarmasin.id');
+    return NextResponse.redirect(targetUrl, 308);
+  }
+
+  // 2. Redirect /id or /id/* to clean URL without /id prefix on primary domain
   if (pathname === '/id' || pathname === '/id/') {
     return NextResponse.redirect(new URL('/', request.url), 308);
   }

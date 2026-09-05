@@ -148,7 +148,7 @@ console.log(`   Checked ${views.length} views. All views have exactly 1 H1 tag.\
 // ----------------------------------------------------
 // 7. AUDIT PRIMARY DOMAIN CONSISTENCY (www.visitbanjarmasin.id)
 // ----------------------------------------------------
-console.log('7️⃣  AUDITING PRIMARY CANONICAL DOMAIN CONSISTENCY...');
+console.log('7️⃣  AUDITING PRIMARY CANONICAL DOMAIN CONSISTENCY & ANTI-REGRESSION...');
 const layoutCode = fs.readFileSync('src/app/[lang]/layout.jsx', 'utf8');
 assert(layoutCode.includes('new URL("https://www.visitbanjarmasin.id")'), 'layout.jsx metadataBase must be https://www.visitbanjarmasin.id');
 
@@ -161,7 +161,27 @@ const footerCode = fs.readFileSync('src/components/Footer.jsx', 'utf8');
 assert(!footerCode.includes('href="https://visitbanjarmasin.id/id/'), 'Footer.jsx must not have /id/ redirect links');
 assert(!footerCode.includes('href="https://visitbanjarmasin.id/'), 'Footer.jsx must not have non-www links');
 
-console.log('   Primary domain and canonical consistency verified.\n');
+// Anti-Regression Recursive Scan across src/ and public/
+function scanForBadPatterns(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      scanForBadPatterns(fullPath);
+    } else if (entry.isFile() && /\.(jsx?|tsx?|json|txt|html|md)$/i.test(entry.name)) {
+      const content = fs.readFileSync(fullPath, 'utf8');
+      // Must NOT contain https://visitbanjarmasin.id without www. (unless followed by another subdomain)
+      const apexMatches = content.match(/https:\/\/visitbanjarmasin\.id(?![a-zA-Z0-9\-\.])/g);
+      if (apexMatches) {
+        assert(false, `Regression detected in ${fullPath}: Found ${apexMatches.length} occurrence(s) of deprecated apex domain 'https://visitbanjarmasin.id' (must use 'https://www.visitbanjarmasin.id')`);
+      }
+    }
+  }
+}
+
+scanForBadPatterns('src');
+scanForBadPatterns('public');
+console.log('   Anti-regression scan complete across all src/ and public/ source files.\n');
 
 // ----------------------------------------------------
 // FINAL RESULT SUMMARY
